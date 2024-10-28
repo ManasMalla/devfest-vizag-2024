@@ -1,1 +1,12 @@
-[]
+[
+    {
+        "day": "1",
+        "date": "Dec 6",
+        "schedule": []
+    },
+    {
+        "day": "2",
+        "date": "Dec 7",
+        "schedule": []
+    }
+]
