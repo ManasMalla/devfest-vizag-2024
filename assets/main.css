@@ -17,3 +17,7 @@
     float: none;
   }
 }
+
+:root{
+  font-family: "google-sans", Helvetica, Arial, Sans-Serif;
+}

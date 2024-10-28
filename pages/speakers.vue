@@ -14,14 +14,9 @@
       </v-row>
 
       <v-row>
-        <v-col
-          md="2"
-          cols="6"
-          sm="3"
-          v-for="(item, index) in speakersData"
-          :key="index"
-        >
-          <common-speaker-card :data="item" />
+        <v-col md="2" cols="6" sm="3" v-for="(item, index) in speakersData" :key="index">
+
+          <!-- <common-speaker-card :data="item" /> -->
         </v-col>
       </v-row>
     </v-container>
@@ -41,7 +36,7 @@ useSeoMeta({
     "Speakers - " + mainData.eventInfo.name + " | " + mainData.communityName,
   description: mainData.eventInfo.description.short,
   keywords: mainData.seo.keywords,
-  ogLocale:'en_US',
+  ogLocale: 'en_US',
   author: "OSS Labs",
   creator: "OSS Labs",
   viewport: "width=device-width, initial-scale=1.0",

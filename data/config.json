@@ -1,24 +1,24 @@
 {
-  "communityName": "GDG London",
+  "communityName": "GDG Vizag",
   "communityLocation": {
-    "country": "United Kingdom",
-    "city": "London"
+    "country": "India",
+    "city": "Vizag"
   },
   "communityDescription": "GDG is an independent group; our activities and the opinions expressed here should in no way be linked to Google, the corporation.",
   "communityLinks": {
-    "page": "https://gdg.community.dev/gdg-london/",
-    "website": "https://gdg.community.dev/gdg-london/",
-    "instagram": "https://gdg.community.dev/gdg-london/",
-    "linkedin": "https://www.linkedin.com/company/google-developers-london/",
-    "youtube": "https://gdg.community.dev/gdg-london/"
+    "page": "https://gdg.community.dev/gdg-vizag/",
+    "website": "https://gdg.community.dev/gdg-vizag/",
+    "instagram": "https://gdg.community.dev/gdg-vizag/",
+    "linkedin": "https://www.linkedin.com/company/google-developers-vizag/",
+    "youtube": "https://gdg.community.dev/gdg-vizag/"
   },
   "eventInfo": {
-    "name": "DevFest London 2024",
-    "date": "Nov 16, 2024",
-    "time": "9 AM - 5 PM IST",
+    "name": "DevFest Vizag 2024",
+    "date": "December 6-7, 2024",
+    "time": "10AM-7PM",
     "venue": {
-      "address": "London",
-      "map_link": "https://maps.app.goo.gl/Cm6gXgpugNw74ow6A"
+      "address": "GITAM University",
+      "map_link": "https://maps.app.goo.gl/PihjEo9KMghn2Lx86"
     },
     "registeration": {
       "link": "https://gdg.community.dev/",
@@ -31,25 +31,25 @@
     "stats": [
       {
         "name": "Speakers",
-        "value": "23+",
+        "value": "TBA",
         "color": "#C3ECF6",
         "image": "img/common/blue.png"
       },
       {
         "name": "Participants",
-        "value": "200+",
+        "value": "1000+",
         "color": "#F8D8D8",
         "image": "img/common/pink.png"
       },
       {
         "name": "Sessions",
-        "value": "10+",
+        "value": "TBA",
         "color": "#CCF6C5",
         "image": "img/common/green.png"
       },
       {
         "name": "Workshops",
-        "value": "2+",
+        "value": "TBA",
         "color": "#FFE7A5",
         "image": "img/common/yellow.png"
       }
@@ -58,41 +58,37 @@
       {
         "title": "Technical content",
         "description": "Events hosted by the Google Developer Groups community, featuring leading experts on Google technologies in areas."
-      },
-      {
-        "title": "Technical content",
-        "description": "Events hosted by the Google Developer Groups community, featuring leading experts on Google technologies in areas."
-      },
-      {
-        "title": "Technical content",
-        "description": "Events hosted by the Google Developer Groups community, featuring leading experts on Google technologies in areas."
       }
     ],
     "pastDevFest": {
-      "summery": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente amet asperiores unde. Adipisci nobis ipsum fuga amet? Ut, iusto tenetur quisquam neque consectetur impedit magnam unde harum a mollitia possimus? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores laborum ut praesentium architecto a. Recusandae neque deserunt saepe mollitia quibusdam a nihil dicta in, totam hic molestias eaque. Dolores, nisi.",
-      "images": ["image-1.png", "image-2.png", "image-3.png"],
+      "summery": "Vizag DevFest 2023 brought the heat with an unforgettable day of innovation, energy, and community! Hosted by GDG Vizag, this festival drew passionate developers and trailblazing speakers for an immersive experience across tracks. From electrifying tech talks and hands-on workshops to lively panel discussions, the event celebrated the latest in AI, Flutter, Cloud, and more. Special highlights include inspiring workshops like #IamRemarkable, and soulful music by GITAM's Kalakruthi team. DevFest 2023 wasn’t just a conference; it was a powerhouse of inspiration, innovation, and unforgettable memories!",
+      "images": [
+        "devfest19.png",
+        "devfest22.JPG",
+        "image-3.png"
+      ],
       "stats": [
         {
           "name": "Speakers",
-          "value": "23+"
+          "value": "13+"
         },
         {
           "name": "Participants",
-          "value": "200+"
+          "value": "500+"
         },
         {
           "name": "Sessions",
-          "value": "10+"
+          "value": "15+"
         },
         {
-          "name": "Workshops",
-          "value": "2+"
+          "name": "Day",
+          "value": "1"
         }
       ]
     }
   },
   "seo": {
     "keywords": "GDG, DevFest, Google, DevFest",
-    "hostUrl": "https://devfest-app-2024.web.app"
+    "hostUrl": "https://devfest.vizag.dev"
   }
 }
