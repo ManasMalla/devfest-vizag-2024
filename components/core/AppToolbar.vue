@@ -50,7 +50,8 @@
         v-if="
           mainData &&
           mainData.eventInfo.registeration.link.length &&
-          new Date(mainData.eventInfo.registeration.end_date) > new Date()
+          new Date(mainData.eventInfo.registeration.end_date) > new Date()  &&
+          new Date(mainData.eventInfo.registeration.start_date) <= new Date()
         "
         :href="mainData.eventInfo.registeration.link"
         class="d-md-flex d-lg-flex d-sm-flex d-none mr-3"

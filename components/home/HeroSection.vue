@@ -33,6 +33,8 @@
             mainData.eventInfo &&
             mainData.eventInfo.registeration.link.length &&
             new Date(mainData.eventInfo.registeration.end_date) > new Date()
+            && 
+            new Date(mainData.eventInfo.registeration.start_date) <= new Date()
           "
           :href="mainData.eventInfo.registeration.link"
           class="my-4 mt-3"
@@ -40,6 +42,36 @@
           style="border: 1.5px solid #1e1e1e; color: black"
           variant="flat"
           >Register Now</v-btn
+        >
+        <v-btn
+          rounded
+          size="large"
+          color="#5cdb6d"
+          v-if="
+            mainData.eventInfo &&
+            mainData.eventInfo.callForSpeakers.link.length &&
+            new Date(mainData.eventInfo.callForSpeakers.end_date) > new Date() &&
+            new Date(mainData.eventInfo.callForSpeakers.start_date) <= new Date()
+          "
+          :href="mainData.eventInfo.callForSpeakers.link"
+          class="my-4 mt-3 ml-2"
+          target="_blank"
+          style="border: 1.5px solid #1e1e1e; color: black"
+          variant="flat"
+          >Call for Speakers</v-btn
+        >
+        <v-btn
+          rounded
+          size="large"
+          v-if="
+            mainData.eventInfo &&
+            mainData.eventInfo.callForSpeakers.link.length &&
+            new Date(mainData.eventInfo.callForSpeakers.end_date) > new Date()
+          "
+          class="my-4 mt-3 ml-2"
+          style="border: 1.5px solid #1e1e1e; color: black"
+          variant="flat"
+          >Coming soon</v-btn
         >
       </v-col>
       <v-col md="6" sm="6" cols="12">

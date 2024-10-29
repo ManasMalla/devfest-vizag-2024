@@ -98,7 +98,7 @@
       "linkedin": "https://www.linkedin.com/in/kavya-chandana-834748259/",
       "instagram": "https://www.instagram.com/kavya_chandana__"
     },
-    "type": "Core"
+    "type": "Core-Contributor"
   },
   {
     "id": "6007",
@@ -116,6 +116,6 @@
       "github": "https://github.com/ChandanKhamitkar",
       "web": "https://chandan-khamitkar-dev.vercel.app/"
     },
-    "type": "Volunteer"
+    "type": "Core-Contributor"
   }
 ]

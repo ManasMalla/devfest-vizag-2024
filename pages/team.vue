@@ -3,7 +3,7 @@
     <v-container fluid class="mt-5">
       <v-row>
         <v-col md="12">
-          <h1>Team</h1>
+          <h1>Organizers</h1>
           <p>
             Our mission is to equip our community members with practical skills,
             enabling them to communicate their insights and drive innovative
@@ -14,13 +14,19 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col md="2" sm="3" cols="6" v-for="(item, index) in teamData" :key="index">
+        <v-col md="2" sm="3" cols="6" v-for="(item, index) in teamData.filter((item)=> item.type == 'Core')" :key="index">
           <common-team-card :data="item" />
         </v-col>
       </v-row>
       <v-row>
-        <v-col md="2" sm="3" cols="6" v-for="(item, index) in teamData" :key="index">
-          <common-team-card v-if="item.type=='core'" :data="item" />
+        <v-col md="12">
+          <h1>Core Team</h1>
+          
+        </v-col>
+      </v-row>
+      <v-row>
+        <v-col md="2" sm="3" cols="6" v-for="(item, index) in teamData.filter((item)=> item.type != 'Core')" :key="index">
+          <common-team-card v-if="item.type!='Core'" :data="item" />
         </v-col>
       </v-row>
     </v-container>
