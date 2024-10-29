@@ -18,6 +18,11 @@
           <common-team-card :data="item" />
         </v-col>
       </v-row>
+      <v-row>
+        <v-col md="2" sm="3" cols="6" v-for="(item, index) in teamData" :key="index">
+          <common-team-card v-if="item.type=='core'" :data="item" />
+        </v-col>
+      </v-row>
     </v-container>
   </NuxtLayout>
 </template>
