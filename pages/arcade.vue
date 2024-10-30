@@ -9,7 +9,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="4" v-for="(item, index) in arcadeData" :key="index">
+      <v-col cols="12" sm="6" md="4" v-for="(item, index) in arcadeData" :key="index">
          <div style="border: 2px solid black; display: flex; flex-direction: column; align-items: center; border-radius: 1rem; overflow: hidden">
           <img
            :src="'img/arcade/' + item.image"
