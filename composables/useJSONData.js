@@ -1,4 +1,5 @@
 import mainData from "../data/config.json";
+import arcadeData from "../data/arcade.json";
 import faqData from "../data/faq.json";
 import scheduleData from "../data/schedule.json";
 import sessionsData from "../data/sessions.json";
@@ -11,6 +12,7 @@ import navbarData from "../data/navbar.json";
 export const useJSONData = () => {
   return {
     mainData,
+    arcadeData,
     faqData,
     scheduleData,
     sessionsData,

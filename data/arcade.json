@@ -1,0 +1,24 @@
+[
+    
+    {
+        "id": "101",
+        "name": "Diwali Dhamaka",
+        "link": "/arcade/diwali-dhamaka",
+        "image": "diwali-dhamaka.png",
+        "description": "TBA.",
+        "author": "Kavya Chandana | Manas Malla",
+        "difficulty": "Beginner",
+        "category": "Festive"
+    },
+    {
+        "id": "102",
+        "name": "Ishwarya's Ignite",
+        "link": "/arcade/ishwaryas-ignite",
+        "image": "ishwarya-ignite.png",
+        "description": "Help Ishwarya complete her assignment before I/O on time.",
+        "author": "Manas Malla",
+        "difficulty": "Beginner",
+        "category": "Programming"
+    }
+    
+]

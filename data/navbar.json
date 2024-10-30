@@ -25,6 +25,11 @@
     "visible": true
   },
   {
+    "name": "Arcade",
+    "path": "/arcade",
+    "visible": true
+  },
+  {
     "name": "FAQ",
     "path": "/faq",
     "visible": true
