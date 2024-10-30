@@ -45,6 +45,7 @@
     </div>
 
     <ClientOnly>
+      
       <v-btn
         rounded
         v-if="
@@ -67,7 +68,9 @@
         >Register Now</v-btn
       >
     </ClientOnly>
-    
+    <a href="/profile"><v-container height="40" width="40" style="object-fit: cover; border-radius: 20px; border: 2px black solid; display: flex; align-items: center; justify-content: center; overflow: hidden">
+        <img src="https://pbs.twimg.com/profile_images/1560094845712343040/qkEGchlH_400x400.jpg" style="border-radius: 20px; width: 34px; height: 34px; object-fit: cover; aspect-ratio: 1;"/>
+      </v-container></a>
   </v-app-bar>
 </template>
 
