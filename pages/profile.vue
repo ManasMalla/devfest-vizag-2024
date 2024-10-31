@@ -1,6 +1,6 @@
 <template>
     <NuxtLayout name="default">
-      <v-container fluid class="mt-5">
+      <!-- <v-container fluid class="mt-5">
         <v-row>
           <v-col md="4">
             <h1>Profile</h1>
@@ -30,7 +30,7 @@
           </v-col>
         </v-row>
         
-      </v-container>
+      </v-container> -->
     </NuxtLayout>
   </template>
   
