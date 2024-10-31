@@ -175,7 +175,7 @@ function submitQuiz(event) {
     quizCompleted: true,
     countdown: countdown.toString()
   }, { merge: true});
-
+  alert("You've just earned the Diwali Dhamaka badge. Check it out on your profile.")
   // Log the collected answers
   console.log("User Answers:", userAnswers);
 }
