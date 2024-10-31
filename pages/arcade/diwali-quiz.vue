@@ -152,14 +152,15 @@ function submitQuiz(event) {
     }
   });
   const userScoreCalculated = userAnswers.reduce((score, answer) => {
-    if (answer.selectedOption === answer.correct) {
+    
+    if (answer.selectedOption === diwaliQuizData.find(item => item.question === answer.question).correct) {
       return score + 1;
     }
     return score;
   }, 0);
-  userScore.value = userScoreCalculated + 2;
+  userScore.value = userScoreCalculated;
   window.scrollTo(0, 0);
-  window.localStorage.setItem('userScore', userScoreCalculated+2);
+  window.localStorage.setItem('userScore', userScoreCalculated);
   window.localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
   window.localStorage.setItem('quizCompleted', true);
   window.localStorage.setItem('countdown', countdown);
@@ -168,7 +169,7 @@ function submitQuiz(event) {
   const firestoreDoc = setDoc(doc(db, "users",user.value.uid,"arcade","diwali"), {
     uid: user.value.uid,
     userAnswers: JSON.stringify(userAnswers),
-    userScore: userScoreCalculated + 2,
+    userScore: userScoreCalculated,
     timestamp: new Date(),
     quizCompleted: true,
     countdown: countdown.toString()
