@@ -1,0 +1,34 @@
+[{
+    "question": "What.....?.........................................",
+    "options": [
+        "answera",
+        "answerb",
+        "answerc",
+        "answerd"
+    ],
+    "correct": "answera",
+    "trivia": "Lorem ipsum dolor amet sit centeseur...."
+},
+{
+    "question": "What.....?",
+    "options": [
+        "answera",
+        "answerb",
+        "answerc",
+        "answerd"
+    ],
+    "correct": "answera",
+    "trivia": "Lorem ipsum dolor amet sit centeseur...."
+},
+{
+    "question": "What.....?",
+    "options": [
+        "answera",
+        "answerb",
+        "answerc",
+        "answerd"
+    ],
+    "correct": "answera",
+    "trivia": "Lorem ipsum dolor amet sit centeseur...."
+}
+]

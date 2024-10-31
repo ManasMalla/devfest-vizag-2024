@@ -8,6 +8,7 @@ import sponsorsData from "../data/sponsors.json";
 import teamData from "../data/team.json";
 import cocData from "../data/coc.json";
 import navbarData from "../data/navbar.json";
+import diwaliQuizData from "../data/diwali-quiz.json";
 
 export const useJSONData = () => {
   return {
@@ -20,6 +21,7 @@ export const useJSONData = () => {
     sponsorsData,
     teamData,
     cocData,
-    navbarData
+    navbarData,
+    diwaliQuizData
   };
 };
