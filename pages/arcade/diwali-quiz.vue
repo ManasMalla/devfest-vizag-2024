@@ -4,18 +4,16 @@
       <v-row>
         <v-col cols="12" style="width: 100%;">
           <img :src="'../../img/arcade/diwali-dhamaka.png'"
-            style="height: 280px; border-radius:24px;object-fit: cover; width:100%;" />
+            style="height: 280px; border-radius:24px;object-fit: cover; width:100%; object-position: left" />
         </v-col>
         <v-col>
           <h2>Light Up the Leaderboard ✨</h2>
           <p style="max-width: 86ch">Ready to shine brighter than a diya 🪔?<br/>From mythology to traditions, put your Diwali knowledge to the test in this exciting quiz and see if you have what it takes to conquer the leaderboard!. Climb the leaderboard and win amazing prizes! </p>
         </v-col>
-        <v-col cols="3" class="ml-4" style="border: 2px #202023 solid; padding: 16px; border-radius: 24px; width: fit-content; display: flex; justify-content: center; align-items: center;">
+        <v-col md="3" sm="8" class="ml-4" style="border: 2px #202023 solid; padding: 16px; margin-bottom: 12px; border-radius: 24px; width: fit-content; display: flex; justify-content: center; align-items: center;">
           <p style="font-size: 4rem;">{{ Math.floor(countdown / 60) }}:{{ countdown % 60 < 10 ? '0' : '' }}{{ countdown % 60 }}</p>
         </v-col>
       </v-row>
-
-
 
       <v-container>
         <v-row justify="start" style="column-gap: 8px;">
