@@ -68,17 +68,39 @@
         >Register Now</v-btn
       >
     </ClientOnly>
-    <a href="/profile"><v-container height="40" width="40" style="object-fit: cover; border-radius: 20px; border: 2px black solid; display: flex; align-items: center; justify-content: center; overflow: hidden">
-        <img src="https://pbs.twimg.com/profile_images/1560094845712343040/qkEGchlH_400x400.jpg" style="border-radius: 20px; width: 34px; height: 34px; object-fit: cover; aspect-ratio: 1;"/>
+    <v-btn v-if="!user" @click="signinWithFirebase">Sign in</v-btn>
+    <a v-if="user" href="/profile"><v-container height="40" width="40" style="object-fit: cover; border-radius: 20px; border: 2px black solid; display: flex; align-items: center; justify-content: center; overflow: hidden">
+        <img :src="user.photoURL" style="border-radius: 20px; width: 34px; height: 34px; object-fit: cover; aspect-ratio: 1;"/>
       </v-container></a>
   </v-app-bar>
 </template>
 
+<script>
+import { GoogleAuthProvider } from 'firebase/auth'
+export const googleAuthProvider = new GoogleAuthProvider()
+</script>
+
 <script setup>
+
+import {
+  signInWithPopup,
+  signOut,
+} from 'firebase/auth'
+import { useCurrentUser, useFirebaseAuth } from 'vuefire'
 import { useDisplay } from "vuetify";
+
 const { mainData, navbarData } = useJSONData();
 const sidebar = useSideBar();
 const { width, mobile } = useDisplay();
+const user = useCurrentUser()
+
+const auth = useFirebaseAuth()
+function signinWithFirebase(){
+  console.log('signing in')
+  signInWithPopup(auth, googleAuthProvider).catch((reason) => {
+    console.error('Failed sign', reason)
+  })
+}
 
 const screenWidth = ref(width);
 

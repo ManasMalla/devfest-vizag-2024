@@ -2,18 +2,21 @@
     
     {
         "id": "101",
-        "name": "Diwali Dhamaka",
-        "link": "/arcade/diwali-dhamaka",
+        "name": "Light Up the Leaderboard ✨",
+        "link": "/arcade/diwali-quiz",
         "image": "diwali-dhamaka.png",
-        "description": "TBA.",
+        "available": true,
+        "description": "Ready to shine brighter than a diya 🪔? From mythology to traditions, put your Diwali knowledge to the test in this exciting quiz!",
         "author": "Kavya Chandana | Manas Malla",
         "difficulty": "Beginner",
         "category": "Festive"
     },
+    
     {
         "id": "102",
         "name": "Ishwarya's Ignite",
         "link": "/arcade/ishwaryas-ignite",
+        "available": false,
         "image": "ishwarya-ignite.png",
         "description": "Help Ishwarya complete her assignment before I/O on time.",
         "author": "Manas Malla",

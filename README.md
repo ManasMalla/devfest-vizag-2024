@@ -49,9 +49,11 @@ Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introdu
     - `firebase deploy`
 
 ## Developed by
-1. [Vrijraj Singh](https://vrijraj.xyz/)
-2. [Shivam Singh](https://shivam.live/)
-3. [Sandali Singh](https://sandali.xyz/)
+1. [Manas Malla](https://manasmalla.dev)
+2. [Chandan Khamitkar](https://chandan-khamitkar-dev.vercel.app/)
+3. [Vrijraj Singh](https://vrijraj.xyz/)
+4. [Shivam Singh](https://shivam.live/)
+5. [Sandali Singh](https://sandali.xyz/)
 
 ## Technology Stack
 

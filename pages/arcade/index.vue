@@ -24,9 +24,8 @@
             <p style="font-size: 16px;">{{ item.description }}
             </p>
             
-            <v-btn :href="item.link" :disabled="item.link != null" style="border: 1px #202024 solid; border-radius: 48px; font-size: 14px; font-weight: 600" class="mt-3 px-5 py-1">
-                Coming Soon
-             
+            <v-btn :href="item.link" :disabled="item.available != true" style="border: 1px #202024 solid; border-radius: 48px; font-size: 14px; font-weight: 600" class="mt-3 px-5 py-1">
+                {{ item.available == false ? 'Coming Soon' : 'Play Now' }}
             </v-btn>
           </div>
         </div>

@@ -1,34 +1,97 @@
-[{
-    "question": "What.....?.........................................",
-    "options": [
-        "answera",
-        "answerb",
-        "answerc",
-        "answerd"
-    ],
-    "correct": "answera",
-    "trivia": "Lorem ipsum dolor amet sit centeseur...."
-},
-{
-    "question": "What.....?",
-    "options": [
-        "answera",
-        "answerb",
-        "answerc",
-        "answerd"
-    ],
-    "correct": "answera",
-    "trivia": "Lorem ipsum dolor amet sit centeseur...."
-},
-{
-    "question": "What.....?",
-    "options": [
-        "answera",
-        "answerb",
-        "answerc",
-        "answerd"
-    ],
-    "correct": "answera",
-    "trivia": "Lorem ipsum dolor amet sit centeseur...."
-}
+[
+    {
+        "question": "Diwali is celebrated during which month of the Hindu calendar?",
+        "options": ["Ashwin", "Ashadha", "Kartika", "Magha"],
+        "correct": "Kartika",
+        "trivia": "Diwali takes place during the Hindu lunar month of Kartika, which typically falls between mid-October and mid-November.  This auspicious time marks the transition from the monsoon season to the beginning of winter and is associated with harvests, new beginnings, and the triumph of good over evil."
+    },
+    {
+        "question": "What does the word 'Diwali' literally mean?",
+        "options": ["Row of lamps", "Festival of Lights", "Victory of good over evil", "Auspicious beginning"],
+        "correct": "Row of lamps",
+        "trivia": "The word 'Diwali' originates from the Sanskrit term 'Deepavali,' which literally translates to 'row of lamps' or 'series of lights.'  The illuminated diyas are not merely decorative; they symbolize the victory of light over darkness, knowledge over ignorance, and hope over despair, which are central themes of the Diwali festival."
+    },
+    {
+        "question": "The second day of Diwali is traditionally known as:",
+        "options": ["Bhai Dooj", "Dhanteras", "Govardhan Puja", "Naraka Chaturdasi"],
+        "correct": "Naraka Chaturdasi",
+        "trivia": "Naraka Chaturdasi, also known as Choti Diwali, is celebrated on the second day of the five-day Diwali festival.  It commemorates the slaying of the demon Narakasura by Lord Krishna and his wife Satyabhama. In some regions of India, particularly in the south, this day holds greater significance than other Diwali days and is observed with extensive fireworks and festivities."
+    },
+    {
+        "question": "According to mythology, who assisted Lord Krishna in defeating Narakasura?",
+        "options": ["Rukmini", "Radha", "Jambavathi", "Satyabhama"],
+        "correct": "Satyabhama",
+        "trivia": "Satyabhama, a courageous and skilled warrior and one of Krishna's eight principal wives, played a vital role in the battle against Narakasura. She is often depicted riding alongside Krishna on his chariot and actively participating in the demon's defeat. This story highlights the importance of female strength and courage in Hindu mythology."
+    },
+    {
+        "question": "What type of oil is traditionally preferred for lighting diyas during Diwali?",
+        "options": ["Olive Oil", "Vegetable Oil", "Corn Oil", "Mustard Oil"],
+        "correct": "Mustard Oil",
+        "trivia": "Mustard oil is traditionally favored for lighting diyas during Diwali. Beyond its practical properties of burning brightly and steadily, mustard oil is considered auspicious and is believed to possess purifying qualities. The distinct aroma of burning mustard oil also adds to the festive atmosphere of Diwali."
+    },
+    {
+        "question": "Lord Rama, whose return to Ayodhya is celebrated during Diwali, ruled which kingdom and for how long was he exiled?",
+        "options": ["Hastinapura, 10 years", "Ayodhya, 14 years", "Magadha, 12 years", "Patuliputra, 13 years"],
+        "correct": "Ayodhya, 14 years",
+        "trivia": "Rama, an embodiment of righteousness and virtue, was the rightful heir to the throne of Ayodhya.  He was unjustly exiled for 14 years along with his wife Sita and brother Lakshmana.  His eventual return, marked by joyous celebrations and the illumination of Ayodhya with countless diyas, signifies the triumph of good over evil and the restoration of dharma (righteousness)."
+    },
+    {
+        "question": "Diwali is celebrated on:",
+        "options": ["No-moon night", "Full moon night", "Last quarter moon night", "First quarter moon night"],
+        "correct": "No-moon night",
+        "trivia": "Diwali coincides with Amavasya, the new moon night or the darkest night of the lunar month. The absence of moonlight amplifies the brilliance of the diyas and fireworks, making the celebration even more visually striking.  This reinforces the symbolic victory of light over the deepest darkness."
+    },
+     {
+        "question": "What is the name of the cosmic ocean churned during Samudra Manthan?",
+        "options": ["Kshirasagara (Ocean of Milk)", "Sindhu (Indus River)", "Ratnakara (Ocean of Gems)", "Ksheera Sagara"],
+        "correct": "Kshirasagara (Ocean of Milk)",
+        "trivia": "The Kshirasagara, also known as the Ocean of Milk, holds immense significance in Hindu mythology. This vast, primordial ocean was the site of the legendary Samudra Manthan, the churning performed by the Devas (gods) and Asuras (demons) to extract the Amrita, the elixir of immortality."
+
+    },
+     {
+        "question": "Which avatar of Lord Vishnu acted as the base (Kurma) during the churning of the cosmic ocean?",
+        "options": ["Matsya (fish)", "Kurma (tortoise)", "Varaha (boar)", "Narasimha (man-lion)"],
+        "correct": "Kurma (tortoise)",
+        "trivia": "As Mount Mandara, the chosen churning rod, began to sink into the Kshirasagara, Lord Vishnu took the form of Kurma, the giant tortoise. With immense strength and stability, Kurma supported the mountain on his back, enabling the churning to continue. This avatar of Vishnu highlights the deity’s commitment to maintaining cosmic balance."
+    },
+       {
+        "question": "What is the name of the mountain used as the churning rod during Samudra Manthan?",
+        "options": ["Mount Meru", "Mount Kailash", "Mount Mandara", "Mount Himalayas"],
+        "correct": "Mount Mandara",
+        "trivia": "Mount Mandara, a celestial peak, served as the colossal churning rod in the epic event of Samudra Manthan. This monumental task required immense force and a sturdy pivot, a role fulfilled by Mount Mandara."
+
+    },
+    {
+        "question": "What was the name of the rope used to churn the ocean during Samudra Manthan?",
+        "options": ["Sheshnaag", "Vasuki", "Kaliya", "Takshaka"],
+        "correct": "Vasuki",
+        "trivia": "Vasuki, the king of serpents and an ornament of Lord Shiva, agreed to be the churning rope despite the immense pain and discomfort it would cause."
+    },
+
+    {
+        "question": "Which god swallowed the Halahala poison that emerged from the churning of the ocean, saving the world?",
+        "options": ["Brahma", "Vishnu", "Shiva", "Indra"],
+        "correct": "Shiva",
+        "trivia": "Lord Shiva, in an act of immense compassion, consumed the deadly Halahala poison, turning his throat blue, hence the epithet Neelkanth (blue-throated)."
+    },
+
+        {
+        "question": "Dhanteras, associated with the churning of the cosmic ocean (Samudra Manthan), celebrates the emergence of which deity?",
+        "options": ["Lakshmi", "Dhanvantari", "Kubera", "Yama"],
+        "correct": "Dhanvantari",
+        "trivia": "Dhanteras, celebrated two days before Diwali, holds deep significance due to its association with Samudra Manthan.  On this day, Dhanvantari, the divine physician and the god of Ayurveda, emerged from the churned ocean carrying the Amrita Kalasha, the pot containing the elixir of immortality. Hence, Dhanteras is regarded as an auspicious day for seeking blessings for good health and well-being."
+    },
+    {
+        "question": "According to mythology, what else emerged from the Samudra Manthan that relates to the celebration of Dhanteras and symbolizes material wealth?",
+        "options": ["Kamadhenu (wish-fulfilling cow)", "Airavata (Indra's elephant)", "Kalpavriksha (wish-granting tree)", "Lakshmi (goddess of wealth)"],
+        "correct": "Lakshmi (goddess of wealth)",
+        "trivia": "While Dhanvantari's emergence is central to Dhanteras, Goddess Lakshmi, the goddess of fortune and prosperity, also emerged from the Samudra Manthan. This reinforces the day's connection with wealth and material abundance and explains why people traditionally make new purchases, especially of metal objects, on Dhanteras, hoping for continued prosperity in the coming year."
+    },
+    {
+        "question": "What is the significance of the Samudra Manthan story with regard to Diwali?",
+        "options": ["It symbolizes the triumph of good over evil", "It emphasizes the importance of teamwork", "It highlights the quest for knowledge and immortality", "All of the above"],
+        "correct": "All of the above",
+        "trivia": "The Samudra Manthan is a powerful allegory rich with symbolism. The combined effort of the Devas and Asuras, despite their opposing natures, signifies the importance of working together, even with adversaries, to achieve a common goal. The emergence of various divine beings and objects represents the rewards that can be obtained through collective effort and perseverance. The emergence of Halahal poison before Amrita underscores the inevitable presence of challenges alongside opportunities. Most of all the churning story highlights chaos giving birth to the new things both auspicious and inauspicious and teaches us how to handle different scenarios"
+
+    }
 ]
