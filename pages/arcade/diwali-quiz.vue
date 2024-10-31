@@ -1,13 +1,7 @@
 <template>
     <NuxtLayout name="default">
       <v-container fluid class="mt-5">
-        <v-row>
-          <v-col>
-            <h1>Arcade</h1>
-            <p>Felt something missing? Well, you are at the right spot. Grab your thinking hats and put
-          them on as we're going to play and compete to learn and earn, all while having fun.</p>
-        </v-col>
-      </v-row>
+        <p>Let's test how much you know about Diwali</p>
       </v-container>
     </NuxtLayout>
   </template>
