@@ -20,7 +20,7 @@
       </v-row>
       <v-row>
         <v-col md="12">
-          <h1>Core Team</h1>
+          <h1>Team</h1>
           
         </v-col>
       </v-row>
