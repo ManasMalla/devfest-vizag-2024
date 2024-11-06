@@ -1,7 +1,18 @@
+<style>
+  .responsive-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  @media (min-width: 800px) { 
+    .responsive-grid {
+      flex-direction: row;
+    }
+  }
+</style>
 <template>
   <NuxtLayout name="default">
     <v-container fluid class="mt-5">
-      <v-row>
+      <v-row style="display: flex;" class="responsive-grid">
         <v-col md="4">
           <h1>Profile</h1>
           <p>
@@ -21,10 +32,10 @@
                 <p>Google Product Expert, Android</p> -->
           </div>
         </v-col>
-        <v-col md="8">
+        <v-col md="8" sm="12">
           <v-card class="pa-3">
             <v-row>
-              <v-col v-for="(item, index) in badges" cols="3"
+              <v-col v-for="(item, index) in badges" cols="3" sm="4" md="3"
                 style="display: flex; flex-direction: column; align-items: center; justify-items: center">
                 <img :src="'img/arcade/badges/' + item.image" :style="'width: 70%;' + (item.earned ? '' : 'filter: saturate(0); opacity: 0.3;')" />
                 <p style="font-size: 16px; font-weight: 600;">{{ item.name }}</p>
@@ -56,9 +67,9 @@ onMounted(() => {
       
         badges.value.push({
           name: "Diwali Dhamaka",
-          date: (moment(badgeData.timestamp.toDate())).format('DD MMM YYYY'),
+          date: ((moment(badgeData?.timestamp?.toDate())))?.format('DD MMM YYYY') || "Not earned",
           image: "diwali-dhamaka-badge.svg",
-          earned: (badgeData)['quizCompleted']
+          earned: (badgeData)?.quizCompleted || false
         });
       
     }
