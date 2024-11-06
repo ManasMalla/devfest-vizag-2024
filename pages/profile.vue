@@ -29,27 +29,39 @@
                 style="padding: 6px 12px;font-size: 12px; border-radius: 6px; color: #202023; border: 1px #202023 solid; background-color: #f9ab00; width: fit-content;">
                 Attendee</p>
             </div>
-            <!-- <p class="mt-2">{{ userData.value?.company?.designation }}, {{userData.value?.company?.name}}</p> -->
-            <p>{{ company.value }}</p>
+            <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name " class="mt-2">{{userDetails.company.designation}}, {{userDetails.company.name}}</p>
+            <p v-if="userDetails && userDetails.communityTitle ">{{userDetails.communityTitle}}</p>
+            <v-divider style="width: 200px; margin: 12px 0px;"></v-divider>
+            <p style="font-weight: 600;">City/Town</p>
+            <p>{{ userDetails.city }}</p>
+
+            <ul style="list-style: none;">
+              <li style="display: flex; column-gap: 12px;" v-for="item in userDetails.socials" :key="item.icon">
+                <v-icon>{{ item.icon }}</v-icon>
+                <a :href="item.provider == 'instagram' ? ('https://instagram.com/' + item.name) : (item.name)" target="_blank">{{ item.name }}</a>
+              </li>
+            </ul>
+            <v-divider style="width: 200px; margin: 12px 0px;"></v-divider>
+            <v-btn style="border: 1px solid #202023; padding: 6px 12px; margin-top: 12px; border-radius: 40px; font-size: 14px;">Update Profile</v-btn>
           </div>
         </v-col>
         <v-col md="8" sm="12">
           <v-card class="pa-3">
             <v-row>
               <v-col v-for="(item, index) in badges" cols="3" sm="4" md="3"
-                style="display: flex; flex-direction: column; align-items: center; justify-items: center">
+               >
 
                 <v-dialog v-model="dialog" width="800" persistent>
                   <template v-slot:activator="{ props: activatorProps }">
-                    <v-container v-bind="activatorProps">
+                    <v-container v-bind="activatorProps" style="display: flex; flex-direction: column; align-items: center; justify-items: center">
                       <div style="position: relative; width: 70%; cursor: pointer;">
                         <img :src="'img/arcade/badges/' + item.image"
                           :style="'width: 100%;' + (item.earned ? '' : 'filter: saturate(0); opacity: 0.3;')" />
-                        <v-icon
+                        <v-icon v-if="!item.earned"
                           style="position: absolute; margin: auto; top: 0; left:0; right: 0; bottom: 0; font-size: 48px; color: rgb(90, 90, 90);">mdi-lock</v-icon>
                       </div>
                       <p style="font-size: 16px; font-weight: 600;">{{ item.name }}</p>
-                      <p style="font-size: 13px; opacity: 60%" v-if="item.date !== 'Not earned'"> {{ item.date }}</p>
+                      <p style="font-size: 13px; opacity: 60%;" v-if="item.date !== 'Not earned'"> {{ item.date }}</p>
                       <button
                         style="font-size: 13px; border: 1px solid black; padding: 4px 12px; border-radius: 20px; margin-top: 4px;"
                         v-if="item.date === 'Not earned'"> Learn More <v-icon>mdi-arrow-right</v-icon></button>
@@ -102,14 +114,14 @@
 
 // Reactive variables
 const dialog = ref(false);
-import { doc } from 'firebase/firestore';
+import { collection, doc, getDocs } from 'firebase/firestore';
 import moment from 'moment';
 
 const { mainData } = useJSONData();
 const user = useCurrentUser();
 const db = useFirestore();
 const badges = useState('badges', () => []);
-const company = useState('company', () => ({}));
+const userDetails = useState('userDetails', () => ({}));
 
 onMounted(() => {
   watch(user, async (newUser) => {
@@ -117,19 +129,22 @@ onMounted(() => {
       const { data: config, promise } = useDocument(doc(db, "users", user.value.uid));
       const uD = await promise.value;
       console.log('Company Details', uD.company);
-      company.value = uD.company.name;
-      console.log('Company State', company.value);
-      const badgeData = uD?.arcade?.diwali;
-      console.log(uD);
-
+      userDetails.value = uD;
+      console.log('Company State', userDetails.value.company);
+      const arcadeDataRef = computed(() => collection(db, "users", user.value.uid, "arcade"));
+      const arcadeData = await getDocs(arcadeDataRef.value);
+      var badgeData = [];
+      arcadeData.forEach((doc)=> {
+        badgeData.push({...doc.data(), id: doc.id});
+      });
+      console.log('Badge Data', badgeData);
       badges.value.push({
         name: "Diwali Dhamaka",
-        date: badgeData?.timestamp === undefined ? "Not earned" : ((moment(badgeData?.timestamp?.toDate())))?.format('DD MMM YYYY'),
+        date: badgeData.filter((doc)=> doc.id == 'diwali')[0]?.timestamp === undefined ? "Not earned" : ((moment(badgeData.filter((doc)=> doc.id == 'diwali')[0]?.timestamp?.toDate())))?.format('DD MMM YYYY'),
         image: "diwali-dhamaka-badge.svg",
-        earned: (badgeData)?.quizCompleted || false,
-        description: (badgeData)?.quizCompleted ? "Congratulations! You have successfully completed the Diwali Dhamaka quiz." : "Complete the Diwali Dhamaka quiz to earn this badge.",
+        earned: (badgeData.filter((doc)=> doc.id == 'diwali')[0])?.quizCompleted || false,
+        description: (badgeData.filter((doc)=> doc.id == 'diwali')[0])?.quizCompleted ? "Congratulations! You have successfully completed the Diwali Dhamaka quiz." : "Complete the Diwali Dhamaka quiz to earn this badge.",
       });
-
     }
   });
 });
