@@ -22,38 +22,53 @@
           </p>
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
             <img :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
-              style="border-radius: 80px; margin-bottom: 16px; object-fit: cover;" width="160" height="160" />
-            <div style="display: flex; align-items: center; column-gap: 8px; font-size: 20px;">
-              <p>{{ user.displayName }}</p>
-              <p
-                style="padding: 6px 12px;font-size: 12px; border-radius: 6px; color: #202023; border: 1px #202023 solid; background-color: #f9ab00; width: fit-content;">
-                Attendee</p>
-            </div>
-            <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name " class="mt-2">{{userDetails.company.designation}}, {{userDetails.company.name}}</p>
-            <p v-if="userDetails && userDetails.communityTitle ">{{userDetails.communityTitle}}</p>
-            <v-divider style="width: 200px; margin: 12px 0px;"></v-divider>
-            <p style="font-weight: 600;">City/Town</p>
-            <p>{{ userDetails.city }}</p>
+              style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50" width="160" height="160" />
+            <div style="display:flex; width: 100%; align-items: center; flex-direction: column; outline: 1px solid #202023; border-radius: 24px; padding: 24px; transform: translateY(-80px); position: relative;">
+              <div style="position: absolute; height: 180px; width: 180px; border-radius: 100px; border: 1px solid #202023; top:-106px; background-color: #fff; clip-path: inset(58% 0 0 0);"/>
+              <div style="height: 80px;"/>
+              <div style="display: flex; align-items: center; column-gap: 8px; font-size: 20px;">
+                <p>{{ user.displayName }}</p>
+                <p
+                  style="padding: 6px 12px;font-size: 12px; border-radius: 6px; color: #202023; border: 1px #202023 solid; background-color: #f9ab00; width: fit-content;">
+                  Attendee</p>
+              </div>
+              <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name"
+                class="mt-2">{{ userDetails.company.designation }}, {{ userDetails.company.name }}</p>
+              <p v-if="userDetails && userDetails.communityTitle">{{ userDetails.communityTitle }}</p>
+              <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
+              <div style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
+                <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">City/Town</p>
+                <p>{{ userDetails.city }}</p>
+                <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Bio</p>
+                <p>{{ userDetails.bio }}</p>
+                <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Stats</p>
+                <p><v-icon>mdi-star-circle-outline</v-icon> {{ badges.length }} • Badges earned</p>
+                <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Links</p>
 
-            <ul style="list-style: none;">
-              <li style="display: flex; column-gap: 12px;" v-for="item in userDetails.socials" :key="item.icon">
-                <v-icon>{{ item.icon }}</v-icon>
-                <a :href="item.provider == 'instagram' ? ('https://instagram.com/' + item.name) : (item.name)" target="_blank">{{ item.name }}</a>
-              </li>
-            </ul>
-            <v-divider style="width: 200px; margin: 12px 0px;"></v-divider>
-            <v-btn style="border: 1px solid #202023; padding: 6px 12px; margin-top: 12px; border-radius: 40px; font-size: 14px;">Update Profile</v-btn>
+                <ul style="list-style: none;">
+                  <li style="display: flex; column-gap: 12px;" v-for="item in userDetails.socials" :key="item.icon">
+                    <v-icon>{{ item.icon }}</v-icon>
+                    <a :href="item.provider == 'instagram' ? ('https://instagram.com/' + item.name) : (item.name)"
+                      target="_blank" style="text-decoration: none; color: #202023;">{{ item.name }}</a>
+                  </li>
+                </ul>
+              </div>
+              <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
+              <button
+                style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">Update
+                Profile</button>
+            </div>
           </div>
         </v-col>
         <v-col md="8" sm="12">
           <v-card class="pa-3">
             <v-row>
-              <v-col v-for="(item, index) in badges" cols="3" sm="4" md="3"
-               >
+              <v-col v-for="(item, index) in badges" cols="3" sm="4" md="3">
 
                 <v-dialog v-model="dialog" width="800" persistent>
                   <template v-slot:activator="{ props: activatorProps }">
-                    <v-container v-bind="activatorProps" style="display: flex; flex-direction: column; align-items: center; justify-items: center">
+                    <v-container v-bind="activatorProps"
+                      style="display: flex; flex-direction: column; align-items: center; justify-items: center">
                       <div style="position: relative; width: 70%; cursor: pointer;">
                         <img :src="'img/arcade/badges/' + item.image"
                           :style="'width: 100%;' + (item.earned ? '' : 'filter: saturate(0); opacity: 0.3;')" />
@@ -79,7 +94,7 @@
                           <p style="font-weight: 500" class="mt-n1">
                             {{ item.date === 'Not earned' ? 'Not earned' : 'Earned on ' + item.date }}
                           </p>
-                          <p style="margin: 8px 0px;">
+                          <p style="margin: 8px 0px; white-space: pre-line;">
                             {{ item.description }}
                           </p>
                           <div v-if="item.earned" style="display: flex; column-gap: 12px;">
@@ -134,16 +149,16 @@ onMounted(() => {
       const arcadeDataRef = computed(() => collection(db, "users", user.value.uid, "arcade"));
       const arcadeData = await getDocs(arcadeDataRef.value);
       var badgeData = [];
-      arcadeData.forEach((doc)=> {
-        badgeData.push({...doc.data(), id: doc.id});
+      arcadeData.forEach((doc) => {
+        badgeData.push({ ...doc.data(), id: doc.id });
       });
       console.log('Badge Data', badgeData);
       badges.value.push({
         name: "Diwali Dhamaka",
-        date: badgeData.filter((doc)=> doc.id == 'diwali')[0]?.timestamp === undefined ? "Not earned" : ((moment(badgeData.filter((doc)=> doc.id == 'diwali')[0]?.timestamp?.toDate())))?.format('DD MMM YYYY'),
+        date: badgeData.filter((doc) => doc.id == 'diwali')[0]?.timestamp === undefined ? "Not earned" : ((moment(badgeData.filter((doc) => doc.id == 'diwali')[0]?.timestamp?.toDate())))?.format('DD MMM YYYY'),
         image: "diwali-dhamaka-badge.svg",
-        earned: (badgeData.filter((doc)=> doc.id == 'diwali')[0])?.quizCompleted || false,
-        description: (badgeData.filter((doc)=> doc.id == 'diwali')[0])?.quizCompleted ? "Congratulations! You have successfully completed the Diwali Dhamaka quiz." : "Complete the Diwali Dhamaka quiz to earn this badge.",
+        earned: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted || false,
+        description: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted ? "Boom! Victory is yours! You're a Diwali Quiz Mastermind, Illuminator!\nThis badge is proof of your festive brilliance.\nShare your triumph and inspire others to shine! #DevFestDiwali" : "Think you know Diwali? A hidden Diwali treasure awaits! Ignite your Diwali spirit! Unravel the secrets of the Festival of Lights by conquering the Diwali Quiz and this dazzling radiant badge is your reward for victory. Spark your inner knowledge and illuminate the leaderboard in the Diwali Quiz. ",
       });
     }
   });
