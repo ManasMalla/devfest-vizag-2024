@@ -9,7 +9,7 @@
             enabling them to communicate their insights.
           </p>
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
-            <img src="https://pbs.twimg.com/profile_images/1560094845712343040/qkEGchlH_400x400.jpg"
+            <img :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
               style="border-radius: 80px; margin-bottom: 16px; object-fit: cover;" width="160" height="160" />
             <div style="display: flex; align-items: center; column-gap: 8px; font-size: 20px;">
               <p>{{ user.displayName }}</p>
