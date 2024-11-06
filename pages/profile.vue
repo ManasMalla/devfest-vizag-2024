@@ -26,7 +26,7 @@
             <v-row>
               <v-col v-for="(item, index) in badges" cols="3"
                 style="display: flex; flex-direction: column; align-items: center; justify-items: center">
-                <img :src="'img/arcade/badges/' + item.image" style="width: 70%" />
+                <img :src="'img/arcade/badges/' + item.image" :style="'width: 70%;' + (item.earned ? '' : 'filter: saturate(0); opacity: 0.3;')" />
                 <p style="font-size: 16px; font-weight: 600;">{{ item.name }}</p>
                 <p style="font-size: 13px; opacity: 60%">{{ item.date }}</p>
               </v-col>
@@ -53,13 +53,14 @@ onMounted(() => {
     if (user.value) {
       const { data: config, promise } = useDocument(doc(db, "users", user.value.uid, "arcade", "diwali"));
       const badgeData = await promise.value;
-      if ((badgeData)['quizCompleted']) {
+      
         badges.value.push({
           name: "Diwali Dhamaka",
           date: (moment(badgeData.timestamp.toDate())).format('DD MMM YYYY'),
           image: "diwali-dhamaka-badge.svg",
+          earned: (badgeData)['quizCompleted']
         });
-      }
+      
     }
   });
 });
