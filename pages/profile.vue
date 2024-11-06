@@ -63,7 +63,7 @@
         <v-col md="8" sm="12">
           <v-card class="pa-3">
             <v-row>
-              <v-col v-for="(item, index) in badges" cols="3" sm="4" md="3">
+              <v-col v-for="(item, index) in badges" cols="6" sm="6" md="3">
 
                 <v-dialog v-model="dialog" width="800" persistent>
                   <template v-slot:activator="{ props: activatorProps }">
