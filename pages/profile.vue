@@ -156,7 +156,7 @@ onMounted(() => {
       console.log('Badge Data', badgeData);
       badges.value.push({
         name: "Diwali Dhamaka",
-        link: "/arcade/diwali",
+        link: "/arcade/diwali-quiz",
         date: badgeData.filter((doc) => doc.id == 'diwali')[0]?.timestamp === undefined ? "Not earned" : ((moment(badgeData.filter((doc) => doc.id == 'diwali')[0]?.timestamp?.toDate())))?.format('DD MMM YYYY'),
         image: "diwali-dhamaka-badge.svg",
         earned: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted || false,
