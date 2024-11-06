@@ -53,7 +53,7 @@
                   </li>
                 </ul>
               </div>
-              <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
+              <v-divider v-if="userDetails" style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
               <button
                 style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">Update
                 Profile</button>
@@ -105,6 +105,7 @@
                             <v-icon>mdi-whatsapp</v-icon>
                             <v-icon>mdi-twitter</v-icon>
                           </div>
+                          <v-btn v-if="!item.earned" class="my-3" :href="item.link">Claim now</v-btn>
 
                         </v-col>
                       </v-row>
@@ -155,10 +156,11 @@ onMounted(() => {
       console.log('Badge Data', badgeData);
       badges.value.push({
         name: "Diwali Dhamaka",
+        link: "/arcade/diwali",
         date: badgeData.filter((doc) => doc.id == 'diwali')[0]?.timestamp === undefined ? "Not earned" : ((moment(badgeData.filter((doc) => doc.id == 'diwali')[0]?.timestamp?.toDate())))?.format('DD MMM YYYY'),
         image: "diwali-dhamaka-badge.svg",
         earned: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted || false,
-        description: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted ? "Boom! Victory is yours! You're a Diwali Quiz Mastermind, Illuminator!\nThis badge is proof of your festive brilliance.\nShare your triumph and inspire others to shine! #DevFestDiwali" : "Think you know Diwali? A hidden Diwali treasure awaits! Ignite your Diwali spirit! Unravel the secrets of the Festival of Lights by conquering the Diwali Quiz and this dazzling radiant badge is your reward for victory. Spark your inner knowledge and illuminate the leaderboard in the Diwali Quiz. ",
+        description: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted ? "Boom! Victory is yours! You're a Diwali Quiz Mastermind, Illuminator!\nThis badge is proof of your festive brilliance.\nShare your triumph and inspire others to shine! #DevFestDiwali" : "Think you know Diwali? A hidden Diwali treasure awaits!\nIgnite your Diwali spirit! Unravel the secrets of the Festival of Lights by conquering the Diwali Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Diwali Quiz. ",
       });
     }
   });
