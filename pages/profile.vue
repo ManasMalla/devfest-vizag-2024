@@ -1,13 +1,14 @@
 <style>
+.responsive-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 800px) {
   .responsive-grid {
-    display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
-  @media (min-width: 800px) { 
-    .responsive-grid {
-      flex-direction: row;
-    }
-  }
+}
 </style>
 <template>
   <NuxtLayout name="default">
@@ -25,11 +26,11 @@
             <div style="display: flex; align-items: center; column-gap: 8px; font-size: 20px;">
               <p>{{ user.displayName }}</p>
               <p
-                style="padding: 6px 12px;font-size: 12px; border-radius: 6px; color: white; border: 1px #202023 solid; background-color: #f9ab00; width: fit-content;">
+                style="padding: 6px 12px;font-size: 12px; border-radius: 6px; color: #202023; border: 1px #202023 solid; background-color: #f9ab00; width: fit-content;">
                 Attendee</p>
             </div>
-            <!-- <p class="mt-2">Founder, The Ananta Studio</p>
-                <p>Google Product Expert, Android</p> -->
+            <!-- <p class="mt-2">{{ userData.value?.company?.designation }}, {{userData.value?.company?.name}}</p> -->
+            <p>{{ company.value }}</p>
           </div>
         </v-col>
         <v-col md="8" sm="12">
@@ -37,9 +38,56 @@
             <v-row>
               <v-col v-for="(item, index) in badges" cols="3" sm="4" md="3"
                 style="display: flex; flex-direction: column; align-items: center; justify-items: center">
-                <img :src="'img/arcade/badges/' + item.image" :style="'width: 70%;' + (item.earned ? '' : 'filter: saturate(0); opacity: 0.3;')" />
-                <p style="font-size: 16px; font-weight: 600;">{{ item.name }}</p>
-                <p style="font-size: 13px; opacity: 60%">{{ item.date }}</p>
+
+                <v-dialog v-model="dialog" width="800" persistent>
+                  <template v-slot:activator="{ props: activatorProps }">
+                    <v-container v-bind="activatorProps">
+                      <div style="position: relative; width: 70%; cursor: pointer;">
+                        <img :src="'img/arcade/badges/' + item.image"
+                          :style="'width: 100%;' + (item.earned ? '' : 'filter: saturate(0); opacity: 0.3;')" />
+                        <v-icon
+                          style="position: absolute; margin: auto; top: 0; left:0; right: 0; bottom: 0; font-size: 48px; color: rgb(90, 90, 90);">mdi-lock</v-icon>
+                      </div>
+                      <p style="font-size: 16px; font-weight: 600;">{{ item.name }}</p>
+                      <p style="font-size: 13px; opacity: 60%" v-if="item.date !== 'Not earned'"> {{ item.date }}</p>
+                      <button
+                        style="font-size: 13px; border: 1px solid black; padding: 4px 12px; border-radius: 20px; margin-top: 4px;"
+                        v-if="item.date === 'Not earned'"> Learn More <v-icon>mdi-arrow-right</v-icon></button>
+                    </v-container>
+                  </template>
+
+                  <v-card max-width="800" rounded="xl" class="pa-4" style="border: 2px solid black">
+                    <v-container fluid>
+                      <v-row>
+                        <v-col cols="3">
+                          <v-img :src="'img/arcade/badges/' + item.image" style="width: 100%" />
+                        </v-col>
+                        <v-col>
+                          <h1 class="mt-3 mb-0">{{ item.name }}</h1>
+                          <p style="font-weight: 500" class="mt-n1">
+                            {{ item.date === 'Not earned' ? 'Not earned' : 'Earned on ' + item.date }}
+                          </p>
+                          <p style="margin: 8px 0px;">
+                            {{ item.description }}
+                          </p>
+                          <div v-if="item.earned" style="display: flex; column-gap: 12px;">
+                            <p>Share: </p>
+                            <v-icon>mdi-instagram</v-icon>
+                            <v-icon>mdi-linkedin</v-icon>
+                            <v-icon>mdi-gmail</v-icon>
+                            <v-icon>mdi-whatsapp</v-icon>
+                            <v-icon>mdi-twitter</v-icon>
+                          </div>
+
+                        </v-col>
+                      </v-row>
+                    </v-container>
+                    <template v-slot:actions>
+                      <v-btn text @click="dialog = false">Close</v-btn>
+                    </template>
+                  </v-card>
+                </v-dialog>
+
               </v-col>
             </v-row>
           </v-card>
@@ -51,6 +99,9 @@
 </template>
 
 <script setup>
+
+// Reactive variables
+const dialog = ref(false);
 import { doc } from 'firebase/firestore';
 import moment from 'moment';
 
@@ -58,20 +109,27 @@ const { mainData } = useJSONData();
 const user = useCurrentUser();
 const db = useFirestore();
 const badges = useState('badges', () => []);
+const company = useState('company', () => ({}));
 
 onMounted(() => {
   watch(user, async (newUser) => {
     if (user.value) {
-      const { data: config, promise } = useDocument(doc(db, "users", user.value.uid, "arcade", "diwali"));
-      const badgeData = await promise.value;
-      
-        badges.value.push({
-          name: "Diwali Dhamaka",
-          date: ((moment(badgeData?.timestamp?.toDate())))?.format('DD MMM YYYY') || "Not earned",
-          image: "diwali-dhamaka-badge.svg",
-          earned: (badgeData)?.quizCompleted || false
-        });
-      
+      const { data: config, promise } = useDocument(doc(db, "users", user.value.uid));
+      const uD = await promise.value;
+      console.log('Company Details', uD.company);
+      company.value = uD.company.name;
+      console.log('Company State', company.value);
+      const badgeData = uD?.arcade?.diwali;
+      console.log(uD);
+
+      badges.value.push({
+        name: "Diwali Dhamaka",
+        date: badgeData?.timestamp === undefined ? "Not earned" : ((moment(badgeData?.timestamp?.toDate())))?.format('DD MMM YYYY'),
+        image: "diwali-dhamaka-badge.svg",
+        earned: (badgeData)?.quizCompleted || false,
+        description: (badgeData)?.quizCompleted ? "Congratulations! You have successfully completed the Diwali Dhamaka quiz." : "Complete the Diwali Dhamaka quiz to earn this badge.",
+      });
+
     }
   });
 });
