@@ -36,16 +36,16 @@
                 class="mt-2">{{ userDetails.company.designation }}, {{ userDetails.company.name }}</p>
               <p v-if="userDetails && userDetails.communityTitle">{{ userDetails.communityTitle }}</p>
               <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
-              <div style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
+              <div v-if="userDetails"  style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">City/Town</p>
-                <p>{{ userDetails.city }}</p>
+                <p v-if="userDetails.city">{{ userDetails.city }}</p>
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Bio</p>
-                <p>{{ userDetails.bio }}</p>
+                <p v-if="userDetails.bio">{{ userDetails.bio }}</p>
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Stats</p>
                 <p><v-icon>mdi-star-circle-outline</v-icon> {{ badges.length }} • Badges earned</p>
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Links</p>
 
-                <ul style="list-style: none;">
+                <ul v-if="userDetails.socials" style="list-style: none;">
                   <li style="display: flex; column-gap: 12px;" v-for="item in userDetails.socials" :key="item.icon">
                     <v-icon>{{ item.icon }}</v-icon>
                     <a :href="item.provider == 'instagram' ? ('https://instagram.com/' + item.name) : (item.name)"
