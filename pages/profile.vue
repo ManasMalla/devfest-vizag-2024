@@ -143,9 +143,9 @@ onMounted(() => {
     if (user.value) {
       const { data: config, promise } = useDocument(doc(db, "users", user.value.uid));
       const uD = await promise.value;
-      console.log('Company Details', uD.company);
+      // console.log('Company Details', uD.company);
       userDetails.value = uD;
-      console.log('Company State', userDetails.value.company);
+      // console.log('Company State', userDetails.value.company);
       const arcadeDataRef = computed(() => collection(db, "users", user.value.uid, "arcade"));
       const arcadeData = await getDocs(arcadeDataRef.value);
       var badgeData = [];
