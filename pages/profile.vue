@@ -35,8 +35,9 @@
               <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name"
                 class="mt-2">{{ userDetails.company.designation }}, {{ userDetails.company.name }}</p>
               <p v-if="userDetails && userDetails.communityTitle">{{ userDetails.communityTitle }}</p>
+              <a style="" :href="'devfest.vizag.dev/profile/' + userDetails.username" v-if="userDetails && userDetails.username">devfest.vizag.dev/profile/{{userDetails.username}}</a>
               <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
-              <div v-if="userDetails"  style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
+              <div v-if="userDetails && !showEditor"  style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">City/Town</p>
                 <p v-if="userDetails.city">{{ userDetails.city }}</p>
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Bio</p>
@@ -53,10 +54,19 @@
                   </li>
                 </ul>
               </div>
+              <div v-if="showEditor" style="width: 100%;">
+                <v-form  @submit.prevent="updateUserData">
+                <v-text-field v-model="userDetails.username" label="Username" style="width: 90%;"></v-text-field>
+                <v-text-field v-model="userDetails.city" label="City/Town" style="width: 90%;"></v-text-field>
+                <v-textarea v-model="userDetails.bio" label="Bio" style="width: 90%;"></v-textarea>
+                <v-text-field v-for="social in userDetails.socials" v-model="social.name" :label="social.provider" style="width: 90%;"></v-text-field>
+                <button v-if="showEditor"
+                style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">{{ showEditor ? 'Submit' : 'Update Profile' }}</button>
+                </v-form>
+              </div>
               <v-divider v-if="userDetails" style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
-              <button
-                style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">Update
-                Profile</button>
+              <button v-if="!showEditor" :onclick="showOrHideEditor"
+                style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">{{ showEditor ? 'Submit' : 'Update Profile' }}</button>
             </div>
           </div>
         </v-col>
@@ -128,6 +138,15 @@
 
 <script setup>
 
+function showOrHideEditor(){
+  showEditor.value = !showEditor.value;
+}
+
+function updateUserData(event){
+  console.log('User Details', userDetails);
+  showEditor.value = !showEditor.value;
+}
+
 // Reactive variables
 const dialog = ref(false);
 import { collection, doc, getDocs } from 'firebase/firestore';
@@ -138,6 +157,7 @@ const user = useCurrentUser();
 const db = useFirestore();
 const badges = useState('badges', () => []);
 const userDetails = useState('userDetails', () => ({}));
+const showEditor = useState('showEditor', ()=>false);
 
 onMounted(() => {
   watch(user, async (newUser) => {

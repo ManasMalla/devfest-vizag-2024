@@ -18,11 +18,22 @@
           />
            <div style="padding: 20px; width: 100%">
             <h3 class="font-medium">{{item.name}}</h3>
-            <p style="font-size: 12px; opacity: 50%;" class="mb-2">
+            <p style="font-size: 12px; opacity: 50%;">
               {{ item.difficulty }} | {{ item.category }}
             </p>
+            <div style="margin: 4px 0px 6px;">
+       
+          <div v-for="author in item.author"
+            style="display: inline-flex; margin:3px; padding: 4px 6px; border: 1px #202023 solid; border-radius: 80px; column-gap: 6px; align-items:center; width: fit-content;">
+            <img :src="'../img/team/' + author.image"
+              style="width: 18px; height: 18px; object-fit:cover; border-radius: 20px;" />
+            <p class="mr-2" style="font-size: 14px; font-weight: 600;">{{author.name}}</p>
+          </div>
+          
+      </div>
             <p style="font-size: 16px;">{{ item.description }}
             </p>
+            
             
             <v-btn :href="item.link" :disabled="item.available != true" style="border: 1px #202024 solid; border-radius: 48px; font-size: 14px; font-weight: 600" class="mt-3 px-5 py-1">
                 {{ item.available == false ? 'Coming Soon' : 'Play Now' }}
