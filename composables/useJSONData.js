@@ -9,6 +9,7 @@ import teamData from "../data/team.json";
 import cocData from "../data/coc.json";
 import navbarData from "../data/navbar.json";
 import diwaliQuizData from "../data/diwali-quiz.json";
+import googleQuizData from "../data/google-quiz.json";
 
 export const useJSONData = () => {
   return {
@@ -22,6 +23,7 @@ export const useJSONData = () => {
     teamData,
     cocData,
     navbarData,
-    diwaliQuizData
+    diwaliQuizData,
+    googleQuizData
   };
 };
