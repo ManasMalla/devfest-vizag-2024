@@ -7,7 +7,7 @@
             style="height: 280px; border-radius:24px;object-fit: cover; width:100%; object-position: left" />
         </v-col>
         <v-col>
-          <h2>Google Whiz Quiz: Prove Your Google Prowess! 🧙‍♂️</h2>
+          <h2>Google Guru Quiz: Prove Your Google Prowess! 🧙‍♂️</h2>
           <p style="max-width: 86ch">Think you know Google inside and out 🤔?<br/>Put your knowledge to the test with this fun quiz! 🎮 Climb the leaderboard and show off your tech mastery.</p>
         </v-col>
         <v-col md="3" sm="8" class="ml-4" style="border: 2px #202023 solid; padding: 16px; margin-bottom: 12px; border-radius: 24px; width: fit-content; display: flex; justify-content: center; align-items: center;">

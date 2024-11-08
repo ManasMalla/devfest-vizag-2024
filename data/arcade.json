@@ -14,10 +14,10 @@
 
     {
         "id": "102",
-        "name": "Google Whiz Quiz: Prove Your Google Prowess! 🧙‍♂️",
+        "name": "Google Guru Quiz: Prove Your Google Prowess! 🧙‍♂️",
         "link": "/arcade/google-quiz",
         "image": "diwali-dhamaka.png",
-        "available": false,
+        "available": true,
         "description": "Think you know Google inside out 🤔? Put your knowledge to the test with this fun quiz!",
         "author": "Varshita Palleti | Jayadhar Ummadisingu",
         "difficulty": "Intermediate",
