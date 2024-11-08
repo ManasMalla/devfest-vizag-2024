@@ -11,9 +11,21 @@
         "difficulty": "Beginner",
         "category": "Festive"
     },
-    
+
     {
         "id": "102",
+        "name": "Google Whiz Quiz: Prove Your Google Prowess! 🧙‍♂️",
+        "link": "/arcade/google-quiz",
+        "image": "diwali-dhamaka.png",
+        "available": false,
+        "description": "Think you know Google inside out 🤔? Put your knowledge to the test with this fun quiz!",
+        "author": "Varshita Palleti | Jayadhar Ummadisingu",
+        "difficulty": "Intermediate",
+        "category": "Google Knowledge"
+    },
+    
+    {
+        "id": "103",
         "name": "Ishwarya's Ignite",
         "link": "/arcade/ishwaryas-ignite",
         "available": false,
