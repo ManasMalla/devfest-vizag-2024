@@ -7,7 +7,16 @@
         "image": "diwali-dhamaka.png",
         "available": true,
         "description": "Ready to shine brighter than a diya 🪔? From mythology to traditions, put your Diwali knowledge to the test in this exciting quiz!",
-        "author": "Kavya Chandana | Manas Malla",
+        "author": [
+            {
+                "name": "Kavya Chandana",
+                "image": "kavya.png"
+            },
+            {
+                "name": "Manas Malla",
+                "image": "manas.jpg"
+            }
+        ],
         "difficulty": "Beginner",
         "category": "Festive"
     },
@@ -19,7 +28,12 @@
         "available": false,
         "image": "ishwarya-ignite.png",
         "description": "Help Ishwarya complete her assignment before I/O on time.",
-        "author": "Manas Malla",
+        "author": [
+            {
+                "name": "Manas Malla",
+                "image": "manas.jpg"
+            }
+        ],
         "difficulty": "Beginner",
         "category": "Programming"
     }
