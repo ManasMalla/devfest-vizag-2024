@@ -1,0 +1,62 @@
+[
+    {
+        "question": "What is the name of the AI chatbot developed by Google AI?",
+        "options": ["Bard", "LaMDA", "Gemini", "AlphaGo"],
+        "correct": "Bard",
+        "trivia": "Bard is a large language model chatbot developed by Google AI. It is designed to be informative and comprehensive, drawing on a vast amount of information from the real world through Google Search."
+    },
+    {
+        "question": "Which Google product uses the PageRank algorithm to rank search results?",
+        "options": ["Google Maps", "Google Drive", "Google Search", "Google Photos"],
+        "correct": "Google Search",
+        "trivia": "PageRank is a ranking algorithm used by Google Search to rank web pages. It assigns a numerical weight to each webpage based on the number and quality of backlinks it receives."
+    },
+    {
+        "question": "What is the name of Google's open-source machine learning framework?",
+        "options": ["PyTorch", "TensorFlow", "Keras", "Scikit-learn"],
+        "correct": "TensorFlow",
+        "trivia": "TensorFlow is an open-source software library developed by Google Brain Team. It is used for machine learning applications such as neural networks."
+    },
+    {
+        "question": "Which Google product was originally known as BackRub?",
+        "options": ["Google Search", "Gmail", "Google Maps", "Google Drive"],
+        "correct": "Google Search",
+        "trivia": "BackRub was an early search engine developed by Larry Page and Sergey Brin, which later became Google."
+    },
+    {
+        "question": "What is the name of Google's quantum computing hardware?",
+        "options": ["Sycamore", "Titan", "Voyager", "Frontier"],
+        "correct": "Sycamore",
+        "trivia": "Sycamore is a superconducting quantum computer developed by Google AI Quantum. It has been used to achieve quantum supremacy."
+    },
+    {
+        "question": "Which Google product uses AI to translate text and speech between languages?",
+        "options": ["Google Translate", "Google Assistant", "Google Lens", "Google Docs"],
+        "correct": "Google Translate",
+        "trivia": "Google Translate uses neural machine translation to provide accurate and fluent translations between languages."
+    },
+    {
+        "question": "What is the name of Google's self-driving car project?",
+        "options": ["Waymo", "Cruise", "Argo AI", "Aurora"],
+        "correct": "Waymo",
+        "trivia": "Waymo is a self-driving technology company developed by Alphabet Inc."
+    },
+    {
+        "question": "What is the name of Google's cloud computing platform?",
+        "options": ["AWS", "Azure", "Google Cloud Platform", "IBM Cloud"],
+        "correct": "Google Cloud Platform",
+        "trivia": "Google Cloud Platform (GCP) is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products."
+    },
+    {
+        "question": "Which Google product uses AI to understand and respond to voice commands?",
+        "options": ["Google Assistant", "Google Search", "Google Maps", "Google Photos"],
+        "correct": "Google Assistant",
+        "trivia": "Google Assistant is a virtual assistant that can perform tasks, answer questions, and provide information."
+    },
+    {
+        "question": "What is the name of Google's experimental technology incubator?",
+        "options": ["X", "Google Labs", "Google Research", "Google Brain"],
+        "correct": "X",
+        "trivia": "X, formerly known as Google X, is a research and development facility owned by Alphabet Inc."
+    }
+]
