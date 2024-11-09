@@ -2,20 +2,31 @@
     <NuxtLayout name="default">
         <v-container>
             <h1>Call for Speakers</h1>
-            <p>Interested in speaking at our next event? Fill out the form below to submit your proposal.</p>
-            <v-row class="mt-5">
-                <v-chip @click="addOrRemoveTrackChip(track.name)" v-for="track in tracks" class="mr-2" :variant="selectedTracks.includes(track.name) ? 'tonal': 'outlined'" :color="selectedTracks.includes(track.name) ? 'primary': ''" :append-icon="selectedTracks.includes(track.name) ? 'mdi-check' : ''" :prepend-icon="track.icon">{{ track.name }}</v-chip>
-                
-            </v-row>
+            <p>Interested in speaking at our next event? We are looking for speakers who are willing to share their
+                knowledge and expertise around the below topics.<br />Fill out the form below to submit your
+                proposal.</p>
+            <p
+                style="padding: 12px; background-color: #f7f7f7; border: 2px solid #202023;margin: 16px 4px; border-radius: 12px;">
+                <b>Just a friendly note 😁</b><br />These are just few topics that our community would want to hear and
+                learn. We
+                aren't forcing our speakers to restrict themsleves to this, however we believe its for our best interest
+                that we cater to the local needs of the community.
+            </p>
+            <v-container>
+                <v-row>
+                    <v-chip @click="addOrRemoveTrackChip(track.name)" v-for="track in tracks" class="mr-2 px-5"
+                        :variant="selectedTracks.includes(track.name) ? 'flat' : 'outlined'"
+                        :color="selectedTracks.includes(track.name) ? '#ccf6c5' : ''"
+                        :append-icon="selectedTracks.includes(track.name) ? 'mdi-check' : ''"
+                        :prepend-icon="track.icon">{{ track.name }}</v-chip>
+
+                </v-row>
+            </v-container>
             <v-row class="mt-5" style="width: 100%">
-                <v-col v-for="session in sessionsData.filter((e) => e.callForSpeaker && (selectedTracks.includes(e.track) || selectedTracks.includes('Other')))" cols="3">
-                    <v-card class="pa-4">
-                        <p style="font-weight: 600;">{{ session.title }}</p>
-                        <p style="font-size: 14px; margin-bottom: 12px;">{{ session.track }}</p>
-                        <v-btn disabled style="padding-left: 28px; padding-right: 28px; border-radius: 28px;">
-                            <!-- color="#1A73E8" -->
-                            Apply</v-btn>
-                    </v-card>
+                <v-col
+                    v-for="session in sessionsData.filter((e) => e.callForSpeaker && (selectedTracks.includes(e.track) || (selectedTracks.includes('Others') ? (e.track != 'Mobile' && e.track != 'Machine Learning/AI' && e.track != 'Web' && e.track != 'Cloud') : false)))"
+                    sm="12" md="6" lg="3" :key="session.id">
+                  <call-for-speakers-topic-card :session="session"/>      
                 </v-col>
 
             </v-row>
@@ -34,7 +45,7 @@ const tracks = [{
     color: "#1A73E8",
     icon: "mdi-web",
 }, {
-    name: "Machine Learning",
+    name: "Machine Learning/AI",
     color: "#1A73E8",
     icon: "mdi-robot-outline",
 }, {
@@ -46,9 +57,9 @@ const tracks = [{
     color: "#1A73E8",
     icon: "mdi-shape-outline",
 }];
-const selectedTracks = useState('filteredTracks',()=>["Mobile","Web","Machine Learning","Cloud","Others"]);
+const selectedTracks = useState('filteredTracks', () => ["Mobile", "Web", "Machine Learning/AI", "Cloud", "Others"]);
 function addOrRemoveTrackChip(track) {
-    
+
     if (selectedTracks.value.includes(track)) {
         selectedTracks.value.splice(selectedTracks.value.indexOf(track), 1);
     } else {
