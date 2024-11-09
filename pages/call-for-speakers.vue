@@ -3,14 +3,18 @@
         <v-container>
             <h1>Call for Speakers</h1>
             <p>Interested in speaking at our next event? Fill out the form below to submit your proposal.</p>
+            <v-row class="mt-5">
+                <v-chip @click="addOrRemoveTrackChip(track.name)" v-for="track in tracks" class="mr-2" :variant="selectedTracks.includes(track.name) ? 'tonal': 'outlined'" :color="selectedTracks.includes(track.name) ? 'primary': ''" :append-icon="selectedTracks.includes(track.name) ? 'mdi-check' : ''" :prepend-icon="track.icon">{{ track.name }}</v-chip>
+                
+            </v-row>
             <v-row class="mt-5" style="width: 100%">
-                <v-col v-for="session in sessionsData.filter((e) => e.callForSpeaker)" cols="3">
+                <v-col v-for="session in sessionsData.filter((e) => e.callForSpeaker && (selectedTracks.includes(e.track) || selectedTracks.includes('Other')))" cols="3">
                     <v-card class="pa-4">
                         <p style="font-weight: 600;">{{ session.title }}</p>
                         <p style="font-size: 14px; margin-bottom: 12px;">{{ session.track }}</p>
-                        <v-btn disabled="true" style="padding-left: 28px; padding-right: 28px; border-radius: 28px;">
-                        <!-- color="#1A73E8" -->
-                        Apply</v-btn>
+                        <v-btn disabled style="padding-left: 28px; padding-right: 28px; border-radius: 28px;">
+                            <!-- color="#1A73E8" -->
+                            Apply</v-btn>
                     </v-card>
                 </v-col>
 
@@ -21,7 +25,36 @@
 <script setup>
 
 const { mainData, sessionsData } = useJSONData();
-
+const tracks = [{
+    name: "Mobile",
+    color: "#1A73E8",
+    icon: "mdi-android",
+}, {
+    name: "Web",
+    color: "#1A73E8",
+    icon: "mdi-web",
+}, {
+    name: "Machine Learning",
+    color: "#1A73E8",
+    icon: "mdi-robot-outline",
+}, {
+    name: "Cloud",
+    color: "#1A73E8",
+    icon: "mdi-cloud-outline",
+}, {
+    name: "Others",
+    color: "#1A73E8",
+    icon: "mdi-shape-outline",
+}];
+const selectedTracks = useState('filteredTracks',()=>["Mobile","Web","Machine Learning","Cloud","Others"]);
+function addOrRemoveTrackChip(track) {
+    
+    if (selectedTracks.value.includes(track)) {
+        selectedTracks.value.splice(selectedTracks.value.indexOf(track), 1);
+    } else {
+        selectedTracks.value.push(track);
+    }
+}
 definePageMeta({
     layout: false,
 });
