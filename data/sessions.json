@@ -10,7 +10,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "30",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1002",
@@ -23,7 +24,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "30",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1003",
@@ -36,7 +38,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "30",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1004",
@@ -49,7 +52,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "15",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1005",
@@ -62,7 +66,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "15",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1006",
@@ -75,6 +80,7 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "60",
+        "callForSpeaker": true,
         "speakers": []
     },
     {
@@ -88,7 +94,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "60",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1008",
@@ -101,7 +108,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1009",
@@ -114,7 +122,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1010",
@@ -127,7 +136,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1011",
@@ -140,7 +150,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1012",
@@ -153,7 +164,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1013",
@@ -166,7 +178,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1014",
@@ -179,7 +192,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1015",
@@ -192,7 +206,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1016",
@@ -205,7 +220,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1017",
@@ -218,7 +234,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1018",
@@ -231,7 +248,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1019",
@@ -244,7 +262,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1020",
@@ -257,7 +276,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1021",
@@ -270,7 +290,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1022",
@@ -283,7 +304,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1023",
@@ -296,7 +318,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1024",
@@ -309,7 +332,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1025",
@@ -322,7 +346,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1026",
@@ -335,7 +360,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1027",
@@ -348,7 +374,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "80",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1028",
@@ -361,7 +388,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "60",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1029",
@@ -374,7 +402,8 @@
         "format": "Day 1",
         "date": "Dec 6, 2024",
         "timeDuration": "60",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1030",
@@ -387,7 +416,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "90",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1031",
@@ -400,7 +430,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1032",
@@ -413,7 +444,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1033",
@@ -426,7 +458,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1034",
@@ -439,7 +472,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1035",
@@ -452,7 +486,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1036",
@@ -465,7 +500,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1037",
@@ -478,7 +514,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1038",
@@ -491,7 +528,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1039",
@@ -504,7 +542,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1040",
@@ -517,7 +556,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1041",
@@ -530,7 +570,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1042",
@@ -543,7 +584,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1043",
@@ -556,7 +598,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1044",
@@ -569,7 +612,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1045",
@@ -582,7 +626,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1046",
@@ -595,7 +640,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1047",
@@ -608,7 +654,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "60",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1048",
@@ -621,7 +668,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1049",
@@ -634,7 +682,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1050",
@@ -647,7 +696,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1051",
@@ -660,7 +710,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1052",
@@ -673,7 +724,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1053",
@@ -686,7 +738,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1054",
@@ -699,7 +752,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1055",
@@ -712,7 +766,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1056",
@@ -725,7 +780,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1057",
@@ -738,7 +794,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1058",
@@ -751,7 +808,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1059",
@@ -764,7 +822,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1060",
@@ -777,7 +836,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "15",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": true
     },
     {
         "id": "1061",
@@ -790,7 +850,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "25",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1062",
@@ -803,7 +864,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1063",
@@ -816,7 +878,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1064",
@@ -829,7 +892,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1065",
@@ -842,7 +906,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1066",
@@ -855,7 +920,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1067",
@@ -868,7 +934,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "20",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1068",
@@ -881,7 +948,8 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "20",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     },
     {
         "id": "1069",
@@ -894,6 +962,7 @@
         "format": "Day 2",
         "date": "Dec 7, 2024",
         "timeDuration": "Variable",
-        "speakers": []
+        "speakers": [],
+        "callForSpeaker": false
     }
 ]

@@ -24,7 +24,19 @@
             
           </span>
         </p>
-
+        <v-btn
+          rounded
+          size="large"
+          v-if="
+            mainData.eventInfo &&
+            mainData.eventInfo.callForSpeakers.link.length &&
+            new Date(mainData.eventInfo.callForSpeakers.end_date) > new Date()
+          "
+          class="my-4 mt-3 ml-2"
+          style="border: 1.5px solid #1e1e1e; color: black"
+          variant="flat"
+          >Coming soon</v-btn
+        >
         <v-btn
           rounded
           size="large"
@@ -60,19 +72,7 @@
           variant="flat"
           >Call for Speakers</v-btn
         >
-        <v-btn
-          rounded
-          size="large"
-          v-if="
-            mainData.eventInfo &&
-            mainData.eventInfo.callForSpeakers.link.length &&
-            new Date(mainData.eventInfo.callForSpeakers.end_date) > new Date()
-          "
-          class="my-4 mt-3 ml-2"
-          style="border: 1.5px solid #1e1e1e; color: black"
-          variant="flat"
-          >Coming soon</v-btn
-        >
+        
       </v-col>
       <v-col md="6" sm="6" cols="12">
         <v-img
