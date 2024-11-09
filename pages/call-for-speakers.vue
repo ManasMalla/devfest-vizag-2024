@@ -7,8 +7,10 @@
                 <v-col v-for="session in sessionsData.filter((e) => e.callForSpeaker)" cols="3">
                     <v-card class="pa-4">
                         <p style="font-weight: 600;">{{ session.title }}</p>
-                        <p style="font-size: 14px; margin-bottom: 12px;">{{ session.format }}</p>
-                        <v-btn style="padding-left: 28px; padding-right: 28px" color="#1A73E8">Apply</v-btn>
+                        <p style="font-size: 14px; margin-bottom: 12px;">{{ session.track }}</p>
+                        <v-btn disabled="true" style="padding-left: 28px; padding-right: 28px; border-radius: 28px;">
+                        <!-- color="#1A73E8" -->
+                        Apply</v-btn>
                     </v-card>
                 </v-col>
 
