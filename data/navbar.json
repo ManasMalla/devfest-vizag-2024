@@ -12,7 +12,12 @@
   {
     "name": "Speakers",
     "path": "/speakers",
-    "visible": true
+    "visible": false
+  },
+  {
+    "name": "Speakers",
+    "path": "/speakers",
+    "visible": false
   },
   {
     "name": "Badge",
@@ -20,10 +25,11 @@
     "visible": true
   },
   {
-    "name": "Team",
-    "path": "/team",
+    "name": "Call for Speakers",
+    "path": "/call-for-speakers",
     "visible": true
   },
+
   {
     "name": "Arcade",
     "path": "/arcade",
