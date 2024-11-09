@@ -24,8 +24,8 @@
             </v-container>
             <v-row class="mt-5" style="width: 100%">
                 <v-col
-                    v-for="session in sessionsData.filter((e) => e.callForSpeaker && (selectedTracks.includes(e.track) || selectedTracks.includes('Other')))"
-                    cols="3" key="">
+                    v-for="session in sessionsData.filter((e) => e.callForSpeaker && (selectedTracks.includes(e.track) || (selectedTracks.includes('Others') ? (e.track != 'Mobile' && e.track != 'Machine Learning/AI' && e.track != 'Web' && e.track != 'Cloud') : false)))"
+                    sm="12" md="6" lg="3" :key="session.id">
                   <call-for-speakers-topic-card :session="session"/>      
                 </v-col>
 
@@ -45,7 +45,7 @@ const tracks = [{
     color: "#1A73E8",
     icon: "mdi-web",
 }, {
-    name: "Machine Learning",
+    name: "Machine Learning/AI",
     color: "#1A73E8",
     icon: "mdi-robot-outline",
 }, {
@@ -57,7 +57,7 @@ const tracks = [{
     color: "#1A73E8",
     icon: "mdi-shape-outline",
 }];
-const selectedTracks = useState('filteredTracks', () => ["Mobile", "Web", "Machine Learning", "Cloud", "Others"]);
+const selectedTracks = useState('filteredTracks', () => ["Mobile", "Web", "Machine Learning/AI", "Cloud", "Others"]);
 function addOrRemoveTrackChip(track) {
 
     if (selectedTracks.value.includes(track)) {
