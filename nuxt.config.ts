@@ -6,9 +6,15 @@ export default defineNuxtConfig({
   build: {
     transpile: ["vuetify"],
   },
+  routeRules: {
+    '/api/v1/**': {
+        proxy: { to: "https://www.instagram.com/api/v1/**", },
+    }
+  },
   css: ['~/assets/main.css'],
   modules: [
     'nuxt-vuefire',
+    '@nuxt/scripts',
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
         // @ts-expect-error

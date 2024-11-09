@@ -25,6 +25,10 @@
         <!-- Sponsors -->
         <HomeSponsorsSection />
         <!-- Sponsors -->
+         
+        <!-- Follow Us -->
+        <HomeFollowusSection/>
+        <!-- Follow Us -->
 
         <!-- Keep in Touch -->
         <HomeCommunityContact />

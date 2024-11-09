@@ -12,6 +12,8 @@
   "dependencies": {
     "@firebase/app-types": "^0.9.2",
     "@mdi/font": "^7.4.47",
+    "@nuxt/scripts": "^0.9.5",
+    "axios": "^1.7.7",
     "firebase": "^10.14.1",
     "firebase-admin": "^12.7.0",
     "firebase-functions": "^5.1.1",
