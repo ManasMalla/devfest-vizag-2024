@@ -29,8 +29,8 @@
           size="large"
           v-if="
             mainData.eventInfo &&
-            mainData.eventInfo.callForSpeakers.link.length &&
-            new Date(mainData.eventInfo.callForSpeakers.end_date) > new Date()
+            mainData.eventInfo.registeration.link.length &&
+            new Date(mainData.eventInfo.registeration.start_date) > new Date()
           "
           class="my-4 mt-3 ml-2"
           style="border: 1.5px solid #1e1e1e; color: black"
