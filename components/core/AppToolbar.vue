@@ -75,8 +75,8 @@
       </v-container></a>
   </v-app-bar>
   <div class="w-100">
-    <div style="max-width:1000px; height: 72px; display: flex; align-items: center; border-radius: 0px 0px 24px 24px; margin-left: auto; margin-right:auto; left:0; right:0; background-color: #c3ecf6; padding: 32px 12px 12px 12px; position: fixed; top: 60px;">
-      <p class="mr-3 ml-1"><b>Announcements</b></p>
+    <div style="max-width:1000px; height: 72px; display: flex; align-items: center; border-radius: 0px 0px 24px 24px; margin-left: auto; margin-right:auto; left:0; right:0; background-color: #c3ecf6; padding: 32px 12px 12px 12px; position: fixed; top: 60px;z-index: 1005;">
+      <p class="mr-3 ml-1" style="width: fit-content; display:flex; column-gap: 6px; align-items: center;"><b>Announcements</b> <v-icon size="18px">mdi-bullhorn-variant-outline</v-icon></p>
       <NuxtMarquee>
         <p class="mx-6">{{ '</' }} We're coming to help you learn, enjoy and celebrate very soon.{{ '>' }}</p>
         <p class="mx-6">{{ '</' }} Follow us on Instagram. <a href="https://instagram.com/gdg_vizag">Follow Now</a>{{ '>' }}</p>
