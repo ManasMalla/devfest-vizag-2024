@@ -22,6 +22,7 @@ export default defineNuxtConfig({
       });
     },
     'nuxt-gtag',
+    "nuxt-marquee"
 ],
   vuefire: {
     config: {

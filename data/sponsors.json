@@ -18,5 +18,15 @@
                 "logo": "gitam.png"
             }
         ]
+    },
+    {
+        "category_name": "Website Partner",
+        "sponsors": [
+            {
+                "name":"The Ananta Studio",
+                "link": "https://theananta.in",
+                "logo": "theananta.svg"   
+            }
+        ]
     }
 ]
