@@ -7,10 +7,7 @@
                 proposal.</p>
             <p
                 style="padding: 12px; background-color: #f7f7f7; border: 2px solid #202023;margin: 16px 4px; border-radius: 12px;">
-                <b>Just a friendly note 😁</b><br />These are just few topics that our community would want to hear and
-                learn. We
-                aren't forcing our speakers to restrict themsleves to this, however we believe its for our best interest
-                that we cater to the local needs of the community.
+                <b>Just a friendly note 😁</b><br />The topics listed on this page are intended as a guideline for the types of talks and workshops that could be beneficial to our local community. However, we welcome and encourage you to submit your own ideas if you have a topic that you feel would resonate with our audience.
             </p>
             <v-container>
                 <v-row>
