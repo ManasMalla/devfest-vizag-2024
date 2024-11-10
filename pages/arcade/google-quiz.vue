@@ -32,10 +32,10 @@
           </v-container>
         </v-row>
       </v-container>
-      <v-container v-if="userScore >= 0" style="margin-top: 24px; width: fit-content; border: 2px #202023 solid; border-radius: 16px; background-color: #e3e3e3;">
-        Score: {{ userScore }}/{{ googleQuizData.length }}
+      <v-container v-if="userScoreGoogle >= 0" style="margin-top: 24px; width: fit-content; border: 2px #202023 solid; border-radius: 16px; background-color: #e3e3e3;">
+        Score: {{ userScoreGoogle }}/{{ googleQuizData.length }}
       </v-container>
-      <form @submit.prevent="submitQuiz"
+      <form @submit.prevent="submitQuizGoogle"
         style="margin: 24px auto; display: flex; justify-content: start; align-items: start; flex-direction: column;">
         <div v-for="(item, index) in googleQuizData" :key="index"
           style="display: flex; flex-direction: column; justify-content: start; align-items: start;">
@@ -46,11 +46,11 @@
             <div v-for="(option, index) in item.options" :key="index"
               style="display: flex; justify-content: start; align-items: start; gap: 4px">
               <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
-                <input type="radio" :disabled="showAnswers" id="option" :value="option" :name="item.question">
-                <label for={option} :style="showAnswers && option == item.correct ? 'color: #34a853; font-weight: 600' : ''">{{ option }}</label>
+                <input type="radio" :disabled="showAnswersGoogle" id="option" :value="option" :name="item.question">
+                <label for={option} :style="showAnswersGoogle && option == item.correct ? 'color: #34a853; font-weight: 600' : ''">{{ option }}</label>
               </div>
             </div>
-            <div v-if="showAnswers == true" style="border-radius: 12px; background-color: #c3ecf6; padding: 20px; margin: 12px 12px; display: flex; column-gap: 12px;">
+            <div v-if="showAnswersGoogle == true" style="border-radius: 12px; background-color: #c3ecf6; padding: 20px; margin: 12px 12px; display: flex; column-gap: 12px;">
               <v-icon>mdi-lightbulb-on-outline</v-icon>
               <p>{{ item.trivia }}</p>
             </div>
@@ -71,28 +71,28 @@ import { useCurrentUser } from 'vuefire';
 import { doc, setDoc } from "firebase/firestore"; 
 
 const { mainData, googleQuizData } = useJSONData();
-const showAnswers = useState('showAnswers', ()=>false);
+const showAnswersGoogle = useState('showAnswersGoogle', ()=>false);
 const countdown = useState('countdown', ()=> 300);
-const userScore = useState('userScore', ()=> -1);
+const userScoreGoogle = useState('userScoreGoogle', ()=> -1);
 
 const db = useFirestore()
 const user = useCurrentUser();
 
 onNuxtReady(() => {
 
-  showAnswers.value = window.localStorage.getItem('quizCompleted') === 'true';
+  showAnswersGoogle.value = window.localStorage.getItem('quizCompletedGoogle') === 'true';
   countdown.value = parseInt(window.localStorage.getItem('countdown')) || 300;
-  userScore.value = parseInt(window.localStorage.getItem('userScore')) || -1;
+  userScoreGoogle.value = parseInt(window.localStorage.getItem('userScoreGoogle')) || -1;
 
-  if(window.localStorage.getItem('quizCompleted') === 'true'){
-    const userAnswers = JSON.parse(window.localStorage.getItem('userAnswers'));
+  if(window.localStorage.getItem('quizCompletedGoogle') === 'true'){
+    const userAnswersGoogle = JSON.parse(window.localStorage.getItem('userAnswersGoogle'));
     googleQuizData.forEach(item => {
-      const selectedOption = userAnswers.find(answer => answer.question === item.question);
-      if(selectedOption){
-        item.selectedOption = selectedOption.selectedOption;
+      const selectedOptionGoogle = userAnswersGoogle.find(answer => answer.question === item.question);
+      if(selectedOptionGoogle){
+        item.selectedOptionGoogle = selectedOptionGoogle.selectedOptionGoogle;
       }
       // show the user answer by setting radio
-      const radio = document.querySelector(`input[name="${item.question}"][value="${item.selectedOption}"]`);
+      const radio = document.querySelector(`input[name="${item.question}"][value="${item.selectedOptionGoogle}"]`);
       if(radio){
         radio.checked = true;
       }
@@ -101,9 +101,9 @@ onNuxtReady(() => {
 
   const timer = setInterval(() => {
   countdown.value -= 1;
-  if (countdown.value <= 0 || showAnswers.value) {
+  if (countdown.value <= 0 || showAnswersGoogle.value) {
     clearInterval(timer);
-    submitQuiz();
+    submitQuizGoogle();
   }
 }, 1000);
 });
@@ -132,51 +132,51 @@ useSeoMeta({
   twitterImage: `${mainData.seo.hostUrl}thumbnail.png?auto=format&fit=crop&frame=1&h=512&w=1024`,
   twitterCard: "summary_large_image",
 });
-function submitQuiz(event) {
-  showAnswers.value = true;
+function submitQuizGoogle(event) {
+  showAnswersGoogle.value = true;
   
   // Create an array to hold user answers
-  const userAnswers = [];
+  const userAnswersGoogle = [];
 
   // Loop through the quiz data and gather selected options
   googleQuizData.forEach(item => {
     // Get the selected value for each question
-    const selectedOption = event.target.querySelector(`input[name="${item.question}"]:checked`);
+    const selectedOptionGoogle = event.target.querySelector(`input[name="${item.question}"]:checked`);
     
-    // If an option is selected, add it to the userAnswers array
-    if (selectedOption) {
-      userAnswers.push({
+    // If an option is selected, add it to the userAnswersGoogle array
+    if (selectedOptionGoogle) {
+      userAnswersGoogle.push({
         question: item.question,
-        selectedOption: selectedOption.value // Get the value from the selected input
+        selectedOptionGoogle: selectedOptionGoogle.value // Get the value from the selected input
       });
     }
   });
-  const userScoreCalculated = userAnswers.reduce((score, answer) => {
+  const userScoreGoogleCalculated = userAnswersGoogle.reduce((score, answer) => {
     
-    if (answer.selectedOption === googleQuizData.find(item => item.question === answer.question).correct) {
+    if (answer.selectedOptionGoogle === googleQuizData.find(item => item.question === answer.question).correct) {
       return score + 1;
     }
     return score;
   }, 0);
-  userScore.value = userScoreCalculated;
+  userScoreGoogle.value = userScoreGoogleCalculated;
   window.scrollTo(0, 0);
-  window.localStorage.setItem('userScore', userScoreCalculated);
-  window.localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
-  window.localStorage.setItem('quizCompleted', true);
+  window.localStorage.setItem('userScoreGoogle', userScoreGoogleCalculated);
+  window.localStorage.setItem('userAnswersGoogle', JSON.stringify(userAnswersGoogle));
+  window.localStorage.setItem('quizCompletedGoogle', true);
   window.localStorage.setItem('countdown', countdown);
   console.log(db);
   console.log(user.value.uid);
   const firestoreDoc = setDoc(doc(db, "users",user.value.uid,"arcade","google"), {
     uid: user.value.uid,
-    userAnswers: JSON.stringify(userAnswers),
-    userScore: userScoreCalculated,
+    userAnswersGoogle: JSON.stringify(userAnswersGoogle),
+    userScoreGoogle: userScoreGoogleCalculated,
     timestamp: new Date(),
-    quizCompleted: true,
+    quizCompletedGoogle: true,
     countdown: countdown.toString()
   }, { merge: true});
   alert("You've just earned the Google Guru badge. Check it out on your profile.")
   // Log the collected answers
-  console.log("User Answers:", userAnswers);
+  console.log("User Answers:", userAnswersGoogle);
 }
 </script>
 
