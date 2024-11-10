@@ -1,0 +1,14 @@
+[
+    {
+        "text": "We're coming to help you learn, enjoy and celebrate very soon."
+    },
+    {
+        "text": "Follow us on Instagram.",
+        "action": {
+            "link":"https://instagram.com/gdg_vizag/",
+            "text":"Follow Now"}
+    },
+    {
+     "text":"Happy Coding. 😊"   
+    }
+]
