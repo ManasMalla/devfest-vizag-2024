@@ -10,6 +10,10 @@
         <HomeStats class="my-0 my-md-5" />
         <!-- Stats -->
 
+        <!-- What's in it for me -->
+         <HomeBenefitsSection class="mt-md-10" />
+         <!-- Whats in it for me -->
+
         <!-- Whats New -->
         <HomeExpectionSection class="mt-md-10" />
         <!-- Whats New -->
