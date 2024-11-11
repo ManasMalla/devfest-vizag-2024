@@ -1,5 +1,5 @@
 <template>
-  <section id="sponsors">
+  <!-- <section id="sponsors"> -->
   <v-container fluid>
     <v-row>
       <v-col md="12">
@@ -12,7 +12,7 @@
       </v-col>
     </v-row>
   </v-container>
-    </section>
+    <!-- </section> -->
 </template>
 
 <script>
