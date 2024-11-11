@@ -1,6 +1,6 @@
 <template>
   <!-- <section id="sponsors"> -->
-  <v-container fluid>
+  <v-container fluid id="sponsors">
     <v-row>
       <v-col md="12">
         <h1>Our Sponsors</h1>
