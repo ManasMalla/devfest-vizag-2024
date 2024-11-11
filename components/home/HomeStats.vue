@@ -39,7 +39,7 @@
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center',
+                justifyContent: 'center'
               }"
               v-for="(item, index) in mainData.eventInfo.stats"
               :key="index"
