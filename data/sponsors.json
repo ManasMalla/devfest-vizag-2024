@@ -10,6 +10,16 @@
         ]
     },
     {
+        "category_name": "Silver Sponsors",
+        "sponsors": [
+            {
+                "name": "MSI India",
+                "link": "https://in.msi.com/",
+                "logo": "msi.png"
+            }
+        ]
+    },
+    {
         "category_name": "Venue Sponsors",
         "sponsors": [
             {
@@ -23,9 +33,9 @@
         "category_name": "Website Partner",
         "sponsors": [
             {
-                "name":"The Ananta Studio",
+                "name": "The Ananta Studio",
                 "link": "https://theananta.in",
-                "logo": "theananta.svg"   
+                "logo": "theananta.svg"
             }
         ]
     }
