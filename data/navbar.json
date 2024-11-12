@@ -27,9 +27,18 @@
   {
     "name": "Call for Speakers",
     "path": "/call-for-speakers",
+    "visible": false
+  },
+  {
+    "name": "Sponsors",
+    "path": "/#sponsors",
     "visible": true
   },
-
+  {
+    "name": "Sponsor Us",
+    "path": "/sponsor-us",
+    "visible": false
+  },
   {
     "name": "Arcade",
     "path": "/arcade",
