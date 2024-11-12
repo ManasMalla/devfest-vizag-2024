@@ -19,8 +19,8 @@
             <v-row>
               <v-col v-for="track in tracks">
                 <v-col
-                  style="aspect-ratio: 3; background-color: #fbc004; font-weight: 600; display: flex; align-items: center; border: 1.5px solid #202023; justify-content: center; border-radius: 12px;">{{
-                  track }}</v-col>
+                  style="aspect-ratio: 3; background-color: #fbc004; font-weight: 600; display: flex; align-items: center; border: 1.5px solid #202023; justify-content: center; border-radius: 12px; max-height: 52px; line-clamp: 1;text-overflow: ellipsis;">{{
+                    track }}</v-col>
               </v-col>
             </v-row>
           </v-col>
@@ -61,7 +61,7 @@ definePageMeta({
   layout: false,
 });
 
-const tracks = ["Web", "Mobile", "Cloud", "Machine Learning", "Career", "Entrepreneurship"];
+const tracks = ["Web", "Mobile", "Cloud", "AI", "Career", "Entrepreneurship"];
 
 useSeoMeta({
   contentType: "text/html; charset=utf-8",
