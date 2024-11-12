@@ -15,8 +15,31 @@
 </template>
 
 <script setup>
+import { useWindowFocus } from '~/composables/states';
+
 useScript({
   src: "https://www.instagram.com/embed.js",
   async: true
 })
+
+const windowFocus = useWindowFocus();
+function checkWindowFocusMode () {
+  const focusState = document.hasFocus();
+  windowFocus.value = focusState;
+}
+
+onMounted(() => {
+  checkWindowFocusMode();
+  window.addEventListener('focus', checkWindowFocusMode);
+  window.addEventListener('blur', checkWindowFocusMode);
+});
+
+
+onUnmounted(() => {
+  checkWindowFocusMode();
+  window.removeEventListener('focus', checkWindowFocusMode);
+  window.removeEventListener('blur', checkWindowFocusMode);
+});
+
+
 </script>

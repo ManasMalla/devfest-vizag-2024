@@ -3,10 +3,10 @@
         <v-row>
             <v-col md="12">
                 <h1 
-                    @click="checkIsInstaFollow('venusbliss.in')"
+                    @click="followMode.value = true"
                 >
                     Follow Us 
-                    <a href="https://www.instagram.com/gdg_vizag/">
+                    <a href="https://www.instagram.com/gdg_vizag/" target="_blank">
                         <v-icon style="size: 12px; cursor: pointer;">mdi-arrow-top-right</v-icon>
                     </a>
                 </h1>
@@ -152,7 +152,22 @@
 
 <script setup>
 import { checkIsInstaFollow } from "../../functions/checkIsInstaFollow";
+import { useWindowFocus } from '~/composables/states';
+
 const { gdgvizagPosts } = useJSONData();
+const windowFocus = useWindowFocus();
+const followMode = () => useState("follow-mode", () => false);
+watch(() => windowFocus.value,
+    (newFocus)  => {
+        if(newFocus && followMode.value){
+            checkIsInstaFollow('venusbliss.in');
+            followMode.value = false;
+        }
+    }
+)
+
+
+
 </script>
 
 
