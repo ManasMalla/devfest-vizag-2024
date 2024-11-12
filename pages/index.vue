@@ -7,8 +7,28 @@
         <!-- Hero -->
 
         <!-- Stats -->
-        <HomeStats class="my-0 my-md-5" />
+        <HomeStats />
         <!-- Stats -->
+
+        <v-container fluid>
+          <v-col>
+            <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+              <h1>Tracks</h1>
+              <p class="mb-4">We have a wide range of technologies and tracks you can choose from.</p>
+            </div>
+            <v-row>
+              <v-col v-for="track in tracks">
+                <v-col
+                  style="aspect-ratio: 3; background-color: #fbc004; font-weight: 600; display: flex; align-items: center; border: 1.5px solid #202023; justify-content: center; border-radius: 12px;">{{
+                  track }}</v-col>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-container>
+
+        <!-- What's in it for me -->
+        <HomeBenefitsSection class="mt-md-5" />
+        <!-- Whats in it for me -->
 
         <!-- Whats New -->
         <HomeExpectionSection class="mt-md-10" />
@@ -21,6 +41,7 @@
         <!-- Past DevFest -->
         <HomePastDevFest class="mb-md-10" />
         <!-- Past DevFest -->
+
 
         <!-- Sponsors -->
         <HomeSponsorsSection />
@@ -40,11 +61,13 @@ definePageMeta({
   layout: false,
 });
 
+const tracks = ["Web", "Mobile", "Cloud", "Machine Learning", "Career", "Entrepreneurship"];
+
 useSeoMeta({
   contentType: "text/html; charset=utf-8",
   title: mainData.eventInfo.name + " | " + mainData.communityName,
   description: mainData.eventInfo.description.short,
-  ogLocale:'en_US',
+  ogLocale: 'en_US',
   keywords: mainData.seo.keywords,
   author: "OSS Labs",
   creator: "OSS Labs",

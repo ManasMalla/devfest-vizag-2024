@@ -60,10 +60,63 @@
         "image": "img/common/yellow.png"
       }
     ],
+    "benefits": [
+      {
+        "title": "I want to learn tech from the experts",
+        "bgcolor": "rgba(195, 236, 246, 0.3)",
+        "color": "#174EA6",
+        "benefits": [
+          "Curated talks and workshops from the best of India.",
+          "Our speakers come with rich expertise in building solutions.",
+          "We have extended workshops on various topics relating to AI, Web, Cloud, Android and Flutter that take you from zero to one."
+        ]
+      },
+      {
+        "title": "I am a freelancer",
+        "bgcolor": "rgba(248, 216, 216, 0.3)",
+        "color": "#B31412",
+        "benefits": [
+          "Explore the talks and workshops to understand where and when to make your next step.",
+          "Build a network of like minded people that can help you reach the next level.",
+          "Ask and get the best practices from the amazing line-up of speakers to reach the correct clients and companies."
+        ]
+      },
+      {
+        "title": "I am building a career in Tech",
+        "bgcolor": "rgba(255, 231, 165, 0.3)",
+        "color": "#B06000",
+        "benefits": [
+          "Network with like minded people and build connections that take your career to the next level.",
+          "Interact with the best people in the industry to understand how you can build a lasting career.",
+          "Connect with startups that are looking for talent and explore their solutions.",
+          "Attend curated career guidance sessions which provide you with insights that can help you land a job."
+        ]
+      },
+      {
+        "title": "I am building a startup",
+        "bgcolor": "rgba(204, 246, 197,0.3)",
+        "color": "#0D652D",
+        "benefits": [
+          "Find like minded and highly motivated people for building your founding team.",
+          "Meet existing startups.",
+          "Build connections and exchange solutions among startups and businesses.",
+          "Help your team level up and understand how they can use technology in the best possible way through engaging workshops.",
+          "Connect with speakers and tap into their expertise in understanding how to build effective solutions."
+        ]
+      }
+    ],
     "whatToExpect": [
       {
         "title": "Technical content",
         "description": "Events hosted by the Google Developer Groups community, featuring leading experts on Google technologies in areas."
+      },
+      {
+        "title": "Workshops & Codelabs",
+        "description": "Workshops and codelabs on the latest technologies to help you build your skills and knowledge."
+      },
+      {
+        "title": "Talent Hunt & Idea Sprint",
+        "description": "Gathering of the best minds to solve real world problems and showcase of local talent and startups."
       }
     ],
     "pastDevFest": {
