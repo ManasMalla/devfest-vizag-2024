@@ -40,21 +40,7 @@
 
         <!-- Past DevFest -->
         <HomePastDevFest class="mb-md-10" />
-        <!-- Past DevFest -->
-        <div class="upcoming-events">
-        <div class="event-card">
-            <div class="date-box">
-                <p class="date">22nd Nov</p>
-            </div>
-            <p class="organizer"><span><img src=""></span>Mother Teresa Auditorium</p>
-            <h3>Hosting Jagriti Yatra event</h3>
-            <p class="description">We are writing to you to explore a collaboration with Gitam university…</p>
-            <p class="location"><span><img src=""></span>Visakhapatnam</p>
-                        <a href="" class="use-ajax links viewdetails" data-dialog-type="modal" data-dialog-options="{&quot;width&quot;:10}" data-once="ajax">View Details</a>
-
-                                    <div><a target="_blank" href="" class="register-link links" alt="Register Here" title="Register Here">Register Here<span class="arrowup"></span></a></div>
-                    </div>
-                  </div>
+        
         <!-- Sponsors -->
         <HomeSponsorsSection />
         <!-- Sponsors -->
