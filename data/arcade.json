@@ -1,5 +1,4 @@
 [
-    
     {
         "id": "101",
         "name": "Light Up the Leaderboard ✨",
@@ -20,7 +19,6 @@
         "difficulty": "Beginner",
         "category": "Festive"
     },
-    
     {
         "id": "102",
         "name": "Ishwarya's Ignite",
@@ -37,5 +35,4 @@
         "difficulty": "Beginner",
         "category": "Programming"
     }
-    
 ]
