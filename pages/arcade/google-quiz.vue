@@ -3,15 +3,18 @@
     <v-container fluid class="mt-5 w-100">
       <v-row>
         <v-col cols="12" style="width: 100%;">
-          <img :src="'../../img/arcade/diwali-dhamaka.png'"
+          <img :src="'../../img/arcade/google-guru.png'"
             style="height: 280px; border-radius:24px;object-fit: cover; width:100%; object-position: left" />
         </v-col>
         <v-col>
           <h2>Google Guru Quiz: Prove Your Google Prowess! 🧙‍♂️</h2>
-          <p style="max-width: 86ch">Think you know Google inside and out 🤔?<br/>Put your knowledge to the test with this fun quiz! 🎮 Climb the leaderboard and show off your tech mastery.</p>
+          <p style="max-width: 86ch">Think you know Google inside and out 🤔?<br />Put your knowledge to the test with
+            this fun quiz! 🎮 Climb the leaderboard and show off your tech mastery.</p>
         </v-col>
-        <v-col md="3" sm="8" class="ml-4" style="border: 2px #202023 solid; padding: 16px; margin-bottom: 12px; border-radius: 24px; width: fit-content; display: flex; justify-content: center; align-items: center;">
-          <p style="font-size: 4rem;">{{ Math.floor(countdown / 60) }}:{{ countdown % 60 < 10 ? '0' : '' }}{{ countdown % 60 }}</p>
+        <v-col md="3" sm="8" class="ml-4"
+          style="border: 2px #202023 solid; padding: 16px; margin-bottom: 12px; border-radius: 24px; width: fit-content; display: flex; justify-content: center; align-items: center;">
+          <p style="font-size: 4rem;">{{ Math.floor(countdown / 60) }}:{{ countdown % 60 < 10 ? '0' : '' }}{{ countdown
+              % 60 }}</p>
         </v-col>
       </v-row>
 
@@ -32,7 +35,8 @@
           </v-container>
         </v-row>
       </v-container>
-      <v-container v-if="userScoreGoogle >= 0" style="margin-top: 24px; width: fit-content; border: 2px #202023 solid; border-radius: 16px; background-color: #e3e3e3;">
+      <v-container v-if="userScoreGoogle >= 0"
+        style="margin-top: 24px; width: fit-content; border: 2px #202023 solid; border-radius: 16px; background-color: #e3e3e3;">
         Score: {{ userScoreGoogle }}/{{ googleQuizData.length }}
       </v-container>
       <form @submit.prevent="submitQuizGoogle"
@@ -47,16 +51,24 @@
               style="display: flex; justify-content: start; align-items: start; gap: 4px">
               <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
                 <input type="radio" :disabled="showAnswersGoogle" id="option" :value="option" :name="item.question">
-                <label for={option} :style="showAnswersGoogle && option == item.correct ? 'color: #34a853; font-weight: 600' : ''">{{ option }}</label>
+                <label for={option}
+                  :style="showAnswersGoogle && option == item.correct ? 'color: #34a853; font-weight: 600' : ''">{{
+                  option }}</label>
               </div>
             </div>
-            <div v-if="showAnswersGoogle == true" style="border-radius: 12px; background-color: #c3ecf6; padding: 20px; margin: 12px 12px; display: flex; column-gap: 12px;">
+            <div v-if="showAnswersGoogle == true"
+              style="border-radius: 12px; background-color: #c3ecf6; padding: 20px; margin: 12px 12px; display: flex; column-gap: 12px;">
               <v-icon>mdi-lightbulb-on-outline</v-icon>
-              <p>{{ item.trivia }}</p>
+              <p v-if="item.hasOwnProperty('triviaLink')">
+                <a :href="item.triviaLink" target="_blank" rel="noopener noreferrer" style="margin:0;display:inline;float:left">X</a>
+              <p style="margin:0;display:inline;float:right">{{ item.trivia }}</p>
+              </p>
+              <p v-else>{{ item.trivia }}</p>
             </div>
           </div>
         </div>
-        <button style="padding: 12px 24px; background-color: #f9ab00; color: black; margin-top: 16px; border-radius: 8px;">
+        <button
+          style="padding: 12px 24px; background-color: #f9ab00; color: black; margin-top: 16px; border-radius: 8px;">
           Submit
         </button>
       </form>
@@ -66,14 +78,14 @@
 
 
 <script setup>
-import { useFirestore }  from 'vuefire';
+import { useFirestore } from 'vuefire';
 import { useCurrentUser } from 'vuefire';
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc } from "firebase/firestore";
 
 const { mainData, googleQuizData } = useJSONData();
-const showAnswersGoogle = useState('showAnswersGoogle', ()=>false);
-const countdown = useState('countdown', ()=> 300);
-const userScoreGoogle = useState('userScoreGoogle', ()=> -1);
+const showAnswersGoogle = useState('showAnswersGoogle', () => false);
+const countdown = useState('countdown', () => 300);
+const userScoreGoogle = useState('userScoreGoogle', () => -1);
 
 const db = useFirestore()
 const user = useCurrentUser();
@@ -84,28 +96,28 @@ onNuxtReady(() => {
   countdown.value = parseInt(window.localStorage.getItem('countdown')) || 300;
   userScoreGoogle.value = parseInt(window.localStorage.getItem('userScoreGoogle')) || -1;
 
-  if(window.localStorage.getItem('quizCompletedGoogle') === 'true'){
+  if (window.localStorage.getItem('quizCompletedGoogle') === 'true') {
     const userAnswersGoogle = JSON.parse(window.localStorage.getItem('userAnswersGoogle'));
     googleQuizData.forEach(item => {
       const selectedOptionGoogle = userAnswersGoogle.find(answer => answer.question === item.question);
-      if(selectedOptionGoogle){
+      if (selectedOptionGoogle) {
         item.selectedOptionGoogle = selectedOptionGoogle.selectedOptionGoogle;
       }
       // show the user answer by setting radio
       const radio = document.querySelector(`input[name="${item.question}"][value="${item.selectedOptionGoogle}"]`);
-      if(radio){
+      if (radio) {
         radio.checked = true;
       }
     });
   }
 
   const timer = setInterval(() => {
-  countdown.value -= 1;
-  if (countdown.value <= 0 || showAnswersGoogle.value) {
-    clearInterval(timer);
-    submitQuizGoogle();
-  }
-}, 1000);
+    countdown.value -= 1;
+    if (countdown.value <= 0 || showAnswersGoogle.value) {
+      clearInterval(timer);
+      submitQuizGoogle();
+    }
+  }, 1000);
 });
 definePageMeta({
   middleware: ['auth'],
@@ -134,7 +146,7 @@ useSeoMeta({
 });
 function submitQuizGoogle(event) {
   showAnswersGoogle.value = true;
-  
+
   // Create an array to hold user answers
   const userAnswersGoogle = [];
 
@@ -142,7 +154,7 @@ function submitQuizGoogle(event) {
   googleQuizData.forEach(item => {
     // Get the selected value for each question
     const selectedOptionGoogle = event.target.querySelector(`input[name="${item.question}"]:checked`);
-    
+
     // If an option is selected, add it to the userAnswersGoogle array
     if (selectedOptionGoogle) {
       userAnswersGoogle.push({
@@ -152,7 +164,7 @@ function submitQuizGoogle(event) {
     }
   });
   const userScoreGoogleCalculated = userAnswersGoogle.reduce((score, answer) => {
-    
+
     if (answer.selectedOptionGoogle === googleQuizData.find(item => item.question === answer.question).correct) {
       return score + 1;
     }
@@ -166,14 +178,14 @@ function submitQuizGoogle(event) {
   window.localStorage.setItem('countdown', countdown);
   console.log(db);
   console.log(user.value.uid);
-  const firestoreDoc = setDoc(doc(db, "users",user.value.uid,"arcade","google"), {
+  const firestoreDoc = setDoc(doc(db, "users", user.value.uid, "arcade", "google"), {
     uid: user.value.uid,
     userAnswersGoogle: JSON.stringify(userAnswersGoogle),
     userScoreGoogle: userScoreGoogleCalculated,
     timestamp: new Date(),
     quizCompletedGoogle: true,
     countdown: countdown.toString()
-  }, { merge: true});
+  }, { merge: true });
   alert("You've just earned the Google Guru badge. Check it out on your profile.")
   // Log the collected answers
   console.log("User Answers:", userAnswersGoogle);
