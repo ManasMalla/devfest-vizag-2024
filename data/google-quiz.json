@@ -1,0 +1,63 @@
+[
+    {
+        "question": "In what year did Google acquire YouTube?",
+        "options": ["2004", "2005", "2006", "2007"],
+        "correct": "2006",
+        "trivia": "YouTube was purchased for $1.65 billion in stock, making it one of Google’s smartest investments."
+    },
+    {
+        "question": "What was Google’s first-ever doodle designed for?",
+        "options": ["New Year", "April Fools’ Day", "Burning Man Festival", "Earth Day"],
+        "correct": "Burning Man Festival",
+        "trivia": "The Burning Man Festival doodle was meant to signal the founders' absence from work."
+    },
+    {
+        "question": "Which animal was used as the code name for the Android 4.4 version?",
+        "options": ["KitKat", "Nougat", "Lollipop", "JellyBean"],
+        "correct": "KitKat",
+        "trivia": "Android 4.4 was named \"KitKat\" as part of a marketing partnership with Nestlé."
+    },
+    {
+        "question": "Which Google product was originally known as BackRub?",
+        "options": ["Google Search", "Gmail", "Google Maps", "Google Drive"],
+        "correct": "Google Search",
+        "trivia": "BackRub was an early search engine developed by Larry Page and Sergey Brin, which later became Google."
+    },
+    {
+        "question": "What is the name of Google's quantum computing hardware?",
+        "options": ["Sycamore", "Titan", "Voyager", "Frontier"],
+        "correct": "Sycamore",
+        "trivia": "Sycamore is a superconducting quantum computer developed by Google AI Quantum. It has been used to achieve quantum supremacy."
+    },
+    {
+        "question": "Which Google product uses AI to translate text and speech between languages?",
+        "options": ["Google Translate", "Google Assistant", "Google Lens", "Google Docs"],
+        "correct": "Google Translate",
+        "trivia": "Google Translate uses neural machine translation to provide accurate and fluent translations between languages."
+    },
+    {
+        "question": "What is the name of Google's self-driving car project?",
+        "options": ["Waymo", "Cruise", "Argo AI", "Aurora"],
+        "correct": "Waymo",
+        "trivia": "Waymo is a self-driving technology company developed by Alphabet Inc."
+    },
+    {
+        "question": "What is the most searched word on Google?",
+        "options": ["Google", "YouTube", "Facebook", "Weather"],
+        "correct": "Google",
+        "trivia": "\"Google\" itself tops the search list, often searched by users as a navigational query."
+    },
+    {
+        "question": "Which Google product uses AI to understand and respond to voice commands?",
+        "options": ["Google Assistant", "Google Search", "Google Maps", "Google Photos"],
+        "correct": "Google Assistant",
+        "trivia": "Google Assistant is a virtual assistant that can perform tasks, answer questions, and provide information."
+    },
+    {
+        "question": "What is the name of Google's experimental technology incubator?",
+        "options": ["X", "Google Labs", "Google Research", "Google Brain"],
+        "correct": "X",
+        "trivia": ", formerly known as Google X, is a research and development facility owned by Alphabet Inc.",
+        "triviaLink": "https://x.company/"
+    }
+]

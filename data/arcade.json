@@ -21,6 +21,17 @@
     },
     {
         "id": "102",
+        "name": "Google Guru Quiz 🧙‍♂️",
+        "link": "/arcade/google-quiz",
+        "image": "google-guru.png",
+        "available": true,
+        "description": "Think you know Google inside out 🤔? Put your knowledge to the test with this fun quiz!",
+        "author": "Varshita Palleti | Jayadhar Ummadisingu",
+        "difficulty": "Intermediate",
+        "category": "Google Knowledge"
+    },
+    {
+        "id": "103",
         "name": "Ishwarya's Ignite",
         "link": "/arcade/ishwaryas-ignite",
         "available": false,

@@ -9,6 +9,7 @@ import teamData from "../data/team.json";
 import cocData from "../data/coc.json";
 import navbarData from "../data/navbar.json";
 import diwaliQuizData from "../data/diwali-quiz.json";
+import googleQuizData from "../data/google-quiz.json";
 import announcements from "../data/announcements.json";
 import testimonials from "../data/testimonials.json";
 
@@ -25,6 +26,7 @@ export const useJSONData = () => {
     cocData,
     navbarData,
     diwaliQuizData,
+    googleQuizData,
     announcements,
     testimonials,
   };
