@@ -22,7 +22,7 @@
   {
     "name": "Badge",
     "path": "/badge",
-    "visible": true
+    "visible": false
   },
   {
     "name": "Call for Speakers",
