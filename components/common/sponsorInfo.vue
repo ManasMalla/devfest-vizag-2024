@@ -1,10 +1,11 @@
 <template>
   <v-container fluid class="pa-0 ma-0">
-    <v-row
-      v-for="(item, index) in sponsorsData"
-      :key="index"
-      class="google-font mb-5 mt-0"
-    >
+   <v-row
+  v-for="(item, index) in sponsorsData"
+  :key="index"
+  class="google-font mb-5 mt-0"
+  style="display: flex; justify-content: center; align-items: center;"
+>
       <v-col md="12" cols="12" class="mb-n1"
         ><b>{{ item.category_name }}</b></v-col
       >
