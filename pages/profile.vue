@@ -190,12 +190,12 @@ onMounted(() => {
         earned: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted || false,
         description: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted ? "Boom! Victory is yours! You're a Diwali Quiz Mastermind, Illuminator!\nThis badge is proof of your festive brilliance.\nShare your triumph and inspire others to shine! #DevFestDiwali" : "Think you know Diwali? A hidden Diwali treasure awaits!\nIgnite your Diwali spirit! Unravel the secrets of the Festival of Lights by conquering the Diwali Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Diwali Quiz. ",
       }, {
-        name: "Google WhizMaster",
+        name: "Google Guru",
         link: "/arcade/google-quiz",
         date: badgeData.filter((doc) => doc.id == 'google')[0]?.timestamp === undefined ? "Not earned" : ((moment(badgeData.filter((doc) => doc.id == 'google')[0]?.timestamp?.toDate())))?.format('DD MMM YYYY'),
         image: "google-guru-badge.svg",
-        earned: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompleted || false,
-        description: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompleted ? "Boom! Victory is yours! You're a Google Quiz Mastermind!\nThis badge is proof of your brilliance.\nShare your triumph and inspire others to shine! #GoogleWhizMaster" : "Think you know all Google? A Googolous adventure treasure awaits!\nIgnite your Google spirit! Unravel the secrets of the tech giant by conquering the Google Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Google Quiz. ",
+        earned: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompletedGoogle || false,
+        description: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompletedGoogle ? "Congratulations, Google Guru! 🎉 You've aced the quiz and proven your tech expertise! This badge is a symbol of your tech brilliance and your passion for learning. #DevFestGoogleGuru. Let the world know your tech skills. Share your success and inspire others! 🚀" : "Think you know all Google? A Googolous adventure treasure awaits!\nIgnite your Google spirit! Unravel the secrets of the tech giant by conquering the Google Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Google Quiz. ",
       });
     }
   });
