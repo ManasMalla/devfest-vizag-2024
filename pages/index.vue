@@ -47,15 +47,15 @@
                         events
                     </p>
                     <div style="position: relative; height: 280px; display: flex;">
-                        <v-icon
-                            style="z-index: 100;position: absolute; background-color: white; left:8px; top:0; bottom:0; margin-top: auto; margin-right: 12px; margin-bottom: auto; border: 1.5px solid black; padding: 24px; border-radius: 48px;">mdi-arrow-left</v-icon>
+                        <!-- <v-icon
+                            style="z-index: 100;position: absolute; background-color: white; left:8px; top:0; bottom:0; margin-top: auto; margin-right: 12px; margin-bottom: auto; border: 1.5px solid black; padding: 24px; border-radius: 48px;">mdi-arrow-left</v-icon> -->
 
-                        <div
+                        <NuxtMarquee speed="25"
                             style="position: absolute; left: 50%; transform: translateX(-50%); display: flex; column-gap: 12px;">
                             <CommonTestimonialCard v-for="testimonial in testimonials" :testimonial="testimonial" />
-                        </div>
-                        <v-icon
-                            style="position: absolute; top:0; bottom:0; right:8px; background-color: white; margin-top: auto; margin-bottom: auto; border: 1.5px solid black; padding: 24px; border-radius: 48px;">mdi-arrow-right</v-icon>
+                        </NuxtMarquee>
+                        <!-- <v-icon
+                            style="position: absolute; top:0; bottom:0; right:8px; background-color: white; margin-top: auto; margin-bottom: auto; border: 1.5px solid black; padding: 24px; border-radius: 48px;">mdi-arrow-right</v-icon> -->
 
                     </div>
                 </div>
