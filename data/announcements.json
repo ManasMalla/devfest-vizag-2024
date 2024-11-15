@@ -1,0 +1,17 @@
+[
+    {
+        "text": "The registrations for DevFest Vizag 2024 are now open. ",
+        "action": {
+            "link":"https://konfhub.com/devfest-vizag-2024",
+            "text":"Register Now"}
+    },
+    {
+        "text": "Follow us on Instagram.",
+        "action": {
+            "link":"https://instagram.com/gdg_vizag/",
+            "text":"Follow Now"}
+    },
+    {
+     "text":"Happy Coding. 😊"   
+    }
+]

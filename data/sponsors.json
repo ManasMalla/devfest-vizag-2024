@@ -10,12 +10,32 @@
         ]
     },
     {
+        "category_name": "Silver Sponsors",
+        "sponsors": [
+            {
+                "name": "MSI India",
+                "link": "https://in.msi.com/",
+                "logo": "msi.png"
+            }
+        ]
+    },
+    {
         "category_name": "Venue Sponsors",
         "sponsors": [
             {
                 "name": "GITAM Deemed to be University",
                 "link": "https://gitam.edu",
                 "logo": "gitam.png"
+            }
+        ]
+    },
+    {
+        "category_name": "Website Partner",
+        "sponsors": [
+            {
+                "name": "The Ananta Studio",
+                "link": "https://theananta.in",
+                "logo": "theananta.svg"
             }
         ]
     }

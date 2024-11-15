@@ -1,21 +1,21 @@
 [
     {
-        "question": "What is the name of the AI chatbot developed by Google AI?",
-        "options": ["Bard", "LaMDA", "Gemini", "AlphaGo"],
-        "correct": "Bard",
-        "trivia": "Bard is a large language model chatbot developed by Google AI. It is designed to be informative and comprehensive, drawing on a vast amount of information from the real world through Google Search."
+        "question": "In what year did Google acquire YouTube?",
+        "options": ["2004", "2005", "2006", "2007"],
+        "correct": "2006",
+        "trivia": "YouTube was purchased for $1.65 billion in stock, making it one of Google’s smartest investments."
     },
     {
-        "question": "Which Google product uses the PageRank algorithm to rank search results?",
-        "options": ["Google Maps", "Google Drive", "Google Search", "Google Photos"],
-        "correct": "Google Search",
-        "trivia": "PageRank is a ranking algorithm used by Google Search to rank web pages. It assigns a numerical weight to each webpage based on the number and quality of backlinks it receives."
+        "question": "What was Google’s first-ever doodle designed for?",
+        "options": ["New Year", "April Fools’ Day", "Burning Man Festival", "Earth Day"],
+        "correct": "Burning Man Festival",
+        "trivia": "The Burning Man Festival doodle was meant to signal the founders' absence from work."
     },
     {
-        "question": "What is the name of Google's open-source machine learning framework?",
-        "options": ["PyTorch", "TensorFlow", "Keras", "Scikit-learn"],
-        "correct": "TensorFlow",
-        "trivia": "TensorFlow is an open-source software library developed by Google Brain Team. It is used for machine learning applications such as neural networks."
+        "question": "Which animal was used as the code name for the Android 4.4 version?",
+        "options": ["KitKat", "Nougat", "Lollipop", "JellyBean"],
+        "correct": "KitKat",
+        "trivia": "Android 4.4 was named \"KitKat\" as part of a marketing partnership with Nestlé."
     },
     {
         "question": "Which Google product was originally known as BackRub?",
@@ -42,10 +42,10 @@
         "trivia": "Waymo is a self-driving technology company developed by Alphabet Inc."
     },
     {
-        "question": "What is the name of Google's cloud computing platform?",
-        "options": ["AWS", "Azure", "Google Cloud Platform", "IBM Cloud"],
-        "correct": "Google Cloud Platform",
-        "trivia": "Google Cloud Platform (GCP) is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products."
+        "question": "What is the most searched word on Google?",
+        "options": ["Google", "YouTube", "Facebook", "Weather"],
+        "correct": "Google",
+        "trivia": "\"Google\" itself tops the search list, often searched by users as a navigational query."
     },
     {
         "question": "Which Google product uses AI to understand and respond to voice commands?",
@@ -57,6 +57,7 @@
         "question": "What is the name of Google's experimental technology incubator?",
         "options": ["X", "Google Labs", "Google Research", "Google Brain"],
         "correct": "X",
-        "trivia": "X, formerly known as Google X, is a research and development facility owned by Alphabet Inc."
+        "trivia": ", formerly known as Google X, is a research and development facility owned by Alphabet Inc.",
+        "triviaLink": "https://x.company/"
     }
 ]

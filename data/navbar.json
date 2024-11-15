@@ -7,22 +7,37 @@
   {
     "name": "Agenda",
     "path": "/agenda",
-    "visible": true
+    "visible": false
   },
   {
     "name": "Speakers",
     "path": "/speakers",
-    "visible": true
+    "visible": false
+  },
+  {
+    "name": "Speakers",
+    "path": "/speakers",
+    "visible": false
   },
   {
     "name": "Badge",
     "path": "/badge",
+    "visible": false
+  },
+  {
+    "name": "Call for Speakers",
+    "path": "/call-for-speakers",
     "visible": true
   },
   {
-    "name": "Team",
-    "path": "/team",
+    "name": "Sponsors",
+    "path": "/#sponsors",
     "visible": true
+  },
+  {
+    "name": "Sponsor Us",
+    "path": "/sponsor-us",
+    "visible": false
   },
   {
     "name": "Arcade",

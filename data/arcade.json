@@ -1,5 +1,4 @@
 [
-    
     {
         "id": "101",
         "name": "Light Up the Leaderboard ✨",
@@ -7,23 +6,39 @@
         "image": "diwali-dhamaka.png",
         "available": true,
         "description": "Ready to shine brighter than a diya 🪔? From mythology to traditions, put your Diwali knowledge to the test in this exciting quiz!",
-        "author": "Kavya Chandana | Manas Malla",
+        "author": [
+            {
+                "name": "Kavya Chandana",
+                "image": "kavya.png"
+            },
+            {
+                "name": "Manas Malla",
+                "image": "manas.jpg"
+            }
+        ],
         "difficulty": "Beginner",
         "category": "Festive"
     },
-
     {
         "id": "102",
-        "name": "Google Whiz Quiz: Prove Your Google Prowess! 🧙‍♂️",
+        "name": "Google Guru Quiz 🧙‍♂️",
         "link": "/arcade/google-quiz",
-        "image": "diwali-dhamaka.png",
-        "available": false,
+        "image": "google-guru.png",
+        "available": true,
         "description": "Think you know Google inside out 🤔? Put your knowledge to the test with this fun quiz!",
-        "author": "Varshita Palleti | Jayadhar Ummadisingu",
+        "author": [
+            {
+                "name": "Varshita Palleti",
+                "image": "varshita.jpeg"
+            },
+            {
+                "name": "Jayadhar Ummadisingu",
+                "image": "jayadhar.jpg"
+            }
+        ],
         "difficulty": "Intermediate",
         "category": "Google Knowledge"
     },
-    
     {
         "id": "103",
         "name": "Ishwarya's Ignite",
@@ -31,9 +46,13 @@
         "available": false,
         "image": "ishwarya-ignite.png",
         "description": "Help Ishwarya complete her assignment before I/O on time.",
-        "author": "Manas Malla",
+        "author": [
+            {
+                "name": "Manas Malla",
+                "image": "manas.jpg"
+            }
+        ],
         "difficulty": "Beginner",
         "category": "Programming"
     }
-    
 ]
