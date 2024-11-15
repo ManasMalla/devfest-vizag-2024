@@ -22,10 +22,13 @@
           </p>
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
             <img :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
-              style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50" width="160" height="160" />
-            <div style="display:flex; width: 100%; align-items: center; flex-direction: column; outline: 1px solid #202023; border-radius: 24px; padding: 24px; transform: translateY(-80px); position: relative;">
-              <div style="position: absolute; height: 180px; width: 180px; border-radius: 100px; border: 1px solid #202023; top:-106px; background-color: #fff; clip-path: inset(58% 0 0 0);"/>
-              <div style="height: 80px;"/>
+              style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50" width="160"
+              height="160" />
+            <div
+              style="display:flex; width: 100%; align-items: center; flex-direction: column; outline: 1px solid #202023; border-radius: 24px; padding: 24px; transform: translateY(-80px); position: relative;">
+              <div
+                style="position: absolute; height: 180px; width: 180px; border-radius: 100px; border: 1px solid #202023; top:-106px; background-color: #fff; clip-path: inset(58% 0 0 0);" />
+              <div style="height: 80px;" />
               <div style="display: flex; align-items: center; column-gap: 8px; font-size: 20px;">
                 <p>{{ user.displayName }}</p>
                 <p
@@ -35,9 +38,11 @@
               <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name"
                 class="mt-2">{{ userDetails.company.designation }}, {{ userDetails.company.name }}</p>
               <p v-if="userDetails && userDetails.communityTitle">{{ userDetails.communityTitle }}</p>
-              <a style="" :href="'devfest.vizag.dev/profile/' + userDetails.username" v-if="userDetails && userDetails.username">devfest.vizag.dev/profile/{{userDetails.username}}</a>
+              <a style="" :href="'devfest.vizag.dev/profile/' + userDetails.username"
+                v-if="userDetails && userDetails.username">devfest.vizag.dev/profile/{{ userDetails.username }}</a>
               <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
-              <div v-if="userDetails && !showEditor"  style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
+              <div v-if="userDetails && !showEditor"
+                style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">City/Town</p>
                 <p v-if="userDetails.city">{{ userDetails.city }}</p>
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Bio</p>
@@ -55,18 +60,21 @@
                 </ul>
               </div>
               <div v-if="showEditor" style="width: 100%;">
-                <v-form  @submit.prevent="updateUserData">
-                <v-text-field v-model="userDetails.username" label="Username" style="width: 90%;"></v-text-field>
-                <v-text-field v-model="userDetails.city" label="City/Town" style="width: 90%;"></v-text-field>
-                <v-textarea v-model="userDetails.bio" label="Bio" style="width: 90%;"></v-textarea>
-                <v-text-field v-for="social in userDetails.socials" v-model="social.name" :label="social.provider" style="width: 90%;"></v-text-field>
-                <button v-if="showEditor"
-                style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">{{ showEditor ? 'Submit' : 'Update Profile' }}</button>
+                <v-form @submit.prevent="updateUserData">
+                  <v-text-field v-model="userDetails.username" label="Username" style="width: 90%;"></v-text-field>
+                  <v-text-field v-model="userDetails.city" label="City/Town" style="width: 90%;"></v-text-field>
+                  <v-textarea v-model="userDetails.bio" label="Bio" style="width: 90%;"></v-textarea>
+                  <v-text-field v-for="social in userDetails.socials" v-model="social.name" :label="social.provider"
+                    style="width: 90%;"></v-text-field>
+                  <button v-if="showEditor"
+                    style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">{{
+                      showEditor ? 'Submit' : 'Update Profile' }}</button>
                 </v-form>
               </div>
               <v-divider v-if="userDetails" style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
               <button v-if="!showEditor" :onclick="showOrHideEditor"
-                style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">{{ showEditor ? 'Submit' : 'Update Profile' }}</button>
+                style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">{{
+                  showEditor ? 'Submit' : 'Update Profile' }}</button>
             </div>
           </div>
         </v-col>
@@ -138,11 +146,11 @@
 
 <script setup>
 
-function showOrHideEditor(){
+function showOrHideEditor() {
   showEditor.value = !showEditor.value;
 }
 
-function updateUserData(event){
+function updateUserData(event) {
   console.log('User Details', userDetails);
   showEditor.value = !showEditor.value;
 }
@@ -157,7 +165,7 @@ const user = useCurrentUser();
 const db = useFirestore();
 const badges = useState('badges', () => []);
 const userDetails = useState('userDetails', () => ({}));
-const showEditor = useState('showEditor', ()=>false);
+const showEditor = useState('showEditor', () => false);
 
 onMounted(() => {
   watch(user, async (newUser) => {
@@ -181,6 +189,13 @@ onMounted(() => {
         image: "diwali-dhamaka-badge.svg",
         earned: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted || false,
         description: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted ? "Boom! Victory is yours! You're a Diwali Quiz Mastermind, Illuminator!\nThis badge is proof of your festive brilliance.\nShare your triumph and inspire others to shine! #DevFestDiwali" : "Think you know Diwali? A hidden Diwali treasure awaits!\nIgnite your Diwali spirit! Unravel the secrets of the Festival of Lights by conquering the Diwali Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Diwali Quiz. ",
+      }, {
+        name: "Google WhizMaster",
+        link: "/arcade/google-quiz",
+        date: badgeData.filter((doc) => doc.id == 'google')[0]?.timestamp === undefined ? "Not earned" : ((moment(badgeData.filter((doc) => doc.id == 'google')[0]?.timestamp?.toDate())))?.format('DD MMM YYYY'),
+        image: "google-guru-badge.svg",
+        earned: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompleted || false,
+        description: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompleted ? "Boom! Victory is yours! You're a Google Quiz Mastermind!\nThis badge is proof of your brilliance.\nShare your triumph and inspire others to shine! #GoogleWhizMaster" : "Think you know all Google? A Googolous adventure treasure awaits!\nIgnite your Google spirit! Unravel the secrets of the tech giant by conquering the Google Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Google Quiz. ",
       });
     }
   });
