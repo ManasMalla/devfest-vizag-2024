@@ -26,7 +26,16 @@
         "image": "google-guru.png",
         "available": true,
         "description": "Think you know Google inside out 🤔? Put your knowledge to the test with this fun quiz!",
-        "author": "Varshita Palleti | Jayadhar Ummadisingu",
+        "author": [
+            {
+                "name": "Varshita Palleti",
+                "image": "varshita.jpeg"
+            },
+            {
+                "name": "Jayadhar Ummadisingu",
+                "image": "jayadhar.jpg"
+            }
+        ],
         "difficulty": "Intermediate",
         "category": "Google Knowledge"
     },
