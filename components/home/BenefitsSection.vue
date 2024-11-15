@@ -26,9 +26,7 @@
                                 </li>
                             </ul>
                         </v-col>
-
                     </v-row>
-
                 </v-container>
             </v-col>
         </v-row>
