@@ -37,7 +37,7 @@
     "stats": [
       {
         "name": "Speakers",
-        "value": "TBA",
+        "value": "30+",
         "color": "#C3ECF6",
         "image": "img/common/blue.png"
       },
@@ -49,13 +49,13 @@
       },
       {
         "name": "Sessions",
-        "value": "TBA",
+        "value": "20+",
         "color": "#CCF6C5",
         "image": "img/common/green.png"
       },
       {
         "name": "Workshops",
-        "value": "TBA",
+        "value": "20+",
         "color": "#FFE7A5",
         "image": "img/common/yellow.png"
       }
