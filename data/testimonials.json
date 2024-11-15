@@ -1,0 +1,38 @@
+[
+    {
+        "title": "Memorable Experience",
+        "event": "DevFest '23",
+        "description": "As an organizer and as a speaker, I enjoyed DevFest. I love to connect with like minded and share my enthusiasm and knowledge with the world. GDG Vizag has stood out as one such platform and stage to connect, share and grow.",
+        "provider": {
+            "name": "Manas Malla",
+            "role": "Speaker",
+            "position": "Founder",
+            "company": "The Ananta Studio",
+            "image": "https://github.com/ManasMalla.png"
+        }
+    },
+    {
+        "title": "Loads of Learning",
+        "event": "DevFest '23",
+        "description": "Learn. Connect. Grow. I had a great time at DevFest. I learnt a lot through contributing, develop my skills and network some amazing people. I can\"t wait for the next one!",
+        "provider": {
+            "name": "Kavya Chandana",
+            "role": "Volunteer",
+            "position": "COO",
+            "company": "The Ananta Studio",
+            "image": "https://devfest.vizag.dev/img/team/kavya.png"
+        }
+    },
+    {
+        "title": "Great Event",
+        "event": "DevFest '23",
+        "description": "It was really a good event. I have learned many new tools and technologies. Gave me confidence to work on my ideas. Thanks to the organizers for putting together such a great event.",
+        "provider": {
+            "name": "Ravi Teeja Kamsu",
+            "role": "Attendee",
+            "position": "Student",
+            "company": "VIIT",
+            "image": "https://i.pinimg.com/280x280_RS/4a/d3/34/4ad3341c2c91e47596028c38235e4825.jpg"
+        }
+    }
+]

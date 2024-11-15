@@ -11,6 +11,7 @@ import navbarData from "../data/navbar.json";
 import diwaliQuizData from "../data/diwali-quiz.json";
 import googleQuizData from "../data/google-quiz.json";
 import announcements from "../data/announcements.json";
+import testimonials from "../data/testimonials.json";
 
 export const useJSONData = () => {
   return {
@@ -27,5 +28,6 @@ export const useJSONData = () => {
     diwaliQuizData,
     googleQuizData,
     announcements,
+    testimonials,
   };
 };

@@ -5,7 +5,6 @@
             developer.<br />We got you all cover! Join us for the biggest bash of the year.</p>
         <h2 class="mt-4 mb-1">I want to </h2>
         <v-row align="stretch">
-
             <v-col v-for="(benefit, index) in mainData.eventInfo.benefits" :key="benefit.title" cols="12" md="6">
                 <v-container :style="'height: 100%; padding: 0px; border-radius: 12px;'">
                     <v-row align="strech">
