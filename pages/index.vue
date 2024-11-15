@@ -78,7 +78,7 @@ definePageMeta({
     layout: false,
 });
 
-const tracks = ["Web", "Mobile", "Cloud", "AI", "Career", "Startups"];
+const tracks = ["Web", "Mobile", "Cloud", "AI", "Career", "Entrepreneurship"];
 
 useSeoMeta({
     contentType: "text/html; charset=utf-8",
