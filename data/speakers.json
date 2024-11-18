@@ -1,240 +1,87 @@
 [
   {
-    "id": "101",
-    "name": "Runcy Oommen",
-    "company": {
-      "name": "SonicWall",
-      "designation": "Director of Software Engineering"
-    },
-    "community_title": "Director of Software Engineering",
-    "image": "runcyoommen.jpeg",
-    "bio": "Runcy is a hands-on software engineer with 20+ years of SDLC experience and a string of successful projects primarily in the security domain. Key product experience includes Cloud Security/Storage, SSL-VPN, Anti-Virus and Email Security.A natural perfectionist, he possess an eye for detail that helps in elevating the user experience and in identifying the product gap with the competitors.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/runcyoommen/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    }
-  },
-  {
-    "id": "102",
-    "name": "Dr.Ravi Shankar Saripalle",
-    "company": {
-      "name": "Gitam Deemed University",
-      "designation": "Professor of Entreprenership"
-    },
-    "community_title": "",
-    "image": "ravisarapalli.jpeg",
-    "bio": "Dr. Ravi Shankar Saripalle has been the Professor of Entrepreneurship at GITAM University. Before this, he worked as Director of the Centre for Innovation and Incubation at Gayatri Vidya Parishad College of Engineering for the past 14 years. During this time, the center has successfully incubated more than 25 startups and contributed to filing, publishing, and granting over 80 patents.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/ravisaripalle/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    }
-  },
-  {
-    "id": "103",
-    "name": "Sneh Pandya",
-    "company": {
-      "name": "Mantra Labs",
-      "designation": "Product Leader, Speaker, Author, Mentor"
-    },
-    "community_title": "",
-    "image": "snehpandya.jpeg",
-    "bio": "Sneh Pandya is a seasoned product leader with expertise in Product Management, Product Strategy, and Digital Transformation. With a focus on SaaS, B2B, B2C, and Ed-tech, Sneh has driven business transformations across diverse industries like E-commerce, Insurance, and Payments. She is skilled in Cloud Infrastructure, DevOps, and White Label Solutions, with hands-on experience in Flutter development. An Apress-published author of two technical books, Sneh is also a Google for Developers community organizer, mentor, and public speaker. Connect with her for mentorship or collaboration opportunities at snehpandya.com.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/snehpandya18/",
-      "twitter": "https://x.com/SnehPandya18?mx=2",
-      "github": "",
-      "web": "https://snehpandya.com/"
-    }
-  },
-  {
-    "id": "104",
-    "name": "Hemapriya Nagarajan",
-    "company": {
-      "name": "CDW",
-      "designation": "Data Engineer"
-    },
-    "community_title": "",
-    "image": "hemapriyanagarajan.jpeg",
-    "bio": "Hemapriya Nagarajan is a data professional with over 2.5 years of experience in building data pipelines and AI applications, bridging the Data-AI gap through data-driven solutions using ETL/ELT processes. As an NLP enthusiast and active problem solver, she is committed to continuous learning and thrives on exploring innovative approaches in data and AI. Hemapriya is passionate about sharing her knowledge, engaging in public speaking, contributing to communities, and is actively exploring freelancing opportunities to leverage her expertise. Her dedication to empowering organizations with data insights and her drive to make a positive impact define her professional journey.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/hemapriya-nagarajan/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    }
-  },
-  {
-    "id": "105",
-    "name": "Aarshad Devani",
-    "company": {
-      "name": "Storable India",
-      "designation": "Senior Software Engineer"
-    },
-    "community_title": "",
-    "image": "aarshaddevani.jpeg",
-    "bio": "Arshad Devani is an experienced ambassador with a proven track record in the computer software industry. He brings a diverse skill set, including proficiency in Microsoft Word, PHP, C++, and Polymers, along with a talent for public speaking. Arshad is a strong advocate for community engagement and social services, leveraging his technical expertise to make a positive impact. He holds a Bachelor of Engineering (B.E.) degree in Computer Software Engineering from Muffakham Jah College of Engineering and Technology, where he honed his skills and passion for technology.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/aarshaddevani/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    }
-  },
-  {
-    "id": "106",
-    "name": "Geethika Yerramsetti",
-    "company": {
-      "name": "Deloitte",
-      "designation": "Senior Cloud and DevOps Engineer/Lead DevOps Engineer"
-    },
-    "community_title": "",
-    "image": "geethika.jpeg",
-    "bio": "Geethika Yerramsetti is an experienced DevOps Research Associate with a strong background in implementing and managing DevOps technologies. She has a demonstrated history of expertise in cloud platforms like AWS and Azure DevOps (VSTS), as well as infrastructure as code with Terraform. Geethika is skilled in version control using Git, containerization with Docker, and CI/CD automation using Jenkins and Bamboo. Her technical proficiency extends to Python and Shell scripting, along with build automation using Maven. Passionate about optimizing software development processes, she consistently drives efficiency and innovation in every project she undertakes.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/geethika-yerramsetti/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    }
-  },
-  {
-    "id": "107",
-    "name": "Bhuvaneshwari Kanagaraj",
-    "company": {
-      "name": "KGXperience",
-      "designation": "Embedded Software Engineer "
-    },
-    "community_title": "",
-    "image": "bhuvaneshwari.jpeg",
-    "bio": "Bhuvaneshwari Kanagaraj is a passionate problem solver and tech educator dedicated to turning ideas into reality through IoT and embedded development. With extensive experience in both tech consultancy and teaching, she has mentored over 500 students, inspiring the next generation of tech innovators. Bhuvaneshwari thrives on transforming concepts into practical solutions, making her a trusted guide for anyone embarking on a tech journey. Whether you're looking to explore IoT, embedded systems, or need expert guidance, she's ready to help you take your next big step. Let's get started!",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/bhuvaneshwari-kanagaraj/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    }
-  },
-  {
-    "id": "108",
-    "name": "Burhanuddin Rashid",
-    "company": {
-      "name": "Juyushi Tech",
-      "designation": "Google Developer Expert in Flutter and Dart | Mobile Consultant | Trainer | Android"
-    },
-    "community_title": "",
-    "image": "rashid.jpeg",
-    "bio": "Burhanuddin Rashid is a skilled Android developer with five years of experience in creating diverse Android applications, ranging from media streaming and entertainment to restaurant management, augmented reality, and mobile gaming. He is dedicated to continuously developing, testing, and implementing new technologies to maximize efficiency and deliver innovative solutions. Burhanuddin’s passion for adopting cutting-edge tools and techniques ensures that his applications are not only functional but also optimized for performance and user experience. He thrives on turning ideas into engaging mobile experiences, making him a valuable asset to any tech-driven team.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/burhanuddin-rashid-a16959b1/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    }
-  },
-  {
-    "id": "109",
-    "name": "Venkata Siddardha Rali",
-    "company": {
-      "name": "Lendi Institute of Engineering and Technology (LIET)",
-      "designation": "Freelance DevOps Engineer || Ex-Team Lead @ GFGSCLIET || Docker || Kubernetes || AWS || Ansible || Terraform"
-    },
-    "community_title": "",
-    "image": "venkatasiddhard.jpeg",
-    "bio": "Venkata Siddardha Rali is a dedicated Computer Science and Engineering student at Lendi Institute of Engineering and Technology, Vizianagaram, with a GPA of 8.42/10. He possesses diverse programming skills, including proficiency in Python and C++, along with foundational knowledge of JavaScript and Golang. Venkata's expertise extends to AWS, Django, REST, and DevOps practices, as well as tools like Maven, Gradle, Git, GitHub, Figma, and Postman. He is skilled in CI/CD pipelines using Jenkins and GitHub Actions, and has hands-on experience with Docker, Kubernetes, Ansible, Vagrant, and Terraform. Comfortable with multiple operating systems like Ubuntu, CentOS, RHEL, and macOS, he also serves as the Lead Chairperson of GeeksForGeeks LIET, where he fosters a supportive community for computer science enthusiasts, driving skill development and knowledge sharing.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/venkata-siddardha-rali-535561223/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    }
-  },
-  {
-    "id": "110",
-    "name": "Dr.Varalaxmi Seeram Madem",
-    "company": {
-      "name": "Indian Institute of Management Visakhapatnam",
-      "designation": "Sustainable HRM consultant | Independent Researcher | Academician | Programmer Analyst | UNDP Volunteer"
-    },
-    "community_title": "",
-    "image": "varalakshmi.jpeg",
-    "bio": "Dr. Varalaxmi Seeram Madem is a distinguished professional, seamlessly blending her roles as a Programmer Analyst, Researcher, and Academician. With a strong passion for Technology Management, Sustainability, Data Analytics, and Green HRM for Sustainable Development, she is a highly sought-after resource person in these fields. Dr. Varalaxmi is known for her expertise in integrating technological innovation with sustainable practices, making significant contributions to both academia and industry. Her dedication to research and knowledge-sharing has positioned her as a leader in promoting sustainable development through data-driven insights and responsible management strategies.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/dr-varalaxmi-seeram-madem-6b1579a3/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    }
-  },
-    {
-      "id": "111",
-      "name": "Bhavya Sai Keerthi Thammineni",
-      "company": {
-        "name": "Lendi Institute of Engineering and Technology (LIET)",
-        "designation": "Ex-Intern@Marquee Equity |Ex-Intern@Indian Servers | Ex-Event Head@GfGSCLIET l Ex-Coding Ninjas Campus Ambassador | CS Undergrad | Web Development | Certified PEGA System Architect | Public-Speaker | Prompt-Engineer"
-      },
-      "community_title": "",
-      "image": "bhavya.jpeg",
-      "bio": "Bhavya Sai Keerthi Thammineni is a passionate and ambitious B.Tech student specializing in Computer Science and Systems Engineering at Lendi Institute of Engineering and Technology. With a strong interest in the cutting-edge fields of Artificial Intelligence and Cybersecurity, she is dedicated to exploring the potential of technology to transform the future. Her journey began with a deep curiosity about how machines can be programmed to mimic human intelligence, leading her to delve into the fascinating domains of AI and Web Development. Bhavya is constantly expanding her knowledge and skills, driven by a commitment to innovation and a desire to make a meaningful impact in the tech world.",
-      "social": {
-        "linkedin": "https://www.linkedin.com/in/bhavya-sai-keerthi-thammineni/",
-        "twitter": "",
-        "github": "",
-        "web": ""
-      }
-  },
-  {
-    "id": "112",
-    "name": "Om Ashish Mishra",
-    "company": {
-      "name": "Deloitte",
-      "designation": "Product Data Scientist | IITK Alumini | Gen AI Community | MIT BootCamper | AI Engineer - @ Ex-HSBC,Hitachi, HP | Speaker at 30+ events for uplifting students and NGO growth | Blogger | Open Source Contributor"
-    },
-    "community_title": "",
-    "image": "ashishmishra.jpeg",
-    "bio": "Om Ashish Mishra is a skilled Data Engineer at Deloitte USI with a passion for coding and a deep understanding of trending technologies. With over 3.5 years of experience in Machine Learning and Deep Learning, along with expertise in Hadoop, Java, the MERN stack, and Photoshop, Om brings a versatile skill set to every project he undertakes. He is an avid blogger, enthusiastic reader, and active contributor to various learning platforms, where he continuously seeks to grow and share his knowledge.Beyond his technical expertise, Om is committed to evolving communities in Data Analysis, Data Science, and Business Innovations. He actively promotes NGOs, speaks at Toastmasters, and leverages his skills to drive positive change. With a highly optimistic approach to both his career and life, Om is dedicated to making a meaningful impact in the world of technology and beyond.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/om-ashish-mishra/?original_referer=&originalSubdomain=in",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    }
-},
-{
-  "id": "113",
-  "name": "Ananya R",
+  "id": "101",
+  "name": "Runcy Oommen",
   "company": {
-    "name": "She Loves Tech",
-    "designation": "Building Inclusive Tech/Startup Ecosystems Globally | Global Community Manager @ She Loves Tech | Start-up Ventures, Early-Stage Startups | Tedx Speaker | public speaker"
+  "name": "SonicWall",
+  "designation": "Director of Software Engineering"
+  },
+  "community_title": "Director of Software Engineering",
+  "image": "runcyoommen.jpeg",
+  "bio": "Runcy is a hands-on software engineer with 20+ years of SDLC experience and a string of successful projects primarily in the security domain. Key product experience includes Cloud Security/Storage, SSL-VPN, Anti-Virus and Email Security.A natural perfectionist, he possess an eye for detail that helps in elevating the user experience and in identifying the product gap with the competitors.",
+  "social": {
+  "linkedin": "https://www.linkedin.com/in/runcyoommen/",
+  "twitter": "",
+  "github": "",
+  "web": ""
+  }
+  },
+  {
+  "id": "102",
+  "name": "Dr.Ravi Shankar Saripalle",
+  "company": {
+  "name": "Gitam Deemed University",
+  "designation": "Professor of Entreprenership"
   },
   "community_title": "",
-  "image": "ananya.jpeg",
-  "bio": "Ananya R is a dynamic leader in the tech industry, currently serving as the Global Community Manager at She Loves Tech, where she focuses on amplifying opportunities for women in technology worldwide. With a deep commitment to creating inclusive ecosystems, Ananya has been instrumental in driving visibility, funding, and community support for women-led tech ventures. Previously, as the Community Manager at Google Developers India, she managed over 500 Google Developer Student Clubs across 180+ cities, fostering diversity and expanding opportunities for women and underrepresented groups in tech. A passionate advocate for Diversity, Equity, and Inclusion (DEI), she is also an #IamRemarkable Gold Facilitator and led Tinkerhub's Women in Tech initiative, organizing Kerala's largest women's hackathon, Tink-Her-Hack1.0. An accomplished speaker, Ananya's TEDx and other public talks continue to inspire many in the tech community. Her efforts have been recognized with prestigious accolades, including the Outstanding Women in Engineering Award 2018 in Kerala, highlighting her enduring impact on the tech landscape.",
+  "image": "ravisarapalli.jpeg",
+  "bio": "Dr. Ravi Shankar Saripalle has been the Professor of Entrepreneurship at GITAM University. Before this, he worked as Director of the Centre for Innovation and Incubation at Gayatri Vidya Parishad College of Engineering for the past 14 years. During this time, the center has successfully incubated more than 25 startups and contributed to filing, publishing, and granting over 80 patents.",
   "social": {
-    "linkedin": "https://www.linkedin.com/in/ananya-r/",
-    "twitter": "",
-    "github": "",
-    "web": ""
+  "linkedin": "https://www.linkedin.com/in/ravisaripalle/",
+  "twitter": "",
+  "github": "",
+  "web": ""
   }
-},
-{
-  "id": "114",
-  "name": "Chivukula Krishnamohan",
+  },
+  {
+  "id": "103",
+  "name": "Sneh Pandya",
   "company": {
-    "name": "GURUJADA IT Solutions",
-    "designation": "Co-Founder"
+  "name": "Mantra Labs",
+  "designation": "Product Leader, Speaker, Author, Mentor"
   },
   "community_title": "",
-  "image": "krishnamohan.jpeg",
-  "bio": "Chivukula Krishnamohan is a seasoned software professional with over 25 years of experience in building innovative software solutions. Despite serving as a Technology Head for a decade, he takes pride in remaining a hands-on programmer, constantly exploring new paradigms in software development. His passion lies in crafting robust and scalable applications by leveraging the power of Open Source technologies. Chivukula's extensive expertise spans a wide range of tech domains, enabling him to stitch together efficient and impactful software solutions. With a deep commitment to continuous learning and innovation, he has become a driving force in the tech community, inspiring peers and teams alike through his technical acumen and dedication.",
+  "image": "snehpandya.jpeg",
+  "bio": "Sneh Pandya is a seasoned product leader with expertise in Product Management, Product Strategy, and Digital Transformation. With a focus on SaaS, B2B, B2C, and Ed-tech, Sneh has driven business transformations across diverse industries like E-commerce, Insurance, and Payments. She is skilled in Cloud Infrastructure, DevOps, and White Label Solutions, with hands-on experience in Flutter development. An Apress-published author of two technical books, Sneh is also a Google for Developers community organizer, mentor, and public speaker. Connect with her for mentorship or collaboration opportunities at snehpandya.com.",
   "social": {
-    "linkedin": "https://www.linkedin.com/in/chivukula-krishnamohan-31a008229/",
-    "twitter": "",
-    "github": "",
-    "web": ""
+  "linkedin": "https://www.linkedin.com/in/snehpandya18/",
+  "twitter": "https://x.com/SnehPandya18?mx=2",
+  "github": "",
+  "web": "https://snehpandya.com/"
   }
-}
-]
+  },
+  {
+  "id": "104",
+  "name": "Hemapriya Nagarajan",
+  "company": {
+  "name": "CDW",
+  "designation": "Data Engineer"
+  },
+  "community_title": "",
+  "image": "hemapriyanagarajan.jpeg",
+  "bio": "Hemapriya Nagarajan is a data professional with over 2.5 years of experience in building data pipelines and AI applications, bridging the Data-AI gap through data-driven solutions using ETL/ELT processes. As an NLP enthusiast and active problem solver, she is committed to continuous learning and thrives on exploring innovative approaches in data and AI. Hemapriya is passionate about sharing her knowledge, engaging in public speaking, contributing to communities, and is actively exploring freelancing opportunities to leverage her expertise. Her dedication to empowering organizations with data insights and her drive to make a positive impact define her professional journey.",
+  "social": {
+  "linkedin": "https://www.linkedin.com/in/hemapriya-nagarajan/",
+  "twitter": "",
+  "github": "",
+  "web": ""
+  }
+  },
+  {
+  "id": "112",
+  "name": "Om Ashish Mishra",
+  "company": {
+  "name": "Deloitte",
+  "designation": "Product Data Scientist | IITK Alumini | Gen AI Community | MIT BootCamper | AI Engineer - @ Ex-HSBC,Hitachi, HP | Speaker at 30+ events for uplifting students and NGO growth | Blogger | Open Source Contributor"
+  },
+  "community_title": "",
+  "image": "ashishmishra.jpeg",
+  "bio": "Om Ashish Mishra is a skilled Data Engineer at Deloitte USI with a passion for coding and a deep understanding of trending technologies. With over 3.5 years of experience in Machine Learning and Deep Learning, along with expertise in Hadoop, Java, the MERN stack, and Photoshop, Om brings a versatile skill set to every project he undertakes. He is an avid blogger, enthusiastic reader, and active contributor to various learning platforms, where he continuously seeks to grow and share his knowledge.Beyond his technical expertise, Om is committed to evolving communities in Data Analysis, Data Science, and Business Innovations. He actively promotes NGOs, speaks at Toastmasters, and leverages his skills to drive positive change. With a highly optimistic approach to both his career and life, Om is dedicated to making a meaningful impact in the world of technology and beyond.",
+  "social": {
+  "linkedin": "https://www.linkedin.com/in/om-ashish-mishra/?original_referer=&originalSubdomain=in",
+  "twitter": "",
+  "github": "",
+  "web": ""
+  }
+  }
+  ]
