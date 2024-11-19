@@ -1,15 +1,5 @@
 [
     {
-        "category_name": "Venue Sponsors",
-        "sponsors": [
-            {
-                "name": "GITAM Deemed to be University",
-                "link": "https://gitam.edu",
-                "logo": "gitam.png"
-            }
-        ]
-    },
-    {
         "category_name": "Title Sponsors",
         "sponsors": [
             {
@@ -20,23 +10,49 @@
         ]
     },
     {
-        "category_name": "Silv4rer Sponsor",
+        "category_name": "Silver Sponsors",
         "sponsors": [
             {
-                "name": "MSI",
+                "name": "MSI India",
                 "link": "https://in.msi.com/",
                 "logo": "msi.png"
             }
         ]
     },
     {
-        "category_name": "Community Partner",
+        "category_name": "Venue Sponsors",
         "sponsors": [
             {
-                "name":"WTM",
-                "link": "https://gdg.community.dev/events/details/google-gdg-vizag-presents-wtm-vizag-presents-international-womens-day-vizag-2023/",
-                "logo": "wtm.jpg"   
+                "name": "GITAM Deemed to be University",
+                "link": "https://gitam.edu",
+                "logo": "gitam.png"
             }
         ]
+    },
+    {
+        "category_name": "Website Partner",
+        "sponsors": [
+            {
+                "name": "WTM",
+                "link": "https://gdg.community.dev/events/details/google-gdg-vizag-presents-wtm-vizag-presents-international-womens-day-vizag-2023/",
+                "logo": "WTM.jpg"
+            }
+                   ]
+           
+        
+    },
+    {
+        "category_name": "",
+        "sponsors": [
+          
+            {
+                "name": "AHUB",
+                "link": "https://www.a-hub.co/",
+                "logo": "ahub.png"
+            }
+        ]
+           
+        
     }
+   
 ]
