@@ -12,7 +12,7 @@
   {
     "name": "Speakers",
     "path": "/speakers",
-    "visible": false
+    "visible": true
   },
   {
     "name": "Speakers",
