@@ -33,10 +33,26 @@
         "category_name": "Website Partner",
         "sponsors": [
             {
-                "name": "The Ananta Studio",
-                "link": "https://theananta.in",
-                "logo": "theananta.svg"
+                "name": "WTM",
+                "link": "https://gdg.community.dev/events/details/google-gdg-vizag-presents-wtm-vizag-presents-international-womens-day-vizag-2023/",
+                "logo": "WTM.jpg"
+            }
+                   ]
+           
+        
+    },
+    {
+        "category_name": "",
+        "sponsors": [
+          
+            {
+                "name": "AHUB",
+                "link": "https://www.a-hub.co/",
+                "logo": "ahub.png"
             }
         ]
+           
+        
     }
+   
 ]
