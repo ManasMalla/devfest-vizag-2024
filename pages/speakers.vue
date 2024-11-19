@@ -16,7 +16,7 @@
       <v-row>
         <v-col md="2" cols="6" sm="3" v-for="(item, index) in speakersData" :key="index">
 
-          <!-- <common-speaker-card :data="item" /> -->
+           <common-speaker-card :data="item" /> 
         </v-col>
       </v-row>
     </v-container>
