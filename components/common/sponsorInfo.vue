@@ -37,6 +37,7 @@
               <span>{{ sponsor.name }}</span>
             </v-tooltip>
           </ClientOnly>
+          
         </div>
       </v-col>
     </v-row>
