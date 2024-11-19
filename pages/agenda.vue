@@ -12,37 +12,14 @@
         </v-col>
       </v-row>
       <ClientOnly>
-        <v-row class="mb-7">
-          <v-col>
-            <v-toolbar flat class="px-0" style="border-radius: 15px">
-              <v-tabs
-                v-model="model"
-                color="primary"
-                slider-color="primary"
-                centered
-                class="px-3"
-              >
-                <v-tab v-for="(item, index) in scheduleData" :key="index">{{
-                  item.date
-                }}</v-tab>
-              </v-tabs>
-            </v-toolbar>
-
-            <v-tabs-window
-              v-model="model"
-              class="mt-5 py-0"
-              style="background-color: white; border-radius: 15px"
-            >
-              <v-tabs-window-item
-                v-for="(item, index) in scheduleData"
-                :key="index"
-                class="pa-0 ma-0"
-              >
-                <CommonScheduleDetails :data="item" />
-              </v-tabs-window-item>
-            </v-tabs-window>
-          </v-col>
-        </v-row>
+        <div style="width: '100%'; display: flex; justify-content: center;">
+          <iframe
+            id="agendaIframe"
+            frameborder="0" 
+            style="width: 100%; max-width: 800px; height: 1500px;"
+            src="https://agorify.com/embed/a/ijzcByGxciQXOKbViZLh"
+          ></iframe>
+        </div>
       </ClientOnly>
     </v-container>
   </NuxtLayout>
