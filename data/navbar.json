@@ -7,7 +7,7 @@
   {
     "name": "Agenda",
     "path": "/agenda",
-    "visible": false
+    "visible": true
   },
   {
     "name": "Speakers",
@@ -27,7 +27,7 @@
   {
     "name": "Call for Speakers",
     "path": "/call-for-speakers",
-    "visible": true
+    "visible": false
   },
   {
     "name": "Sponsors",
