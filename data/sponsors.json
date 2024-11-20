@@ -1,41 +1,46 @@
 [
     {
-        "category_name": "Title Sponsors",
+        "category_name": "Sponsors",
         "sponsors": [
             {
                 "name": "Google For Developers",
                 "link": "https://developers.google.com",
                 "logo": "googlefordevelopers.png"
-            }
+            },
+            {
+                "name": "GITAM Deemed to be University",
+                "link": "https://gitam.edu",
+                "logo": "gitam.png"
+            },
+            {
+                "name": "ā-hub",
+                "link": "https://www.a-hub.co/",
+                "logo": "ahub.png"
+            }  
         ]
     },
     {
-        "category_name": "Silver Sponsors",
+        "category_name": "",
         "sponsors": [
             {
                 "name": "MSI India",
                 "link": "https://in.msi.com/",
                 "logo": "msi.png"
-            }
+            }   
         ]
     },
     {
-        "category_name": "Venue Sponsors",
+        "category_name": "Partners",
         "sponsors": [
             {
-                "name": "GITAM Deemed to be University",
-                "link": "https://gitam.edu",
-                "logo": "gitam.png"
-            }
-        ]
-    },
-    {
-        "category_name": "Website Partner",
-        "sponsors": [
+                "name": "WTM",
+                "link": "https://gdg.community.dev/events/details/google-gdg-vizag-presents-wtm-vizag-presents-international-womens-day-vizag-2023/",
+                "logo": "wtm.png"
+            },
             {
-                "name": "The Ananta Studio",
-                "link": "https://theananta.in",
-                "logo": "theananta.svg"
+                "name": "Kalam Dream Labs",
+                "link": "https://kalamdreamlabs.com/",
+                "logo": "kdl.png"
             }
         ]
     }

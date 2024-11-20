@@ -18,7 +18,7 @@
       >
         <div
           style="background-color: #F3F3F3; border-radius: 15px;border: 1.5px solid black;"
-          class="pa-5"
+          class="pa-1"
         >
           <ClientOnly>
             <v-tooltip location="bottom" :key="indexp">
