@@ -56,7 +56,8 @@
             </div>
           </div>
         </div>
-        <button style="padding: 12px 24px; background-color: #f9ab00; color: black; margin-top: 16px; border-radius: 8px;">
+        <button type="button" :disabled="showAnswers"
+          :style="'padding: 12px 24px; color: black; margin-top: 16px; border-radius: 8px; background-color:' + (showAnswers ? '#e5e5e5' : '#f9ab00')">
           Submit
         </button>
       </form>
