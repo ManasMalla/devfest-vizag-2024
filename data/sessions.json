@@ -276,6 +276,32 @@
         "format": "Workshop",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
+        "speakers": []
+    },
+    {
+        "id": "1074",
+        "slide": "",
+        "title": "Introduction to GoLang",
+        "description": "Workshop on system level programming and GoLang.",
+        "track": "System Level Programming",
+        "link": "",
+        "time": "3:20 PM to 3:40 PM",
+        "format": "Day 1",
+        "date": "Dec 6, 2024",
+        "timeDuration": "10",
+        "speakers": []
+    },
+    {
+        "id": "1075",
+        "slide": "",
+        "title": "Startup Showcase",
+        "description": "Showcase of startups and their products and interaction for Ideasprint.",
+        "track": "Startups",
+        "link": "",
+        "time": "3:40 PM to 4:20 PM",
+        "format": "Showcase",
+        "date": "Dec 6, 2024",
+        "timeDuration": "10",
         "speakers": [],
         "callForSpeaker": true
     },
@@ -318,6 +344,32 @@
         "format": "Workshop",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
+        "speakers": []
+    },
+    {
+        "id": "1072",
+        "slide": "",
+        "title": "Building with Gemini",
+        "description": "Workshop on using the Gemini API to build AI powered applications.",
+        "track": "ML",
+        "link": "",
+        "time": "3:10 PM to 3:30 PM",
+        "format": "Day 1",
+        "date": "Dec 6, 2024",
+        "timeDuration": "10",
+        "speakers": []
+    },
+    {
+        "id": "1073",
+        "slide": "",
+        "title": "Greet, Genkit!",
+        "description": "Workshop on using the Firebase GenKit API to build AI powered applications.",
+        "track": "ML",
+        "link": "",
+        "time": "3:30 PM to 4:10 PM",
+        "format": "Workshop",
+        "date": "Dec 6, 2024",
+        "timeDuration": "10",
         "speakers": [],
         "callForSpeaker": true
     },
@@ -357,6 +409,19 @@
         "track": "Cloud",
         "link": "",
         "time": "3:10 PM to 3:40 PM",
+        "format": "Workshop",
+        "date": "Dec 6, 2024",
+        "timeDuration": "10",
+        "speakers": []
+    },
+    {
+        "id": "1071",
+        "slide": "",
+        "title": "Debugging Performance",
+        "description": "Workshop on using SEO Optimization, First Contentful paint Google Lighthouse.",
+        "track": "Cloud",
+        "link": "",
+        "time": "3:40 PM to 4:00 PM",
         "format": "Workshop",
         "date": "Dec 6, 2024",
         "timeDuration": "10",
@@ -446,6 +511,19 @@
         "timeDuration": "20",
         "speakers": [],
         "callForSpeaker": false
+    },
+    {
+        "id": "1070",
+        "slide": "",
+        "title": "Sponsor Slot",
+        "description": "Interactive sessions for networking.",
+        "track": "General",
+        "link": "",
+        "time": "4:30 PM to 4:40 PM",
+        "format": "Day 1",
+        "date": "Dec 6, 2024",
+        "timeDuration": "20",
+        "speakers": []
     },
     {
         "id": "1027",
@@ -616,6 +694,19 @@
         "callForSpeaker": true
     },
     {
+        "id": "1080",
+        "slide": "",
+        "title": "App Hosting with Firebase",
+        "description": "Codelab on Google Firebase App Hosting for improved development workflows.",
+        "track": "Cloud",
+        "link": "",
+        "time": "10:40 AM to 10:50 AM",
+        "format": "Day 2",
+        "date": "Dec 7, 2024",
+        "timeDuration": "10",
+        "speakers": []
+    },
+    {
         "id": "1038",
         "slide": "",
         "title": "Exploring Google Checks",
@@ -696,6 +787,19 @@
         "format": "Workshop",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
+        "speakers": []
+    },
+    {
+        "id": "1079",
+        "slide": "",
+        "title": "What's new in Web Assembly",
+        "description": "Talk on the latest web technology, Web Assembly.",
+        "track": "Web",
+        "link": "",
+        "time": "12:20 AM to 12:30 PM",
+        "format": "Talk",
+        "date": "Dec 7, 2024",
+        "timeDuration": "10",
         "speakers": [],
         "callForSpeaker": true
     },
@@ -735,6 +839,19 @@
         "track": "Mobile",
         "link": "",
         "time": "11:50 AM to 12:10 PM",
+        "format": "Codelab",
+        "date": "Dec 7, 2024",
+        "timeDuration": "10",
+        "speakers": []
+    },
+    {
+        "id": "1077",
+        "slide": "",
+        "title": "Making your app compatible with Android 15",
+        "description": "Codelab session for mobile development with Gemini Nano.",
+        "track": "Mobile",
+        "link": "",
+        "time": "12:10 PM to 12:20 PM",
         "format": "Codelab",
         "date": "Dec 7, 2024",
         "timeDuration": "10",
@@ -1090,6 +1207,19 @@
         "timeDuration": "20",
         "speakers": [],
         "callForSpeaker": false
+    },
+    {
+        "id": "1081",
+        "slide": "",
+        "title": "Final Stage For Review",
+        "description": "Award distribution for notable contributions and achievements.",
+        "track": "General",
+        "link": "",
+        "time": "3:10 PM to 3:25 PM",
+        "format": "Day 2",
+        "date": "Dec 7, 2024",
+        "timeDuration": "20",
+        "speakers": []
     },
     {
         "id": "1068",
