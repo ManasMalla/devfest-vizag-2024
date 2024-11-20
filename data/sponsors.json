@@ -1,58 +1,42 @@
 [
     {
-        "category_name": "Title Sponsors",
+        "category_name": "Sponsors",
         "sponsors": [
             {
                 "name": "Google For Developers",
                 "link": "https://developers.google.com",
                 "logo": "googlefordevelopers.png"
-            }
-        ]
-    },
-    {
-        "category_name": "Silver Sponsors",
-        "sponsors": [
-            {
-                "name": "MSI India",
-                "link": "https://in.msi.com/",
-                "logo": "msi.png"
-            }
-        ]
-    },
-    {
-        "category_name": "Venue Sponsors",
-        "sponsors": [
+            },
             {
                 "name": "GITAM Deemed to be University",
                 "link": "https://gitam.edu",
                 "logo": "gitam.png"
-            }
+            },
+            {
+                "name": "ā-hub",
+                "link": "https://www.a-hub.co/",
+                "logo": "ahub.png"
+            },
+            {
+                "name": "MSI India",
+                "link": "https://in.msi.com/",
+                "logo": "msi.png"
+            }   
         ]
     },
     {
-        "category_name": "Website Partner",
+        "category_name": "Partners",
         "sponsors": [
             {
                 "name": "WTM",
                 "link": "https://gdg.community.dev/events/details/google-gdg-vizag-presents-wtm-vizag-presents-international-womens-day-vizag-2023/",
-                "logo": "WTM.jpg"
-            }
-                   ]
-           
-        
-    },
-    {
-        "category_name": "",
-        "sponsors": [
-          
+                "logo": "wtm.png"
+            },
             {
-                "name": "AHUB",
-                "link": "https://www.a-hub.co/",
-                "logo": "ahub.png"
+                "name": "Kalam Dream Labs",
+                "link": "https://kalamdreamlabs.com/",
+                "logo": "kdl.png"
             }
         ]
-           
-        
     }
-   
 ]
