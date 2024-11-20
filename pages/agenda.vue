@@ -15,8 +15,9 @@
           <span class="dateDayNumber__KJVBf">{{ day.day }}</span>
         </div>
 
-        <div class="events">
-          <div v-for="(event, idx) in day.events" :key="idx" :class="['event__YGTKe', event.color]">
+        <div class="row__WRVvc">
+          <div v-for="(event, idx) in day.events" :key="idx" :class="['event__YGTKe', event.color]"
+            :style="'grid-column: ' + (idx == 0 ? '1/24' : '24/48')">
             <div class="eventIcon__3jIwU">
               <svg><!-- Icon Here --></svg>
             </div>
@@ -328,7 +329,6 @@ export default {
   justify-content: flex-start;
   margin: 8px 0;
   padding: 16px;
-  grid-column: span 1;
 }
 
 @media screen and (min-width: 1024px) {
