@@ -16,7 +16,12 @@
                 "name": "ā-hub",
                 "link": "https://www.a-hub.co/",
                 "logo": "ahub.png"
-            },
+            }  
+        ]
+    },
+    {
+        "category_name": "",
+        "sponsors": [
             {
                 "name": "MSI India",
                 "link": "https://in.msi.com/",
