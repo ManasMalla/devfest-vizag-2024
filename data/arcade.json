@@ -43,7 +43,7 @@
         "id": "103",
         "name": "Ishwarya's Ignite",
         "link": "/arcade/ishwaryas-ignite",
-        "available": false,
+        "available": true,
         "image": "ishwarya-ignite.png",
         "description": "Help Ishwarya complete her assignment before I/O on time.",
         "author": [

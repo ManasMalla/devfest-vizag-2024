@@ -9,6 +9,7 @@ export default defineNuxtConfig({
   css: ['~/assets/main.css'],
   modules: [
     'nuxt-vuefire',
+    'nuxt-monaco-editor',
     (_options, nuxt) => {
       nuxt.hooks.hook("vite:extendConfig", (config) => {
         // @ts-expect-error
@@ -17,7 +18,15 @@ export default defineNuxtConfig({
     },
     'nuxt-gtag',
     "nuxt-marquee"
-],
+  ],
+  monacoEditor: {
+    // These are default values:
+    locale: 'en',
+    componentName: {
+      codeEditor: 'MonacoEditor',
+      diffEditor: 'MonacoDiffEditor'
+    }
+  },
   vuefire: {
     config: {
       apiKey: 'AIzaSyBUeJeTLIACj6WP8XAfkYkBbVJqQReO0SY',
@@ -43,4 +52,5 @@ export default defineNuxtConfig({
   gtag: {
     id: "G-NLQ83656QY",
   },
+  
 });
