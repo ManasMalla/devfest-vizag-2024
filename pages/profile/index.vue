@@ -38,8 +38,8 @@
               <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name"
                 class="mt-2">{{ userDetails.company.designation }}, {{ userDetails.company.name }}</p>
               <p v-if="userDetails && userDetails.communityTitle">{{ userDetails.communityTitle }}</p>
-              <a style="" :href="'devfest.vizag.dev/profile/' + userDetails.username"
-                v-if="userDetails && userDetails.username">devfest.vizag.dev/profile/{{ userDetails.username }}</a>
+              <a style="display: flex; align-items: center;  column-gap: 4px; margin-top: 12px; border: 1px solid #dadce0; color: #1a73e8; padding: 6px 12px; border-radius: 48px; text-decoration:none;" :href="'https://devfest.vizag.dev/p/' + userDetails.username"
+                v-if="userDetails && userDetails.username">devfest.vizag.dev/p/{{ userDetails.username }} <v-icon size="16">mdi-arrow-top-right</v-icon></a>
               <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
               <div v-if="userDetails && !showEditor"
                 style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
