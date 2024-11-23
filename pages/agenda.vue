@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 80vw;">
+  <div style="width: 80vw; margin-top: 36px;">
     <div class="calendar__3ASh5">
       <!-- Time Bar -->
       <div class="timeBar__b9M84">
@@ -14,10 +14,10 @@
           <span class="dateWeekday__c6J_B">{{ day.weekday }}</span>
           <span class="dateDayNumber__KJVBf">{{ day.day }}</span>
         </div>
-
-        <div class="row__WRVvc">
-          <div v-for="(event, idx) in day.events" :key="idx" :class="['event__YGTKe', event.color]"
-            :style="'grid-column: ' + (idx == 0 ? '1/24' : '24/48')">
+        <div class="row__WRVvc" v-for="track in day.tracks">
+          <div v-for="(event, idx) in track.events" :key="idx"
+            :class="['event__YGTKe', ['eventRed__2g88B', 'eventBlue__3pTyG', 'eventYellow__1FduS', 'eventGreen__2A2MQ'].sort(() => 0.5 - Math.random())[0]]"
+            :style="'grid-column: ' + (calculateTimeline(event.start_at, event.stop_at))">
             <div class="eventIcon__3jIwU">
               <svg><!-- Icon Here --></svg>
             </div>
@@ -32,13 +32,39 @@
   </div>
 </template>
 
+<script setup>
+const { ushaAgenda } = useJSONData();
+const tracks = [...new Set(ushaAgenda.map((agenda) => agenda.track_title))];
+console.log(tracks);
+const dayOneTracks = ushaAgenda.filter((agenda) => (new Date(ushaAgenda[0].start_at)).getDate() == 7);
+console.log(dayOneTracks);
+const days = [
+  {
+    weekday: "Mon",
+    day: 20,
+    tracks: tracks.map((track) => {
+      return {
+        track,
+        events: dayOneTracks.filter((agenda) => agenda.track_title === track),
+      };
+    }),
+  },
+];
+function calculateTimeline(a, b) {
+  const s = new Date(a);
+  const e = new Date(b);
+  const offset = s - new Date(s.getFullYear(), s.getMonth(), s.getDate(), 8, 0, 0);
+  const duration = e - s;
+  return `${(offset / 60000) / 10 + 1} / span ${(duration / 60000) / 10}`;
+}
+</script>
+
 <script>
 export default {
   data() {
     return {
       times: [
-        "7AM",
-        "8",
+        "8AM",
         "9",
         "10",
         "11",
@@ -47,30 +73,7 @@ export default {
         "2",
         "3",
         "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10PM",
-        "11"
-      ],
-      days: [
-        {
-          weekday: "Mon",
-          day: 20,
-          events: [
-            { title: "Meeting", time: "9:00 AM", color: "eventRed__2g88B" },
-            { title: "Workout", time: "6:00 PM", color: "eventGreen__2A2MQ" },
-          ],
-        },
-        {
-          weekday: "Tue",
-          day: 21,
-          events: [
-            { title: "Coding Session", time: "10:00 AM", color: "eventBlue__3pTyG" },
-          ],
-        },
+        "5PM",
       ],
       headers: ["Route", "Start Time", "End Time", "Stops"],
       routes: [
@@ -140,7 +143,7 @@ export default {
 @media screen and (min-width: 1024px) {
   .timeBar__b9M84 {
     display: grid;
-    grid-template-columns: repeat(68, 1fr);
+    grid-template-columns: repeat(42, 1fr);
     height: 100%;
     padding-bottom: 20px;
     position: absolute;
@@ -297,6 +300,7 @@ export default {
   font-weight: 500;
   font-family: "Roboto", arial, sans-serif;
   margin-bottom: 2px;
+
 }
 
 @media screen and (min-width: 1024px) {
@@ -306,6 +310,11 @@ export default {
     font-weight: 400;
     font-family: "Google Sans", arial, sans-serif;
     margin-bottom: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    text-overflow: ellipsis;
   }
 }
 
