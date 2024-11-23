@@ -20,8 +20,8 @@
             Our mission is to equip our community members with practical skills,
             enabling them to communicate their insights.
           </p>
-          <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
-            <img :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
+          <div class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
+            <img :src="userDetails.photoURL" alt="Profile Picture"
               style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50" width="160"
               height="160" />
             <div
@@ -30,7 +30,7 @@
                 style="position: absolute; height: 180px; width: 180px; border-radius: 100px; border: 1px solid #202023; top:-106px; background-color: #fff; clip-path: inset(58% 0 0 0);" />
               <div style="height: 80px;" />
               <div style="display: flex; align-items: center; column-gap: 8px; font-size: 20px;">
-                <p>{{ user.displayName }}</p>
+                <p>{{ userDetails.displayName }}</p>
                 <p
                   style="padding: 6px 12px;font-size: 12px; border-radius: 6px; color: #202023; border: 1px #202023 solid; background-color: #f9ab00; width: fit-content;">
                   Attendee</p>
@@ -38,8 +38,8 @@
               <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name"
                 class="mt-2">{{ userDetails.company.designation }}, {{ userDetails.company.name }}</p>
               <p v-if="userDetails && userDetails.communityTitle">{{ userDetails.communityTitle }}</p>
-              <a style="" :href="'devfest.vizag.dev/profile/' + userDetails.username"
-                v-if="userDetails && userDetails.username">devfest.vizag.dev/profile/{{ userDetails.username }}</a>
+              <a style="display: flex; align-items: center;  column-gap: 4px; margin-top: 12px; border: 1px solid #dadce0; color: #1a73e8; padding: 6px 12px; border-radius: 48px; text-decoration:none;" :href="'https://devfest.vizag.dev/p/' + userDetails.username"
+                v-if="userDetails && userDetails.username">devfest.vizag.dev/p/{{ userDetails.username }} <v-icon size="16">mdi-arrow-top-right</v-icon></a>
               <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
               <div v-if="userDetails && !showEditor"
                 style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
@@ -48,33 +48,19 @@
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Bio</p>
                 <p v-if="userDetails.bio">{{ userDetails.bio }}</p>
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Stats</p>
-                <p><v-icon>mdi-star-circle-outline</v-icon> {{ badges.length }} • Badges earned</p>
+                <p><v-icon>mdi-star-circle-outline</v-icon> {{ badges.filter((e) => e.earned).length }} • Badges earned
+                </p>
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Links</p>
 
                 <ul v-if="userDetails.socials" style="list-style: none;">
-                  <li style="display: flex; column-gap: 12px;" v-for="item in userDetails.socials" :key="item.icon">
+                  <li style="display: flex; column-gap: 12px; margin-top: 8px; margin-bottom: 8px"
+                    v-for="item in userDetails.socials" :key="item.icon">
                     <v-icon>{{ item.icon }}</v-icon>
-                    <a :href="item.provider == 'instagram' ? ('https://instagram.com/' + item.name) : (item.name)"
+                    <a :href="item.provider == 'instagram' ? ('https://instagram.com/' + item.name) : item.provider == 'github' ? ('https://github.com/' + item.name) : item.provider == 'linkedin' ? ('https://linkedin.com/in/' + item.name) : (item.name)"
                       target="_blank" style="text-decoration: none; color: #202023;">{{ item.name }}</a>
                   </li>
                 </ul>
               </div>
-              <div v-if="showEditor" style="width: 100%;">
-                <v-form @submit.prevent="updateUserData">
-                  <v-text-field v-model="userDetails.username" label="Username" style="width: 90%;"></v-text-field>
-                  <v-text-field v-model="userDetails.city" label="City/Town" style="width: 90%;"></v-text-field>
-                  <v-textarea v-model="userDetails.bio" label="Bio" style="width: 90%;"></v-textarea>
-                  <v-text-field v-for="social in userDetails.socials" v-model="social.name" :label="social.provider"
-                    style="width: 90%;"></v-text-field>
-                  <button v-if="showEditor"
-                    style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">{{
-                      showEditor ? 'Submit' : 'Update Profile' }}</button>
-                </v-form>
-              </div>
-              <v-divider v-if="userDetails" style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
-              <button v-if="!showEditor" :onclick="showOrHideEditor"
-                style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">{{
-                  showEditor ? 'Submit' : 'Update Profile' }}</button>
             </div>
           </div>
         </v-col>
@@ -88,7 +74,7 @@
                     <v-container v-bind="activatorProps"
                       style="display: flex; flex-direction: column; align-items: center; justify-items: center">
                       <div style="position: relative; width: 70%; cursor: pointer;">
-                        <img :src="'img/arcade/badges/' + item.image"
+                        <img :src="'/img/arcade/badges/' + item.image"
                           :style="'width: 100%;' + (item.earned ? '' : 'filter: saturate(0); opacity: 0.3;')" />
                         <v-icon v-if="!item.earned"
                           style="position: absolute; margin: auto; top: 0; left:0; right: 0; bottom: 0; font-size: 48px; color: rgb(90, 90, 90);">mdi-lock</v-icon>
@@ -105,7 +91,7 @@
                     <v-container fluid>
                       <v-row>
                         <v-col cols="3">
-                          <v-img :src="'img/arcade/badges/' + item.image" style="width: 100%" />
+                          <v-img :src="'/img/arcade/badges/' + item.image" style="width: 100%" />
                         </v-col>
                         <v-col>
                           <h1 class="mt-3 mb-0">{{ item.name }}</h1>
@@ -145,19 +131,20 @@
 </template>
 
 <script setup>
-
+const socialProviders = [
+  { label: 'Instagram', value: 'instagram', icon: 'mdi-instagram' },
+  { label: 'GitHub', value: 'github', icon: 'mdi-github' },
+  { label: 'LinkedIn', value: 'linkedin', icon: 'mdi-linkedin' },
+  { label: 'Website', value: 'website', icon: 'mdi-globe  ' },
+];
+let sp;
 function showOrHideEditor() {
-  showEditor.value = !showEditor.value;
-}
-
-function updateUserData(event) {
-  console.log('User Details', userDetails);
   showEditor.value = !showEditor.value;
 }
 
 // Reactive variables
 const dialog = ref(false);
-import { collection, doc, getDocs } from 'firebase/firestore';
+import { collection, doc, getDocs, limit, query, where } from 'firebase/firestore';
 import moment from 'moment';
 
 const { mainData } = useJSONData();
@@ -166,16 +153,21 @@ const db = useFirestore();
 const badges = useState('badges', () => []);
 const userDetails = useState('userDetails', () => ({}));
 const showEditor = useState('showEditor', () => false);
+const route = useRoute();
 
-onMounted(() => {
-  watch(user, async (newUser) => {
-    if (user.value) {
-      const { data: config, promise } = useDocument(doc(db, "users", user.value.uid));
-      const uD = await promise.value;
-      // console.log('Company Details', uD.company);
-      userDetails.value = uD;
+
+onMounted(async () => {
+console.log(route.params.username);
+       const q = query(collection(db, "users"), where("username", "==", route.params.username), limit(1));
+       const snapshot = await getDocs(q);
+       let profileUID;
+       snapshot.forEach((doc)=> {
+        userDetails.value = doc.data();
+        profileUID = doc.id;
+       });
+      // console.log('Company Details', uD.company); userDetails.value = uD;
       // console.log('Company State', userDetails.value.company);
-      const arcadeDataRef = computed(() => collection(db, "users", user.value.uid, "arcade"));
+      const arcadeDataRef = computed(() => collection(db, "users", profileUID , "arcade"));
       const arcadeData = await getDocs(arcadeDataRef.value);
       var badgeData = [];
       arcadeData.forEach((doc) => {
@@ -197,8 +189,8 @@ onMounted(() => {
         earned: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompletedGoogle || false,
         description: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompletedGoogle ? "Congratulations, Google Guru! 🎉 You've aced the quiz and proven your tech expertise! This badge is a symbol of your tech brilliance and your passion for learning. #DevFestGoogleGuru. Let the world know your tech skills. Share your success and inspire others! 🚀" : "Think you know all Google? A Googolous adventure treasure awaits!\nIgnite your Google spirit! Unravel the secrets of the tech giant by conquering the Google Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Google Quiz. ",
       });
-    }
-  });
+     
+    
 });
 definePageMeta({
   layout: false,
