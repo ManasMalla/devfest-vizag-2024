@@ -239,7 +239,6 @@ const auth = useFirebaseAuth();
 
 const { mainData } = useJSONData();
 const user = useCurrentUser();
-console.log(Object.keys(user));
 const db = useFirestore();
 const badges = useState('badges', () => []);
 const userDetails = useState('userDetails', () => ({}));
