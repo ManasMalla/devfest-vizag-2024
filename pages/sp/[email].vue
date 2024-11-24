@@ -53,7 +53,7 @@ async function updateUserPassword() {
             await updatePassword(auth.currentUser, password.value);
             auth.signOut();
             console.log("Password updated successfully");
-            navigateTo('/login');
+            navigateTo('/login', { replace: true });
         } catch (e) {
             console.log(e);
             alert("An error occurred. Please try again later", e);
