@@ -36,35 +36,42 @@
         </v-container>
     </NuxtLayout>
 </template>
+
+<script>
+import { GoogleAuthProvider } from 'firebase/auth'
+export const googleAuthProvider = new GoogleAuthProvider()
+definePageMeta({
+    layout: false,
+});
+</script>
+
 <script setup>
-import { signInWithEmailAndPassword, updatePassword, browserLocalPersistence, setPersistence } from 'firebase/auth';
+import { signInWithEmailAndPassword, updatePassword, browserLocalPersistence, setPersistence, signInWithPopup } from 'firebase/auth';
 import { useCurrentUser, useFirebaseAuth } from 'vuefire';
+
 
 const auth = useFirebaseAuth();
 const userC = useCurrentUser();
 
-function signinWithFirebase() {
+async function signinWithFirebase() {
     console.log('signing in')
-    signInWithPopup(auth, googleAuthProvider).catch((reason) => {
+    await signInWithPopup(auth, googleAuthProvider).catch((reason) => {
         console.error('Failed sign', reason)
     })
+    navigateTo('/profile');
 }
 
 async function signInWithEmail() {
     try {
         // await setPersistence(auth, browserLocalPersistence);
         await signInWithEmailAndPassword(auth, email.value, password.value);
-        router.push('/profile');
+        navigateTo('/profile');
     } catch (e) {
         console.log(e);
         alert("An error occurred. Please try again later", e);
     }
 }
 
-const router = useRouter();
-definePageMeta({
-    layout: false,
-});
 let email = useState('email', () => '');
 let password = useState('password', () => '');
 
