@@ -21,14 +21,19 @@
             enabling them to communicate their insights.
           </p>
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
-            <img :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
+            <img v-if="user.photoURL != null" :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
               style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50" width="160"
+              height="160" />
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+              v-if="user.photoURL == null"
+              style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50;" width="160"
               height="160" />
             <div
               style="display:flex; width: 100%; align-items: center; flex-direction: column; outline: 1px solid #202023; border-radius: 24px; padding: 24px; transform: translateY(-80px); position: relative;">
               <div
                 style="position: absolute; height: 180px; width: 180px; border-radius: 100px; border: 1px solid #202023; top:-106px; background-color: #fff; clip-path: inset(58% 0 0 0);" />
-              <div style="height: 80px;" />
+              <div style="height: 80px;"></div>
               <div style="display: flex; align-items: center; column-gap: 8px; font-size: 20px;">
                 <p>{{ user.displayName }}</p>
                 <p
@@ -38,19 +43,25 @@
               <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name"
                 class="mt-2">{{ userDetails.company.designation }}, {{ userDetails.company.name }}</p>
               <p v-if="userDetails && userDetails.communityTitle">{{ userDetails.communityTitle }}</p>
-              <a style="display: flex; align-items: center;  column-gap: 4px; margin-top: 12px; border: 1px solid #dadce0; color: #1a73e8; padding: 6px 12px; border-radius: 48px; text-decoration:none;" :href="'https://devfest.vizag.dev/p/' + userDetails.username"
-                v-if="userDetails && userDetails.username">devfest.vizag.dev/p/{{ userDetails.username }} <v-icon size="16">mdi-arrow-top-right</v-icon></a>
+              <a style="display: flex; align-items: center;  column-gap: 4px; margin-top: 12px; border: 1px solid #dadce0; color: #1a73e8; padding: 6px 12px; border-radius: 48px; text-decoration:none;"
+                :href="'https://devfest.vizag.dev/p/' + userDetails.username"
+                v-if="userDetails && userDetails.username">devfest.vizag.dev/p/{{ userDetails.username }} <v-icon
+                  size="16">mdi-arrow-top-right</v-icon></a>
               <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
               <div v-if="userDetails && !showEditor"
                 style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
-                <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">City/Town</p>
-                <p v-if="userDetails.city">{{ userDetails.city }}</p>
-                <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Bio</p>
-                <p v-if="userDetails.bio">{{ userDetails.bio }}</p>
+                <p v-if="userDetails.city && userDetails.city != ''"
+                  style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">City/Town</p>
+                <p v-if="userDetails.city && userDetails.city != ''">{{ userDetails.city }}</p>
+                <p v-if="userDetails.bio && userDetails.bio != ''"
+                  style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Bio</p>
+                <p v-if="userDetails.bio && userDetails.bio != ''">{{ userDetails.bio }}</p>
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Stats</p>
                 <p><v-icon>mdi-star-circle-outline</v-icon> {{ badges.filter((e) => e.earned).length }} • Badges earned
                 </p>
-                <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Links</p>
+                <p v-if="(userDetails.socials?.length ?? 0) > 0"
+                  style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">
+                  Links</p>
 
                 <ul v-if="userDetails.socials" style="list-style: none;">
                   <li style="display: flex; column-gap: 12px; margin-top: 8px; margin-bottom: 8px"
@@ -89,9 +100,17 @@
                 </v-form>
               </div>
               <v-divider v-if="userDetails" style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
-              <button v-if="!showEditor" :onclick="showOrHideEditor"
-                style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">{{
-                  showEditor ? 'Submit' : 'Update Profile' }}</button>
+              <v-row style="column-gap: 12px;">
+                <button v-if="!showEditor" :onclick="showOrHideEditor"
+                  style="border: 1.5px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">{{
+                    showEditor ? 'Submit' : 'Update Profile' }}</button>
+                <button @click="() => {
+                  auth.signOut();
+                  $router.push('/');
+                }" style="background-color: #1a73e8; color: white; border: 1.5px solid #1a73e8; padding: 6px 16px; margin-top: 12px;
+                  border-radius: 40px; font-size: 14px;">Sign
+                  Out</button>
+              </v-row>
             </div>
           </div>
         </v-col>
@@ -156,7 +175,6 @@
           </v-card>
         </v-col>
       </v-row>
-
     </v-container>
   </NuxtLayout>
 </template>
@@ -213,25 +231,39 @@ function removeSocial(index) {
 }
 // Reactive variables
 const dialog = ref(false);
-import { set } from 'firebase/database';
+import { signOut } from 'firebase/auth';
 import { collection, doc, getDocs, updateDoc, query, where, getCountFromServer } from 'firebase/firestore';
 import moment from 'moment';
 
+const auth = useFirebaseAuth();
+
 const { mainData } = useJSONData();
 const user = useCurrentUser();
+console.log(Object.keys(user));
 const db = useFirestore();
 const badges = useState('badges', () => []);
 const userDetails = useState('userDetails', () => ({}));
 const showEditor = useState('showEditor', () => false);
-
+// const data = useState('udata', () => false);
 
 onMounted(() => {
   watch(user, async (newUser) => {
+    console.log(user.value?.displayName);
     if (user.value) {
+      console.log("123", user.value?.displayName);
+      // data.value = true;
       const { data: config, promise } = useDocument(doc(db, "users", user.value.uid));
       const uD = await promise.value;
       // console.log('Company Details', uD.company);
       userDetails.value = uD;
+      if (userDetails.value == null) {
+        userDetails.value = {
+          username: '',
+          bio: '',
+          city: '',
+          socials: [],
+        };
+      }
       // console.log('Company State', userDetails.value.company);
       const arcadeDataRef = computed(() => collection(db, "users", user.value.uid, "arcade"));
       const arcadeData = await getDocs(arcadeDataRef.value);

@@ -13,10 +13,10 @@
                 "logo": "gitam.png"
             },
             {
-                "name": "ā-hub",
-                "link": "https://www.a-hub.co/",
-                "logo": "ahub.png"
-            }  
+                "name": "TheDigiFac",
+                "link": "https://www.thedigifac.com/",
+                "logo": "thedigifac.png"
+            }
         ]
     },
     {
@@ -26,7 +26,12 @@
                 "name": "MSI India",
                 "link": "https://in.msi.com/",
                 "logo": "msi.png"
-            }   
+            },
+            {
+                "name": "ā-hub",
+                "link": "https://www.a-hub.co/",
+                "logo": "ahub.png"
+            }
         ]
     },
     {
