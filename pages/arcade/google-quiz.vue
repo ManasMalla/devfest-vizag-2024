@@ -14,7 +14,7 @@
         <v-col md="3" sm="8" class="ml-4"
           style="border: 2px #202023 solid; padding: 16px; margin-bottom: 12px; border-radius: 24px; width: fit-content; display: flex; justify-content: center; align-items: center;">
           <p style="font-size: 4rem;">{{ Math.floor(countdown / 60) }}:{{ countdown % 60 < 10 ? '0' : '' }}{{ countdown
-              % 60 }}</p>
+            % 60 }}</p>
         </v-col>
       </v-row>
 
@@ -53,21 +53,22 @@
                 <input type="radio" :disabled="showAnswersGoogle" id="option" :value="option" :name="item.question">
                 <label for={option}
                   :style="showAnswersGoogle && option == item.correct ? 'color: #34a853; font-weight: 600' : ''">{{
-                  option }}</label>
+                    option }}</label>
               </div>
             </div>
             <div v-if="showAnswersGoogle == true"
               style="border-radius: 12px; background-color: #c3ecf6; padding: 20px; margin: 12px 12px; display: flex; column-gap: 12px;">
               <v-icon>mdi-lightbulb-on-outline</v-icon>
               <p v-if="item.hasOwnProperty('triviaLink')">
-                <a :href="item.triviaLink" target="_blank" rel="noopener noreferrer" style="margin:0;display:inline;float:left">X</a>
+                <a :href="item.triviaLink" target="_blank" rel="noopener noreferrer"
+                  style="margin:0;display:inline;float:left">X</a>
               <p style="margin:0;display:inline;float:right">{{ item.trivia }}</p>
               </p>
               <p v-else>{{ item.trivia }}</p>
             </div>
           </div>
         </div>
-        <button type="button" :disabled="showAnswersGoogle"
+        <button type="submit" :disabled="showAnswersGoogle"
           :style="'padding: 12px 24px; color: black; margin-top: 16px; border-radius: 8px; background-color:' + (showAnswersGoogle ? '#e5e5e5' : '#f9ab00')">
           Submit
         </button>

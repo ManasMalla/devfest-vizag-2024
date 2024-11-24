@@ -8,10 +8,14 @@
         </v-col>
         <v-col>
           <h2>Light Up the Leaderboard ✨</h2>
-          <p style="max-width: 86ch">Ready to shine brighter than a diya 🪔?<br/>From mythology to traditions, put your Diwali knowledge to the test in this exciting quiz and see if you have what it takes to conquer the leaderboard!. Climb the leaderboard and win amazing prizes! </p>
+          <p style="max-width: 86ch">Ready to shine brighter than a diya 🪔?<br />From mythology to traditions, put your
+            Diwali knowledge to the test in this exciting quiz and see if you have what it takes to conquer the
+            leaderboard!. Climb the leaderboard and win amazing prizes! </p>
         </v-col>
-        <v-col md="3" sm="8" class="ml-4" style="border: 2px #202023 solid; padding: 16px; margin-bottom: 12px; border-radius: 24px; width: fit-content; display: flex; justify-content: center; align-items: center;">
-          <p style="font-size: 4rem;">{{ Math.floor(countdown / 60) }}:{{ countdown % 60 < 10 ? '0' : '' }}{{ countdown % 60 }}</p>
+        <v-col md="3" sm="8" class="ml-4"
+          style="border: 2px #202023 solid; padding: 16px; margin-bottom: 12px; border-radius: 24px; width: fit-content; display: flex; justify-content: center; align-items: center;">
+          <p style="font-size: 4rem;">{{ Math.floor(countdown / 60) }}:{{ countdown % 60 < 10 ? '0' : '' }}{{ countdown
+              % 60 }}</p>
         </v-col>
       </v-row>
 
@@ -32,7 +36,8 @@
           </v-container>
         </v-row>
       </v-container>
-      <v-container v-if="userScore >= 0" style="margin-top: 24px; width: fit-content; border: 2px #202023 solid; border-radius: 16px; background-color: #e3e3e3;">
+      <v-container v-if="userScore >= 0"
+        style="margin-top: 24px; width: fit-content; border: 2px #202023 solid; border-radius: 16px; background-color: #e3e3e3;">
         Score: {{ userScore }}/{{ diwaliQuizData.length }}
       </v-container>
       <form @submit.prevent="submitQuiz"
@@ -47,16 +52,19 @@
               style="display: flex; justify-content: start; align-items: start; gap: 4px">
               <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
                 <input type="radio" :disabled="showAnswers" id="option" :value="option" :name="item.question">
-                <label for={option} :style="showAnswers && option == item.correct ? 'color: #34a853; font-weight: 600' : ''">{{ option }}</label>
+                <label for={option}
+                  :style="showAnswers && option == item.correct ? 'color: #34a853; font-weight: 600' : ''">{{ option
+                  }}</label>
               </div>
             </div>
-            <div v-if="showAnswers == true" style="border-radius: 12px; background-color: #c3ecf6; padding: 20px; margin: 12px 12px; display: flex; column-gap: 12px;">
+            <div v-if="showAnswers == true"
+              style="border-radius: 12px; background-color: #c3ecf6; padding: 20px; margin: 12px 12px; display: flex; column-gap: 12px;">
               <v-icon>mdi-lightbulb-on-outline</v-icon>
               <p>{{ item.trivia }}</p>
             </div>
           </div>
         </div>
-        <button type="button" :disabled="showAnswers"
+        <button type="submit" :disabled="showAnswers"
           :style="'padding: 12px 24px; color: black; margin-top: 16px; border-radius: 8px; background-color:' + (showAnswers ? '#e5e5e5' : '#f9ab00')">
           Submit
         </button>
@@ -67,14 +75,14 @@
 
 
 <script setup>
-import { useFirestore }  from 'vuefire';
+import { useFirestore } from 'vuefire';
 import { useCurrentUser } from 'vuefire';
-import { doc, setDoc } from "firebase/firestore"; 
+import { doc, setDoc } from "firebase/firestore";
 
 const { mainData, diwaliQuizData } = useJSONData();
-const showAnswers = useState('showAnswers', ()=>false);
-const countdown = useState('countdown', ()=> 300);
-const userScore = useState('userScore', ()=> -1);
+const showAnswers = useState('showAnswers', () => false);
+const countdown = useState('countdown', () => 300);
+const userScore = useState('userScore', () => -1);
 
 const db = useFirestore()
 const user = useCurrentUser();
@@ -85,28 +93,28 @@ onNuxtReady(() => {
   countdown.value = parseInt(window.localStorage.getItem('countdown')) || 300;
   userScore.value = parseInt(window.localStorage.getItem('userScore')) || -1;
 
-  if(window.localStorage.getItem('quizCompleted') === 'true'){
+  if (window.localStorage.getItem('quizCompleted') === 'true') {
     const userAnswers = JSON.parse(window.localStorage.getItem('userAnswers'));
     diwaliQuizData.forEach(item => {
       const selectedOption = userAnswers.find(answer => answer.question === item.question);
-      if(selectedOption){
+      if (selectedOption) {
         item.selectedOption = selectedOption.selectedOption;
       }
       // show the user answer by setting radio
       const radio = document.querySelector(`input[name="${item.question}"][value="${item.selectedOption}"]`);
-      if(radio){
+      if (radio) {
         radio.checked = true;
       }
     });
   }
 
   const timer = setInterval(() => {
-  countdown.value -= 1;
-  if (countdown.value <= 0 || showAnswers.value) {
-    clearInterval(timer);
-    submitQuiz();
-  }
-}, 1000);
+    countdown.value -= 1;
+    if (countdown.value <= 0 || showAnswers.value) {
+      clearInterval(timer);
+      submitQuiz();
+    }
+  }, 1000);
 });
 definePageMeta({
   middleware: ['auth'],
@@ -135,7 +143,7 @@ useSeoMeta({
 });
 function submitQuiz(event) {
   showAnswers.value = true;
-  
+
   // Create an array to hold user answers
   const userAnswers = [];
 
@@ -143,7 +151,7 @@ function submitQuiz(event) {
   diwaliQuizData.forEach(item => {
     // Get the selected value for each question
     const selectedOption = event.target.querySelector(`input[name="${item.question}"]:checked`);
-    
+
     // If an option is selected, add it to the userAnswers array
     if (selectedOption) {
       userAnswers.push({
@@ -153,7 +161,7 @@ function submitQuiz(event) {
     }
   });
   const userScoreCalculated = userAnswers.reduce((score, answer) => {
-    
+
     if (answer.selectedOption === diwaliQuizData.find(item => item.question === answer.question).correct) {
       return score + 1;
     }
@@ -167,14 +175,14 @@ function submitQuiz(event) {
   window.localStorage.setItem('countdown', countdown);
   console.log(db);
   console.log(user.value.uid);
-  const firestoreDoc = setDoc(doc(db, "users",user.value.uid,"arcade","diwali"), {
+  const firestoreDoc = setDoc(doc(db, "users", user.value.uid, "arcade", "diwali"), {
     uid: user.value.uid,
     userAnswers: JSON.stringify(userAnswers),
     userScore: userScoreCalculated,
     timestamp: new Date(),
     quizCompleted: true,
     countdown: countdown.toString()
-  }, { merge: true});
+  }, { merge: true });
   alert("You've just earned the Diwali Dhamaka badge. Check it out on your profile.")
   // Log the collected answers
   console.log("User Answers:", userAnswers);
