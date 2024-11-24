@@ -13,8 +13,8 @@
       <v-spacer></v-spacer>
       <div class="mx-4 d-none d-sm-none d-md-flex d-lg-flex">
         <template v-for="(item, index) in navbarData" :key="index">
-          <v-btn :class="{ 'active-btn': $route.path === item.path && item.path !== '/#sponsors' }" rounded size="small"
-            style="text-transform: capitalize" :to="item.path" class="mx-1" v-if="item.visible">{{ item.name }}</v-btn>
+          <v-btn rounded size="small" style="text-transform: capitalize" :to="item.path" class="mx-1"
+            v-if="item.visible">{{ item.name }}</v-btn>
         </template>
       </div>
 
@@ -119,13 +119,6 @@ const drawerAction = () => {
     max-width: 1000px !important;
     margin-left: auto !important;
     margin-right: auto !important;
-
   }
-}
-
-.active-btn {
-  background-color: #ffeb3b !important;
-  /* Highlight color */
-  color: #000 !important;
 }
 </style>
