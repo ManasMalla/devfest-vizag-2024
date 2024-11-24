@@ -13,8 +13,8 @@
       <v-spacer></v-spacer>
       <div class="mx-4 d-none d-sm-none d-md-flex d-lg-flex">
         <template v-for="(item, index) in navbarData" :key="index">
-          <v-btn rounded size="small" style="text-transform: capitalize" :to="item.path" class="mx-1"
-            v-if="item.visible">{{ item.name }}</v-btn>
+          <v-btn :class="{ 'active-btn': $route.path === item.path && item.path !== '/#sponsors' }" rounded size="small"
+            style="text-transform: capitalize" :to="item.path" class="mx-1" v-if="item.visible">{{ item.name }}</v-btn>
         </template>
       </div>
 
@@ -49,8 +49,11 @@
         </p>
         <NuxtMarquee>
           <div style="display: flex; align-items: center;" v-for="announcement in announcements">
-            <p class="mx-3">{{ announcement.text }}<a v-if="announcement.action != undefined"
-                :href="announcement.action.link">{{ announcement.action.text }}</a></p>
+            <p class="mx-3">{{ announcement.text }}<a
+                style="margin: 0px 8px; color: #174EA6; font-weight: 600; text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px;"
+                v-if="announcement.action != undefined" :href="announcement.action.link">{{ announcement.action.text
+                }}</a>
+            </p>
             <p>•</p>
           </div>
         </NuxtMarquee>
@@ -116,6 +119,13 @@ const drawerAction = () => {
     max-width: 1000px !important;
     margin-left: auto !important;
     margin-right: auto !important;
+
   }
+}
+
+.active-btn {
+  background-color: #ffeb3b !important;
+  /* Highlight color */
+  color: #000 !important;
 }
 </style>
