@@ -58,14 +58,14 @@ async function signinWithFirebase() {
     await signInWithPopup(auth, googleAuthProvider).catch((reason) => {
         console.error('Failed sign', reason)
     })
-    navigateTo('/profile', { replace: true });
+    navigateTo('/', { replace: true });
 }
 
 async function signInWithEmail() {
     try {
         // await setPersistence(auth, browserLocalPersistence);
         await signInWithEmailAndPassword(auth, email.value, password.value);
-        navigateTo('/profile', { replace: true });
+        navigateTo('/', { replace: true });
     } catch (e) {
         console.log(e);
         alert("An error occurred. Please try again later", e);
