@@ -8,9 +8,10 @@
                 </v-col>
                 <v-col cols="12" lg="6">
                     <h1>Set Password</h1>
-                    <p class="mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam rerum optio,
-                        laboriosam
-                        repellendus accusantium perferendis.</p>
+                    <p class="mb-8 mt-4">
+                        Please set a password for your account.<br />This password will be used to login to your
+                        account.
+                    </p>
                     <v-text-field v-model="$route.params.email" readonly label="Email Address"></v-text-field>
                     <v-text-field :type="showPassword ? 'text' : 'password'" v-model="password" label="Password"
                         append-inner-icon="mdi-eye" @click:append-inner="() => {

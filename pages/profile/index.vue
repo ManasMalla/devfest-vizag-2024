@@ -21,8 +21,13 @@
             enabling them to communicate their insights.
           </p>
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
-            <img :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
+            <img v-if="user.photoURL != null" :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
               style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50" width="160"
+              height="160" />
+            <img
+              src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+              v-if="user.photoURL == null"
+              style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50;" width="160"
               height="160" />
             <div
               style="display:flex; width: 100%; align-items: center; flex-direction: column; outline: 1px solid #202023; border-radius: 24px; padding: 24px; transform: translateY(-80px); position: relative;">
@@ -54,7 +59,8 @@
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Stats</p>
                 <p><v-icon>mdi-star-circle-outline</v-icon> {{ badges.filter((e) => e.earned).length }} • Badges earned
                 </p>
-                <p v-if="userDetails.socials.length > 0" style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">
+                <p v-if="(userDetails.socials?.length ?? 0) > 0"
+                  style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">
                   Links</p>
 
                 <ul v-if="userDetails.socials" style="list-style: none;">
@@ -169,12 +175,6 @@
           </v-card>
         </v-col>
       </v-row>
-      <button @click="() => {
-        auth.signOut();
-        $router.push('/');
-      }" style="background-color: #1a73e8; color: white; border: 1.5px solid #1a73e8; padding: 6px 16px; margin-top: 12px;
-                  border-radius: 40px; font-size: 14px;">Sign
-        Out</button>
     </v-container>
   </NuxtLayout>
 </template>
@@ -235,7 +235,7 @@ import { signOut } from 'firebase/auth';
 import { collection, doc, getDocs, updateDoc, query, where, getCountFromServer } from 'firebase/firestore';
 import moment from 'moment';
 
-const auth = useFirebaseAuth()
+const auth = useFirebaseAuth();
 
 const { mainData } = useJSONData();
 const user = useCurrentUser();
@@ -244,11 +244,14 @@ const db = useFirestore();
 const badges = useState('badges', () => []);
 const userDetails = useState('userDetails', () => ({}));
 const showEditor = useState('showEditor', () => false);
-
+// const data = useState('udata', () => false);
 
 onMounted(() => {
   watch(user, async (newUser) => {
+    console.log(user.value?.displayName);
     if (user.value) {
+      console.log("123", user.value?.displayName);
+      // data.value = true;
       const { data: config, promise } = useDocument(doc(db, "users", user.value.uid));
       const uD = await promise.value;
       // console.log('Company Details', uD.company);

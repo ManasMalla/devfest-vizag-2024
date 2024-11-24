@@ -33,10 +33,11 @@
           font-weight: 100;
         " variant="flat">Get Tickets</v-btn>
       </ClientOnly>
-      <v-btn v-if="!user" @click="signinWithFirebase">Sign in</v-btn>
+      <v-btn v-if="!user" to="/login">Sign in</v-btn>
       <a v-if="user" href="/profile"><v-container height="40" width="40"
           style="object-fit: cover; border-radius: 20px; border: 2px black solid; display: flex; align-items: center; justify-content: center; overflow: hidden">
-          <img :src="user.photoURL"
+          <img
+            :src="user.photoURL || 'https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg'"
             style="border-radius: 20px; width: 34px; height: 34px; object-fit: cover; aspect-ratio: 1;" />
         </v-container></a>
     </v-app-bar>
@@ -78,12 +79,6 @@ const { width, mobile } = useDisplay();
 const user = useCurrentUser()
 
 const auth = useFirebaseAuth()
-function signinWithFirebase() {
-  console.log('signing in')
-  signInWithPopup(auth, googleAuthProvider).catch((reason) => {
-    console.error('Failed sign', reason)
-  })
-}
 
 const screenWidth = ref(width);
 

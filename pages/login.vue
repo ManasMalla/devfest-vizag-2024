@@ -8,28 +8,51 @@
                 </v-col>
                 <v-col cols="12" lg="6">
                     <h1>Login</h1>
-                    <p class="mb-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam rerum optio,
-                        laboriosam
-                        repellendus accusantium perferendis.</p>
+                    <p>{{ userC?.displayName }}</p>
+                    <p class="mb-8">Sign in to join the fun of DevFest 2024: Filled with loads of fun, challenging
+                        arcade, multi-day tickets, packed workshops,
+                        and many more</p>
                     <v-text-field v-model="email" label="Email Address"></v-text-field>
                     <v-text-field :type="showPassword ? 'text' : 'password'" v-model="password" label="Password"
                         append-inner-icon="mdi-eye" @click:append-inner="() => {
                             showPassword = !showPassword;
                         }"></v-text-field>
                     <v-btn @click="signInWithEmail" color="#FBC005">Sign In</v-btn>
+                    <div style="display: flex; align-items: center;">
+                        <v-divider class="my-6"></v-divider>
+                        <p style="margin: 0px 12px;">or,</p>
+                        <v-divider class="my-6"></v-divider>
+                    </div>
+                    <div style="width: 100%; display: flex; justify-content: center;">
+                        <v-btn
+                            style="margin-left: auto; font-weight: 600; height: 56px; width: 100%; border-radius: 12px;"
+                            @click="signinWithFirebase" class="ma-4"><img
+                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Google_%22G%22_logo.svg/2048px-Google_%22G%22_logo.svg.png"
+                                style="height: 16px; width: 16px; margin-right: 12px;" /> Sign In With Google</v-btn>
+
+                    </div>
                 </v-col>
             </v-row>
         </v-container>
     </NuxtLayout>
 </template>
 <script setup>
-import { signInWithEmailAndPassword, updatePassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, updatePassword, browserLocalPersistence, setPersistence } from 'firebase/auth';
 import { useCurrentUser, useFirebaseAuth } from 'vuefire';
 
 const auth = useFirebaseAuth();
+const userC = useCurrentUser();
+
+function signinWithFirebase() {
+    console.log('signing in')
+    signInWithPopup(auth, googleAuthProvider).catch((reason) => {
+        console.error('Failed sign', reason)
+    })
+}
 
 async function signInWithEmail() {
     try {
+        // await setPersistence(auth, browserLocalPersistence);
         await signInWithEmailAndPassword(auth, email.value, password.value);
         router.push('/profile');
     } catch (e) {
