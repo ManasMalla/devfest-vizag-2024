@@ -20,6 +20,7 @@
     "nuxt-gtag": "^3.0.1",
     "nuxt-marquee": "^1.0.4",
     "nuxt-vuefire": "^1.0.4",
+    "octokit": "^4.0.2",
     "vue": "latest",
     "vuefire": "^3.2.0"
   },

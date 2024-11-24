@@ -74,6 +74,7 @@
               </div>
               <div v-if="showEditor" style="width: 100%;">
                 <v-form @submit.prevent="updateUserData">
+                  <v-file-input v-if="userDetails.photoURL === null || userDetails.photoURL === '' || userDetails.photoURL === undefined" label="Upload your Headshot" variant="solo" class="mb-4" name="headshot" ref="fileInput" @change="onImageSelected"></v-file-input>
                   <v-text-field v-model="userDetails.username" label="Username" style="width: 90%;"></v-text-field>
                   <v-text-field v-model="userDetails.city" label="City/Town" style="width: 90%;"></v-text-field>
                   <v-textarea v-model="userDetails.bio" label="Bio" style="width: 90%;"></v-textarea>
@@ -180,12 +181,18 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { Octokit } from 'octokit';
 const socialProviders = [
   { label: 'Instagram', value: 'instagram', icon: 'mdi-instagram' },
   { label: 'GitHub', value: 'github', icon: 'mdi-github' },
   { label: 'LinkedIn', value: 'linkedin', icon: 'mdi-linkedin' },
   { label: 'Website', value: 'website', icon: 'mdi-globe  ' },
 ];
+
+const octokit = new Octokit({
+      auth: process.env.HEADHOST_GITHUB_SECRET_KEY,
+  });
 let sp;
 function showOrHideEditor() {
   showEditor.value = !showEditor.value;
@@ -193,16 +200,20 @@ function showOrHideEditor() {
 
 async function updateUserData(event) {
   // check usernames presence
+  console.log(event);
   const coll = collection(db, "users");
   const q = query(coll, where("username", "==", userDetails.value?.username), where('__name__', "!=", user.value.uid));
   const snapshot = await getCountFromServer(q);
+
+  const headshotURL = userDetails?.value?.photoURL !== '' && userDetails?.value?.photoURL !== null || userDetails?.value?.photoURL !== undefined  ? userDetails?.value?.photoURL.split('=s96-c')[0] : headshotImage.value; 
+
   if (snapshot.data().count == 0) {
     await updateDoc(doc(db, "users", user.value.uid), {
       username: userDetails.value?.username,
       bio: userDetails.value?.bio,
       city: userDetails.value?.city,
       socials: userDetails.value?.socials,
-      photoURL: user.value.photoURL.split('=s96-c')[0],
+      photoURL: headshotURL,
       displayName: user.value.displayName
     });
     showEditor.value = !showEditor.value;
@@ -229,6 +240,47 @@ function removeSocial(index) {
   userDetails.value.socials = userDetails.value.socials.filter((item, i) => i != index);
   sp = socialProviders.filter((e) => !userDetails.value.socials.map((e) => e.provider).includes(e.value));
 }
+
+const onImageSelected = async (e) => {
+  console.log('onImageSelected is called');
+  const file = e.target.files[0];
+  if (file && file.type === 'image/jpeg') {
+    headshotImage.value = await fileToBase64(file);
+    UploadImageToGithub();
+  } else {
+    alert('Please select a JPG image.');
+  }
+};
+
+const UploadImageToGithub = async (e) => {
+  try {
+    if(headshotImage.value){
+      const response = await octokit.request(`PUT /repos/{owner}/{repo}/contents/${userDetails.value.email}`, {
+        owner: 'ChandanKhamitkar',
+        repo: 'devfest-2024-headshot',
+        path: `/contents/${userDetails.value.email}`,
+        message: `Uploaded image for ${userDetails.value.email}`,
+        content: headshotImage.value,
+        committer: { name: userDetails.value.username, email: userDetails.value.email },
+      });
+      // imageUrl.value = `https://raw.githubusercontent.com/ChandanKhamitkar/devfest-2024-headshot/main/applications/${userDetails.value.email}-${userDetails.value.username}`;
+
+      console.log('Response of upload = ', response);
+    }
+  } catch (error) {
+    console.error('Error in Uploading image to github : ', error);
+  }
+};
+
+const fileToBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+};
+
 // Reactive variables
 const dialog = ref(false);
 import { signOut } from 'firebase/auth';
@@ -243,6 +295,8 @@ const db = useFirestore();
 const badges = useState('badges', () => []);
 const userDetails = useState('userDetails', () => ({}));
 const showEditor = useState('showEditor', () => false);
+const fileInput = ref(null);
+const headshotImage = ref(null);
 // const data = useState('udata', () => false);
 
 onMounted(() => {
@@ -288,6 +342,9 @@ onMounted(() => {
       });
     }
   });
+  // octokit.value = new Octokit({
+  //     auth: process.env.HEADHOST_GITHUB_SECRET_KEY,
+  // });
 });
 definePageMeta({
   layout: false,
