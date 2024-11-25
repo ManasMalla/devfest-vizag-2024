@@ -205,7 +205,7 @@ async function updateUserData(event) {
   const q = query(coll, where("username", "==", userDetails.value?.username), where('__name__', "!=", user.value.uid));
   const snapshot = await getCountFromServer(q);
 
-  const headshotURL = userDetails?.value?.photoURL !== '' && userDetails?.value?.photoURL !== null || userDetails?.value?.photoURL !== undefined  ? userDetails?.value?.photoURL.split('=s96-c')[0] : headshotImage.value; 
+  const headshotURL = userDetails?.value?.photoURL === '' || userDetails?.value?.photoURL === null || userDetails?.value?.photoURL === undefined  ? headshotImage.value : userDetails?.value?.photoURL.split('=s96-c')[0]; 
 
   if (snapshot.data().count == 0) {
     await updateDoc(doc(db, "users", user.value.uid), {
@@ -277,7 +277,6 @@ const UploadImageToGithub = async (e) => {
         } 
       });
 
-      console.log('Response ----> : ', response);
       if(response.status === 201){
         return response.status;
       }
@@ -300,13 +299,13 @@ const getImageFromGithub = async (e) => {
         }
       });
 
-      console.log('Response ----> : ', response);
       if (response.status === 200) {
-        const { content, encoding } = response.data;
+        const { download_url, encoding } = response.data;
 
         if (encoding === 'base64') {
-          const dataUrl = `data:image/jpeg;base64,${content}`;
-          return dataUrl;
+          console.log('Download URL = ', download_url);
+          headshotImage.value = download_url; 
+          return;
         } else {
           throw new Error('Unexpected encoding type');
         }
