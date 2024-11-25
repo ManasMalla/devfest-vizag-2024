@@ -19,14 +19,14 @@
           <p>
             Our mission is to equip our community members with practical skills,
             enabling them to communicate their insights.
-          </p>
+          </p> 
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
-            <img v-if="user.photoURL != null" :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
+            <img v-if="userDetails?.photoURL != null" :src="userDetails.photoURL" alt="Profile Picture"
               style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50" width="160"
               height="160" />
             <img
               src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
-              v-if="user.photoURL == null"
+              v-if="userDetails.photoURL == null"
               style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50;" width="160"
               height="160" />
             <div
@@ -193,6 +193,7 @@ const socialProviders = [
 const octokit = new Octokit({
   auth: `${process.env.HEADHOST_GITHUB_SECRET_KEY}`,
 });
+
 let sp;
 function showOrHideEditor() {
   showEditor.value = !showEditor.value;
@@ -247,7 +248,7 @@ const onImageSelected = async (e) => {
     headshotImage.value = await fileToBase64(file);
     const uploadResponse = await UploadImageToGithub();
     if(uploadResponse == 201){
-      const finalBaseURL = await getImageFromGithub();
+      const finalBaseURL = await getImageFromGithub('download_url');
       if (finalBaseURL){
         console.log('final base url = ', finalBaseURL);
         return finalBaseURL;
@@ -287,7 +288,7 @@ const UploadImageToGithub = async (e) => {
   }
 };
 
-const getImageFromGithub = async (e) => {
+const getImageFromGithub = async (returnType) => {
   try {
       const response = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
         owner: 'ChandanKhamitkar',
@@ -300,11 +301,16 @@ const getImageFromGithub = async (e) => {
       });
 
       if (response.status === 200) {
-        const { download_url, encoding } = response.data;
+        const { download_url, encoding, content } = response.data;
 
         if (encoding === 'base64') {
-          console.log('Download URL = ', download_url);
-          headshotImage.value = download_url; 
+          // headshotImage.value = (returnType === 'download_url') ? download_url : content;
+          if(returnType === 'download_url'){
+            headshotImage.value = download_url; 
+          }
+          else if(returnType === 'content'){
+            userDetails.value.photoURL = `data:image/jpeg;base64,${content}`; 
+          }
           return;
         } else {
           throw new Error('Unexpected encoding type');
@@ -355,6 +361,11 @@ onMounted(() => {
       const { data: config, promise } = useDocument(doc(db, "users", user.value.uid));
       const uD = await promise.value;
       userDetails.value = uD;
+      console.log('userDetails photoURL = ', userDetails.value?.photoURL);
+
+      if(userDetails.value.photoURL !== null){
+        await getImageFromGithub('content');
+      }
       if (userDetails.value == null) {
         userDetails.value = {
           username: '',
@@ -369,7 +380,6 @@ onMounted(() => {
       arcadeData.forEach((doc) => {
         badgeData.push({ ...doc.data(), id: doc.id });
       });
-      console.log('Badge Data', badgeData);
       badges.value.push({
         name: "Diwali Dhamaka",
         link: "/arcade/diwali-quiz",
