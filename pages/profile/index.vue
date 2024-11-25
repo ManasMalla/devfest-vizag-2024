@@ -191,13 +191,13 @@ const socialProviders = [
 ];
 
 const octokit = new Octokit({
-      auth: process.env.HEADHOST_GITHUB_SECRET_KEY,
-  });
+  auth: `${process.env.HEADHOST_GITHUB_SECRET_KEY}`,
+});
 let sp;
 function showOrHideEditor() {
   showEditor.value = !showEditor.value;
 }
-
+ 
 async function updateUserData(event) {
   // check usernames presence
   console.log(event);
@@ -242,11 +242,17 @@ function removeSocial(index) {
 }
 
 const onImageSelected = async (e) => {
-  console.log('onImageSelected is called');
   const file = e.target.files[0];
   if (file && file.type === 'image/jpeg') {
     headshotImage.value = await fileToBase64(file);
-    UploadImageToGithub();
+    const uploadResponse = await UploadImageToGithub();
+    if(uploadResponse == 201){
+      const finalBaseURL = await getImageFromGithub();
+      if (finalBaseURL){
+        console.log('final base url = ', finalBaseURL);
+        return finalBaseURL;
+      }
+    }
   } else {
     alert('Please select a JPG image.');
   }
@@ -254,23 +260,66 @@ const onImageSelected = async (e) => {
 
 const UploadImageToGithub = async (e) => {
   try {
-    if(headshotImage.value){
-      const response = await octokit.request(`PUT /repos/{owner}/{repo}/contents/${userDetails.value.email}`, {
+    if (headshotImage.value) {
+      const response = await octokit.request('PUT /repos/{owner}/{repo}/contents/{path}', {
         owner: 'ChandanKhamitkar',
         repo: 'devfest-2024-headshot',
-        path: `/contents/${userDetails.value.email}`,
-        message: `Uploaded image for ${userDetails.value.email}`,
-        content: headshotImage.value,
-        committer: { name: userDetails.value.username, email: userDetails.value.email },
+        path: `${userDetails.value.email}.jpg`,
+        message: `Headshot - uploaded - ${userDetails.value.email}`,
+        committer: {
+          name: 'ChandanKhamitkar',
+          email: 'khamitkarsaichandan1035@gmail.com'
+        },
+        content: headshotImage.value.split(',')[1],
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28',
+          'accept' : 'application/vnd.github+json'
+        } 
       });
-      // imageUrl.value = `https://raw.githubusercontent.com/ChandanKhamitkar/devfest-2024-headshot/main/applications/${userDetails.value.email}-${userDetails.value.username}`;
 
-      console.log('Response of upload = ', response);
+      console.log('Response ----> : ', response);
+      if(response.status === 201){
+        return response.status;
+      }
     }
   } catch (error) {
     console.error('Error in Uploading image to github : ', error);
+    alert('Error in uploading Headshot.')
   }
 };
+
+const getImageFromGithub = async (e) => {
+  try {
+      const response = await octokit.request('GET /repos/{owner}/{repo}/contents/{path}', {
+        owner: 'ChandanKhamitkar',
+        repo: 'devfest-2024-headshot',
+        path: `${userDetails.value.email}.jpg`,
+        headers: {
+          'X-GitHub-Api-Version': '2022-11-28',
+          'accept': 'application/vnd.github+json'
+        }
+      });
+
+      console.log('Response ----> : ', response);
+      if (response.status === 200) {
+        const { content, encoding } = response.data;
+
+        if (encoding === 'base64') {
+          const dataUrl = `data:image/jpeg;base64,${content}`;
+          return dataUrl;
+        } else {
+          throw new Error('Unexpected encoding type');
+        }
+    }
+    else if (response.status === 404){
+        alert("Headshot not found!!");
+        return;
+      }
+  } catch (error) {
+    console.error('Error in Getting image: ', error);
+    alert('Error in Getting Headshot.');
+  }
+}
 
 const fileToBase64 = (file) => {
   return new Promise((resolve, reject) => {
@@ -304,10 +353,8 @@ onMounted(() => {
     console.log(user.value?.displayName);
     if (user.value) {
       console.log("123", user.value?.displayName);
-      // data.value = true;
       const { data: config, promise } = useDocument(doc(db, "users", user.value.uid));
       const uD = await promise.value;
-      // console.log('Company Details', uD.company);
       userDetails.value = uD;
       if (userDetails.value == null) {
         userDetails.value = {
@@ -317,7 +364,6 @@ onMounted(() => {
           socials: [],
         };
       }
-      // console.log('Company State', userDetails.value.company);
       const arcadeDataRef = computed(() => collection(db, "users", user.value.uid, "arcade"));
       const arcadeData = await getDocs(arcadeDataRef.value);
       var badgeData = [];

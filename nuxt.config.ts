@@ -18,6 +18,11 @@ export default defineNuxtConfig({
     'nuxt-gtag',
     "nuxt-marquee"
 ],
+  runtimeConfig: {
+    public: {
+      HEADHOST_GITHUB_SECRET_KEY: process.env.HEADHOST_GITHUB_SECRET_KEY,
+    },
+  },
   vuefire: {
     config: {
       apiKey: 'AIzaSyBUeJeTLIACj6WP8XAfkYkBbVJqQReO0SY',
