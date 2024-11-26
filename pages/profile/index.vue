@@ -197,14 +197,32 @@ async function updateUserData(event) {
   const q = query(coll, where("username", "==", userDetails.value?.username), where('__name__', "!=", user.value.uid));
   const snapshot = await getCountFromServer(q);
   if (snapshot.data().count == 0) {
-    await updateDoc(doc(db, "users", user.value.uid), {
-      username: userDetails.value?.username,
-      bio: userDetails.value?.bio,
-      city: userDetails.value?.city,
-      socials: userDetails.value?.socials,
-      photoURL: user.value.photoURL.split('=s96-c')[0],
-      displayName: user.value.displayName
-    });
+
+    // Check if user alreay exists or not
+    const qn = query(coll, where("email", "==", user.value?.email));
+    const querySnapshot = await getDocs(qn);
+    console.log('querySnapshot =', querySnapshot);
+    if (querySnapshot.empty) {
+      await setDoc(doc(db, "users", user.value.uid), {
+        email: user.value.email,
+        username: userDetails.value?.username,
+        bio: userDetails.value?.bio,
+        city: userDetails.value?.city,
+        socials: userDetails.value?.socials === undefined || userDetails.value?.socials === null ? [] : userDetails.value?.socials,
+        photoURL: user.value.photoURL.split('=s96-c')[0],
+        displayName: user.value.displayName
+      });
+    } else {
+      await updateDoc(doc(db, "users", user.value.uid), {
+        username: userDetails.value?.username,
+        bio: userDetails.value?.bio,
+        city: userDetails.value?.city,
+        socials: userDetails.value?.socials === undefined || userDetails.value?.socials === null ? [] : userDetails.value?.socials,
+        photoURL: user.value.photoURL.split('=s96-c')[0],
+        displayName: user.value.displayName
+      });
+    }
+
     showEditor.value = !showEditor.value;
   }
   else {
@@ -232,7 +250,7 @@ function removeSocial(index) {
 // Reactive variables
 const dialog = ref(false);
 import { signOut } from 'firebase/auth';
-import { collection, doc, getDocs, updateDoc, query, where, getCountFromServer } from 'firebase/firestore';
+import { collection, doc, getDocs, updateDoc, query, where, getCountFromServer, setDoc } from 'firebase/firestore';
 import moment from 'moment';
 
 const auth = useFirebaseAuth();
