@@ -51,6 +51,10 @@ async function updateUserPassword() {
             await signInWithEmailAndPassword(auth, route.params.email, doc.data()["phoneNumber"]);
             console.log(auth.currentUser);
             await updatePassword(auth.currentUser, password.value);
+            const uD = doc.data();
+            if (uD["socials"]["linkedin"] == null || uD['domainsInterested'] == null) {
+                //TODO: show modal bottom sheet to add linkedin or github or domainsInterested
+            }
             auth.signOut();
             console.log("Password updated successfully");
             navigateTo('/login', { replace: true });
