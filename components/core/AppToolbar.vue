@@ -9,8 +9,11 @@
             class="align-center pt-1">{{ mainData.communityLocation.city }}</v-chip>
         </div>
       </NuxtLink>
+<<<<<<< HEAD
 
       <v-spacer></v-spacer>
+=======
+>>>>>>> g-agenda
       <div class="mx-4 d-none d-sm-none d-md-flex d-lg-flex">
         <template v-for="(item, index) in navbarData" :key="index">
           <v-btn rounded size="small" style="text-transform: capitalize" :to="item.path" class="mx-1"
