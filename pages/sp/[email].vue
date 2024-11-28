@@ -22,6 +22,16 @@
                 </v-col>
             </v-row>
         </v-container>
+        <v-bottom-sheet v-model="sheet">
+            <v-card class="text-center pa-8" title="Let us know more about you?"
+                subtitle="Onboarding you on quick to experience the best seamless event.">
+                <v-text-field v-model="github" label="GitHub"></v-text-field>
+                <v-text-field v-model="linkedin" label="LinkedIn"></v-text-field>
+                <v-autocomplete v-model="domainsInterested" chips label="Interested Domains" :items="['Web', 'Mobile', 'Cloud', 'AI', 'Career'
+                    , 'Entrepreneurship']" multiple></v-autocomplete>
+                <v-btn rounded style="width: fit-content; font-weight: 600;" color="#4285F4">Submit</v-btn>
+            </v-card>
+        </v-bottom-sheet>
     </NuxtLayout>
 </template>
 <script setup>
@@ -30,9 +40,12 @@ import { query, collection, limit, where, getDocs } from 'firebase/firestore';
 
 const auth = useFirebaseAuth();
 const db = useFirestore();
+const sheet = useState('sheet', () => false);
+let linkedin = '';
+let github = '';
+let domainsInterested = [];
 
 const route = useRoute();
-const router = useRouter();
 async function updateUserPassword() {
     if (password.value !== confirmPassword.value) {
         return alert("Password and Confirm Password does not match");
@@ -54,6 +67,10 @@ async function updateUserPassword() {
             const uD = doc.data();
             if (uD["socials"]["linkedin"] == null || uD['domainsInterested'] == null) {
                 //TODO: show modal bottom sheet to add linkedin or github or domainsInterested
+                linkedin = uD["socials"]["linkedin"];
+                github = uD["socials"]["github"];
+                domainsInterested = uD["domainsInterested"];
+                sheet.value = true;
             }
             auth.signOut();
             console.log("Password updated successfully");
