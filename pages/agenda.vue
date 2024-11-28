@@ -15,7 +15,8 @@
           <span class="dateDayNumber__KJVBf">{{ day.day }}</span>
         </div>
         <div class="row__WRVvc" v-for="track in day.tracks">
-          <CommonAgendaBar v-for="(event, idx) in track.events" :event="event" :idx="idx" />
+          <CommonAgendaBar v-for="(event, idx) in track.events" :event="event" :idx="idx"
+            :is-session-in-schedule="schedule.includes(event.id)" />
         </div>
       </div>
     </div>
@@ -23,11 +24,15 @@
 </template>
 
 <script setup>
+import { getDoc, doc } from 'firebase/firestore';
+
+const db = useFirestore();
+
 const { ushaAgenda } = useJSONData();
 const tracks = [...new Set(ushaAgenda.map((agenda) => agenda.track_title))];
-console.log(tracks);
-const dayOneTracks = ushaAgenda.filter((agenda) => (new Date(ushaAgenda[0].start_at)).getDate() == 7);
-console.log(dayOneTracks);
+// console.log(tracks);
+const dayOneTracks = ushaAgenda.filter((agenda) => (new Date(ushaAgenda[0]?.start_at || "")).getDate() == 7);
+// console.log(dayOneTracks);
 const days = [
   {
     weekday: "Mon",
@@ -40,6 +45,23 @@ const days = [
     }),
   },
 ];
+
+const schedule = useState("userSchedule", () => []);
+const user = useCurrentUser();
+const auth = useFirebaseAuth();
+onMounted(() => {
+
+  if (user.value) {
+
+    console.log(user.value.uid);
+    getDoc(doc(db, "users", user.value.uid)).then((doc) => {
+      if (doc.exists()) {
+        schedule.value = doc.data().schedule;
+      }
+    });
+  }
+});
+
 </script>
 
 <script>

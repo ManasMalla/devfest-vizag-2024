@@ -9,9 +9,10 @@
                 </div>
                 <div class="eventLabel__1xNJF">
                     <span class="eventTitle__2IhWF">{{ event.title }}</span>
-                    <span class="formattedEventTime__1x2iy">{{ new Date(event.start_at).toLocaleString("default", {
-                        year: "numeric"
-                    }) }}</span>
+                    <span class="formattedEventTime__1x2iy">{{ new Date(event.start_at).toLocaleString("default",
+                        {
+                            year: "numeric"
+                        }) }}</span>
                 </div>
             </div>
         </template>
@@ -26,12 +27,15 @@
                     minute: "numeric",
                 }) }}</h4>
                 <p>{{ event.description }}</p>
+                <v-btn @click="addToUserSchedule" rounded color="#4285f4" class="mt-4">Add to schedule</v-btn>
             </v-container>
         </v-card>
     </v-bottom-sheet>
 </template>
 <script setup>
-defineProps({
+import { arrayRemove, arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore';
+
+const props = defineProps({
     event: {
         type: Object,
         default: {},
@@ -39,8 +43,25 @@ defineProps({
     idx: {
         type: Number,
         default: -1
+    },
+    isSessionInSchedule: {
+        type: Boolean,
+        default: false
     }
 })
+
+const user = useCurrentUser();
+const db = useFirestore();
+
+async function addToUserSchedule() {
+    console.log(props.isSessionInSchedule);
+    if (user.value) {
+        await updateDoc(doc(db, "users", user.value.uid), {
+            schedule: props.isSessionInSchedule ? arrayRemove(props.event.id) : arrayUnion(props.event.id)
+        });
+        alert(props.isSessionInSchedule ? "Removed from schedule" : "Added to schedule");
+    }
+}
 
 function calculateTimeline(a, b) {
     const s = new Date(a);
@@ -97,6 +118,7 @@ function calculateTimeline(a, b) {
         display: -webkit-box;
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 1;
+        line-clamp: 1;
         text-overflow: ellipsis;
     }
 }

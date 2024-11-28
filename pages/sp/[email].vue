@@ -29,7 +29,8 @@
                 <v-text-field v-model="linkedin" label="LinkedIn"></v-text-field>
                 <v-autocomplete v-model="domainsInterested" chips label="Interested Domains" :items="['Web', 'Mobile', 'Cloud', 'AI', 'Career'
                     , 'Entrepreneurship']" multiple></v-autocomplete>
-                <v-btn rounded style="width: fit-content; font-weight: 600;" color="#4285F4">Submit</v-btn>
+                <v-btn @click="updateDetailsForFirebase()" rounded style="width: fit-content; font-weight: 600;"
+                    color="#4285F4">Submit</v-btn>
             </v-card>
         </v-bottom-sheet>
     </NuxtLayout>
@@ -44,8 +45,31 @@ const sheet = useState('sheet', () => false);
 let linkedin = '';
 let github = '';
 let domainsInterested = [];
+let uid;
 
 const route = useRoute();
+
+async function updateDetailsForFirebase() {
+    const doc = doc(collection(db, 'users'), uid);
+
+    await updateDoc(doc.ref, {
+        socials: {
+            linkedin: {
+                provider: 'linkedin',
+                name: linkedin,
+                icon: 'mdi-linkedin'
+            },
+            github: {
+                provider: 'github',
+                name: github,
+                icon: 'mdi-github'
+            }
+        },
+        domainsInterested: domainsInterested
+    });
+    sheet.value = false;
+}
+
 async function updateUserPassword() {
     if (password.value !== confirmPassword.value) {
         return alert("Password and Confirm Password does not match");
@@ -66,12 +90,12 @@ async function updateUserPassword() {
             await updatePassword(auth.currentUser, password.value);
             const uD = doc.data();
             if (uD["socials"]["linkedin"] == null || uD['domainsInterested'] == null) {
-                //TODO: show modal bottom sheet to add linkedin or github or domainsInterested
                 linkedin = uD["socials"]["linkedin"];
                 github = uD["socials"]["github"];
                 domainsInterested = uD["domainsInterested"];
                 sheet.value = true;
             }
+            uid = auth.currentUser.uid;
             auth.signOut();
             console.log("Password updated successfully");
             navigateTo('/login', { replace: true });
