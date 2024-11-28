@@ -48,5 +48,10 @@
     "name": "FAQ",
     "path": "/faq",
     "visible": true
+  },
+  {
+    "name": "Ask-a-Pundit",
+    "path": "/ask-a-pundit",
+    "visible": true
   }
 ]
