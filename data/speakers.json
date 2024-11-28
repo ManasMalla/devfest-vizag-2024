@@ -1,87 +1,223 @@
 [
   {
-  "id": "101",
-  "name": "Runcy Oommen",
-  "company": {
-  "name": "SonicWall",
-  "designation": "Director of Software Engineering"
-  },
-  "community_title": "Director of Software Engineering",
-  "image": "runcyoommen.jpeg",
-  "bio": "Runcy is a hands-on software engineer with 20+ years of SDLC experience and a string of successful projects primarily in the security domain. Key product experience includes Cloud Security/Storage, SSL-VPN, Anti-Virus and Email Security.A natural perfectionist, he possess an eye for detail that helps in elevating the user experience and in identifying the product gap with the competitors.",
-  "social": {
-  "linkedin": "https://www.linkedin.com/in/runcyoommen/",
-  "twitter": "",
-  "github": "",
-  "web": ""
-  }
-  },
-  {
-  "id": "102",
-  "name": "Dr.Ravi Shankar Saripalle",
-  "company": {
-  "name": "Gitam Deemed University",
-  "designation": "Professor of Entreprenership"
-  },
-  "community_title": "",
-  "image": "ravisarapalli.jpeg",
-  "bio": "Dr. Ravi Shankar Saripalle has been the Professor of Entrepreneurship at GITAM University. Before this, he worked as Director of the Centre for Innovation and Incubation at Gayatri Vidya Parishad College of Engineering for the past 14 years. During this time, the center has successfully incubated more than 25 startups and contributed to filing, publishing, and granting over 80 patents.",
-  "social": {
-  "linkedin": "https://www.linkedin.com/in/ravisaripalle/",
-  "twitter": "",
-  "github": "",
-  "web": ""
-  }
+    "id": "101",
+    "name": "Runcy Oommen",
+    "company": {
+      "name": "SonicWall",
+      "designation": "Director of Software Engineering"
+    },
+    "community_title": "Director of Software Engineering",
+    "image": "runcyoommen.jpeg",
+    "bio": "Runcy is a hands-on software engineer with 20+ years of SDLC experience and a string of successful projects primarily in the security domain. Key product experience includes Cloud Security/Storage, SSL-VPN, Anti-Virus and Email Security.A natural perfectionist, he possess an eye for detail that helps in elevating the user experience and in identifying the product gap with the competitors.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/runcyoommen/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
   },
   {
-  "id": "103",
-  "name": "Sneh Pandya",
-  "company": {
-  "name": "Mantra Labs",
-  "designation": "Product Leader, Speaker, Author, Mentor"
-  },
-  "community_title": "",
-  "image": "snehpandya.jpeg",
-  "bio": "Sneh Pandya is a seasoned product leader with expertise in Product Management, Product Strategy, and Digital Transformation. With a focus on SaaS, B2B, B2C, and Ed-tech, Sneh has driven business transformations across diverse industries like E-commerce, Insurance, and Payments. She is skilled in Cloud Infrastructure, DevOps, and White Label Solutions, with hands-on experience in Flutter development. An Apress-published author of two technical books, Sneh is also a Google for Developers community organizer, mentor, and public speaker. Connect with her for mentorship or collaboration opportunities at snehpandya.com.",
-  "social": {
-  "linkedin": "https://www.linkedin.com/in/snehpandya18/",
-  "twitter": "https://x.com/SnehPandya18?mx=2",
-  "github": "",
-  "web": "https://snehpandya.com/"
-  }
-  },
-  {
-  "id": "104",
-  "name": "Hemapriya Nagarajan",
-  "company": {
-  "name": "CDW",
-  "designation": "Data Engineer"
-  },
-  "community_title": "",
-  "image": "hemapriyanagarajan.jpeg",
-  "bio": "Hemapriya Nagarajan is a data professional with over 2.5 years of experience in building data pipelines and AI applications, bridging the Data-AI gap through data-driven solutions using ETL/ELT processes. As an NLP enthusiast and active problem solver, she is committed to continuous learning and thrives on exploring innovative approaches in data and AI. Hemapriya is passionate about sharing her knowledge, engaging in public speaking, contributing to communities, and is actively exploring freelancing opportunities to leverage her expertise. Her dedication to empowering organizations with data insights and her drive to make a positive impact define her professional journey.",
-  "social": {
-  "linkedin": "https://www.linkedin.com/in/hemapriya-nagarajan/",
-  "twitter": "",
-  "github": "",
-  "web": ""
-  }
+    "id": "102",
+    "name": "Dr.Ravi Shankar Saripalle",
+    "company": {
+      "name": "Gitam Deemed University",
+      "designation": "Professor of Entreprenership"
+    },
+    "community_title": "",
+    "image": "ravisarapalli.jpeg",
+    "bio": "Dr. Ravi Shankar Saripalle has been the Professor of Entrepreneurship at GITAM University. Before this, he worked as Director of the Centre for Innovation and Incubation at Gayatri Vidya Parishad College of Engineering for the past 14 years. During this time, the center has successfully incubated more than 25 startups and contributed to filing, publishing, and granting over 80 patents.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/ravisaripalle/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
   },
   {
-  "id": "112",
-  "name": "Om Ashish Mishra",
-  "company": {
-  "name": "Deloitte",
-  "designation": "Product Data Scientist | IITK Alumini | Gen AI Community | MIT BootCamper | AI Engineer - @ Ex-HSBC,Hitachi, HP | Speaker at 30+ events for uplifting students and NGO growth | Blogger | Open Source Contributor"
+    "id": "103",
+    "name": "Sneh Pandya",
+    "company": {
+      "name": "Mantra Labs",
+      "designation": "Product Leader, Speaker, Author, Mentor"
+    },
+    "community_title": "",
+    "image": "snehpandya.jpeg",
+    "bio": "Sneh Pandya is a seasoned product leader with expertise in Product Management, Product Strategy, and Digital Transformation. With a focus on SaaS, B2B, B2C, and Ed-tech, Sneh has driven business transformations across diverse industries like E-commerce, Insurance, and Payments. She is skilled in Cloud Infrastructure, DevOps, and White Label Solutions, with hands-on experience in Flutter development. An Apress-published author of two technical books, Sneh is also a Google for Developers community organizer, mentor, and public speaker. Connect with her for mentorship or collaboration opportunities at snehpandya.com.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/snehpandya18/",
+      "twitter": "https://x.com/SnehPandya18?mx=2",
+      "github": "",
+      "web": "https://snehpandya.com/"
+    }
   },
-  "community_title": "",
-  "image": "ashishmishra.jpeg",
-  "bio": "Om Ashish Mishra is a skilled Data Engineer at Deloitte USI with a passion for coding and a deep understanding of trending technologies. With over 3.5 years of experience in Machine Learning and Deep Learning, along with expertise in Hadoop, Java, the MERN stack, and Photoshop, Om brings a versatile skill set to every project he undertakes. He is an avid blogger, enthusiastic reader, and active contributor to various learning platforms, where he continuously seeks to grow and share his knowledge.Beyond his technical expertise, Om is committed to evolving communities in Data Analysis, Data Science, and Business Innovations. He actively promotes NGOs, speaks at Toastmasters, and leverages his skills to drive positive change. With a highly optimistic approach to both his career and life, Om is dedicated to making a meaningful impact in the world of technology and beyond.",
-  "social": {
-  "linkedin": "https://www.linkedin.com/in/om-ashish-mishra/?original_referer=&originalSubdomain=in",
-  "twitter": "",
-  "github": "",
-  "web": ""
+  {
+    "id": "104",
+    "name": "Hemapriya Nagarajan",
+    "company": {
+      "name": "CDW",
+      "designation": "Data Engineer"
+    },
+    "community_title": "",
+    "image": "hemapriyanagarajan.jpeg",
+    "bio": "Hemapriya Nagarajan is a data professional with over 2.5 years of experience in building data pipelines and AI applications, bridging the Data-AI gap through data-driven solutions using ETL/ELT processes. As an NLP enthusiast and active problem solver, she is committed to continuous learning and thrives on exploring innovative approaches in data and AI. Hemapriya is passionate about sharing her knowledge, engaging in public speaking, contributing to communities, and is actively exploring freelancing opportunities to leverage her expertise. Her dedication to empowering organizations with data insights and her drive to make a positive impact define her professional journey.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/hemapriya-nagarajan/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
+  },
+  {
+    "id": "112",
+    "name": "Om Ashish Mishra",
+    "company": {
+      "name": "Deloitte",
+      "designation": "Product Data Scientist | IITK Alumini | Gen AI Community | MIT BootCamper | AI Engineer - @ Ex-HSBC,Hitachi, HP | Speaker at 30+ events for uplifting students and NGO growth | Blogger | Open Source Contributor"
+    },
+    "community_title": "",
+    "image": "ashishmishra.jpeg",
+    "bio": "Om Ashish Mishra is a skilled Data Engineer at Deloitte USI with a passion for coding and a deep understanding of trending technologies. With over 3.5 years of experience in Machine Learning and Deep Learning, along with expertise in Hadoop, Java, the MERN stack, and Photoshop, Om brings a versatile skill set to every project he undertakes. He is an avid blogger, enthusiastic reader, and active contributor to various learning platforms, where he continuously seeks to grow and share his knowledge.Beyond his technical expertise, Om is committed to evolving communities in Data Analysis, Data Science, and Business Innovations. He actively promotes NGOs, speaks at Toastmasters, and leverages his skills to drive positive change. With a highly optimistic approach to both his career and life, Om is dedicated to making a meaningful impact in the world of technology and beyond.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/om-ashish-mishra/?original_referer=&originalSubdomain=in",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
+  },
+  {
+    "id": "108",
+    "name": "Burhanuddin Rashid",
+    "company": {
+      "name": "Juyushi Tech",
+      "designation": "Google Developer Expert in Flutter and Dart | Mobile Consultant | Trainer | Android"
+    },
+    "community_title": "",
+    "image": "rashid.jpeg",
+    "bio": "Burhanuddin Rashid is a skilled Android developer with five years of experience in creating diverse Android applications, ranging from media streaming and entertainment to restaurant management, augmented reality, and mobile gaming. He is dedicated to continuously developing, testing, and implementing new technologies to maximize efficiency and deliver innovative solutions. Burhanuddin’s passion for adopting cutting-edge tools and techniques ensures that his applications are not only functional but also optimized for performance and user experience. He thrives on turning ideas into engaging mobile experiences, making him a valuable asset to any tech-driven team.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/burhanuddin-rashid-a16959b1/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
+  },
+  {
+    "id": "114",
+    "name": "Chivukula Krishnamohan",
+    "company": {
+      "name": "GURUJADA IT Solutions",
+      "designation": "Co-Founder"
+    },
+    "community_title": "",
+    "image": "krishnamohan.jpeg",
+    "bio": "Chivukula Krishnamohan is a seasoned software professional with over 25 years of experience in building innovative software solutions. Despite serving as a Technology Head for a decade, he takes pride in remaining a hands-on programmer, constantly exploring new paradigms in software development. His passion lies in crafting robust and scalable applications by leveraging the power of Open Source technologies. Chivukula's extensive expertise spans a wide range of tech domains, enabling him to stitch together efficient and impactful software solutions. With a deep commitment to continuous learning and innovation, he has become a driving force in the tech community, inspiring peers and teams alike through his technical acumen and dedication.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/chivukula-krishnamohan-31a008229/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
+  },
+  {
+    "id": "107",
+    "name": "Bhuvaneshwari Kanagaraj",
+    "company": {
+      "name": "KGXperience",
+      "designation": "Embedded Software Engineer "
+    },
+    "community_title": "",
+    "image": "bhuvaneshwari.jpeg",
+    "bio": "Bhuvaneshwari Kanagaraj is a passionate problem solver and tech educator dedicated to turning ideas into reality through IoT and embedded development. With extensive experience in both tech consultancy and teaching, she has mentored over 500 students, inspiring the next generation of tech innovators. Bhuvaneshwari thrives on transforming concepts into practical solutions, making her a trusted guide for anyone embarking on a tech journey. Whether you're looking to explore IoT, embedded systems, or need expert guidance, she's ready to help you take your next big step. Let's get started!",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/bhuvaneshwari-kanagaraj/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
+  },
+  {
+    "id": "106",
+    "name": "Geethika Yerramsetti",
+    "company": {
+      "name": "Deloitte",
+      "designation": "Senior Cloud and DevOps Engineer/Lead DevOps Engineer"
+    },
+    "community_title": "",
+    "image": "geethika.jpeg",
+    "bio": "Geethika Yerramsetti is an experienced DevOps Research Associate with a strong background in implementing and managing DevOps technologies. She has a demonstrated history of expertise in cloud platforms like AWS and Azure DevOps (VSTS), as well as infrastructure as code with Terraform. Geethika is skilled in version control using Git, containerization with Docker, and CI/CD automation using Jenkins and Bamboo. Her technical proficiency extends to Python and Shell scripting, along with build automation using Maven. Passionate about optimizing software development processes, she consistently drives efficiency and innovation in every project she undertakes.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/geethika-yerramsetti/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
+  },
+  {
+    "id": "107",
+    "name": "Supriya Raman",
+    "company": {
+      "name": "IBM",
+      "designation": "AI Engineering Manager @ IBM | Google Women TechMaker Ambassador"
+    },
+    "community_title": "",
+    "image": "supriya.jpeg",
+    "bio": "Supriya Raman AI Engineering Manager at IBM, leading transformative AI innovations and THINK initiatives within the WatsonX Client Engineering team. Specializing in NLP and Generative AI, I integrate Retrieval-Augmented Generation (RAG) and Reinforcement Learning to enhance decision-making and client engagement. Formerly Senior VP at JPMorgan Chase, with expertise in model development and analytics deployment. Passionate about mentorship, professional speaking, and fostering emerging AI talent. Dedicated to driving innovation, empathy-driven leadership, and continuous learning in the AI industry.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/supriyaraman007/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
+  },
+  {
+    "id": "109",
+    "name": "Arun Teja Godavarthi",
+    "company": {
+      "name": "Google Developers",
+      "designation": "Developer Relations, Google for Developers"
+    },
+    "community_title": "",
+    "image": "arunteja.jpeg",
+    "bio": " I'm Arun, aka ZeoSpec - a curious builder and community enthusiast. I thrive on creating startups, nurturing communities, and experimenting with innovative ideas while exploring the uncharted. Currently serving as Developer Community Manager for Google India Developer Ecosystem, I empower developers and foster collaboration. Passionate about technology, creativity, and meaningful connections. Always on a journey to learn, grow, and make an impact.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/zeospec/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
+  },
+  {
+    "id": "105",
+    "name": "Aarshad Devani",
+    "company": {
+      "name": "Storable India",
+      "designation": "Senior Software Engineer"
+    },
+    "community_title": "",
+    "image": "aarshaddevani.jpeg",
+    "bio": "Arshad Devani is an experienced ambassador with a proven track record in the computer software industry. He brings a diverse skill set, including proficiency in Microsoft Word, PHP, C++, and Polymers, along with a talent for public speaking. Arshad is a strong advocate for community engagement and social services, leveraging his technical expertise to make a positive impact. He holds a Bachelor of Engineering (B.E.) degree in Computer Software Engineering from Muffakham Jah College of Engineering and Technology, where he honed his skills and passion for technology.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/aarshaddevani/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
+  },
+  {
+    "id": "104",
+    "name": "Hemapriya Nagarajan",
+    "company": {
+      "name": "CDW",
+      "designation": "Data Engineer"
+    },
+    "community_title": "",
+    "image": "hemapriyanagarajan.jpeg",
+    "bio": "Hemapriya Nagarajan is a data professional with over 2.5 years of experience in building data pipelines and AI applications, bridging the Data-AI gap through data-driven solutions using ETL/ELT processes. As an NLP enthusiast and active problem solver, she is committed to continuous learning and thrives on exploring innovative approaches in data and AI. Hemapriya is passionate about sharing her knowledge, engaging in public speaking, contributing to communities, and is actively exploring freelancing opportunities to leverage her expertise. Her dedication to empowering organizations with data insights and her drive to make a positive impact define her professional journey.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/hemapriya-nagarajan/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    }
   }
-  }
-  ]
+]
