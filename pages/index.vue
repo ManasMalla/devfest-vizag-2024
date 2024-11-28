@@ -6,6 +6,10 @@
                 <HomeHeroSection class="my-0 my-md-10" />
                 <!-- Hero -->
 
+                <!-- Countdown -->
+                <HomeCountdown />
+                <!-- Countdown -->
+
                 <!-- Stats -->
                 <HomeStats />
                 <!-- Stats -->

@@ -1,58 +1,287 @@
 <template>
-  <NuxtLayout name="default">
-    <v-container fluid class="mt-5">
-      <v-row>
-        <v-col md="12">
-          <h1>Agenda</h1>
-          <p>
-            Follow code demonstrations by our expert speakers on different
-            tracks. Check out the schedule below and don't forget to mark your
-            calendar so that you don't miss out on any sessions.
-          </p>
-        </v-col>
-      </v-row>
-      <ClientOnly>
-        <div style="width: '100%'; display: flex; justify-content: center;">
-          <iframe
-            id="agendaIframe"
-            frameborder="0" 
-            style="width: 100%; max-width: 800px; height: 1500px;"
-            src="https://agorify.com/embed/a/ijzcByGxciQXOKbViZLh"
-          ></iframe>
+  <div style="width: 80vw; margin-top: 36px;">
+    <div class="calendar__3ASh5">
+      <!-- Time Bar -->
+      <div class="timeBar__b9M84">
+        <div v-for="time in times" :key="time">
+          <span>{{ time }}</span>
         </div>
-      </ClientOnly>
-    </v-container>
-  </NuxtLayout>
+      </div>
+
+      <!-- Days and Events -->
+      <div v-for="(day, index) in days" :key="index" class="day__2Fs_v">
+        <div class="date__HrqQp">
+          <span class="dateWeekday__c6J_B">{{ day.weekday }}</span>
+          <span class="dateDayNumber__KJVBf">{{ day.day }}</span>
+        </div>
+        <div class="row__WRVvc" v-for="track in day.tracks">
+          <CommonAgendaBar v-for="(event, idx) in track.events" :event="event" :idx="idx"
+            :is-session-in-schedule="schedule.includes(event.id)" />
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
-const model = ref("");
-const { mainData, scheduleData } = useJSONData();
-definePageMeta({
-  layout: false,
+import { getDoc, doc } from 'firebase/firestore';
+
+const db = useFirestore();
+
+const { ushaAgenda } = useJSONData();
+const tracks = [...new Set(ushaAgenda.map((agenda) => agenda.track_title))];
+// console.log(tracks);
+const dayOneTracks = ushaAgenda.filter((agenda) => (new Date(ushaAgenda[0]?.start_at || "")).getDate() == 7);
+// console.log(dayOneTracks);
+const days = [
+  {
+    weekday: "Mon",
+    day: 20,
+    tracks: tracks.map((track) => {
+      return {
+        track,
+        events: dayOneTracks.filter((agenda) => agenda.track_title === track),
+      };
+    }),
+  },
+];
+
+const schedule = useState("userSchedule", () => []);
+const user = useCurrentUser();
+const auth = useFirebaseAuth();
+onMounted(() => {
+
+  if (user.value) {
+
+    console.log(user.value.uid);
+    getDoc(doc(db, "users", user.value.uid)).then((doc) => {
+      if (doc.exists()) {
+        schedule.value = doc.data().schedule;
+      }
+    });
+  }
 });
 
-useSeoMeta({
-  contentType: "text/html; charset=utf-8",
-  title: "Agenda - " + mainData.eventInfo.name + " | " + mainData.communityName,
-  description: mainData.eventInfo.description.short,
-  keywords: mainData.seo.keywords,
-  ogLocale:'en_US',
-  author: "OSS Labs",
-  creator: "OSS Labs",
-  viewport: "width=device-width, initial-scale=1.0",
-  ogTitle:
-    "Agenda - " + mainData.eventInfo.name + " | " + mainData.communityName,
-  ogDescription: mainData.eventInfo.description.short,
-  ogImage: `${mainData.seo.hostUrl}/thumbnail.png?auto=format&fit=crop&frame=1&h=512&w=1024`,
-  ogUrl: mainData.seo.hostUrl,
-  ogType: "website",
-  twitterTitle:
-    "Agenda - " + mainData.eventInfo.name + " | " + mainData.communityName,
-  twitterDescription: mainData.eventInfo.description.short,
-  twitterImage: `${mainData.seo.hostUrl}thumbnail.png?auto=format&fit=crop&frame=1&h=512&w=1024`,
-  twitterCard: "summary_large_image",
-});
 </script>
+
+<script>
+export default {
+  data() {
+    return {
+      times: [
+        "8AM",
+        "9",
+        "10",
+        "11",
+        "12PM",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5PM",
+      ],
+      headers: ["Route", "Start Time", "End Time", "Stops"],
+      routes: [
+        { isHeader: false, data: ["Route A", "6:00 AM", "8:00 AM", "5 Stops"] },
+        { isHeader: true, data: ["Special Schedule", "", "", ""] },
+      ],
+    };
+  },
+};
+</script>
+
 <style scoped>
+/*
+ * Utility function to calculate the width of a desired column span (1 or more columns)
+ *
+ * Example usage:
+ * getSpanWidth(2) // returns the width of 2 columns in the default breakpoint (mobile)
+ * getSpanWidth(2, 6, $bp-desktop) // returns the width of 2 columns when inside a 6 column container in desktop
+ *
+ * Given the complexity of the grid system, it's impossible for the function to
+ * determine the width without knowing if it should be calculating a column
+ * width inside a container that spans all columns, or just some columns.
+ * It's also impossible to determine the correct column gap to use in the
+ * calculation, so the function requests the breakpoint, but will the mobile
+ * gap as default. Finally, it's possible to ask the function to include an
+ * extra gap at the end of the calculation, this can be useful if you are
+ * trying to offset an element 3 columns to the right, where you need that
+ * extra gap to offset it properly (e.g. left: getSpanWidth(3, 4, 6, $bp-desktop, true))
+ *
+ * @param $column-span: the number of columns you wish to calculate the width for
+ * @param $columns: the number of columns the parent container spans in the grid
+ *   defaults to all columns in the current breakpoint
+ * @param $bp: the breakpoint to use for the column gap calculation
+ * @param $include-last-gap: if you wish to add the width of 1 column gap to
+ *   the calculation
+ */
+.agenda__2Cuil {
+  width: 100%;
+}
+
+.calendar__3ASh5 {
+  margin: 0 auto;
+  max-width: 1056px;
+  position: relative;
+}
+
+@media screen and (min-width: 1024px) {
+  .calendar__3ASh5 {
+    padding: 38px 0 76px 60px;
+  }
+
+  .calendar__3ASh5:after {
+    content: '';
+    height: 50px;
+    left: -500px;
+    position: absolute;
+    right: -500px;
+    width: 10000px;
+    border-bottom: 1px solid #F1F3F4;
+    pointer-events: none;
+  }
+}
+
+.timeBar__b9M84 {
+  display: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .timeBar__b9M84 {
+    display: grid;
+    grid-template-columns: repeat(42, 1fr);
+    height: 100%;
+    padding-bottom: 20px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .timeBar__b9M84>div {
+    position: relative;
+    grid-column: span 4;
+  }
+
+  .timeBar__b9M84>div:after {
+    background-color: #F1F3F4;
+    content: '';
+    height: calc(100% - 37px);
+    left: 0;
+    position: absolute;
+    top: 30px;
+    width: 1px;
+  }
+
+  .timeBar__b9M84 span {
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 400;
+    font-family: "Roboto", arial, sans-serif;
+    margin-left: 4px;
+  }
+}
+
+.timeWithSuffix__2uPth {
+  margin-left: -18px;
+}
+
+.timeWithSuffix__2uPth:after {
+  margin-left: 18px;
+}
+
+.timeWithoutSuffix__3FB5s {
+  margin-left: -6px;
+}
+
+.timeWithoutSuffix__3FB5s:after {
+  margin-left: 6px;
+}
+
+.day__2Fs_v {
+  position: relative;
+}
+
+@media screen and (min-width: 1024px) {
+  .day__2Fs_v:before {
+    border-top: 1px solid #F1F3F4;
+    content: '';
+    height: 50px;
+    left: -500px;
+    position: absolute;
+    right: -500px;
+    width: 10000px;
+    pointer-events: none;
+  }
+}
+
+.date__HrqQp {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 16px 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .date__HrqQp {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    left: -60px;
+    padding: 0;
+    position: absolute;
+    top: 8px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .dateWeekday__c6J_B:after {
+    content: '. ';
+    white-space: pre;
+    pointer-events: none;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dateWeekday__c6J_B {
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 400;
+    font-family: "Roboto", arial, sans-serif;
+    margin-bottom: -4px;
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .dateDayNumber__KJVBf {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 400;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .row__WRVvc {
+    display: grid;
+    grid-template-columns: repeat(64, 1fr);
+    height: 50px;
+  }
+}
+
+.heading__Ars3I {
+  margin-top: 68px;
+}
+
+.heading__Ars3I:first-of-type {
+  margin-top: 40px;
+}
 </style>

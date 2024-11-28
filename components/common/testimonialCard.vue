@@ -86,7 +86,7 @@
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 4;
-    text-overflow: ellipsis
+    text-overflow: ellipsis;
 }
 
 .upcoming-events .event-card h3 {
