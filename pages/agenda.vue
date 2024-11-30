@@ -34,8 +34,8 @@ const tracks = [...new Set(sessionsData.map((agenda) => agenda.venue))];
 
 const days = [
   {
-    weekday: "Mon",
-    day: 20,
+    weekday: "Sat",
+    day: 7,
     tracks: tracks.map((track) => {
       return {
         track,
@@ -121,9 +121,10 @@ export default {
 }
 
 .calendar__3ASh5 {
-  margin: 0 auto;
-  max-width: 1056px;
+  margin: 0;
+  width: 300vw;
   position: relative;
+  overflow: scroll;
 }
 
 @media screen and (min-width: 1024px) {
@@ -137,7 +138,7 @@ export default {
     left: -500px;
     position: absolute;
     right: -500px;
-    width: 10000px;
+    width: 7500px;
     border-bottom: 1px solid #F1F3F4;
     pointer-events: none;
   }
@@ -210,7 +211,7 @@ export default {
     left: -500px;
     position: absolute;
     right: -500px;
-    width: 10000px;
+    /* width: 800px; */
     pointer-events: none;
   }
 }

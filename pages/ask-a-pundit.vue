@@ -11,17 +11,14 @@
                         and support.
                     </p>
                 </v-col>
-            </v-row>    
+            </v-row>
 
             <v-row>
                 <v-col md="2" cols="6" sm="3" v-for="(item, index) in expertsData" :key="index">
                     <CommonAskAPunditCard :data="item" @request-time="openBottomSheet" />
                 </v-col>
-                <CommonAskAPunditBottomSheet
-                    v-if="bottomSheetOpen"
-                    :professional="selectedProfessional"
-                     @close="bottomSheetOpen = false"
-                />
+                <CommonAskAPunditBottomSheet v-if="bottomSheetOpen" :professional="selectedProfessional"
+                    @close="bottomSheetOpen = false" />
             </v-row>
         </v-container>
     </NuxtLayout>
