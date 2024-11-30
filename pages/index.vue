@@ -2,8 +2,9 @@
     <NuxtLayout name="default">
         <v-container fluid>
             <v-row>
+                <CommonUserScheduleCard class="my-0 mt-md-5" />
                 <!-- Hero -->
-                <HomeHeroSection class="my-0 my-md-10" />
+                <HomeHeroSection class="my-0 mt-md-5 mb-md-10" />
                 <!-- Hero -->
 
                 <!-- Countdown -->

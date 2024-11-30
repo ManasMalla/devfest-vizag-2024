@@ -15,7 +15,7 @@
           <span class="dateDayNumber__KJVBf">{{ day.day }}</span>
         </div>
         <div class="row__WRVvc" v-for="track in day.tracks">
-          <CommonAgendaBar v-for="(event, idx) in track.events" :event="event" :idx="idx"
+          <CommonAgendaBar v-for="(event, index) in track.events.slice(0, 1)" :event="event" :idx="index"
             :is-session-in-schedule="schedule.includes(event.id)" />
         </div>
       </div>
@@ -25,14 +25,13 @@
 
 <script setup>
 import { getDoc, doc } from 'firebase/firestore';
+import { useCurrentUser, useFirebaseAuth } from 'vuefire'
 
 const db = useFirestore();
 
-const { ushaAgenda } = useJSONData();
-const tracks = [...new Set(ushaAgenda.map((agenda) => agenda.track_title))];
-// console.log(tracks);
-const dayOneTracks = ushaAgenda.filter((agenda) => (new Date(ushaAgenda[0]?.start_at || "")).getDate() == 7);
-// console.log(dayOneTracks);
+const { scheduleData, sessionsData } = useJSONData();
+const tracks = [...new Set(sessionsData.map((agenda) => agenda.venue))];
+
 const days = [
   {
     weekday: "Mon",
@@ -40,26 +39,28 @@ const days = [
     tracks: tracks.map((track) => {
       return {
         track,
-        events: dayOneTracks.filter((agenda) => agenda.track_title === track),
+        events: sessionsData.filter((agenda) => agenda.venue === track),
       };
     }),
   },
 ];
+console.log(days);
 
 const schedule = useState("userSchedule", () => []);
 const user = useCurrentUser();
 const auth = useFirebaseAuth();
-onMounted(() => {
-
+watch(user, (_) => {
   if (user.value) {
-
     console.log(user.value.uid);
-    getDoc(doc(db, "users", user.value.uid)).then((doc) => {
+    getDoc(doc(db, "users", user.value.uid)).then(async (doc) => {
+      const d = await doc.data();
+      console.log(d.schedule);
       if (doc.exists()) {
-        schedule.value = doc.data().schedule;
+        schedule.value = d.schedule;
       }
     });
   }
+
 });
 
 </script>
@@ -272,7 +273,7 @@ export default {
 @media screen and (min-width: 1024px) {
   .row__WRVvc {
     display: grid;
-    grid-template-columns: repeat(64, 1fr);
+    grid-template-columns: repeat(228, 1fr);
     height: 50px;
   }
 }

@@ -3,7 +3,9 @@
         <template v-slot:activator="{ props }">
             <div v-bind="props" :key="idx"
                 :class="['event__YGTKe', ['eventRed__2g88B', 'eventBlue__3pTyG', 'eventYellow__1FduS', 'eventGreen__2A2MQ'][idx % 4]]"
-                :style="'cursor: pointer; grid-column: ' + (calculateTimeline(event.start_at, event.stop_at))">
+                :style="'cursor: pointer; grid-column: ' +
+                    (calculateTimeline(parseTime(event.time)))
+                    ">
                 <div class="eventIcon__3jIwU">
                     <svg><!-- Icon Here --></svg>
                 </div>
@@ -19,7 +21,7 @@
         <v-card>
             <v-container class="mx-3 my-0">
                 <h2>{{ event.title }}</h2>
-                <h4 style="opacity: 50%;">{{ new Date(event.start_at).toLocaleString("en-US", {
+                <h4 style="opacity: 50%;">{{ (parseTime(event.time)[0]).toLocaleString("en-US", {
                     year: "numeric",
                     month: "short",
                     day: "2-digit",
@@ -27,13 +29,50 @@
                     minute: "numeric",
                 }) }}</h4>
                 <p>{{ event.description }}</p>
-                <v-btn @click="addToUserSchedule" rounded color="#4285f4" class="mt-4">Add to schedule</v-btn>
+                <v-btn @click="addToUserSchedule" variant="tonal" rounded color="#4285f4" class="mt-4"
+                    v-if="!isSessionInSchedule">Add
+                    to
+                    schedule</v-btn>
+                <v-btn @click="addToUserSchedule" rounded variant="tonal" color="#ea4335" class="mt-4"
+                    v-if="isSessionInSchedule">Remove
+                    from
+                    schedule</v-btn>
             </v-container>
         </v-card>
     </v-bottom-sheet>
 </template>
 <script setup>
 import { arrayRemove, arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore';
+
+const parseTime = (time) => {
+
+    const times = time.split(" to ");
+    const startTime = times[0];
+    const endTime = times[1];
+    const [timePart, modifier] = startTime.split(' ');
+    let [hours, minutes] = timePart.split(':').map(Number);
+
+    if (modifier === 'PM' && hours !== 12) {
+        hours += 12;
+    } else if (modifier === 'AM' && hours === 12) {
+        hours = 0;
+    }
+
+    const date = new Date();
+    date.setHours(hours, minutes, 0, 0);
+    const [timePart2, modifier2] = endTime.split(' ');
+    let [hours2, minutes2] = timePart2.split(':').map(Number);
+
+    if (modifier2 === 'PM' && hours2 !== 12) {
+        hours2 += 12;
+    } else if (modifier2 === 'AM' && hours2 === 12) {
+        hours2 = 0;
+    }
+
+    const date2 = new Date();
+    date2.setHours(hours2, minutes2, 0, 0);
+    return [date, date2];
+};
 
 const props = defineProps({
     event: {
@@ -63,12 +102,11 @@ async function addToUserSchedule() {
     }
 }
 
-function calculateTimeline(a, b) {
-    const s = new Date(a);
-    const e = new Date(b);
-    const offset = s - new Date(s.getFullYear(), s.getMonth(), s.getDate(), 8, 0, 0);
-    const duration = e - s;
-    return `${(offset / 60000) / 10 + 1} / span ${(duration / 60000) / 10}`;
+function calculateTimeline([s, e]) {
+    const offset = (s - new Date(s.getFullYear(), s.getMonth(), s.getDate(), 8, 0, 0)) / 60000;
+    const duration = (e - s) / 60000;
+    console.log(offset, duration, props.event.title);
+    return `${((offset * 22) / 60) + 1} / span ${duration * 22 / 60}`;
 }
 </script>
 

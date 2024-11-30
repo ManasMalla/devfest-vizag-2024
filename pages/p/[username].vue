@@ -38,8 +38,10 @@
               <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name"
                 class="mt-2">{{ userDetails.company.designation }}, {{ userDetails.company.name }}</p>
               <p v-if="userDetails && userDetails.communityTitle">{{ userDetails.communityTitle }}</p>
-              <a style="display: flex; align-items: center;  column-gap: 4px; margin-top: 12px; border: 1px solid #dadce0; color: #1a73e8; padding: 6px 12px; border-radius: 48px; text-decoration:none;" :href="'https://devfest.vizag.dev/p/' + userDetails.username"
-                v-if="userDetails && userDetails.username">devfest.vizag.dev/p/{{ userDetails.username }} <v-icon size="16">mdi-arrow-top-right</v-icon></a>
+              <a style="display: flex; align-items: center;  column-gap: 4px; margin-top: 12px; border: 1px solid #dadce0; color: #1a73e8; padding: 6px 12px; border-radius: 48px; text-decoration:none;"
+                :href="'https://devfest.vizag.dev/p/' + userDetails.username"
+                v-if="userDetails && userDetails.username">devfest.vizag.dev/p/{{ userDetails.username }} <v-icon
+                  size="16">mdi-arrow-top-right</v-icon></a>
               <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
               <div v-if="userDetails && !showEditor"
                 style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
@@ -157,40 +159,40 @@ const route = useRoute();
 
 
 onMounted(async () => {
-console.log(route.params.username);
-       const q = query(collection(db, "users"), where("username", "==", route.params.username), limit(1));
-       const snapshot = await getDocs(q);
-       let profileUID;
-       snapshot.forEach((doc)=> {
-        userDetails.value = doc.data();
-        profileUID = doc.id;
-       });
-      // console.log('Company Details', uD.company); userDetails.value = uD;
-      // console.log('Company State', userDetails.value.company);
-      const arcadeDataRef = computed(() => collection(db, "users", profileUID , "arcade"));
-      const arcadeData = await getDocs(arcadeDataRef.value);
-      var badgeData = [];
-      arcadeData.forEach((doc) => {
-        badgeData.push({ ...doc.data(), id: doc.id });
-      });
-      console.log('Badge Data', badgeData);
-      badges.value.push({
-        name: "Diwali Dhamaka",
-        link: "/arcade/diwali-quiz",
-        date: badgeData.filter((doc) => doc.id == 'diwali')[0]?.timestamp === undefined ? "Not earned" : ((moment(badgeData.filter((doc) => doc.id == 'diwali')[0]?.timestamp?.toDate())))?.format('DD MMM YYYY'),
-        image: "diwali-dhamaka-badge.svg",
-        earned: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted || false,
-        description: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted ? "Boom! Victory is yours! You're a Diwali Quiz Mastermind, Illuminator!\nThis badge is proof of your festive brilliance.\nShare your triumph and inspire others to shine! #DevFestDiwali" : "Think you know Diwali? A hidden Diwali treasure awaits!\nIgnite your Diwali spirit! Unravel the secrets of the Festival of Lights by conquering the Diwali Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Diwali Quiz. ",
-      }, {
-        name: "Google Guru",
-        link: "/arcade/google-quiz",
-        date: badgeData.filter((doc) => doc.id == 'google')[0]?.timestamp === undefined ? "Not earned" : ((moment(badgeData.filter((doc) => doc.id == 'google')[0]?.timestamp?.toDate())))?.format('DD MMM YYYY'),
-        image: "google-guru-badge.svg",
-        earned: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompletedGoogle || false,
-        description: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompletedGoogle ? "Congratulations, Google Guru! 🎉 You've aced the quiz and proven your tech expertise! This badge is a symbol of your tech brilliance and your passion for learning. #DevFestGoogleGuru. Let the world know your tech skills. Share your success and inspire others! 🚀" : "Think you know all Google? A Googolous adventure treasure awaits!\nIgnite your Google spirit! Unravel the secrets of the tech giant by conquering the Google Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Google Quiz. ",
-      });
-     
-    
+  console.log(route.params.username);
+  const q = query(collection(db, "users"), where("username", "==", route.params.username), limit(1));
+  const snapshot = await getDocs(q);
+  let profileUID;
+  snapshot.forEach((doc) => {
+    userDetails.value = doc.data();
+    profileUID = doc.id;
+  });
+  // console.log('Company Details', uD.company); userDetails.value = uD;
+  // console.log('Company State', userDetails.value.company);
+  const arcadeDataRef = computed(() => collection(db, "users", profileUID, "arcade"));
+  const arcadeData = await getDocs(arcadeDataRef.value);
+  var badgeData = [];
+  arcadeData.forEach((doc) => {
+    badgeData.push({ ...doc.data(), id: doc.id });
+  });
+  console.log('Badge Data', badgeData);
+  badges.value.push({
+    name: "Diwali Dhamaka",
+    link: "/arcade/diwali-quiz",
+    date: badgeData.filter((doc) => doc.id == 'diwali')[0]?.timestamp === undefined ? "Not earned" : ((moment(badgeData.filter((doc) => doc.id == 'diwali')[0]?.timestamp?.toDate())))?.format('DD MMM YYYY'),
+    image: "diwali-dhamaka-badge.svg",
+    earned: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted || false,
+    description: (badgeData.filter((doc) => doc.id == 'diwali')[0])?.quizCompleted ? "Boom! Victory is yours! You're a Diwali Quiz Mastermind, Illuminator!\nThis badge is proof of your festive brilliance.\nShare your triumph and inspire others to shine! #DevFestDiwali" : "Think you know Diwali? A hidden Diwali treasure awaits!\nIgnite your Diwali spirit! Unravel the secrets of the Festival of Lights by conquering the Diwali Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Diwali Quiz. ",
+  }, {
+    name: "Google Guru",
+    link: "/arcade/google-quiz",
+    date: badgeData.filter((doc) => doc.id == 'google')[0]?.timestamp === undefined ? "Not earned" : ((moment(badgeData.filter((doc) => doc.id == 'google')[0]?.timestamp?.toDate())))?.format('DD MMM YYYY'),
+    image: "google-guru-badge.svg",
+    earned: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompletedGoogle || false,
+    description: (badgeData.filter((doc) => doc.id == 'google')[0])?.quizCompletedGoogle ? "Congratulations, Google Guru! 🎉 You've aced the quiz and proven your tech expertise! This badge is a symbol of your tech brilliance and your passion for learning. #DevFestGoogleGuru. Let the world know your tech skills. Share your success and inspire others! 🚀" : "Think you know all Google? A Googolous adventure treasure awaits!\nIgnite your Google spirit! Unravel the secrets of the tech giant by conquering the Google Quiz and this dazzling radiant badge is your reward for victory.\nSpark your inner knowledge and illuminate the leaderboard in the Google Quiz. ",
+  });
+
+
 });
 definePageMeta({
   layout: false,

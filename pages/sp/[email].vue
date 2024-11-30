@@ -89,11 +89,18 @@ async function updateUserPassword() {
             console.log(auth.currentUser);
             await updatePassword(auth.currentUser, password.value);
             const uD = doc.data();
-            if (uD["socials"]["linkedin"] == null || uD['domainsInterested'] == null) {
-                linkedin = uD["socials"]["linkedin"];
-                github = uD["socials"]["github"];
+            if (uD["socials"].filter((e) => e.provider == 'linkedin').name == null || uD['domainsInterested'] == null) {
+                linkedin = uD["socials"].filter((e) => e.provider == 'linkedin').name == null;
+                github = uD["socials"].filter((e) => e.provider == 'github').name == null;
                 domainsInterested = uD["domainsInterested"];
                 sheet.value = true;
+            } else {
+                uid = auth.currentUser.uid;
+                console.log(auth.currentUser.uid);
+                auth.signOut();
+                console.log("Password updated successfully");
+                navigateTo('/login', { replace: true });
+
             }
             uid = auth.currentUser.uid;
             auth.signOut();
