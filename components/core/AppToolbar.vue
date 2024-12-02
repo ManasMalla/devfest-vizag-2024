@@ -40,7 +40,7 @@
       <v-btn v-if="!user" to="/login">Sign in</v-btn>
       <a v-if="user" href="/profile"><v-container height="40" width="40"
           style="object-fit: cover; border-radius: 20px; border: 2px black solid; display: flex; align-items: center; justify-content: center; overflow: hidden">
-          <img
+          <img referrerPolicy="no-referrer"
             :src="user.photoURL || 'https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg'"
             style="border-radius: 20px; width: 34px; height: 34px; object-fit: cover; aspect-ratio: 1;" />
         </v-container></a>

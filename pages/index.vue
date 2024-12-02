@@ -2,13 +2,28 @@
     <NuxtLayout name="default">
         <v-container fluid>
             <v-row>
-                <CommonUserScheduleCard class="my-0 mt-md-5" />
+                <v-row align="center" class="my-0"
+                    style="max-width: 1000px; margin-left: auto; margin-right: auto; padding: 36px 24px 24px 24px; border: 1.5px solid #202023; border-radius: 0px 0px 24px 24px; transform: translateY(-24px);">
+                    <v-col cols="12" lg="7">
+                        <!-- <CommonUserScheduleCard class="my-0 mt-md-5" /> -->
+                        <h2>Your Checklist</h2>
+                        <HomeChecklistSection :tasks="[
+                            { id: 1, name: 'Buy a ticket', isCompleted: true, route: 'https://konfhub.com/devfest-vizag-2024' },
+                            { id: 2, name: 'Update your profile', isCompleted: false, route: '/profile' },
+                            { id: 3, name: 'Explore the agenda', isCompleted: false, route: '/agenda' },
+                            { id: 4, name: 'Plan out your schedule', isCompleted: false, route: '/agenda' },
+                            { id: 5, name: 'Schedule 1-1 sessions with a pundit', isCompleted: false, route: '/speakers' },
+                        ]" />
+                    </v-col>
+                    <v-col col="12" lg="5" style="padding: 24px;">
+                        <HomeCountdown />
+                    </v-col>
+                </v-row>
                 <!-- Hero -->
                 <HomeHeroSection class="my-0 mt-md-5 mb-md-10" />
                 <!-- Hero -->
 
                 <!-- Countdown -->
-                <HomeCountdown />
                 <!-- Countdown -->
 
                 <!-- Stats -->

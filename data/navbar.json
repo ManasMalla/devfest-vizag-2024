@@ -15,14 +15,9 @@
     "visible": true
   },
   {
-    "name": "Speakers",
-    "path": "/speakers",
-    "visible": false
-  },
-  {
     "name": "Badge",
     "path": "/badge",
-    "visible": false
+    "visible": true
   },
   {
     "name": "Call for Speakers",
@@ -32,7 +27,7 @@
   {
     "name": "Sponsors",
     "path": "/#sponsors",
-    "visible": true
+    "visible": false
   },
   {
     "name": "Sponsor Us",
@@ -52,6 +47,6 @@
   {
     "name": "Ask-a-Pundit",
     "path": "/ask-a-pundit",
-    "visible": true
+    "visible": false
   }
 ]

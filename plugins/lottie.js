@@ -1,5 +1,3 @@
 import lottie from "lottie-web/build/player/lottie_light.min.js";
 
-export default ({ app }, inject) => {
-  inject("lottie", lottie);
-};
+export default defineNuxtPlugin((nuxtApp) => nuxtApp.provide("lottie", lottie));

@@ -27,128 +27,46 @@
     </ClientOnly>
 </template>
 
-<script>
-import { ANIMATIONS } from "@/assets/bodymovinAnimationData";
-import { padStart } from "lodash";
 
-const EVENT_DATE = new Date("June 8, 2024 09:00 GMT+5:30");
-const FRAME_RANGES = {
-    nine: {
-        0: [285, 307],
-        1: [255, 277],
-        2: [225, 247],
-        3: [195, 217],
-        4: [165, 187],
-        5: [135, 157],
-        6: [105, 127],
-        7: [75, 97],
-        8: [45, 67],
-        9: [15, 37],
-    },
-    five: {
-        0: [165, 180],
-        1: [135, 157],
-        2: [105, 127],
-        3: [75, 97],
-        4: [45, 67],
-        5: [15, 37],
-    },
-    two: {
-        0: [75, 90],
-        1: [45, 67],
-        2: [15, 37],
-    },
-};
-const COLORS = ["blue", "red", "yellow", "green"];
+<script setup>
+import { onMounted, onBeforeUnmount, nextTick, reactive } from "vue";
+import { useNuxtApp } from "#app";
+import { getCurrentInstance } from 'vue';
+import { CountdownController } from "../../lib/CountdownController";
 
-export default {
-    name: "Countdown",
-    data() {
-        return {
-            countdownController: null,
-            isReset: false,
-        };
-    },
-    mounted() {
-        nextTick(() => {
-            this.countdownController = new CountdownController(
-                this.$style,
-                this.$refs.countdownContainer,
-                this.isReset,
-                this.$refs.countdownContainer.querySelectorAll(".js-digit")
+const nuxtApp = useNuxtApp();
+const { $style } = getCurrentInstance().type.__cssModules
+
+const EVENT_DATE = new Date("Dec 8, 2024 09:00 GMT+5:30");
+
+const state = reactive({
+    countdownController: null,
+    isReset: false,
+});
+
+const countdownContainer = ref(null);
+
+onMounted(() => {
+    nextTick(() => {
+        if (countdownContainer.value) {
+            state.countdownController = new CountdownController(
+                nuxtApp.$lottie,
+                $style,
+                countdownContainer.value,
+                state.isReset,
             );
-            this.countdownController.reset(this.isReset);
-            this.countdownController.init();
-        })
-    },
-    beforeDestroy() {
-        this.isReset = true;
-        this.countdownController.reset(this.isReset);
-    },
-};
-
-class CountdownController {
-    constructor(style, container, isReset, digitElements) {
-        this.style = style;
-        this.container = container;
-        this.isReset = isReset;
-        this.endTime = Date.parse(EVENT_DATE.toString()) / 1000;
-        this.digitObjects = [];
-        this.currentDigits = { seconds: {}, minutes: {}, hours: {}, days: {} };
-        this.digitElements = digitElements;
-    }
-
-    init() {
-
-        this.digitObjects = this.digitElements.map((digit) => {
-            const maxNumber = digit.dataset.maxNumber;
-            return {
-                element: digit,
-                animation: this.$lottie.loadAnimation({
-                    container: digit,
-                    renderer: "svg",
-                    loop: false,
-                    autoplay: false,
-                    animationData: ANIMATIONS[maxNumber],
-                }),
-                frameRanges: FRAME_RANGES[maxNumber],
-                currentNumber: null,
-                lastNumber: null,
-            };
-        });
-
-        this.render();
-    }
-
-    render() {
-        if (this.isReset) return;
-        this.updateTime();
-        requestAnimationFrame(() => this.render());
-    }
-
-    updateTime() {
-        const now = Date.now() / 1000;
-        const timeLeft = Math.max(this.endTime - now, 0);
-        const days = Math.floor(timeLeft / 86400);
-        const hours = Math.floor((timeLeft % 86400) / 3600);
-        const minutes = Math.floor((timeLeft % 3600) / 60);
-        const seconds = Math.floor(timeLeft % 60);
-
-        this.updateDigits(this.digitObjects, { days, hours, minutes, seconds });
-    }
-
-    updateDigits(digitObjects, time) {
-        // Logic to update digits and play animations...
-    }
-
-    reset(isReset) {
-        if (isReset) {
-            this.digitObjects.forEach((digit) => {
-                digit.animation.destroy();
-            });
+            state.countdownController.reset(state.isReset);
+            state.countdownController.init();
         }
+    });
+});
+
+onBeforeUnmount(() => {
+    if (state.countdownController) {
+        state.isReset = true;
+        state.countdownController.reset(state.isReset);
     }
-}
+});
 </script>
 
 <style module>

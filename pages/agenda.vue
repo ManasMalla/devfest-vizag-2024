@@ -1,149 +1,45 @@
 <template>
-  <div style="width: 80vw; margin-top: 36px;">
-    <div class="calendar__3ASh5">
-      <!-- Time Bar -->
-      <div class="timeBar__b9M84">
-        <div v-for="time in times" :key="time">
-          <span>{{ time }}</span>
-        </div>
-      </div>
+  <div style="display: flex; flex-direction: column">
+    <h2 class="my-5">Agenda</h2>
+    <div style="margin-top: 36px;">
+      <div class="calendar__3ASh5">
+        <div v-for="(day, index) in days" :key="index" class="day__2Fs_v">
+          <div class="date__HrqQp">
+            <span class="dateWeekday__c6J_B">{{ day.weekday }}</span>
+            <span class="dateDayNumber__KJVBf">{{ day.day }}</span>
+          </div>
+          <div style=" overflow: scroll">
+            <div class="row__WRVvc" style="display: flex;" v-for="track in day.tracks">
+              <v-card style="margin: 12px 8px; width: 280px; padding: 1rem; height: 160px; flex-shrink: 0;"
+                v-for="(event, index) in track.events" :event="event" :idx="index">
+                <div style="padding-right: 80px; display: flex; flex-direction: column; height: 100%;">
+                  <p style="position: absolute; right: 16px; text-align: end;"><b>{{ event.time.split(" to ")[0]
+                      }}</b><br />
+                    <span style="font-size: 14px;">{{ event.time.split(" to ")[1] }}</span>
+                  </p>
+                  <h3 style="max-width: 220px;">{{ event.title }}</h3>
 
-      <!-- Days and Events -->
-      <div v-for="(day, index) in days" :key="index" class="day__2Fs_v">
-        <div class="date__HrqQp">
-          <span class="dateWeekday__c6J_B">{{ day.weekday }}</span>
-          <span class="dateDayNumber__KJVBf">{{ day.day }}</span>
-        </div>
-        <div class="row__WRVvc" v-for="track in day.tracks">
-          <CommonAgendaBar v-for="(event, index) in track.events.slice(0, 1)" :event="event" :idx="index"
-            :is-session-in-schedule="schedule.includes(event.id)" />
+                  <div style="margin-top: auto; height: fit-content;">
+                    <v-container v-for="speaker in speakersData.filter((e) => event.speakers.includes(e.id))"
+                      style="padding: 4px 6px; border-radius: 80px; display: flex; column-gap: 12px; align-items:center; width: fit-content; margin:0">
+                      <img :src="'../img/speakers/' + speaker.image"
+                        style="width: 24px; height: 24px; object-fit:cover; border-radius: 20px;" />
+                      <p class="mr-2" style="font-size: 14px; font-weight: 600;">{{ speaker.name }}</p>
+                    </v-container>
+
+                    <v-chip variant="outlined" class="mt-2">{{ event.track }}</v-chip>
+                  </div>
+                </div>
+              </v-card>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<script setup>
-import { getDoc, doc } from 'firebase/firestore';
-import { useCurrentUser, useFirebaseAuth } from 'vuefire'
-
-const db = useFirestore();
-
-const { scheduleData, sessionsData } = useJSONData();
-const tracks = [...new Set(sessionsData.map((agenda) => agenda.venue))];
-
-const days = [
-  {
-    weekday: "Sat",
-    day: 7,
-    tracks: tracks.map((track) => {
-      return {
-        track,
-        events: sessionsData.filter((agenda) => agenda.venue === track),
-      };
-    }),
-  },
-];
-console.log(days);
-
-const schedule = useState("userSchedule", () => []);
-const user = useCurrentUser();
-const auth = useFirebaseAuth();
-watch(user, (_) => {
-  if (user.value) {
-    console.log(user.value.uid);
-    getDoc(doc(db, "users", user.value.uid)).then(async (doc) => {
-      const d = await doc.data();
-      console.log(d.schedule);
-      if (doc.exists()) {
-        schedule.value = d.schedule;
-      }
-    });
-  }
-
-});
-
-</script>
-
-<script>
-export default {
-  data() {
-    return {
-      times: [
-        "8AM",
-        "9",
-        "10",
-        "11",
-        "12PM",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5PM",
-      ],
-      headers: ["Route", "Start Time", "End Time", "Stops"],
-      routes: [
-        { isHeader: false, data: ["Route A", "6:00 AM", "8:00 AM", "5 Stops"] },
-        { isHeader: true, data: ["Special Schedule", "", "", ""] },
-      ],
-    };
-  },
-};
-</script>
-
 <style scoped>
-/*
- * Utility function to calculate the width of a desired column span (1 or more columns)
- *
- * Example usage:
- * getSpanWidth(2) // returns the width of 2 columns in the default breakpoint (mobile)
- * getSpanWidth(2, 6, $bp-desktop) // returns the width of 2 columns when inside a 6 column container in desktop
- *
- * Given the complexity of the grid system, it's impossible for the function to
- * determine the width without knowing if it should be calculating a column
- * width inside a container that spans all columns, or just some columns.
- * It's also impossible to determine the correct column gap to use in the
- * calculation, so the function requests the breakpoint, but will the mobile
- * gap as default. Finally, it's possible to ask the function to include an
- * extra gap at the end of the calculation, this can be useful if you are
- * trying to offset an element 3 columns to the right, where you need that
- * extra gap to offset it properly (e.g. left: getSpanWidth(3, 4, 6, $bp-desktop, true))
- *
- * @param $column-span: the number of columns you wish to calculate the width for
- * @param $columns: the number of columns the parent container spans in the grid
- *   defaults to all columns in the current breakpoint
- * @param $bp: the breakpoint to use for the column gap calculation
- * @param $include-last-gap: if you wish to add the width of 1 column gap to
- *   the calculation
- */
-.agenda__2Cuil {
-  width: 100%;
-}
-
-.calendar__3ASh5 {
-  margin: 0;
-  width: 300vw;
-  position: relative;
-  overflow: scroll;
-}
-
-@media screen and (min-width: 1024px) {
-  .calendar__3ASh5 {
-    padding: 38px 0 76px 60px;
-  }
-
-  .calendar__3ASh5:after {
-    content: '';
-    height: 50px;
-    left: -500px;
-    position: absolute;
-    right: -500px;
-    width: 7500px;
-    border-bottom: 1px solid #F1F3F4;
-    pointer-events: none;
-  }
-}
-
 .timeBar__b9M84 {
   display: none;
 }
@@ -211,7 +107,7 @@ export default {
     left: -500px;
     position: absolute;
     right: -500px;
-    /* width: 800px; */
+    width: 10000px;
     pointer-events: none;
   }
 }
@@ -270,20 +166,44 @@ export default {
     text-align: center;
   }
 }
-
-@media screen and (min-width: 1024px) {
-  .row__WRVvc {
-    display: grid;
-    grid-template-columns: repeat(228, 1fr);
-    height: 50px;
-  }
-}
-
-.heading__Ars3I {
-  margin-top: 68px;
-}
-
-.heading__Ars3I:first-of-type {
-  margin-top: 40px;
-}
 </style>
+
+<script setup>
+import { getDoc, doc } from 'firebase/firestore';
+import { useCurrentUser, useFirebaseAuth } from 'vuefire'
+
+const db = useFirestore();
+
+const { scheduleData, sessionsData, speakersData } = useJSONData();
+const tracks = [...new Set(sessionsData.map((agenda) => agenda.venue))];
+
+const days = [
+  {
+    weekday: "Sat",
+    day: 7,
+    tracks: tracks.map((track) => {
+      return {
+        track,
+        events: sessionsData.filter((agenda) => agenda.venue === track),
+      };
+    }),
+  },
+];
+console.log(days);
+// const schedule = useState("userSchedule", () => []);
+// const user = useCurrentUser();
+// const auth = useFirebaseAuth();
+// watch(user, (_) => {
+//   if (user.value) {
+//     console.log(user.value.uid);
+//     getDoc(doc(db, "users", user.value.uid)).then(async (doc) => {
+//       const d = await doc.data();
+//       console.log(d.schedule);
+//       if (doc.exists()) {
+//         schedule.value = d.schedule;
+//       }
+//     });
+//   }
+
+// });
+</script>

@@ -3,9 +3,7 @@
         <template v-slot:activator="{ props }">
             <div v-bind="props" :key="idx"
                 :class="['event__YGTKe', ['eventRed__2g88B', 'eventBlue__3pTyG', 'eventYellow__1FduS', 'eventGreen__2A2MQ'][idx % 4]]"
-                :style="'cursor: pointer; grid-column: ' +
-                    (calculateTimeline(parseTime(event.time)))
-                    ">
+                :style="'cursor: pointer; grid-column: ' + (idx + 1) + '/span 1'">
                 <div class="eventIcon__3jIwU">
                     <svg><!-- Icon Here --></svg>
                 </div>
@@ -106,7 +104,7 @@ function calculateTimeline([s, e]) {
     const offset = (s - new Date(s.getFullYear(), s.getMonth(), s.getDate(), 8, 0, 0)) / 60000;
     const duration = (e - s) / 60000;
     console.log(offset, duration, props.event.title);
-    return `${((offset * 22) / 60) + 1} / span ${duration * 22 / 60}`;
+    return `${((offset * 132) / 60) + 1} / span ${duration * 132 / 60}`;
 }
 </script>
 
@@ -188,6 +186,7 @@ function calculateTimeline([s, e]) {
     justify-content: flex-start;
     margin: 8px 0;
     padding: 16px;
+    overflow: hidden;
 }
 
 @media screen and (min-width: 1024px) {

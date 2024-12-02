@@ -21,10 +21,10 @@
             enabling them to communicate their insights.
           </p>
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
-            <img v-if="user.photoURL != null" :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
-              style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50" width="160"
-              height="160" />
-            <img
+            <img referrerPolicy="no-referrer" v-if="user.photoURL != null" :src="user.photoURL.split('=s96-c')[0]"
+              alt="Profile Picture" style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50"
+              width="160" height="160" />
+            <img referrerPolicy="no-referrer"
               src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
               v-if="user.photoURL == null"
               style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50;" width="160"
