@@ -14,11 +14,13 @@
       </v-row>
 
       <v-row>
-        <v-col md="2" cols="6" sm="3" v-for="(item, index) in speakersData.filter((speaker) => speaker.mentor === true)" :key="index">
-           <common-speaker-card :data="item" @request-time="openBottomSheet" /> 
+        <v-col md="2" cols="6" sm="3"
+          v-for="(item, index) in speakersData.filter((speaker) => speaker.mentor === true && !speaker.expert)"
+          :key="index">
+          <common-speaker-card :data="item" @request-time="openBottomSheet"
+            :can-request-time="!mentorRequests.includes(item.name)" />
         </v-col>
-        <CommonAskAPunditBottomSheet v-if="bottomSheetOpen" :professional="selectedProfessional"
-        @close="bottomSheetOpen = false" />
+
       </v-row>
     </v-container>
 
@@ -37,17 +39,24 @@
       </v-row>
 
       <v-row>
-        <v-col md="2" cols="6" sm="3" v-for="(item, index) in speakersData.filter((expert) => expert.expert === true)" :key="index">
-           <common-speaker-card :data="item" @request-time="openBottomSheet" /> 
+        <v-col md="2" cols="6" sm="3" v-for="(item, index) in speakersData.filter((expert) => expert.expert === true)"
+          :key="index">
+          <common-speaker-card :data="item" @request-time="openBottomSheet"
+            :can-request-time="!mentorRequests.includes(item.name)" />
         </v-col>
-        <CommonAskAPunditBottomSheet v-if="bottomSheetOpen" :professional="selectedProfessional"
-        @close="bottomSheetOpen = false" />
+
       </v-row>
     </v-container>
+    <CommonAskAPunditBottomSheet v-if="bottomSheetOpen" :professional="selectedProfessional"
+      @close="bottomSheetOpen = false" :add-mentor-request="() => {
+        mentorRequests.push(selectedProfessional.name);
+      }" />
   </NuxtLayout>
 </template>
 
 <script setup>
+import { query, where, collection, getDocs } from 'firebase/firestore';
+
 const { mainData, speakersData } = useJSONData();
 const selectedProfessional = ref(null);
 const bottomSheetOpen = ref(false);
@@ -57,9 +66,23 @@ definePageMeta({
 });
 
 const openBottomSheet = (professional) => {
-    selectedProfessional.value = professional;
-    bottomSheetOpen.value = true;
+  selectedProfessional.value = professional;
+  bottomSheetOpen.value = true;
 };
+
+const mentorRequests = useState('requests', () => []);
+
+const user = useCurrentUser();
+const db = useFirestore();
+watch(user, async (_) => {
+  if (user.value) {
+    const q = query(collection(db, 'mentor-request'), where('uId', '==', user.value.uid));
+    const snapshot = await getDocs(q);
+    snapshot.forEach((doc) => {
+      mentorRequests.value.push(doc.data().name);
+    });
+  }
+});
 
 useSeoMeta({
   contentType: "text/html; charset=utf-8",
