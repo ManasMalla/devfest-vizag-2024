@@ -117,5 +117,57 @@
       "web": "https://chandan-khamitkar-dev.vercel.app/"
     },
     "type": "Core-Contributor"
+  },
+  {
+    "id": "6008",
+    "name": "Jayadhar Ummadisingu",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "ML Intern"
+    },
+    "community_title": "Core Volunteer",
+    "image": "jayadhar.jpg",
+    "bio": "Passionate about Machine Learning, I enjoy solving problems, learning new technologies, and creating impactful solutions. Eager to grow and contribute to tech.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/jayadhar-ummadisingu-2a825b25a/",
+      "twitter": "https://x.com/8Jayadhar8",
+      "github": "https://github.com/U-Jayadhar",
+      "web": "https://u-jayadhar.github.io/My-Portfolio-Website/"
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "6009",
+    "name": "Palleti Varshita",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "Web Intern"
+    },
+    "community_title": "Core Volunteer",
+    "image": "varshita.jpeg",
+    "bio": "A developer and student pursuing Bachelors in Computer Science Engineering. Experienced in over 19 languages- frameworks with over a year experience building rich experiences as a Full-Stack Web Developer. Interned at Ati Uttam (a SAAS based company)",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/varshita-palleti-34209625a/",
+      "github": "https://github.com/Palleti-Varshita",
+      "web": "https://varshitapalleti.vercel.app/"
+    },
+    "type": "Core-Contributor"
+  },
+  {
+    "id": "6010",
+    "name": "Revanth Peethala",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "ML Intern"
+    },
+    "community_title": "Core Volunteer",
+    "image": "revanth.jpg",
+    "bio": "Passionate about solving real-world problems, exploring machine learning and its derivatives and eager to apply my skills in a dynamic, growth-oriented environment.",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/revanth-peethala/",
+      "twitter": "https://x.com/RevanthP21",
+      "github": "https://github.com/P-Revanth"
+    },
+    "type": "Core-Contributor"
   }
 ]
