@@ -10,27 +10,14 @@
           </div>
           <div style=" overflow: scroll">
             <div class="row__WRVvc" style="display: flex;" v-for="track in day.tracks">
-              <v-card style="margin: 12px 8px; width: 280px; padding: 1rem; height: 160px; flex-shrink: 0;"
-                v-for="(event, index) in track.events" :event="event" :idx="index">
-                <div style="padding-right: 80px; display: flex; flex-direction: column; height: 100%;">
-                  <p style="position: absolute; right: 16px; text-align: end;"><b>{{ event.time.split(" to ")[0]
-                      }}</b><br />
-                    <span style="font-size: 14px;">{{ event.time.split(" to ")[1] }}</span>
-                  </p>
-                  <h3 style="max-width: 220px;">{{ event.title }}</h3>
-
-                  <div style="margin-top: auto; height: fit-content;">
-                    <v-container v-for="speaker in speakersData.filter((e) => event.speakers.includes(e.id))"
-                      style="padding: 4px 6px; border-radius: 80px; display: flex; column-gap: 12px; align-items:center; width: fit-content; margin:0">
-                      <img :src="'../img/speakers/' + speaker.image"
-                        style="width: 24px; height: 24px; object-fit:cover; border-radius: 20px;" />
-                      <p class="mr-2" style="font-size: 14px; font-weight: 600;">{{ speaker.name }}</p>
-                    </v-container>
-
-                    <v-chip variant="outlined" class="mt-2">{{ event.track }}</v-chip>
-                  </div>
-                </div>
-              </v-card>
+              <CommonAgendaBar v-for="(event, index) in track.events" :event="event" :idx="index"
+                :is-session-in-schedule="schedule.includes(event.id)" :on-add-to-schedule="() => {
+                  if (schedule.includes(event.id)) {
+                    schedule = schedule.filter((id) => id !== event.id);
+                  } else {
+                    schedule.push(event.id);
+                  }
+                }" />
             </div>
           </div>
         </div>
@@ -38,6 +25,59 @@
     </div>
   </div>
 </template>
+
+
+<script setup>
+import { getDoc, doc } from 'firebase/firestore';
+import { useCurrentUser, useFirebaseAuth } from 'vuefire'
+
+const db = useFirestore();
+
+const { scheduleData, sessionsData, speakersData } = useJSONData();
+const tracks = [...new Set(sessionsData.map((agenda) => agenda.venue))];
+
+const days = [
+  {
+    weekday: "Sat",
+    day: 7,
+    tracks: tracks.map((track) => {
+      return {
+        track,
+        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track),
+      };
+    }),
+  },
+  {
+    weekday: "Sun",
+    day: 8,
+    tracks: tracks.map((track) => {
+      return {
+        track,
+        events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track),
+      };
+    }),
+  },
+];
+console.log(days);
+const schedule = useState("userSchedule", () => []);
+const user = useCurrentUser();
+const auth = useFirebaseAuth();
+// watch(user, (_) => {
+//   if (user.value) {
+//     console.log(user.value.uid);
+//     getDoc(doc(db, "users", user.value.uid)).then(async (doc) => {
+//       const d = await doc.data();
+//       console.log(d.schedule);
+//       if (doc.exists()) {
+//         schedule.value = d.schedule;
+//       }
+//     });
+//   }
+
+// });
+</script>
+
+
 
 <style scoped>
 .timeBar__b9M84 {
@@ -167,53 +207,3 @@
   }
 }
 </style>
-
-<script setup>
-import { getDoc, doc } from 'firebase/firestore';
-import { useCurrentUser, useFirebaseAuth } from 'vuefire'
-
-const db = useFirestore();
-
-const { scheduleData, sessionsData, speakersData } = useJSONData();
-const tracks = [...new Set(sessionsData.map((agenda) => agenda.venue))];
-
-const days = [
-  {
-    weekday: "Sat",
-    day: 7,
-    tracks: tracks.map((track) => {
-      return {
-        track,
-        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track),
-      };
-    }),
-  },
-  {
-    weekday: "Sun",
-    day: 8,
-    tracks: tracks.map((track) => {
-      return {
-        track,
-        events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track),
-      };
-    }),
-  },
-];
-console.log(days);
-// const schedule = useState("userSchedule", () => []);
-// const user = useCurrentUser();
-// const auth = useFirebaseAuth();
-// watch(user, (_) => {
-//   if (user.value) {
-//     console.log(user.value.uid);
-//     getDoc(doc(db, "users", user.value.uid)).then(async (doc) => {
-//       const d = await doc.data();
-//       console.log(d.schedule);
-//       if (doc.exists()) {
-//         schedule.value = d.schedule;
-//       }
-//     });
-//   }
-
-// });
-</script>

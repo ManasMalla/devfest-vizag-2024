@@ -1,20 +1,32 @@
 <template>
-    <v-bottom-sheet>
+    <v-bottom-sheet v-model="sheet">
         <template v-slot:activator="{ props }">
-            <div v-bind="props" :key="idx"
-                :class="['event__YGTKe', ['eventRed__2g88B', 'eventBlue__3pTyG', 'eventYellow__1FduS', 'eventGreen__2A2MQ'][idx % 4]]"
-                :style="'cursor: pointer; grid-column: ' + (idx + 1) + '/span 1'">
-                <div class="eventIcon__3jIwU">
-                    <svg><!-- Icon Here --></svg>
+            <v-card v-bind="props"
+                style="margin: 12px 8px; width: 280px; padding: 1rem; height: 160px; flex-shrink: 0; "
+                :style="event.track == 'Mobile' ? 'background-color: rgba(204, 246, 197, 0.3);' : event.track == 'Cloud' ? 'background-color: rgba(255, 231, 165, 0.3);' : event.track == 'Web' ? 'background-color: rgba(195, 236, 246, 0.3)' : event.track === 'AI/ML' ? 'background-color: rgba(248, 216, 216, 0.3)' : 'background-color: rgba(32, 32, 35, 0.08)'">
+                <div style="padding-right: 80px; display: flex; flex-direction: column; height: 100%;">
+                    <p style="position: absolute; right: 16px; text-align: end;"><b>{{ event.time.split(" to ")[0]
+                            }}</b><br />
+                        <span style="font-size: 14px;">{{ event.time.split(" to ")[1] }}</span>
+                    </p>
+                    <h3 style="max-width: 220px;">{{ event.title }}</h3>
+
+                    <div style="margin-top: auto; height: fit-content;">
+                        <v-container v-for="speaker in speakersData.filter((e) => event.speakers.includes(e.id))"
+                            style="padding: 4px 6px; border-radius: 80px; display: flex; column-gap: 12px; align-items:center; width: fit-content; margin:0">
+                            <img :src="'../img/speakers/' + speaker.image"
+                                style="width: 24px; height: 24px; object-fit:cover; border-radius: 20px;" />
+                            <p class="mr-2" style="font-size: 14px; font-weight: 600;">{{ speaker.name }}</p>
+                        </v-container>
+
+                        <v-chip
+                            :color="event.track == 'Mobile' ? '#ccf6c5' : event.track == 'Cloud' ? '#ffe7a5' : event.track == 'Web' ? '#c3ecf6' : event.track === 'AI/ML' ? '#f8d8d8' : '#bababa'"
+                            variant="flat" class="mt-2">{{
+                                event.track
+                            }}</v-chip>
+                    </div>
                 </div>
-                <div class="eventLabel__1xNJF">
-                    <span class="eventTitle__2IhWF">{{ event.title }}</span>
-                    <span class="formattedEventTime__1x2iy">{{ new Date(event.start_at).toLocaleString("default",
-                        {
-                            year: "numeric"
-                        }) }}</span>
-                </div>
-            </div>
+            </v-card>
         </template>
         <v-card>
             <v-container class="mx-3 my-0">
@@ -41,6 +53,8 @@
 </template>
 <script setup>
 import { arrayRemove, arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore';
+
+const { scheduleData, sessionsData, speakersData } = useJSONData();
 
 const parseTime = (time) => {
 
@@ -84,8 +98,15 @@ const props = defineProps({
     isSessionInSchedule: {
         type: Boolean,
         default: false
+    },
+    onAddToSchedule: {
+        type: Function,
+        default: () => { }
     }
 })
+
+
+const sheet = useState('sheetValue' + props.event.title, () => false);
 
 const user = useCurrentUser();
 const db = useFirestore();
@@ -96,7 +117,9 @@ async function addToUserSchedule() {
         await updateDoc(doc(db, "users", user.value.uid), {
             schedule: props.isSessionInSchedule ? arrayRemove(props.event.id) : arrayUnion(props.event.id)
         });
+        props.onAddToSchedule();
         alert(props.isSessionInSchedule ? "Removed from schedule" : "Added to schedule");
+        sheet.value = false;
     }
 }
 
