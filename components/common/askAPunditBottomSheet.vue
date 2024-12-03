@@ -21,7 +21,7 @@
                     ></v-textarea>
                 </v-col>
                 <v-row class="my-4">
-                    <v-btn @click="askPundit" rounded color="#4285f4" class="">Have a Question?</v-btn>
+                    <v-btn :loading="isLoading"  @click="askPundit" rounded color="#4285f4" class="">Have a Question?</v-btn>
                     <v-btn 
                     text
                     class="ml-4"
@@ -36,9 +36,10 @@
     </v-bottom-sheet>
 </template>
 <script setup>
-import { arrayRemove, arrayUnion, doc, getDoc, updateDoc } from 'firebase/firestore';
+import { arrayRemove, arrayUnion, doc, getDoc, addDoc, collection } from 'firebase/firestore';
 const isBottomSheetOpen = ref(true);
-const userMessage = ref('')
+const userMessage = ref('');
+const isLoading = ref(false);
 
 const emit = defineEmits(['close']);
 const props = defineProps({
@@ -59,12 +60,18 @@ const user = useCurrentUser();
 const db = useFirestore();
 
 async function askPundit() {
-    // if (user.value) {
-    //     await updateDoc(doc(db, "users", user.value.uid), {
-    //         schedule: props.isSessionInSchedule ? arrayRemove(props.professional.id) : arrayUnion(props.professional.id)
-    //     });
-    //     alert(props.isSessionInSchedule ? "Removed from schedule" : "Added to schedule");
-    // }
+    if (user.value) {
+        isLoading.value = true;
+        await addDoc(collection(db, "mentor-request"), {
+            mentor: props.professional.name,
+            questions : userMessage.value,
+            uid: user.value.uid,
+            isApproved: false
+        });
+        alert("Request for a session is received ✅");
+        isLoading.value = false;
+        isBottomSheetOpen.value = false; 
+    }
 }
 
 function closeBottomSheet() {
