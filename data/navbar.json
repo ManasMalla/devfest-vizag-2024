@@ -48,5 +48,10 @@
     "name": "Ask-a-Pundit",
     "path": "/ask-a-pundit",
     "visible": false
+  },
+  {
+    "name": "Bootcamp",
+    "path": "/bootcamp",
+    "visible": true
   }
 ]

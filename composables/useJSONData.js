@@ -14,6 +14,7 @@ import announcements from "../data/announcements.json";
 import testimonials from "../data/testimonials.json";
 import ushaAgenda from "../data/usha-agenda.json";
 import expertsData from "../data/experts.json";
+import bootcampData from "../data/bootcamp.json";
 
 export const useJSONData = () => {
   return {
@@ -32,6 +33,7 @@ export const useJSONData = () => {
     announcements,
     testimonials,
     ushaAgenda,
-    expertsData
+    expertsData,
+    bootcampData
   };
 };
