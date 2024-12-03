@@ -87,7 +87,11 @@
 </template>
 
 <script setup>
+<<<<<<< HEAD
 import { doc, getDoc, query, collection, getCountFromServer, where } from 'firebase/firestore';
+=======
+import { doc, getDoc, query, collection, getCountFromServer } from 'firebase/firestore';
+>>>>>>> 60e3ab3 (Added changes to authors and SEO)
 
 const { mainData, testimonials } = useJSONData();
 definePageMeta({
