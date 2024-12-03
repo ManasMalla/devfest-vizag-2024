@@ -152,7 +152,6 @@
     "expert": false
   },
   {
-<<<<<<< HEAD
     "id": "106",
     "name": "Geethika Yerramsetti",
     "company": {
@@ -172,8 +171,6 @@
     "expert": false
   },
   {
-=======
->>>>>>> 2c1d8d4 (Updated the speakers in speaker.json)
     "id": "107",
     "name": "Supriya Raman",
     "company": {
