@@ -6,7 +6,7 @@
         <!-- <a
           href="https://github.com/oss-labs/"
           style="text-decoration: none; color: white"
-          ><p style="font-size: 70%"><i>developed by OSS Labs</i></p></a
+          ><p style="font-size: 70%"><i>developed by The Ananta Studio</i></p></a
         > -->
       </v-col>
       <v-col md="10" cols="12">
@@ -63,7 +63,7 @@
       <p style="color: white; padding-left: 12px; display: flex; align-items: center; flex-direction: row;"><span
           style="opacity: 60%;">Designed, Developed and
           Maintained with
-          🤍  
+          🤍
           by
         </span><a href="https://theananta.in" style="color: white; text-decoration: none; opacity: 100%;"> <img
             :src="'/img/sponsors/theananta.png'" style="height: 40px; filter: invert()" /></a></p>

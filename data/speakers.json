@@ -15,8 +15,8 @@
       "github": "",
       "web": ""
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "102",
@@ -34,8 +34,8 @@
       "github": "",
       "web": ""
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "103",
@@ -53,8 +53,8 @@
       "github": "",
       "web": "https://snehpandya.com/"
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "104",
@@ -72,8 +72,8 @@
       "github": "",
       "web": ""
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "112",
@@ -91,8 +91,8 @@
       "github": "",
       "web": ""
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "108",
@@ -110,8 +110,8 @@
       "github": "",
       "web": ""
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "114",
@@ -129,8 +129,8 @@
       "github": "",
       "web": ""
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": true
   },
   {
     "id": "107",
@@ -148,8 +148,8 @@
       "github": "",
       "web": ""
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "106",
@@ -167,8 +167,8 @@
       "github": "",
       "web": ""
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "107",
@@ -186,8 +186,8 @@
       "github": "",
       "web": ""
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "109",
@@ -205,8 +205,8 @@
       "github": "",
       "web": ""
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "105",
@@ -224,7 +224,7 @@
       "github": "",
       "web": ""
     },
-    "mentor" : true,
-    "expert" : false
+    "mentor": true,
+    "expert": false
   }
 ]

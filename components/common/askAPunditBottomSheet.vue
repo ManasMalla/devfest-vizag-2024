@@ -1,5 +1,5 @@
 <template>
-    <v-bottom-sheet v-model="isBottomSheetOpen">
+    <v-bottom-sheet persistent v-model="isBottomSheetOpen">
         <template v-slot:activator="{ props }">
             <div v-bind="props" :key="idx">
                 <div class="eventIcon__3jIwU">
@@ -12,25 +12,17 @@
                 <h2>{{ professional.name }}</h2>
                 <p>{{ professional.company.designation }}</p>
                 <v-col class="mt-4">
-                    <v-textarea
-                        v-model="userMessage"
-                        label="What would you ask if you had five minutes with them?"
-                        prepend-icon="mdi-message-question"
-                        variant="outlined"
-                        @change="handleTextAreaInput"
-                    ></v-textarea>
+                    <v-textarea v-model="userMessage" label="What would you ask if you had five minutes with them?"
+                        prepend-icon="mdi-message-question" variant="outlined"
+                        @change="handleTextAreaInput"></v-textarea>
                 </v-col>
                 <v-row class="my-4">
-                    <v-btn :loading="isLoading"  @click="askPundit" rounded color="#4285f4" class="">Have a Question?</v-btn>
-                    <v-btn 
-                    text
-                    class="ml-4"
-                    variant="plain"
-                    @click="closeBottomSheet"
-                    >
-                    Close
-                </v-btn>
-            </v-row>
+                    <v-btn :loading="isLoading" @click="askPundit" rounded color="#4285f4" class="">Have a
+                        Question?</v-btn>
+                    <v-btn text class="ml-4" variant="plain" @click="closeBottomSheet">
+                        Close
+                    </v-btn>
+                </v-row>
             </v-container>
         </v-card>
     </v-bottom-sheet>
@@ -51,6 +43,10 @@ const props = defineProps({
         type: Number,
         default: -1
     },
+    addMentorRequest: {
+        type: Function,
+        default: () => { },
+    },
 });
 
 const handleTextAreaInput = () => {
@@ -64,18 +60,19 @@ async function askPundit() {
         isLoading.value = true;
         await addDoc(collection(db, "mentor-request"), {
             mentor: props.professional.name,
-            questions : userMessage.value,
+            questions: userMessage.value,
             uid: user.value.uid,
             isApproved: false
         });
+        props.addMentorRequest();
+        isBottomSheetOpen.value = false;
         alert("Request for a session is received ✅");
         isLoading.value = false;
-        isBottomSheetOpen.value = false; 
     }
 }
 
 function closeBottomSheet() {
-    isBottomSheetOpen.value = false; 
+    isBottomSheetOpen.value = false;
     emit("close");
 }
 </script>

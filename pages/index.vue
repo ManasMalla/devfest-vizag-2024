@@ -7,13 +7,7 @@
                     <v-col cols="12" lg="7">
                         <!-- <CommonUserScheduleCard class="my-0 mt-md-5" /> -->
                         <h2>Your Checklist</h2>
-                        <HomeChecklistSection :tasks="[
-                            { id: 1, name: 'Buy a ticket', isCompleted: true, route: 'https://konfhub.com/devfest-vizag-2024' },
-                            { id: 2, name: 'Update your profile', isCompleted: false, route: '/profile' },
-                            { id: 3, name: 'Explore the agenda', isCompleted: false, route: '/agenda' },
-                            { id: 4, name: 'Plan out your schedule', isCompleted: false, route: '/agenda' },
-                            { id: 5, name: 'Schedule 1-1 sessions with a pundit', isCompleted: false, route: '/speakers' },
-                        ]" />
+                        <HomeChecklistSection :tasks="tasks" />
                     </v-col>
                     <v-col col="12" lg="5" style="padding: 24px;">
                         <HomeCountdown />
@@ -93,6 +87,8 @@
 </template>
 
 <script setup>
+import { doc, getDoc, query, collection, getCountFromServer } from 'firebase/firestore';
+
 const { mainData, testimonials } = useJSONData();
 definePageMeta({
     layout: false,
@@ -100,14 +96,45 @@ definePageMeta({
 
 const tracks = ["Web", "Mobile", "Cloud", "AI", "Career", "Entrepreneurship"];
 
+const tasks = useState(() => [
+    { id: 1, name: 'Buy a ticket', isCompleted: false, route: 'https://konfhub.com/devfest-vizag-2024' },
+    { id: 2, name: 'Update your profile', isCompleted: false, route: '/profile' },
+    { id: 3, name: 'Explore the agenda', isCompleted: false, route: '/agenda' },
+    { id: 4, name: 'Plan out your schedule', isCompleted: false, route: '/agenda' },
+    { id: 5, name: 'Schedule 1-1 sessions with a pundit', isCompleted: false, route: '/speakers' },
+]);
+const db = useFirestore();
+const user = useCurrentUser();
+watch(user, async (_) => {
+    if (user.value) {
+        const userDoc = (await getDoc(doc(db, "users", user.value.uid))).data();
+        if (userDoc.paymentStatus && userDoc.registration) {
+            tasks.value[0].isCompleted = true;
+        }
+        if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoUrl) {
+            tasks.value[1].isCompleted = true;
+        }
+        if (userDoc.schedule.length > 0) {
+            tasks.value[2].isCompleted = true;
+            tasks.value[3].isCompleted = true;
+        }
+        getCountFromServer(query(collection(db, "mentor-request"), where("uid", "==", user.value.uid))).then((querySnapshot) => {
+            if (querySnapshot.data().count > 0) {
+                tasks.value[4].isCompleted = true;
+            }
+        });
+        console.log(tasks.value);
+    }
+});
+
 useSeoMeta({
     contentType: "text/html; charset=utf-8",
     title: mainData.eventInfo.name + " | " + mainData.communityName,
     description: mainData.eventInfo.description.short,
     ogLocale: 'en_US',
     keywords: mainData.seo.keywords,
-    author: "OSS Labs",
-    creator: "OSS Labs",
+    author: "The Ananta Studio",
+    creator: "The Ananta Studio",
     viewport: "width=device-width, initial-scale=1.0",
     ogTitle: mainData.eventInfo.name + " | " + mainData.communityName,
     ogDescription: mainData.eventInfo.description.short,

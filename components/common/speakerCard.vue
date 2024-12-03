@@ -1,50 +1,27 @@
 <template>
   <v-dialog v-model="dialog" width="900" persistent>
     <template v-slot:activator="{ props: activatorProps }">
-      <div
-        style="cursor: pointer"
-        v-bind="activatorProps"
-        class="text-center image-container"
-      >
+      <div style="cursor: pointer" v-bind="activatorProps" class="text-center image-container">
         <v-img alt="frame" class="frame" src="/assets/img/frame.png"></v-img>
-        <v-img
-          class="avatar"
-          aspect-ratio="1"
-          cover
-          :alt="props.data.name"
-          :src="
-            props.data.image.length
-              ? '/img/speakers/' + props.data.image
-              : '/img/common/avatar.png'
-          "
-        ></v-img>
+        <v-img class="avatar" aspect-ratio="1" cover :alt="props.data.name" :src="props.data.image.length
+          ? '/img/speakers/' + props.data.image
+          : '/img/common/avatar.png'
+          "></v-img>
         <h3 class="mt-n1">{{ props.data.name }}</h3>
         <p style="font-size: 90%">{{ props.data.company.name }}</p>
       </div>
     </template>
 
-    <v-card
-      max-width="800"
-      rounded="xl"
-      class="pa-4"
-      style="border: 2px solid black"
-    >
+    <v-card max-width="800" rounded="xl" class="pa-4" style="border: 2px solid black">
       <v-container fluid>
         <v-row>
           <v-col md="4" cols="12">
             <div class="text-center image-container">
               <v-img alt="frame" class="frame" src="/assets/img/frame.png"></v-img>
-              <v-img
-                class="avatar"
-                :alt="props.data.name"
-                aspect-ratio="1"
-                cover
-                :src="
-                  props.data.image.length
-                    ? '/img/speakers/' + props.data.image
-                    : '/img/common/avatar.png'
-                "
-              ></v-img>
+              <v-img class="avatar" :alt="props.data.name" aspect-ratio="1" cover :src="props.data.image.length
+                ? '/img/speakers/' + props.data.image
+                : '/img/common/avatar.png'
+                "></v-img>
             </div>
           </v-col>
           <v-col md="8" cols="12">
@@ -62,7 +39,12 @@
         </v-row>
       </v-container>
       <template v-slot:actions>
-        <v-btn v-if="props.data.mentor" text variant="tonal" @click="requestTime" style="background-color: #ffd427; color: black;"><span class="mr-1" style="font-weight: 600;">Request Time</span><v-icon>mdi-timer-outline</v-icon></v-btn>
+        <v-btn v-if="props.data.mentor && canRequestTime" text variant="tonal" @click="requestTime"
+          style="background-color: #ffd427; color: black;"><span class="mr-1" style="font-weight: 600;">Request
+            Time</span><v-icon>mdi-timer-outline</v-icon></v-btn>
+        <v-btn v-if="props.data.mentor && !canRequestTime" text variant="tonal" disabled style="color: black;"><span
+            class="mr-1" style="font-weight: 600;">Application
+            Pending</span><v-icon>mdi-timer-outline</v-icon></v-btn>
         <v-btn text @click="dialog = false">Close</v-btn>
       </template>
     </v-card>
@@ -72,10 +54,15 @@
 <script setup>
 // Props
 const emit = defineEmits(['request-time'])
+
 const props = defineProps({
   data: {
     type: Object,
     default: {},
+  },
+  canRequestTime: {
+    type: Boolean,
+    default: true,
   },
 });
 
@@ -83,8 +70,8 @@ const props = defineProps({
 const dialog = ref(false);
 
 const requestTime = () => {
-    dialog.value = false;
-    emit("request-time", props.data);
+  dialog.value = false;
+  emit("request-time", props.data);
 };
 </script>
 
