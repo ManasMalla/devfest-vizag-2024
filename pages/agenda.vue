@@ -184,7 +184,17 @@ const days = [
     tracks: tracks.map((track) => {
       return {
         track,
-        events: sessionsData.filter((agenda) => agenda.venue === track),
+        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track),
+      };
+    }),
+  },
+  {
+    weekday: "Sun",
+    day: 8,
+    tracks: tracks.map((track) => {
+      return {
+        track,
+        events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track),
       };
     }),
   },
