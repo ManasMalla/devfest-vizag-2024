@@ -76,10 +76,12 @@ const user = useCurrentUser();
 const db = useFirestore();
 watch(user, async (_) => {
   if (user.value) {
-    const q = query(collection(db, 'mentor-request'), where('uId', '==', user.value.uid));
+    console.log('User logged in');
+    const q = query(collection(db, 'mentor-request'), where('uid', '==', user.value.uid));
     const snapshot = await getDocs(q);
+    console.log(snapshot, user.value.uid);
     snapshot.forEach((doc) => {
-      mentorRequests.value.push(doc.data().name);
+      mentorRequests.value.push(doc.data().mentor);
     });
   }
 });

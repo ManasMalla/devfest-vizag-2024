@@ -39,10 +39,10 @@
         </v-row>
       </v-container>
       <template v-slot:actions>
-        <v-btn v-if="props.data.mentor && canRequestTime" text variant="tonal" @click="requestTime"
+        <v-btn v-if="props.data.mentor && canRequestTime" text variant="flat" @click="requestTime"
           style="background-color: #ffd427; color: black;"><span class="mr-1" style="font-weight: 600;">Request
             Time</span><v-icon>mdi-timer-outline</v-icon></v-btn>
-        <v-btn v-if="props.data.mentor && !canRequestTime" text variant="tonal" disabled style="color: black;"><span
+        <v-btn v-if="props.data.mentor && !canRequestTime" text variant="flat" disabled style="color: black;"><span
             class="mr-1" style="font-weight: 600;">Application
             Pending</span><v-icon>mdi-timer-outline</v-icon></v-btn>
         <v-btn text @click="dialog = false">Close</v-btn>
