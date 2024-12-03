@@ -40,7 +40,11 @@
                                     domain }}</v-chip>
                         </div>
                         <p style="position: absolute; right: 16px; bottom: 12px; opacity: 0.4; font-weight: 600">
-                            #{{ (peerDetails?.domainsInterested || ['Developer'])[0] }}</p>
+                            <<<<<<< HEAD #{{ (peerDetails?.domainsInterested || ['Developer'])[0] }}</p>
+                                =======
+                                #{{ peerDetails?.domainsInterested?.get(0) || 'Developer' }}
+                        </p>
+                        >>>>>>> 4a6afea (fixed alignment of cards in [username].vue)
                     </div>
                 </v-card>
             </v-col>
