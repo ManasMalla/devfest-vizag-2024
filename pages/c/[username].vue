@@ -58,8 +58,7 @@
                         <p>{{ techStack.desc }}</p> -->
                     </div>
                 </div>
-                <v-btn @click="onSubmit" :loading="isSumbitLoading" variant="tonal"
-                    style="float: right">Submit</v-btn>
+                <v-btn @click="onSubmit" :loading="isSumbitLoading" variant="tonal" style="float: right">Submit</v-btn>
             </v-col>
         </v-row>
     </div>
@@ -100,7 +99,7 @@ async function fetchPeersData() {
             peerId.value = doc.id;
         });
         await checkNetworked();
-        if(!isAlreadyNetworked.value){
+        if (!isAlreadyNetworked.value) {
             createConnection();
         }
     } catch (error) {
@@ -153,7 +152,7 @@ async function onSubmit() {
     try {
         isSumbitLoading.value = true;
         await updateDoc(doc(db, "connections", docID.value), {
-            domains : choosenTechStacks.value
+            domains: choosenTechStacks.value
         });
         isSumbitLoading.value = false;
         navigateTo("/network?refresh=true");
