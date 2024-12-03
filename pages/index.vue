@@ -87,7 +87,7 @@
 </template>
 
 <script setup>
-import { doc, getDoc, query, collection, getCountFromServer } from 'firebase/firestore';
+import { doc, getDoc, query, collection, getCountFromServer, where } from 'firebase/firestore';
 
 const { mainData, testimonials } = useJSONData();
 definePageMeta({
@@ -119,6 +119,7 @@ watch(user, async (_) => {
             tasks.value[3].isCompleted = true;
         }
         getCountFromServer(query(collection(db, "mentor-request"), where("uid", "==", user.value.uid))).then((querySnapshot) => {
+            console.log(querySnapshot.data().count);
             if (querySnapshot.data().count > 0) {
                 tasks.value[4].isCompleted = true;
             }

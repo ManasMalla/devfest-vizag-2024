@@ -2,7 +2,7 @@
     <v-bottom-sheet v-model="sheet">
         <template v-slot:activator="{ props }">
             <v-card v-bind="props"
-                style="margin: 12px 8px; width: 280px; padding: 1rem; height: 160px; flex-shrink: 0; "
+                style="margin: 12px 8px; width: 320px; padding: 1rem; height: 160px; flex-shrink: 0; "
                 :style="event.track == 'Mobile' ? 'background-color: rgba(204, 246, 197, 0.3);' : event.track == 'Cloud' ? 'background-color: rgba(255, 231, 165, 0.3);' : event.track == 'Web' ? 'background-color: rgba(195, 236, 246, 0.3)' : event.track === 'AI/ML' ? 'background-color: rgba(248, 216, 216, 0.3)' : 'background-color: rgba(32, 32, 35, 0.08)'">
                 <div style="padding-right: 80px; display: flex; flex-direction: column; height: 100%;">
                     <p style="position: absolute; right: 16px; text-align: end;"><b>{{ event.time.split(" to ")[0]
@@ -25,16 +25,14 @@
                                 event.track
                             }}</v-chip>
 
-                        <v-icon 
-                            v-if="!isSessionInSchedule"
-                            :color="event.track == 'Mobile' ? '#34a853' : event.track == 'Cloud' ? '#f9ab00' : event.track == 'Web' ? '#4285f4' : event.track === 'AI/ML' ? '#ea4335' : '#202023'" 
-                            style="position: absolute; bottom: 12px; right: 16px;" > 
+                        <v-icon v-if="!isSessionInSchedule"
+                            :color="event.track == 'Mobile' ? '#34a853' : event.track == 'Cloud' ? '#f9ab00' : event.track == 'Web' ? '#4285f4' : event.track === 'AI/ML' ? '#ea4335' : '#202023'"
+                            style="position: absolute; bottom: 12px; right: 16px;">
                             mdi-bookmark-outline
                         </v-icon>
-                        <v-icon 
-                            v-if="isSessionInSchedule"
-                            :color="event.track == 'Mobile' ? '#34a853' : event.track == 'Cloud' ? '#f9ab00' : event.track == 'Web' ? '#4285f4' : event.track === 'AI/ML' ? '#ea4335' : '#202023'" 
-                            style="position: absolute; bottom: 12px; right: 16px;" > 
+                        <v-icon v-if="isSessionInSchedule"
+                            :color="event.track == 'Mobile' ? '#34a853' : event.track == 'Cloud' ? '#f9ab00' : event.track == 'Web' ? '#4285f4' : event.track === 'AI/ML' ? '#ea4335' : '#202023'"
+                            style="position: absolute; bottom: 12px; right: 16px;">
                             mdi-bookmark-check
                         </v-icon>
                     </div>
