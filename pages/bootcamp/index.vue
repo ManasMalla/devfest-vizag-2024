@@ -5,7 +5,8 @@
                 <v-col md="8">
                     <h1>Bootcamp</h1>
                     <p>The gateway to enter in another realm. Find it below!</p>
-                    <v-btn v-if="appliedPS !== -1" class="mt-2"variant="flat" fluid :color="'#ea4335'" v-bind:href="'mailto:vizaggdg@gmail.com?subject=Request for Change in Problem Statement&body=I want to change my Problem Statement to ...'" >
+                    <v-btn v-if="appliedPS !== -1" class="mt-2" variant="flat" fluid :color="'#ea4335'"
+                        v-bind:href="'mailto:vizaggdg@gmail.com?subject=Request for Change in Problem Statement&body=I want to change my Problem Statement to ...'">
                         CHANGE PS
                     </v-btn>
 
@@ -120,8 +121,8 @@ useSeoMeta({
     description: mainData.eventInfo.description.short,
     keywords: mainData.seo.keywords,
     ogLocale: 'en_US',
-    author: "OSS Labs",
-    creator: "OSS Labs",
+    author: "The Ananta Studio",
+    creator: "The Ananta Studio",
     viewport: "width=device-width, initial-scale=1.0",
     ogTitle: "Bootcamp - " + mainData.eventInfo.name + " | " + mainData.communityName,
     ogDescription: mainData.eventInfo.description.short,

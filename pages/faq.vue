@@ -6,31 +6,17 @@
           <h1>Frequently asked questions</h1>
           <p>Need Answers? Everything you need to know</p>
 
-          <v-expansion-panels
-            class="mb-6 mt-10"
-            rounded="12"
-            bg-color="white"
-            flat
-            style="
+          <v-expansion-panels class="mb-6 mt-10" rounded="12" bg-color="white" flat style="
               border-radius: 20px !important;
               /* border-bottom: 1px solid black; */
               overflow: hidden;
-            "
-            variant="accordion"
-          >
+            " variant="accordion">
             <!-- :style="{ borderBottom: i<3?'1px solid black':'', borderTop: i!=0?'1px solid black':'' }" -->
-            <v-expansion-panel
-              v-for="(item, index) in faqData"
-              :key="index"
-              :style="{
-                borderBottom:
-                  index + 1 < faqData.length ? '1px solid black' : '',
-              }"
-            >
-              <v-expansion-panel-title
-                expand-icon="mdi-menu-down"
-                style="background-color: #eeeeee"
-              >
+            <v-expansion-panel v-for="(item, index) in faqData" :key="index" :style="{
+              borderBottom:
+                index + 1 < faqData.length ? '1px solid black' : '',
+            }">
+              <v-expansion-panel-title expand-icon="mdi-menu-down" style="background-color: #eeeeee">
                 {{ item.question }}
               </v-expansion-panel-title>
               <v-expansion-panel-text class="pa-3">
@@ -56,9 +42,9 @@ useSeoMeta({
   title: "FAQ - " + mainData.eventInfo.name + " | " + mainData.communityName,
   description: mainData.eventInfo.description.short,
   keywords: mainData.seo.keywords,
-  ogLocale:'en_US',
-  author: "OSS Labs",
-  creator: "OSS Labs",
+  ogLocale: 'en_US',
+  author: "The Ananta Studio",
+  creator: "The Ananta Studio",
   viewport: "width=device-width, initial-scale=1.0",
   ogTitle: "FAQ - " + mainData.eventInfo.name + " | " + mainData.communityName,
   ogDescription: mainData.eventInfo.description.short,
@@ -73,5 +59,4 @@ useSeoMeta({
 });
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

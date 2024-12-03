@@ -11,12 +11,7 @@
 
           <v-container fluid class="ma-0 pa-0 mt-8">
             <v-row align="start" justify-start>
-              <v-col
-                md="4"
-                cols="12"
-                v-for="(item, index) in cocData"
-                :key="index"
-              >
+              <v-col md="4" cols="12" v-for="(item, index) in cocData" :key="index">
                 <p class="google-font" style="font-size: 1.2em">
                   <b>{{ item.name }}</b>
                 </p>
@@ -48,9 +43,9 @@ useSeoMeta({
     mainData.communityName,
   description: mainData.eventInfo.description.short,
   keywords: mainData.seo.keywords,
-  ogLocale:'en_US',
-  author: "OSS Labs",
-  creator: "OSS Labs",
+  ogLocale: 'en_US',
+  author: "The Ananta Studio",
+  creator: "The Ananta Studio",
   viewport: "width=device-width, initial-scale=1.0",
   ogTitle:
     "Code of Conduct - " +
@@ -71,4 +66,3 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 </script>
-

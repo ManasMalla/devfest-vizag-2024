@@ -30,7 +30,8 @@
                 {{ item.category }}
               </p>
               <!-- <p>Price: ${{ item.price }}</p> -->
-              <div class="mt-5" style="background-color: #e7ac12; display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 30px 0;">
+              <div class="mt-5"
+                style="background-color: #e7ac12; display: flex; justify-content: center; align-items: center; flex-direction: column; padding: 30px 0;">
                 <p style="text-align: center; font-size: smaller;">Powered by</p>
                 <p class=""
                   style="text-align: center; color: white; font-weight: 600; width: 100%; font-size: medium; display: flex; justify-content: center; align-items: center;">
@@ -73,8 +74,8 @@ useSeoMeta({
   description: mainData.eventInfo.description.short,
   keywords: mainData.seo.keywords,
   ogLocale: 'en_US',
-  author: "OSS Labs",
-  creator: "OSS Labs",
+  author: "The Ananta Studio",
+  creator: "The Ananta Studio",
   viewport: "width=device-width, initial-scale=1.0",
   ogTitle:
     "Speakers - " + mainData.eventInfo.name + " | " + mainData.communityName,
