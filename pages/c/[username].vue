@@ -1,9 +1,9 @@
 <template>
-    <NuxtLoadingIndicator :color="'#4285f4'"/>
+    <NuxtLoadingIndicator :color="'#4285f4'" />
     <h1 class="mt-5">Learn. Connect. Grow.</h1>
-    <div style="width: 90vw; max-width: 1200px;">
+    <div :style="!isAlreadyNetworked ? 'width: 90vw; max-width: 1200px;' : ''">
         <v-row>
-            <v-col cols="12" lg="4">
+            <v-col cols="12" :lg="!isAlreadyNetworked ? '4' : '12'">
                 <v-card class="badge-card"
                     style="padding: 12px; border-radius: 24px; margin: 12px; max-height: 500px; margin-left: auto; margin-right: auto; position: relative; display: flex; flex-direction: column;"
                     elevation="0" :color="userDomain == 'Mobile' ? '#CEE6C1' : '#c3ecf6'">
@@ -16,7 +16,8 @@
                             <!-- Display Name -->
                             <div style="display: flex; justify-content: start; align-items: center; gap: 8px;">
                                 <h2 style="line-height: 100%; margin-top: 12px;">{{ peerDetails?.displayName }}</h2>
-                                <v-icon class="mt-3" v-if="isAlreadyNetworked" :color="'#34a853'">mdi-check-decagram</v-icon>
+                                <v-icon class="mt-3" v-if="isAlreadyNetworked"
+                                    :color="'#34a853'">mdi-check-decagram</v-icon>
                             </div>
                             <p style="opacity: 50%; font-weight: 600; margin-bottom: 6px;">@{{ $route.params.username }}
                             </p>
@@ -35,10 +36,11 @@
                         </div>
                         <div class="my-2" style="flex-grow: 1;">
                             <v-chip v-for="domain in peerDetails?.domainsInterested"
-                                style="width: fit-content; font-size: 12px; display: inline-flex; margin-right: 4px; margin-top: 8px;">#{{ domain }}</v-chip>
+                                style="width: fit-content; font-size: 12px; display: inline-flex; margin-right: 4px; margin-top: 8px;">#{{
+                                    domain }}</v-chip>
                         </div>
                         <p style="position: absolute; right: 16px; bottom: 12px; opacity: 0.4; font-weight: 600">
-                            #{{ peerDetails?.domainsInterested[0] }}</p>
+                            #{{ peerDetails?.domainsInterested?.get(0) || 'Developer' }}</p>
                     </div>
                 </v-card>
             </v-col>
@@ -125,7 +127,7 @@ async function checkNetworked() {
         );
         const snapshot = await getCountFromServer(q);
         const count = snapshot.data().count;
-        isAlreadyNetworked.value = count !== 0 ? true : false; 
+        isAlreadyNetworked.value = count !== 0 ? true : false;
     } catch (error) {
         console.error("Error in Checking Already Networked or not! = ", error);
     }
@@ -138,7 +140,7 @@ async function createConnection() {
         await addDoc(collection(db, "connections"), {
             connectA: user.value.uid,
             connectB: peerId.value,
-            domains : choosenTechStacks.value
+            domains: choosenTechStacks.value
         });
 
         alert('Updated Successfully ✅');
