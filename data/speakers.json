@@ -226,24 +226,5 @@
     },
     "mentor" : true,
     "expert" : false
-  },
-  {
-    "id": "104",
-    "name": "Hemapriya Nagarajan",
-    "company": {
-      "name": "CDW",
-      "designation": "Data Engineer"
-    },
-    "community_title": "",
-    "image": "hemapriyanagarajan.jpeg",
-    "bio": "Hemapriya Nagarajan is a data professional with over 2.5 years of experience in building data pipelines and AI applications, bridging the Data-AI gap through data-driven solutions using ETL/ELT processes. As an NLP enthusiast and active problem solver, she is committed to continuous learning and thrives on exploring innovative approaches in data and AI. Hemapriya is passionate about sharing her knowledge, engaging in public speaking, contributing to communities, and is actively exploring freelancing opportunities to leverage her expertise. Her dedication to empowering organizations with data insights and her drive to make a positive impact define her professional journey.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/hemapriya-nagarajan/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    },
-    "mentor" : true,
-    "expert" : false
   }
 ]
