@@ -24,6 +24,19 @@
                             variant="flat" class="mt-2">{{
                                 event.track
                             }}</v-chip>
+
+                        <v-icon 
+                            v-if="!isSessionInSchedule"
+                            :color="event.track == 'Mobile' ? '#34a853' : event.track == 'Cloud' ? '#f9ab00' : event.track == 'Web' ? '#4285f4' : event.track === 'AI/ML' ? '#ea4335' : '#202023'" 
+                            style="position: absolute; bottom: 12px; right: 16px;" > 
+                            mdi-bookmark-outline
+                        </v-icon>
+                        <v-icon 
+                            v-if="isSessionInSchedule"
+                            :color="event.track == 'Mobile' ? '#34a853' : event.track == 'Cloud' ? '#f9ab00' : event.track == 'Web' ? '#4285f4' : event.track === 'AI/ML' ? '#ea4335' : '#202023'" 
+                            style="position: absolute; bottom: 12px; right: 16px;" > 
+                            mdi-bookmark-check
+                        </v-icon>
                     </div>
                 </div>
             </v-card>
