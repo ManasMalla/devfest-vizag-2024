@@ -188,11 +188,7 @@ const tracks = [{
     img: 'https://io.google/2024/app/images/io24-stacks-iot.webp',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 },
-<<<<<<< HEAD
 {
-=======
- {
->>>>>>> 6e7c733 (Sumbit visible even no topics are selected)
     title: 'Others',
     img: 'https://io.google/2024/app/images/io24-stacks-iot.webp',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
