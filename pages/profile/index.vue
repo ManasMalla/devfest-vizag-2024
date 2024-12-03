@@ -21,9 +21,24 @@
             enabling them to communicate their insights.
           </p>
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
-            <img referrerPolicy="no-referrer" v-if="user.photoURL != null" :src="user.photoURL.split('=s96-c')[0]"
-              alt="Profile Picture" style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50"
-              width="160" height="160" />
+            <img class="photoURLClass" referrerPolicy="no-referrer" v-if="user.photoURL != null" :src="user.photoURL.split('=s96-c')[0]"
+              alt="Profile Picture" style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50; position: relative; cursor: pointer"
+              width="160" height="160"/>
+              <div
+                class="edit-overlay"
+                @click="$refs.headshotFileInput.click()"
+                style="position: absolute;background-color: #dadce0; width: 160px; height: 160px; border-radius: 80px; z-index: 100; cursor: pointer; display: flex; justify-content: center; align-items: center;" >
+                <v-icon size="40">mdi-pencil</v-icon>
+              </div>
+
+              <!-- take headshot file input -->
+               <input 
+               type="file"
+               ref="headshotFileInput"
+               accept="image/*"
+               style="display: none;"
+               @change="handleFileChange"
+               >
             <img referrerPolicy="no-referrer"
               src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
               v-if="user.photoURL == null"
@@ -251,9 +266,11 @@ function removeSocial(index) {
 const dialog = ref(false);
 import { signOut } from 'firebase/auth';
 import { collection, doc, getDocs, updateDoc, query, where, getCountFromServer, setDoc } from 'firebase/firestore';
+import { ref, getDownloadURL, uploadBytes } from 'firebase/storage';
 import moment from 'moment';
 
 const auth = useFirebaseAuth();
+const storage = useFirebaseStorage()
 
 const { mainData } = useJSONData();
 const user = useCurrentUser();
@@ -261,7 +278,38 @@ const db = useFirestore();
 const badges = useState('badges', () => []);
 const userDetails = useState('userDetails', () => ({}));
 const showEditor = useState('showEditor', () => false);
+const headshotFileInput = ref(null);
 // const data = useState('udata', () => false);
+
+function triggerFileInput() {
+  nextTick(() => {
+    if (headshotFileInput.value) {
+      headshotFileInput.value.click();
+    } else {
+      console.error('File input is not properly referenced.');
+    }
+  });
+}
+async function handleFileChange(event) {
+  const file = event.target.files[0];
+  if (file) {
+    console.log("Selected file:", file);
+    const newHeadShot = ref(storage, `headshots/${user.value.uid}.png`);
+
+    try {
+      await uploadBytes(newHeadShot, file);
+      const headshotURL = await getDownloadURL(newHeadShot);
+      console.log("Headshot URL = ", headshotURL);
+
+      await updateDoc(doc(db, "users", user.value.uid), {
+        photoURL : headshotURL
+      })
+    } catch (error) {
+      console.error("Error in Uploading headshot to cloud!! = ", error);
+      alert("Error in saving your request!");
+    }
+  }
+};
 
 onMounted(() => {
   watch(user, async (newUser) => {
@@ -333,4 +381,11 @@ useSeoMeta({
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.edit-overlay{
+  opacity: 0;
+}
+.edit-overlay:hover{
+  opacity: 0.5;
+}
+</style>
