@@ -14,7 +14,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "102",
@@ -31,7 +33,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "103",
@@ -48,7 +52,9 @@
       "twitter": "https://x.com/SnehPandya18?mx=2",
       "github": "",
       "web": "https://snehpandya.com/"
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "104",
@@ -65,7 +71,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "112",
@@ -82,7 +90,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "108",
@@ -99,7 +109,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "114",
@@ -116,7 +128,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "107",
@@ -133,7 +147,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "106",
@@ -150,7 +166,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "107",
@@ -167,7 +185,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "109",
@@ -184,7 +204,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "105",
@@ -201,7 +223,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   },
   {
     "id": "104",
@@ -218,6 +242,8 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor" : true,
+    "expert" : false
   }
 ]

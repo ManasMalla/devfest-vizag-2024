@@ -62,6 +62,7 @@
         </v-row>
       </v-container>
       <template v-slot:actions>
+        <v-btn v-if="props.data.mentor" text variant="tonal" @click="requestTime" style="background-color: #ffd427; color: black;"><span class="mr-1" style="font-weight: 600;">Request Time</span><v-icon>mdi-timer-outline</v-icon></v-btn>
         <v-btn text @click="dialog = false">Close</v-btn>
       </template>
     </v-card>
@@ -70,6 +71,7 @@
 
 <script setup>
 // Props
+const emit = defineEmits(['request-time'])
 const props = defineProps({
   data: {
     type: Object,
@@ -79,6 +81,11 @@ const props = defineProps({
 
 // Reactive variables
 const dialog = ref(false);
+
+const requestTime = () => {
+    dialog.value = false;
+    emit("request-time", props.data);
+};
 </script>
 
 <style scoped>

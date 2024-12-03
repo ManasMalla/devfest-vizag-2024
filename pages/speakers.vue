@@ -14,10 +14,34 @@
       </v-row>
 
       <v-row>
-        <v-col md="2" cols="6" sm="3" v-for="(item, index) in speakersData" :key="index">
-
-           <common-speaker-card :data="item" /> 
+        <v-col md="2" cols="6" sm="3" v-for="(item, index) in speakersData.filter((speaker) => speaker.mentor === true)" :key="index">
+           <common-speaker-card :data="item" @request-time="openBottomSheet" /> 
         </v-col>
+        <CommonAskAPunditBottomSheet v-if="bottomSheetOpen" :professional="selectedProfessional"
+        @close="bottomSheetOpen = false" />
+      </v-row>
+    </v-container>
+
+    <!-- Experts -->
+    <v-container fluid>
+      <v-row>
+        <v-col md="12">
+          <h1>Experts</h1>
+          <p>
+            Our experts are influential leaders and allies actively involved in
+            various communities within their organizations, cities, countries,
+            and beyond, making a significant impact through their contributions
+            and support.
+          </p>
+        </v-col>
+      </v-row>
+
+      <v-row>
+        <v-col md="2" cols="6" sm="3" v-for="(item, index) in speakersData.filter((expert) => expert.expert === true)" :key="index">
+           <common-speaker-card :data="item" @request-time="openBottomSheet" /> 
+        </v-col>
+        <CommonAskAPunditBottomSheet v-if="bottomSheetOpen" :professional="selectedProfessional"
+        @close="bottomSheetOpen = false" />
       </v-row>
     </v-container>
   </NuxtLayout>
@@ -25,10 +49,17 @@
 
 <script setup>
 const { mainData, speakersData } = useJSONData();
+const selectedProfessional = ref(null);
+const bottomSheetOpen = ref(false);
 
 definePageMeta({
   layout: false,
 });
+
+const openBottomSheet = (professional) => {
+    selectedProfessional.value = professional;
+    bottomSheetOpen.value = true;
+};
 
 useSeoMeta({
   contentType: "text/html; charset=utf-8",
