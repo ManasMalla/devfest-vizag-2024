@@ -91,8 +91,8 @@ useSeoMeta({
   description: mainData.eventInfo.description.short,
   keywords: mainData.seo.keywords,
   ogLocale: 'en_US',
-  author: "OSS Labs",
-  creator: "OSS Labs",
+  author: "The Ananta Studio",
+  creator: "The Ananta Studio",
   viewport: "width=device-width, initial-scale=1.0",
   ogTitle:
     "Speakers - " + mainData.eventInfo.name + " | " + mainData.communityName,
