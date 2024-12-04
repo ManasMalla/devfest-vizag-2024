@@ -8,7 +8,7 @@
             <span class="dateWeekday__c6J_B">{{ day.weekday }}, {{ ' ' }}</span>
             <span class="dateDayNumber__KJVBf">{{ day.day }}</span>
           </div>
-          <div style=" overflow: scroll; width: 100vw;" class="cal-agenda">
+          <div style=" overflow: scroll; width: 80vw;" class="cal-agenda">
             <div class="row__WRVvc" style="display: flex;" v-for="track in day.tracks">
               <div class="date__HrqQs" :class="track.track === 'Community Lounge' ? 'cl' : ''">
                 <p style="text-align: center; font-size: 14px;" class="dateWeekday__c6J_B"
