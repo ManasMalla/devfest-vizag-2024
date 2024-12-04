@@ -2,7 +2,7 @@
     <!-- TODO: Display the values here -->
     <h1 class="mt-5">Network</h1>
     <v-row class="my-4" style="width: 100vw; max-width: 1200px;">
-        <v-col v-for="connection in connections.filter((e) => e?.displayName != undefined)" cols="6" lg="3">
+        <v-col v-for="connection in connections.filter((e) => e?.displayName != undefined)" cols="12" lg="3">
             <NetworkConnectionCard :connection="connection" />
         </v-col>
     </v-row>
