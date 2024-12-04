@@ -26,12 +26,16 @@
           </v-col>
           <v-col md="8" cols="12">
             <h1 class="mt-3 mb-0">{{ props.data.name }}</h1>
-            <p style="font-weight: 500" class="mt-n1">
+            <p v-if="props.data.community_title" style="font-weight: 500" class="mt-n1">
               {{ props.data.community_title }} |
               {{ props.data.company.designation }},
               {{ props.data.company.name }}
             </p>
+            <p v-if="!props.data.community_title" style="font-weight: 500" class="mt-n1">
 
+              {{ props.data.company.designation }},
+              {{ props.data.company.name }}
+            </p>
             <p class="mt-4">{{ props.data.bio }}</p>
 
             <common-speaker-social-button :socialLinks="props.data.social" />
