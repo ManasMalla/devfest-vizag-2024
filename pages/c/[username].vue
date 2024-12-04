@@ -58,7 +58,7 @@
                         <p>{{ techStack.desc }}</p> -->
                     </div>
                 </div>
-                <v-btn @click="createConnection" :loading="isSumbitLoading" variant="tonal"
+                <v-btn @click="onSubmit" :loading="isSumbitLoading" variant="tonal"
                     style="float: right">Submit</v-btn>
             </v-col>
         </v-row>
@@ -66,19 +66,20 @@
 
 </template>
 <script setup>
-import { collection, addDoc, query, getDocs, where, and, or, getCountFromServer } from 'firebase/firestore';
+import { collection, addDoc, query, getDocs, where, and, or, getCountFromServer, updateDoc, doc } from 'firebase/firestore';
 
 
 const user = useCurrentUser();
 const db = useFirestore();
 const route = useRoute();
+const router = useRouter();
 
 const isPageLoading = ref(false);
 const isSumbitLoading = ref(false);
 const peerDetails = useState('peerDetails', () => { });
 const choosenTechStacks = ref([]);
 const isAlreadyNetworked = ref(false);
-
+const docID = ref('');
 const peerId = ref('');
 const targetId = ref('');
 
@@ -91,16 +92,17 @@ watch(user, (_) => {
 // FETCH Peer's data
 async function fetchPeersData() {
     try {
-        console.log('Function called');
         const peerUserName = route.params.username;
         const q = query(collection(db, "users"), where("username", "==", peerUserName));
         const snapshot = await getDocs(q);
         snapshot.forEach((doc) => {
             peerDetails.value = doc.data();
             peerId.value = doc.id;
-            console.log('uid = ', doc.id);
         });
-        checkNetworked();
+        await checkNetworked();
+        if(!isAlreadyNetworked.value){
+            createConnection();
+        }
     } catch (error) {
         console.error('Error in fetching Peer. :', error);
         alert('Error in fetching Peer, Please try again!!');
@@ -111,7 +113,6 @@ async function fetchPeersData() {
 async function checkNetworked() {
     try {
         targetId.value = user?.value.uid;
-        console.log('Peer id = ', peerId.value, " target id = ", targetId.value);
         const q = query(
             collection(db, "connections"),
             or(
@@ -135,19 +136,30 @@ async function checkNetworked() {
 
 // AddDoc to Connections
 async function createConnection() {
-    isSumbitLoading.value = true;
     try {
-        await addDoc(collection(db, "connections"), {
+        const docRef = await addDoc(collection(db, "connections"), {
             connectA: user.value.uid,
             connectB: peerId.value,
-            domains: choosenTechStacks.value
+            domains: choosenTechStacks.value || []
         });
-
-        alert('Updated Successfully ✅');
+        docID.value = docRef.id;
     } catch (error) {
         console.error("Error in Creating doc in connection collection : ->", error);
         alert("Error in UPDATING network.")
+    }
+};
+
+async function onSubmit() {
+    try {
+        isSumbitLoading.value = true;
+        await updateDoc(doc(db, "connections", docID.value), {
+            domains : choosenTechStacks.value
+        });
         isSumbitLoading.value = false;
+        router.push("/network");
+    } catch (error) {
+        isSumbitLoading.value = false;
+        console.error("Error in submitting Domains. = ", error);
     }
 }
 
@@ -195,10 +207,6 @@ const userDomain = 'Mobile';
 
 .tech-stack:hover .mobile-img {
     background-image: url('https://io.google/2024/app/images/io24-stacks-m-dark.webp');
-}
-
-.tech-stack {
-    /* padding: 4px; */
 }
 
 @media screen and (min-width: 840px) {
