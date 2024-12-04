@@ -62,7 +62,8 @@ async function askPundit() {
             mentor: props.professional.name,
             questions: userMessage.value,
             uid: user.value.uid,
-            isApproved: false
+            isApproved: false,
+            status: 'pending'
         });
         props.addMentorRequest();
         isBottomSheetOpen.value = false;
