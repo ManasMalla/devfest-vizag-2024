@@ -79,11 +79,15 @@
                             cursor: 'pointer',
                             border: '0.5px solid #c0c1c4'
                         }">
-                            <v-img cover class="avatar" :alt="item.name" :src="item.image.length
-                                ? '/img/speakers/' + item.image
-                                : '/img/common/avatar.png'
-                                "
-                                style="border-radius: 100% ; width: 80px; height: 80px; object-fit: cover; overflow: hidden;"></v-img>
+                            <div
+                                style="border-radius: 100% ; width: 80px; height: 80px; display: flex; justify-content: center; align-items: center">
+                                <v-img cover class="avatar" :alt="item.name" :src="item.image.length
+                                    ? '/img/speakers/' + item.image
+                                    : '/img/common/avatar.png'
+                                    "
+                                    style="border-radius: 100% ; width: 80px; height: 80px; object-fit: cover; overflow: hidden;">
+                                </v-img>
+                            </div>
                             <div style="display: flex; flex-direction: column; gap: 4px; justify-content: start;">
                                 <p style="font-weight: 600; font-size: medium;">
                                     {{ item.name }}
