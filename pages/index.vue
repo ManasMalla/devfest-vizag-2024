@@ -57,7 +57,7 @@
                 <!-- Technologies -->
 
                 <!-- Past DevFest -->
-                <HomePastDevFest class="mb-md-10" />
+                <!-- <HomePastDevFest class="mb-md-10" /> -->
                 <!-- Past DevFest -->
 <!--
                 <div style="width: 100%; margin-bottom: 12px;">
@@ -75,10 +75,9 @@
                         </NuxtMarquee>
                         <!-- <v-icon
                             style="position: absolute; top:0; bottom:0; right:8px; background-color: white; margin-top: auto; margin-bottom: auto; border: 1.5px solid black; padding: 24px; border-radius: 48px;">mdi-arrow-right</v-icon> -->
-
+<!-- 
                     </div>
-                </div>
--->
+                </div> -->
                 <!-- Sponsors -->
                 <HomeSponsorsSection />
                 <!-- Sponsors -->

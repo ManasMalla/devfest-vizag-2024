@@ -95,6 +95,7 @@ async function applyBootCamp(psID) {
             });
             isLoading.value = false;
             alert("Applied Successfully ✅");
+            fetchAppliedPs();
         }
     } catch (error) {
         console.error("Error in applying... : ", error);
