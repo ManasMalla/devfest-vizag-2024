@@ -56,7 +56,7 @@
                         <p>{{ techStack.desc }}</p> -->
                     </div>
                 </div>
-                <v-btn @click="createConnection" :loading="isSumbitLoading" v-if="choosenTechStacks.length !== 0"
+                <v-btn @click="createConnection" :loading="isSumbitLoading"
                     variant="tonal" style="float: right">Submit</v-btn>
             </v-col>
         </v-row>
@@ -174,7 +174,13 @@ const tracks = [{
     title: 'Community',
     img: 'https://io.google/2024/app/images/io24-stacks-iot.webp',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-}];
+},
+ {
+    title: 'Others',
+    img: 'https://io.google/2024/app/images/io24-stacks-iot.webp',
+    desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+}
+];
 const userDomain = 'Mobile';
 </script>
 <style scoped>
