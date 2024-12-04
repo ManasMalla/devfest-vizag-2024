@@ -53,5 +53,11 @@
     "name": "Bootcamp",
     "path": "/bootcamp",
     "visible": true
+  },
+  {
+    "name": "Admin",
+    "path": "/admin",
+    "visible": false
   }
+
 ]
