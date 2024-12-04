@@ -40,26 +40,26 @@
                                     domain }}</v-chip>
                         </div>
                         <p style="position: absolute; right: 16px; bottom: 12px; opacity: 0.4; font-weight: 600">
-                            #{{ peerDetails?.domainsInterested?.get(0) || 'Developer' }}</p>
+                            #{{ (peerDetails?.domainsInterested || ['Developer'])[0] }}</p>
                     </div>
                 </v-card>
             </v-col>
             <v-col v-if="!isAlreadyNetworked" cols="12" lg="8">
                 <h3>What was the convo about?</h3>
-                <div class="convo-stack" style="column-gap: 12px; row-gap: 12px; margin-top: 24px;">
+                <div class="convo-stack" style="column-gap: 12px; row-gap: 12px;">
                     <div class="tech-stack" v-for="techStack in tracks"
                         style="display: inline-flex; width: fit-content; align-items: center; column-gap: 12px;"
                         :key="techStack.title">
                         <!-- <input type="checkbox">
                         <p style="display: inline-flex; width: fit-content;">{{ techStack.title }}</p> -->
-                        <v-checkbox :label="techStack.title" color="primary" v-model="choosenTechStacks"
-                            :value="techStack.title" /> <!-- <div class="mobile-img"></div>
+                        <v-checkbox :hide-details="true" :label="techStack.title" color="primary"
+                            v-model="choosenTechStacks" :value="techStack.title" /> <!-- <div class="mobile-img"></div>
                         <h3 class="mt-2">{{ techStack.title }}</h3>
                         <p>{{ techStack.desc }}</p> -->
                     </div>
                 </div>
-                <v-btn @click="createConnection" :loading="isSumbitLoading"
-                    variant="tonal" style="float: right">Submit</v-btn>
+                <v-btn @click="createConnection" :loading="isSumbitLoading" variant="tonal"
+                    style="float: right">Submit</v-btn>
             </v-col>
         </v-row>
     </div>
@@ -177,7 +177,7 @@ const tracks = [{
     img: 'https://io.google/2024/app/images/io24-stacks-iot.webp',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
 },
- {
+{
     title: 'Others',
     img: 'https://io.google/2024/app/images/io24-stacks-iot.webp',
     desc: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
@@ -198,7 +198,14 @@ const userDomain = 'Mobile';
 }
 
 .tech-stack {
-    padding: 12px;
+    /* padding: 4px; */
+}
+
+@media screen and (min-width: 840px) {
+    .tech-stack {
+        padding: 12px;
+    }
+
 }
 
 /* .tech-stack:hover {
