@@ -11,19 +11,19 @@
             </v-row>
 
             <!-- Table -->
-            <v-table height="80%" fixed-header>
+            <v-table height="80%" fixed-header class="mt-5">
                 <thead>
                     <tr>
-                        <th class="text-left thStyling">
+                        <th class="text-left" style="font-weight: 800; background: #202124; color: #e8eaed; padding: 20px; ">
                             Question for
                         </th>
-                        <th class="text-left thStyling">
+                        <th class="text-left" style="font-weight: 800; background: #202124; color: #e8eaed; padding: 17px; ">
                             Question Description
                         </th>
-                        <th class="text-left thStyling">
+                        <th class="text-left" style="font-weight: 800; background: #202124; color: #e8eaed; padding: 18px; ">
                             Status
                         </th>
-                        <th class="text-left thStyling">
+                        <th class="text-left" style="font-weight: 800; background: #202124; color: #e8eaed; width: 100px; ">
                             Action
                         </th>
                     </tr>
@@ -32,13 +32,13 @@
                     <tr v-for="(item, index) in requestData" :key="index">
                         <td>{{ item.mentor }}</td>
                         <td>{{ item.questions }}</td>
-                        <td :style="item.isApproved === false ? 'color: #fbbc04' : 'color: #34a853'">{{ item.isApproved === false ? "Pending" : 'Approved' }}</td>
+                        <td :style="item.status === 'approved' ? 'color: #34a853' : item.status === 'pending' ? 'color: #fbbc04' : 'color: #ea4335'">{{ item.status.charAt(0).toUpperCase() + item.status.slice(1) }}</td>
                         <td>
                             <v-row style="gap: 10px;">
-                                <v-icon @click="updateRequestStatus" class="action-btn" :color="'#ea4335'" style="cursor: pointer; " size="30">
+                                <v-icon @click="updateRequestStatus(item, 'rejected', false)" class="action-btn" :color="'#ea4335'" style="cursor: pointer; " size="30">
                                     mdi-alpha-x-box-outline
                                 </v-icon>
-                                <v-icon @click="updateRequestStatus" class="action-btn" :color="'#34a853'" style="cursor: pointer; " size="30">
+                                <v-icon @click="updateRequestStatus(item, 'approved', true)" class="action-btn" :color="'#34a853'" style="cursor: pointer; " size="30">
                                     mdi-check-circle
                                 </v-icon>
                             </v-row>
@@ -52,7 +52,7 @@
 </template>
 
 <script setup>
-import { collection, getDocs, updateDoc } from 'firebase/firestore';
+import { collection, getDocs, updateDoc, doc } from 'firebase/firestore';
 const { mainData } = useJSONData();
 
 const user = useCurrentUser();
@@ -69,23 +69,39 @@ const fetchMentorRequest = async () => {
     try {
         const mentorRequestColl = await getDocs(collection(db, "mentor-request"));
         mentorRequestColl.forEach((doc) => {
-            requestData.value.push(doc.data());
+            const ADoc = {
+                "id" : doc.id,
+                ...doc.data()
+            }
+            requestData.value.push(ADoc);
         });
     } catch (error) {
         console.error("Error in fetching Mentor Request Data.");
     }
 }
 watch(user, (_) => {
-    if(user){
+    if(user.value && (user.value.uid === 'ooL4cJkNolQvxDgmEFsrAveKjFl2' || user.value.uid === 'oBYmZwFXDeS0O2uDryFuhw5ujd33' || user.value.uid === 'Ivz487Na8OWaLzoLNfnQHE1WI8o1') ){
         fetchMentorRequest();
     }
 });
 
-const updateRequestStatus = async () => {
+const updateRequestStatus = async (item, status, isApprovedStatus) => {
     try {
-        // await updateDoc(collection)
+        if(item.status === status) return;
+
+        await updateDoc(doc(db, "mentor-request", item.id), {
+            isApproved : isApprovedStatus,
+            status : status
+        });
+        const index = requestData.value.findIndex((obj) => obj.id === item.id);
+        requestData.value[index] = {
+            ...requestData.value[index],
+            status,
+            isApproved : isApprovedStatus
+        };
+        console.log('Local data = ', requestData.value[index]);
     } catch (error) {
-        console.error("Error in Updating Request Status.");
+        console.error("Error in Updating Request Status. : ", error);
     }
 }
 
@@ -121,12 +137,4 @@ useSeoMeta({
     filter: drop-shadow(0 0.2rem 0.25rem rgba(68, 68, 68, 0.2));
 }
 
-.thStyling{
-    font-size: medium;
-    font-weight: bold;
-}
-
-thead{
-    background-color: red;
-}
 </style>
