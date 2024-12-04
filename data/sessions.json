@@ -41,7 +41,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
-                "speakers": [],
+                "speakers": [125,128,140],
                 "callForSpeaker": false
         },
         {
@@ -71,7 +71,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
-                "speakers": [],
+                "speakers": [124],
                 "callForSpeaker": false
         },
         {
@@ -86,7 +86,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
-                "speakers": [],
+                "speakers": [120],
                 "callForSpeaker": false
         },
         {
@@ -101,7 +101,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
-                "speakers": [],
+                "speakers": [121],
                 "callForSpeaker": false
         },
         {
@@ -116,7 +116,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
-                "speakers": [],
+                "speakers": [123],
                 "callForSpeaker": false
         },
         {
@@ -131,7 +131,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [114],
                 "callForSpeaker": false
         },
         {
@@ -206,7 +206,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [124],
                 "callForSpeaker": false
         },
         {
@@ -251,7 +251,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [121],
                 "callForSpeaker": false
         },
         {
@@ -281,7 +281,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
-                "speakers": [],
+                "speakers": [128],
                 "callForSpeaker": false
         },
         {
@@ -326,7 +326,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "70",
-                "speakers": [],
+                "speakers": [130],
                 "callForSpeaker": false
         },
         {
@@ -341,7 +341,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "50",
-                "speakers": [],
+                "speakers": [134],
                 "callForSpeaker": false
         },
         {
@@ -356,7 +356,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [101],
                 "callForSpeaker": false
         },
         {
@@ -371,7 +371,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [108],
                 "callForSpeaker": false
         },
         {
@@ -386,7 +386,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
-                "speakers": [],
+                "speakers": [107],
                 "callForSpeaker": false
         },
         {
@@ -416,7 +416,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [122],
                 "callForSpeaker": false
         },
         {
@@ -431,7 +431,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [106],
                 "callForSpeaker": false
         },
         {
@@ -446,7 +446,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "40",
-                "speakers": [],
+                "speakers": [104],
                 "callForSpeaker": false
         },
         {
@@ -461,7 +461,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "60",
-                "speakers": [],
+                "speakers": [144],
                 "callForSpeaker": false
         },
         {
@@ -476,7 +476,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "60",
-                "speakers": [],
+                "speakers": [124,107,130,126,125],
                 "callForSpeaker": false
         },
         {
@@ -491,7 +491,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [127],
                 "callForSpeaker": false
         },
         {
@@ -506,7 +506,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [136],
                 "callForSpeaker": false
         },
         {
@@ -521,7 +521,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [132,133],
                 "callForSpeaker": false
         },
         {
@@ -581,7 +581,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [109],
                 "callForSpeaker": false
         },
         {
@@ -590,15 +590,13 @@
                 "title": "A Startup Guide to Ship Mobile App Faster Using Flutter",
                 "description": "",
                 "track": "App",
-                "venue": "",
-                "track": "AI/ML",
                 "venue": "Auditorium",
                 "link": "",
                 "time": "2:50 PM to 3:10 PM",
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
-                "speakers": [],
+                "speakers": [108],
                 "callForSpeaker": false
         },
         {
@@ -613,7 +611,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [135],
                 "callForSpeaker": false
         },
         {
@@ -628,7 +626,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
-                "speakers": [],
+                "speakers": [102],
                 "callForSpeaker": false
         },
         {
@@ -643,7 +641,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [105],
                 "callForSpeaker": false
         },
         {
@@ -658,7 +656,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [103],
                 "callForSpeaker": false
         },
         {
@@ -673,7 +671,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [130],
                 "callForSpeaker": false
         },
         {
@@ -703,7 +701,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "60",
-                "speakers": [],
+                "speakers": [109,135,103,105,102,114],
                 "callForSpeaker": false
         },
         {
@@ -718,7 +716,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [134],
                 "callForSpeaker": false
         },
         {
@@ -733,7 +731,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "60",
-                "speakers": [],
+                "speakers": [101,127],
                 "callForSpeaker": false
         },
         {
@@ -748,7 +746,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "90",
-                "speakers": [],
+                "speakers": [145],
                 "callForSpeaker": false
         },
         {
@@ -763,7 +761,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [145],
                 "callForSpeaker": false
         },
         {
@@ -778,7 +776,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "60",
-                "speakers": [],
+                "speakers": [107],
                 "callForSpeaker": false
         },
         {
@@ -793,7 +791,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "40",
-                "speakers": [],
+                "speakers": [112],
                 "callForSpeaker": false
         },
         {
@@ -808,7 +806,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "40",
-                "speakers": [],
+                "speakers": [129],
                 "callForSpeaker": false
         },
         {
@@ -823,7 +821,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [125],
                 "callForSpeaker": false
         },
         {
@@ -838,7 +836,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [141,142,143],
                 "callForSpeaker": false
         },
         {
@@ -852,7 +850,7 @@
                 "time": "10:30 AM to 11:30 AM",
                 "date": "Dec 8, 2024",
                 "timeDuration": "60",
-                "speakers": [],
+                "speakers": [137],
                 "callForSpeaker": false
         },
         {
@@ -867,7 +865,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "60",
-                "speakers": [],
+                "speakers": [146],
                 "callForSpeaker": false
         },
         {
@@ -882,7 +880,7 @@
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
                 "timeDuration": "40",
-                "speakers": [],
+                "speakers": [126],
                 "callForSpeaker": false
         },
         {
@@ -897,7 +895,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "60",
-                "speakers": [],
+                "speakers": [146,138,137,125],
                 "callForSpeaker": false
         },
         {
@@ -912,7 +910,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
-                "speakers": [],
+                "speakers": [139],
                 "callForSpeaker": false
         },
         {
@@ -957,7 +955,7 @@
                 "format": "Day 2",
                 "date": "Dec 8, 2024",
                 "timeDuration": "60",
-                "speakers": [],
+                "speakers": [140],
                 "callForSpeaker": false
         },
         {

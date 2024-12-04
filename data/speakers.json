@@ -133,7 +133,7 @@
     "expert": true
   },
   {
-    "id": "107",
+    "id": "145",
     "name": "Bhuvaneshwari Kanagaraj",
     "company": {
       "name": "KGXperience",
@@ -456,6 +456,25 @@
     "expert": false
   },
   {
+    "id": "146",
+    "name": "Sandhya Godey",
+    "company": {
+      "name": "Speaking Chalk",
+      "designation": "Founder"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/sandhya-godey-2a16297/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
     "id": "132",
     "name": "Abhi Ram Anala",
     "company": {
@@ -486,6 +505,25 @@
     "bio": "",
     "social": {
       "linkedin": "https://www.linkedin.com/in/manideep-malla-49a574174/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "144",
+    "name": "Mani Teja",
+    "company": {
+      "name": "Laiout",
+      "designation": "Frontend Developer"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/maniteja-pratha-2a1469197",
       "twitter": "",
       "github": "",
       "web": ""
@@ -611,7 +649,7 @@
     "id": "140",
     "name": "Satish Karnatakapu",
     "company": {
-      "name": "F9 INFO TECHNOLOGIES (P) LTD, Vizag Volunteers Association",
+      "name": "Kalam Dream Labs",
       "designation": "Managing Director, Founder"
     },
     "community_title": "",

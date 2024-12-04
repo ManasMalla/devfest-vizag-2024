@@ -2,7 +2,7 @@
     <v-bottom-sheet v-model="sheet">
         <template v-slot:activator="{ props }">
             <v-card v-bind="props"
-                style="margin: 12px 8px; width: 320px; padding: 1rem; height: 160px; flex-shrink: 0; "
+                style="margin: 12px 8px; width: 320px; padding: 1rem; height: 240px; flex-shrink: 0; "
                 :style="event.track == 'Mobile' ? 'background-color: rgba(204, 246, 197, 0.3);' : event.track == 'Cloud' ? 'background-color: rgba(255, 231, 165, 0.3);' : event.track == 'Web' ? 'background-color: rgba(195, 236, 246, 0.3)' : event.track === 'AI/ML' ? 'background-color: rgba(248, 216, 216, 0.3)' : 'background-color: rgba(32, 32, 35, 0.08)'">
                 <div style="padding-right: 80px; display: flex; flex-direction: column; height: 100%;">
                     <p style="position: absolute; right: 16px; text-align: end;"><b>{{ event.time.split(" to ")[0]
@@ -12,7 +12,7 @@
                     <h3 style="max-width: 220px;">{{ event.title }}</h3>
 
                     <div style="margin-top: auto; height: fit-content;">
-                        <v-container v-for="speaker in speakersData.filter((e) => event.speakers.includes(e.id))"
+                        <v-container v-for="speaker in speakersData.filter((e) => event.speakers.includes(parseInt(e.id)))"
                             style="padding: 4px 6px; border-radius: 80px; display: flex; column-gap: 12px; align-items:center; width: fit-content; margin:0">
                             <img :src="'../img/speakers/' + speaker.image"
                                 style="width: 24px; height: 24px; object-fit:cover; border-radius: 20px;" />
