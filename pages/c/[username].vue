@@ -208,7 +208,11 @@ const userDomain = 'Mobile';
     background-image: url('https://io.google/2024/app/images/io24-stacks-m-dark.webp');
 }
 
-@media screen and (min-width: 840px) {
+<<<<<<< HEAD=======.tech-stack {
+    /* padding: 4px; */
+}
+
+>>>>>>>3f5dc12 (added change in connect page for responsiveness) @media screen and (min-width: 840px) {
     .tech-stack {
         padding: 12px;
     }
