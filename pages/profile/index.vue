@@ -27,6 +27,7 @@
               <div
                 class="edit-overlay"
                 @click="$refs.headshotFileInput.click()"
+                @touchstart="$refs.headshotFileInput.click()"
                 style="position: absolute;background-color: #dadce0; width: 160px; height: 160px; border-radius: 80px; z-index: 100; cursor: pointer; display: flex; justify-content: center; align-items: center;" >
                 <v-icon size="40">mdi-pencil</v-icon>
               </div>
