@@ -130,7 +130,7 @@
       "web": ""
     },
     "mentor": true,
-    "expert": true
+    "expert": false
   },
   {
     "id": "145",
@@ -311,7 +311,7 @@
       "designation": "Technical Program Manager, TED X speaker"
     },
     "community_title": "",
-    "image": "",
+    "image": "lakshya.jpeg",
     "bio": "",
     "social": {
       "linkedin": "https://www.linkedin.com/in/lakshyasi/",
@@ -324,13 +324,13 @@
   },
   {
     "id": "125",
-    "name": "Usha Ramani",
+    "name": "Usha Ramani Vemuru",
     "company": {
-      "name": "",
-      "designation": ""
+      "name": "GURUJADA IT Solutions",
+      "designation": "Co-founder"
     },
     "community_title": "",
-    "image": "",
+    "image": "usha.webp",
     "bio": "",
     "social": {
       "linkedin": "https://www.linkedin.com/in/usha-ramani-vemuru-66286723/",
@@ -349,7 +349,7 @@
       "designation": "Global Community Manager"
     },
     "community_title": "",
-    "image": "",
+    "image": "ananya.jpeg",
     "bio": "",
     "social": {
       "linkedin": "https://www.linkedin.com/in/ananya-r/",
@@ -387,7 +387,7 @@
       "designation": "Software Engineer"
     },
     "community_title": "",
-    "image": "",
+    "image": "sampath.jpeg",
     "bio": "",
     "social": {
       "linkedin": "https://linkedin.com/in/sampathbalivada",
@@ -672,7 +672,7 @@
       "designation": "Founder, CEO"
     },
     "community_title": "",
-    "image": "manas.jpeg",
+    "image": "manas.jpg",
     "bio": "",
     "social": {
       "linkedin": "https://www.linkedin.com/in/manasmalla/",
@@ -685,13 +685,13 @@
   },
   {
     "id": "142",
-    "name": "Sai Chandan Khamitkar",
+    "name": "Chandan Khamitkar",
     "company": {
       "name": "The Ananta Studio",
-      "designation": "COO"
+      "designation": "CIO"
     },
     "community_title": "",
-    "image": "",
+    "image": "chandan.jpg",
     "bio": "",
     "social": {
       "linkedin": "https://www.linkedin.com/in/chandankhamitkar/",
