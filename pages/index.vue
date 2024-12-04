@@ -59,6 +59,7 @@
                 <!-- Past DevFest -->
                 <HomePastDevFest class="mb-md-10" />
                 <!-- Past DevFest -->
+<!--
                 <div style="width: 100%; margin-bottom: 12px;">
                     <h2 style="width: 100%; text-align: center;">Testimonals</h2>
                     <p style="width: 100%; text-align: center; margin-bottom: 24px;">Hear what people say about our
@@ -77,7 +78,7 @@
 
                     </div>
                 </div>
-
+-->
                 <!-- Sponsors -->
                 <HomeSponsorsSection />
                 <!-- Sponsors -->
