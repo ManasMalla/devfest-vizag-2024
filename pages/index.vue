@@ -7,7 +7,11 @@
                     <v-col cols="12" lg="7">
                         <!-- <CommonUserScheduleCard class="my-0 mt-md-5" /> -->
                         <h2>Your Checklist</h2>
-                        <HomeChecklistSection :tasks="tasks" />
+                        <HomeChecklistSection v-if="user" :tasks="tasks" />
+                        <p v-if="!user">Sign in to view the checklist to unlock the<br /> best experience through
+                            DevFest
+                            2024
+                        </p>
                     </v-col>
                     <v-col col="12" lg="5" style="padding: 24px;">
                         <HomeCountdown />

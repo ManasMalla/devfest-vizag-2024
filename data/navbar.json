@@ -15,7 +15,12 @@
     "visible": true
   },
   {
-    "name": "Badge",
+    "name": "Bootcamp",
+    "path": "/bootcamp",
+    "visible": true
+  },
+  {
+    "name": "Photo Booth",
     "path": "/badge",
     "visible": true
   },
@@ -37,7 +42,7 @@
   {
     "name": "Arcade",
     "path": "/arcade",
-    "visible": true
+    "visible": false
   },
   {
     "name": "FAQ",
@@ -50,14 +55,8 @@
     "visible": false
   },
   {
-    "name": "Bootcamp",
-    "path": "/bootcamp",
-    "visible": true
-  },
-  {
     "name": "Admin",
     "path": "/admin",
     "visible": false
   }
-
 ]

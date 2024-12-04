@@ -10,6 +10,13 @@
           </div>
           <div style=" overflow: scroll">
             <div class="row__WRVvc" style="display: flex;" v-for="track in day.tracks">
+              <div class="date__HrqQs" :class="track.track === 'Community Lounge' ? 'cl' : ''">
+                <span style="text-align: center; font-size: 14px; font-family: Google Sans;" class="dateWeekday__c6J_B"
+                  v-if="track.track != 'Auditorium'">{{
+                    track.track.split(' ')[0]
+                  }}<br />{{ track.track.split(' ')[1]
+                  }}</span>
+              </div>
               <CommonAgendaBar v-for="(event, index) in track.events" :event="event" :idx="index"
                 :is-session-in-schedule="schedule.includes(event.id)" :on-add-to-schedule="() => {
                   if (schedule.includes(event.id)) {
@@ -199,6 +206,37 @@ const auth = useFirebaseAuth();
     padding: 0;
     position: absolute;
     top: 8px;
+  }
+}
+
+.date__HrqQs {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 400;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  padding: 16px 0;
+}
+
+@media screen and (min-width: 1024px) {
+  .date__HrqQs {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    left: -60px;
+    padding: 0;
+    position: absolute;
+    transform: translateY(48px)
+  }
+
+  .date__HrqQs.cl {
+    left: -100px;
   }
 }
 

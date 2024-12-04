@@ -51,13 +51,14 @@
                 }) }}</h4>
                 <p>{{ event.description }}</p>
                 <v-btn @click="addToUserSchedule" variant="tonal" rounded color="#4285f4" class="mt-4"
-                    v-if="!isSessionInSchedule">Add
+                    v-if="!isSessionInSchedule && user">Add
                     to
                     schedule</v-btn>
                 <v-btn @click="addToUserSchedule" rounded variant="tonal" color="#ea4335" class="mt-4"
-                    v-if="isSessionInSchedule">Remove
+                    v-if="isSessionInSchedule && user">Remove
                     from
                     schedule</v-btn>
+                <v-chip prepend-icon="mdi-login" class="mt-4" v-if="!user">Sign in to add to schedule</v-chip>
             </v-container>
         </v-card>
     </v-bottom-sheet>

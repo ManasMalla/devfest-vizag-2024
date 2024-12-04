@@ -43,12 +43,13 @@
         </v-row>
       </v-container>
       <template v-slot:actions>
-        <v-btn v-if="props.data.mentor && canRequestTime" text variant="flat" @click="requestTime"
+        <v-btn v-if="props.data.mentor && canRequestTime && user" text variant="flat" @click="requestTime"
           style="background-color: #ffd427; color: black;"><span class="mr-1" style="font-weight: 600;">Request
             Time</span><v-icon>mdi-timer-outline</v-icon></v-btn>
-        <v-btn v-if="props.data.mentor && !canRequestTime" text variant="flat" disabled style="color: black;"><span
-            class="mr-1" style="font-weight: 600;">Application
+        <v-btn v-if="props.data.mentor && !canRequestTime && user" text variant="flat" disabled
+          style="color: black;"><span class="mr-1" style="font-weight: 600;">Application
             Pending</span><v-icon>mdi-timer-outline</v-icon></v-btn>
+        <v-chip prepend-icon="mdi-login" class="mt-4" v-if="!user">Sign in to request 1:1 session</v-chip>
         <v-btn text @click="dialog = false">Close</v-btn>
       </template>
     </v-card>
@@ -58,6 +59,7 @@
 <script setup>
 // Props
 const emit = defineEmits(['request-time'])
+const user = useCurrentUser();
 
 const props = defineProps({
   data: {
