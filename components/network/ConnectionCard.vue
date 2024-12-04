@@ -18,8 +18,8 @@
         <v-card class="badge-card"
             style="border-radius: 24px; margin: 12px; max-height: 500px; margin-left: auto; margin-right: auto; position: relative;"
             elevation="0" :color="'#CEE6C1'">
-            <div
-                style="display: flex; flex-direction: row; column-gap: 24px; padding: 12px; align-items: center; width: fit-content;">
+            <div class="card-inner"
+                style="display: flex;  column-gap: 24px; padding: 12px; align-items: center; width: fit-content;">
                 <img :src="connection.photoURL"
                     style="height: 240px; width: 100%; object-fit: cover; border-radius: 14px; object-position: top;" />
                 <div class="card-inner-div"
@@ -52,8 +52,8 @@
                         #Web</p> -->
                 </div>
             </div>
-            <img src="/img/attendee/mobile.png" height="80"
-                style="width: auto; object-fit: contain; position: absolute; bottom: 10px; left: 12px;" />
+            <img src="/img/attendee/mobile.png" height="80" class="attendee-badge-mobile"
+                style="width: auto; object-fit: contain; position: absolute; left: 12px;" />
 
         </v-card>
     </v-dialog>
@@ -68,3 +68,23 @@ defineProps({
     }
 })
 </script>
+
+<style scoped>
+.card-inner {
+    flex-direction: column;
+}
+
+.attendee-badge-mobile {
+    top: 10px;
+}
+
+@media screen and (min-width: 840px) {
+    .attendee-badge-mobile {
+        bottom: 10px;
+    }
+
+    .card-inner {
+        flex-direction: row;
+    }
+}
+</style>
