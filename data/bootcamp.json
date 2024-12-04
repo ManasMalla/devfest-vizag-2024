@@ -1,0 +1,50 @@
+[
+    {
+      "id": 1,
+      "title": "Customer Churn Prediction Model",
+      "description": "A pre-trained machine learning model to predict customer churn with high accuracy.  Leveraging advanced algorithms, this model analyzes customer demographics, behavior, and interaction data to identify those at risk of churning.  Requires your customer data for accurate predictions.  Includes detailed reports and visualizations to help you understand churn patterns and take proactive steps to retain customers.",
+      "provider": "DataScienceCorp",
+      "category": "Machine Learning",
+      "price": 99.99
+    },
+    {
+      "id": 2,
+      "title": "Real-time Sentiment Analysis API",
+      "description": "A powerful API for analyzing text sentiment in real-time.  Process large volumes of text data from social media, customer reviews, or surveys to understand public opinion and customer feedback. Ideal for social media monitoring, brand reputation management, and customer feedback analysis.  Offers granular sentiment scores, topic extraction, and customizable parameters for optimal results.",
+      "provider": "SentiMindAI",
+      "category": "Natural Language Processing",
+      "price": 29.99
+    },
+    {
+      "id": 3,
+      "title": "Image Recognition Service",
+      "description": "A robust and scalable image recognition service powered by deep learning.  Accurately identify objects, faces, and scenes within images.  Provides high-precision results with support for custom object detection and training. Applications include automated image tagging, content moderation, and visual search.",
+      "provider": "VisionaryTech",
+      "category": "Computer Vision",
+      "price": 49.99
+    },
+    {
+      "id": 4,
+      "title": "Fraud Detection System",
+      "description": "A sophisticated fraud detection system using advanced machine learning algorithms to identify and flag potentially fraudulent transactions in real-time.  Reduces financial losses and improves security by detecting anomalies and suspicious patterns.  Customizable rules and thresholds allow you to tailor the system to your specific needs and risk tolerance.  Integrates seamlessly with existing payment gateways and systems.",
+      "provider": "SecureTransactionsInc",
+      "category": "Machine Learning",
+      "price": 199.99
+    },
+    {
+      "id": 5,
+      "title": "Personalized Recommendation Engine",
+      "description": "A highly customizable recommendation engine to boost engagement and sales.  Uses collaborative filtering and content-based techniques to suggest relevant products or content to users. Ideal for e-commerce platforms, streaming services, and content websites.  Easily integrates with your existing systems and offers A/B testing capabilities for optimal performance.",
+      "provider": "RecommenderAI",
+      "category": "Recommender Systems",
+      "price": 149.99
+    },
+    {
+      "id": 6,
+      "title": "Sales Forecasting Tool",
+      "description": "An accurate and reliable sales forecasting tool using advanced time series analysis and machine learning. Predicts future sales based on historical data, seasonality, trends, and external factors.  Provides insights to optimize inventory management, pricing strategies, and resource allocation.  User-friendly interface with customizable reporting and visualization options.",
+      "provider": "ForesightAnalytics",
+      "category": "Predictive Analytics",
+      "price": 79.99
+    }
+  ]

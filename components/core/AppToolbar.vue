@@ -9,7 +9,6 @@
             class="align-center pt-1">{{ mainData.communityLocation.city }}</v-chip>
         </div>
       </NuxtLink>
-
       <v-spacer></v-spacer>
       <div class="mx-4 d-none d-sm-none d-md-flex d-lg-flex">
         <template v-for="(item, index) in navbarData" :key="index">
@@ -17,9 +16,14 @@
             v-if="item.visible">{{ item.name }}</v-btn>
         </template>
       </div>
-
+      <v-btn rounded target="_blank" color="#FFD427" style="
+          border: 1.5px solid #1e1e1e;
+          color: black;
+          text-transform: capitalize;
+          font-weight: 100;
+        " variant="flat" v-if="new Date(mainData.eventInfo.event_startDate) <= new Date()" to="/scan-qr">Scan
+        QR</v-btn>
       <ClientOnly>
-
         <v-btn rounded v-if="
           mainData &&
           mainData.eventInfo.registeration.link.length &&
@@ -36,7 +40,7 @@
       <v-btn v-if="!user" to="/login">Sign in</v-btn>
       <a v-if="user" href="/profile"><v-container height="40" width="40"
           style="object-fit: cover; border-radius: 20px; border: 2px black solid; display: flex; align-items: center; justify-content: center; overflow: hidden">
-          <img
+          <img referrerPolicy="no-referrer"
             :src="user.photoURL || 'https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg'"
             style="border-radius: 20px; width: 34px; height: 34px; object-fit: cover; aspect-ratio: 1;" />
         </v-container></a>

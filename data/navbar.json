@@ -15,14 +15,9 @@
     "visible": true
   },
   {
-    "name": "Speakers",
-    "path": "/speakers",
-    "visible": false
-  },
-  {
     "name": "Badge",
     "path": "/badge",
-    "visible": false
+    "visible": true
   },
   {
     "name": "Call for Speakers",
@@ -32,7 +27,7 @@
   {
     "name": "Sponsors",
     "path": "/#sponsors",
-    "visible": true
+    "visible": false
   },
   {
     "name": "Sponsor Us",
@@ -48,5 +43,21 @@
     "name": "FAQ",
     "path": "/faq",
     "visible": true
+  },
+  {
+    "name": "Ask-a-Pundit",
+    "path": "/ask-a-pundit",
+    "visible": false
+  },
+  {
+    "name": "Bootcamp",
+    "path": "/bootcamp",
+    "visible": true
+  },
+  {
+    "name": "Admin",
+    "path": "/admin",
+    "visible": false
   }
+
 ]

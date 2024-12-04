@@ -1,0 +1,87 @@
+[
+    {
+        "id": "101",
+        "name": "Runcy Oommen",
+        "company": {
+            "name": "SonicWall",
+            "designation": "Director of Software Engineering"
+        },
+        "community_title": "Director of Software Engineering",
+        "image": "runcyoommen.jpeg",
+        "bio": "Runcy is a hands-on software engineer with 20+ years of SDLC experience and a string of successful projects primarily in the security domain. Key product experience includes Cloud Security/Storage, SSL-VPN, Anti-Virus and Email Security.A natural perfectionist, he possess an eye for detail that helps in elevating the user experience and in identifying the product gap with the competitors.",
+        "social": {
+            "linkedin": "https://www.linkedin.com/in/runcyoommen/",
+            "twitter": "",
+            "github": "",
+            "web": ""
+        }
+    },
+    {
+        "id": "102",
+        "name": "Dr.Ravi Shankar Saripalle",
+        "company": {
+            "name": "Gitam Deemed University",
+            "designation": "Professor of Entreprenership"
+        },
+        "community_title": "",
+        "image": "ravisarapalli.jpeg",
+        "bio": "Dr. Ravi Shankar Saripalle has been the Professor of Entrepreneurship at GITAM University. Before this, he worked as Director of the Centre for Innovation and Incubation at Gayatri Vidya Parishad College of Engineering for the past 14 years. During this time, the center has successfully incubated more than 25 startups and contributed to filing, publishing, and granting over 80 patents.",
+        "social": {
+            "linkedin": "https://www.linkedin.com/in/ravisaripalle/",
+            "twitter": "",
+            "github": "",
+            "web": ""
+        }
+    },
+    {
+        "id": "103",
+        "name": "Sneh Pandya",
+        "company": {
+            "name": "Mantra Labs",
+            "designation": "Product Leader, Speaker, Author, Mentor"
+        },
+        "community_title": "",
+        "image": "snehpandya.jpeg",
+        "bio": "Sneh Pandya is a seasoned product leader with expertise in Product Management, Product Strategy, and Digital Transformation. With a focus on SaaS, B2B, B2C, and Ed-tech, Sneh has driven business transformations across diverse industries like E-commerce, Insurance, and Payments. She is skilled in Cloud Infrastructure, DevOps, and White Label Solutions, with hands-on experience in Flutter development. An Apress-published author of two technical books, Sneh is also a Google for Developers community organizer, mentor, and public speaker. Connect with her for mentorship or collaboration opportunities at snehpandya.com.",
+        "social": {
+            "linkedin": "https://www.linkedin.com/in/snehpandya18/",
+            "twitter": "https://x.com/SnehPandya18?mx=2",
+            "github": "",
+            "web": "https://snehpandya.com/"
+        }
+    },
+    {
+        "id": "104",
+        "name": "Hemapriya Nagarajan",
+        "company": {
+            "name": "CDW",
+            "designation": "Data Engineer"
+        },
+        "community_title": "",
+        "image": "hemapriyanagarajan.jpeg",
+        "bio": "Hemapriya Nagarajan is a data professional with over 2.5 years of experience in building data pipelines and AI applications, bridging the Data-AI gap through data-driven solutions using ETL/ELT processes. As an NLP enthusiast and active problem solver, she is committed to continuous learning and thrives on exploring innovative approaches in data and AI. Hemapriya is passionate about sharing her knowledge, engaging in public speaking, contributing to communities, and is actively exploring freelancing opportunities to leverage her expertise. Her dedication to empowering organizations with data insights and her drive to make a positive impact define her professional journey.",
+        "social": {
+            "linkedin": "https://www.linkedin.com/in/hemapriya-nagarajan/",
+            "twitter": "",
+            "github": "",
+            "web": ""
+        }
+    },
+    {
+        "id": "112",
+        "name": "Om Ashish Mishra",
+        "company": {
+            "name": "Deloitte",
+            "designation": "Product Data Scientist | IITK Alumini | Gen AI Community | MIT BootCamper | AI Engineer - @ Ex-HSBC,Hitachi, HP | Speaker at 30+ events for uplifting students and NGO growth | Blogger | Open Source Contributor"
+        },
+        "community_title": "",
+        "image": "ashishmishra.jpeg",
+        "bio": "Om Ashish Mishra is a skilled Data Engineer at Deloitte USI with a passion for coding and a deep understanding of trending technologies. With over 3.5 years of experience in Machine Learning and Deep Learning, along with expertise in Hadoop, Java, the MERN stack, and Photoshop, Om brings a versatile skill set to every project he undertakes. He is an avid blogger, enthusiastic reader, and active contributor to various learning platforms, where he continuously seeks to grow and share his knowledge.Beyond his technical expertise, Om is committed to evolving communities in Data Analysis, Data Science, and Business Innovations. He actively promotes NGOs, speaks at Toastmasters, and leverages his skills to drive positive change. With a highly optimistic approach to both his career and life, Om is dedicated to making a meaningful impact in the world of technology and beyond.",
+        "social": {
+            "linkedin": "https://www.linkedin.com/in/om-ashish-mishra/?original_referer=&originalSubdomain=in",
+            "twitter": "",
+            "github": "",
+            "web": ""
+        }
+    }
+]

@@ -6,7 +6,7 @@
         <!-- <a
           href="https://github.com/oss-labs/"
           style="text-decoration: none; color: white"
-          ><p style="font-size: 70%"><i>developed by OSS Labs</i></p></a
+          ><p style="font-size: 70%"><i>developed by The Ananta Studio</i></p></a
         > -->
       </v-col>
       <v-col md="10" cols="12">

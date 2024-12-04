@@ -14,7 +14,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "102",
@@ -31,7 +33,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "103",
@@ -48,7 +52,9 @@
       "twitter": "https://x.com/SnehPandya18?mx=2",
       "github": "",
       "web": "https://snehpandya.com/"
-    }
+    },
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "104",
@@ -65,7 +71,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "112",
@@ -82,7 +90,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "108",
@@ -99,7 +109,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "114",
@@ -116,7 +128,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": true
   },
   {
     "id": "107",
@@ -133,7 +147,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "106",
@@ -150,7 +166,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "107",
@@ -167,7 +185,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "109",
@@ -184,7 +204,9 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": false
   },
   {
     "id": "105",
@@ -201,23 +223,464 @@
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": false
   },
   {
-    "id": "104",
-    "name": "Hemapriya Nagarajan",
+    "id": "120",
+    "name": "Uma Maheswar Rao",
     "company": {
-      "name": "CDW",
-      "designation": "Data Engineer"
+      "name": "Infosys",
+      "designation": "Associate Vice President & Senior Delivery Director"
     },
     "community_title": "",
-    "image": "hemapriyanagarajan.jpeg",
-    "bio": "Hemapriya Nagarajan is a data professional with over 2.5 years of experience in building data pipelines and AI applications, bridging the Data-AI gap through data-driven solutions using ETL/ELT processes. As an NLP enthusiast and active problem solver, she is committed to continuous learning and thrives on exploring innovative approaches in data and AI. Hemapriya is passionate about sharing her knowledge, engaging in public speaking, contributing to communities, and is actively exploring freelancing opportunities to leverage her expertise. Her dedication to empowering organizations with data insights and her drive to make a positive impact define her professional journey.",
+    "image": "",
+    "bio": "",
     "social": {
-      "linkedin": "https://www.linkedin.com/in/hemapriya-nagarajan/",
+      "linkedin": "https://www.linkedin.com/in/dr-umamaheswara-rao-uma-m-ba346014",
       "twitter": "",
       "github": "",
       "web": ""
-    }
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "121",
+    "name": "Ravi Eswarapu",
+    "company": {
+      "name": "A-Hub",
+      "designation": "CEO"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/eswarapu/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "122",
+    "name": "Pradyoth Adavi",
+    "company": {
+      "name": "Flipkart",
+      "designation": "Engineering Manager"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/pradyothadavi?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "123",
+    "name": "Kavya Poornima Balajepalli",
+    "company": {
+      "name": "Poornamidam",
+      "designation": "Sustainability and inclusion Advocate,Founder"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/kavyapoornima/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "124",
+    "name": "Lakshya Sivaramakrishnan",
+    "company": {
+      "name": "Google",
+      "designation": "Technical Program Manager, TED X speaker"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/lakshyasi/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "125",
+    "name": "Usha Ramani",
+    "company": {
+      "name": "",
+      "designation": ""
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/usha-ramani-vemuru-66286723/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "126",
+    "name": "Ananya R",
+    "company": {
+      "name": "She Loves Tech",
+      "designation": "Global Community Manager"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/ananya-r/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "127",
+    "name": "Sasi Teja K",
+    "company": {
+      "name": "Atlan",
+      "designation": "Solutions Architect"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/kamsusasiteja",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "128",
+    "name": "Sai Sampath Kumar Balivada",
+    "company": {
+      "name": "PayPal",
+      "designation": "Software Engineer"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://linkedin.com/in/sampathbalivada",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "129",
+    "name": "Kamsu Ravi Teeja",
+    "company": {
+      "name": "GradehiveAI",
+      "designation": "Founding Software Engineer"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/kamsu-ravi-teejahttps://www.linkedin.com/in/kamsu-ravi-teeja",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "130",
+    "name": "Ramesh Rajini",
+    "company": {
+      "name": "",
+      "designation": "Coach - Cloud, AI, LinkedIn Mastery who is driving results through her workshops."
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/rameshrajini",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "131",
+    "name": "MNR",
+    "company": {
+      "name": "PayPal",
+      "designation": "Journalist"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "132",
+    "name": "Abhi Ram Anala",
+    "company": {
+      "name": "Accenture",
+      "designation": "Software Engineering Analyst"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/abhi-ram-anala-00b42b1ba/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "133",
+    "name": "Manideep Malla",
+    "company": {
+      "name": "Networth Corp",
+      "designation": "Data Engineer"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/manideep-malla-49a574174/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "134",
+    "name": "Shruti Tiwari",
+    "company": {
+      "name": "Innoviti",
+      "designation": "Product Manager"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/shruti-tiwari?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "135",
+    "name": "Rushabh Vasa",
+    "company": {
+      "name": "Agrahyah Technologies and Aawaz.com",
+      "designation": "Co-founder and CTO"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/rushabhvasa/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "136",
+    "name": "Virinchi Chivukula",
+    "company": {
+      "name": "IIIT Jabalpur",
+      "designation": " Student, Mechanical Eng"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/virinchi-chivukula-40ba171b3/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "137",
+    "name": "Dr T Vasudha",
+    "company": {
+      "name": "Brandix India",
+      "designation": "Social Sustainability Consultant/Head - Wellness"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/dr-t-vasudha-wellness-nd-csr-brandix-india-65635712?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "138",
+    "name": "Jayshree Hatangadi",
+    "company": {
+      "name": "",
+      "designation": "Heritage Narrator"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "139",
+    "name": "Vaishali More",
+    "company": {
+      "name": "",
+      "designation": "Biker,Teacher"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "140",
+    "name": "Satish Karnatakapu",
+    "company": {
+      "name": "F9 INFO TECHNOLOGIES (P) LTD, Vizag Volunteers Association",
+      "designation": "Managing Director, Founder"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/satishkarnatakapu/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "141",
+    "name": "Manas Malla",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "Founder, CEO"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/manasmalla/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "142",
+    "name": "Sai Chandan Khamitkar",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "COO"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/chandankhamitkar/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "143",
+    "name": "Palleti Varshita",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "Web Intern"
+    },
+    "community_title": "",
+    "image": "",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/varshita-palleti-34209625a/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
   }
 ]

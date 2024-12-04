@@ -14,19 +14,21 @@
         </v-col>
       </v-row>
       <v-row>
-        <v-col md="2" sm="3" cols="6" v-for="(item, index) in teamData.filter((item)=> item.type == 'Core')" :key="index">
+        <v-col md="2" sm="3" cols="6" v-for="(item, index) in teamData.filter((item) => item.type == 'Core')"
+          :key="index">
           <common-team-card :data="item" />
         </v-col>
       </v-row>
       <v-row>
         <v-col md="12">
           <h1>Team</h1>
-          
+
         </v-col>
       </v-row>
       <v-row>
-        <v-col md="2" sm="3" cols="6" v-for="(item, index) in teamData.filter((item)=> item.type != 'Core')" :key="index">
-          <common-team-card v-if="item.type!='Core'" :data="item" />
+        <v-col md="2" sm="3" cols="6" v-for="(item, index) in teamData.filter((item) => item.type != 'Core')"
+          :key="index">
+          <common-team-card v-if="item.type != 'Core'" :data="item" />
         </v-col>
       </v-row>
     </v-container>
@@ -44,9 +46,9 @@ useSeoMeta({
   title: "Team - " + mainData.eventInfo.name + " | " + mainData.communityName,
   description: mainData.eventInfo.description.short,
   keywords: mainData.seo.keywords,
-  ogLocale:'en_US',
-  author: "OSS Labs",
-  creator: "OSS Labs",
+  ogLocale: 'en_US',
+  author: "The Ananta Studio",
+  creator: "The Ananta Studio",
   viewport: "width=device-width, initial-scale=1.0",
   ogTitle: "Team - " + mainData.eventInfo.name + " | " + mainData.communityName,
   ogDescription: mainData.eventInfo.description.short,
@@ -61,5 +63,4 @@ useSeoMeta({
 });
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

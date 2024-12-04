@@ -18,21 +18,65 @@
                             showPassword = !showPassword;
                         }"></v-text-field>
                     <v-text-field type="password" v-model="confirmPassword" label="Confirm Password"></v-text-field>
-                    <v-btn @click="updateUserPassword" color="#FBC005">Confirm</v-btn>
+                    <v-btn :loading="isLoading" @click="updateUserPassword" color="#FBC005">Confirm</v-btn>
                 </v-col>
             </v-row>
         </v-container>
+        <v-bottom-sheet v-model="sheet" persistent>
+            <v-card class="text-center pa-8" title="Let us know more about you?"
+                subtitle="Onboarding you on quick to experience the best seamless event.">
+                <v-text-field v-model="github" label="GitHub"></v-text-field>
+                <v-text-field v-model="linkedin" label="LinkedIn"></v-text-field>
+                <v-autocomplete v-model="domainsInterested" chips label="Interested Domains" :items="['Web', 'Mobile', 'Cloud', 'AI', 'Career'
+                    , 'Entrepreneurship']" multiple></v-autocomplete>
+                <v-btn :loading="isLoading" @click="updateDetailsForFirebase()" rounded style="width: fit-content; font-weight: 600;"
+                    color="#4285F4">Submit</v-btn>
+            </v-card>
+        </v-bottom-sheet>
     </NuxtLayout>
 </template>
 <script setup>
 import { signInWithEmailAndPassword, updatePassword } from 'firebase/auth';
-import { query, collection, limit, where, getDocs } from 'firebase/firestore';
+import { query, collection, limit, where, getDocs, doc, updateDoc } from 'firebase/firestore';
 
 const auth = useFirebaseAuth();
 const db = useFirestore();
+const sheet = useState('sheet', () => false);
+let linkedin = useState('linkedinHandle', ()=>'');
+let github = useState('githubHandle', ()=>'');
+let isLoading = useState('isLoading', ()=>false);
+let domainsInterested = useState('domainsInterested', ()=>[]);
+let uid;
 
 const route = useRoute();
-const router = useRouter();
+
+async function updateDetailsForFirebase() {
+    isLoading.value = true;
+    const fireDoc = doc(collection(db, 'users'), uid);
+
+    await updateDoc(fireDoc, {
+        socials: [
+            {
+                provider: 'linkedin',
+                name: linkedin.value,
+                icon: 'mdi-linkedin'
+            },
+            {
+                provider: 'github',
+                name: github.value,
+                icon: 'mdi-github'
+            }
+        ],
+        domainsInterested: domainsInterested.value
+    });
+    sheet.value = false;
+
+    auth.signOut();
+    console.log("Password updated successfully");
+    navigateTo('/login', { replace: true });
+
+}
+
 async function updateUserPassword() {
     if (password.value !== confirmPassword.value) {
         return alert("Password and Confirm Password does not match");
@@ -43,17 +87,34 @@ async function updateUserPassword() {
     if (password.value == '') {
         return alert("Password cannot be empty");
     }
+    isLoading.value = true;
     const q = query(collection(db, 'users'), where('email', '==', route.params.email), limit(1));
     const querySnapshot = await getDocs(q);
-    querySnapshot.forEach(async (doc) => {
-        console.log(doc.id, " => ", doc.data()["phoneNumber"]);
+    querySnapshot.forEach(async (fireDoc) => {
         try {
-            await signInWithEmailAndPassword(auth, route.params.email, doc.data()["phoneNumber"]);
-            console.log(auth.currentUser);
+            await signInWithEmailAndPassword(auth, route.params.email, fireDoc.data()["phoneNumber"]);
             await updatePassword(auth.currentUser, password.value);
-            auth.signOut();
-            console.log("Password updated successfully");
-            navigateTo('/login', { replace: true });
+            const uD = fireDoc.data();
+            console.log('ud data: ', uD);
+            if (uD["socials"].filter((e) => e.provider === 'linkedin').name === undefined || uD['domainsInterested'] === undefined) {
+                linkedin.value = uD["socials"].find((e) => e.provider === 'linkedin')?.name || '';
+                github.value = uD["socials"].find((e) => e.provider === 'github')?.name || '';
+                console.log('linked in value = ', linkedin.value, " github value : ", github.value );
+                domainsInterested.value = uD["domainsInterested"];
+                isLoading.value = false;
+                sheet.value = true;
+                uid = auth.currentUser.uid;
+            } else {
+                uid = auth.currentUser.uid;
+                auth.signOut();
+                console.log("Password updated successfully");
+                navigateTo('/login', { replace: true });
+
+            }
+            // uid = auth.currentUser.uid;
+            // auth.signOut();
+            // console.log("Password updated successfully");
+            // navigateTo('/login', { replace: true });
         } catch (e) {
             console.log(e);
             alert("An error occurred. Please try again later", e);
