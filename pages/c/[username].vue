@@ -156,7 +156,7 @@ async function onSubmit() {
             domains : choosenTechStacks.value
         });
         isSumbitLoading.value = false;
-        router.push("/network");
+        navigateTo("/network?refresh=true");
     } catch (error) {
         isSumbitLoading.value = false;
         console.error("Error in submitting Domains. = ", error);

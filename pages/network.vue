@@ -13,8 +13,30 @@ import { query, where, collection, or, getFirestore, getDocs, getDoc, doc } from
 const db = getFirestore();
 const connections = useState('connections', () => []);
 const user = useCurrentUser();
+const route = useRoute();
+if(user.value){
+    console.log('network page rendered');
+}
+
+if(route.query.refresh){
+    if (user.value){
+        console.log('render by watch');
+        const q = query(collection(db, 'connections'), or(where('connectA', '==', user.value.uid), where('connectB', '==', user.value.uid)));
+        const connectionsSnapshot = await getDocs(q);
+        connectionsSnapshot.forEach(async (doc2) => {
+            const d = doc2.data();
+            console.log(d);
+            const cId = d.connectA === user.value.uid ? d.connectB : d.connectA;
+            const c = await getDoc(doc(db, 'users', cId));
+            connections.value.push(c.data());
+        });
+
+        navigateTo('/network');
+    }
+}
 watch(user, async (_) => {
-    if (user.value) {
+    if (user.value){
+        console.log('render by watch');
         const q = query(collection(db, 'connections'), or(where('connectA', '==', user.value.uid), where('connectB', '==', user.value.uid)));
         const connectionsSnapshot = await getDocs(q);
         connectionsSnapshot.forEach(async (doc2) => {
