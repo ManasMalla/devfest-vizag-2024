@@ -1,21 +1,21 @@
 <template>
   <div style="display: flex; flex-direction: column">
-    <h2 class="my-5">Agenda</h2>
-    <div style="margin-top: 36px;">
+    <h2 class="mt-5 mx-4">Agenda</h2>
+    <div class="dyn-margin">
       <div class="calendar__3ASh5">
         <div v-for="(day, index) in days" :key="index" class="day__2Fs_v">
           <div class="date__HrqQp">
-            <span class="dateWeekday__c6J_B">{{ day.weekday }}</span>
+            <span class="dateWeekday__c6J_B">{{ day.weekday }}, {{ ' ' }}</span>
             <span class="dateDayNumber__KJVBf">{{ day.day }}</span>
           </div>
-          <div style=" overflow: scroll">
+          <div style=" overflow: scroll; width: 100vw;" class="cal-agenda">
             <div class="row__WRVvc" style="display: flex;" v-for="track in day.tracks">
               <div class="date__HrqQs" :class="track.track === 'Community Lounge' ? 'cl' : ''">
-                <span style="text-align: center; font-size: 14px;" class="dateWeekday__c6J_B"
+                <p style="text-align: center; font-size: 14px;" class="dateWeekday__c6J_B"
                   v-if="track.track != 'Auditorium'">{{
                     track.track.split(' ')[0]
                   }}<br />{{ track.track.split(' ')[1]
-                  }}</span>
+                  }}</p>
               </div>
               <CommonAgendaBar v-for="(event, index) in track.events" :event="event" :idx="index"
                 :is-session-in-schedule="schedule.includes(event.id)" :on-add-to-schedule="() => {
@@ -70,54 +70,41 @@ const days = [
   {
     weekday: "Sat",
     day: 7,
-    tracks: [...tracks.sort().filter((track)=> track !== 'Community Lounge').map((track) => {
+    tracks: tracks.map((track) => {
       return {
         track,
         events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track),
       };
-    }), ...tracks.sort().filter((track)=> track === 'Community Lounge').map((track) => {
-      return {
-        track,
-        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track),
-      };
-    })],
+    }),
   },
   {
     weekday: "Sun",
     day: 8,
-    tracks: [
-      ...tracks.sort().filter((e)=> e !== 'Community Lounge').map((track) => {
+    tracks: tracks.map((track) => {
       return {
         track,
         events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track),
       };
     }),
-    ...tracks.sort().filter((e)=> e === 'Community Lounge').map((track) => {
-      return {
-        track,
-        events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track),
-      };
-    })
-    ],
   },
 ];
 console.log(days);
 const schedule = useState("userSchedule", () => []);
 const user = useCurrentUser();
 const auth = useFirebaseAuth();
-watch(user, async (_) => {
-  if (user.value) {
-    console.log(user.value.uid);
-    getDoc(doc(db, "users", user.value.uid)).then(async (doc) => {
-      const d = await doc.data();
-      console.log(d.schedule);
-      if (doc.exists()) {
-        schedule.value = d.schedule;
-      }
-    });
-  }
+// watch(user, (_) => {
+//   if (user.value) {
+//     console.log(user.value.uid);
+//     getDoc(doc(db, "users", user.value.uid)).then(async (doc) => {
+//       const d = await doc.data();
+//       console.log(d.schedule);
+//       if (doc.exists()) {
+//         schedule.value = d.schedule;
+//       }
+//     });
+//   }
 
-});
+// });
 </script>
 
 
@@ -125,6 +112,25 @@ watch(user, async (_) => {
 <style scoped>
 .timeBar__b9M84 {
   display: none;
+  width: 100%;
+}
+
+.cal-agenda {
+  padding: 20px;
+}
+
+.dyn-margin {
+  margin-top: 12px;
+}
+
+@media screen and (min-width: 840px) {
+  .cal-agenda {
+    padding: 0px;
+  }
+
+  .dyn-margin {
+    margin-top: 36px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -206,7 +212,7 @@ watch(user, async (_) => {
   -webkit-box-direction: normal;
   -ms-flex-direction: row;
   flex-direction: row;
-  padding: 16px 0;
+  padding: 8px 12px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -234,6 +240,10 @@ watch(user, async (_) => {
   -ms-flex-direction: row;
   flex-direction: row;
   padding: 16px 0;
+  width: 84px;
+  text-align: start;
+  flex-shrink: 0;
+  display: none;
 }
 
 @media screen and (min-width: 1024px) {
@@ -245,6 +255,7 @@ watch(user, async (_) => {
     left: -60px;
     padding: 0;
     position: absolute;
+    display: flex;
     transform: translateY(48px)
   }
 
@@ -255,7 +266,6 @@ watch(user, async (_) => {
 
 @media screen and (max-width: 1024px) {
   .dateWeekday__c6J_B:after {
-    content: '. ';
     white-space: pre;
     pointer-events: none;
   }
