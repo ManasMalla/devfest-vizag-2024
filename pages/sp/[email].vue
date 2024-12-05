@@ -111,10 +111,6 @@ async function updateUserPassword() {
                 navigateTo('/login', { replace: true });
 
             }
-            // uid = auth.currentUser.uid;
-            // auth.signOut();
-            // console.log("Password updated successfully");
-            // navigateTo('/login', { replace: true });
         } catch (e) {
             console.log(e);
             alert("An error occurred. Please try again later", e);
@@ -124,7 +120,7 @@ async function updateUserPassword() {
 definePageMeta({
     layout: false,
 })
-let password = useState('password', () => '');
+let password = useState('passwordup', () => '');
 let confirmPassword = useState('confirmPassword', () => '');
 const showPassword = useState('showPassword', () => false);
 </script>

@@ -2,7 +2,7 @@
   <div>
     <v-app-bar :elevation="0" fixed class="mt-0 px-2 toolbar-class mx-auto mt-4" rounded="xl" color="#eeeeee">
       <v-app-bar-nav-icon class="d-md-none d-lg-none d-sm-flex d-flex" @click="drawerAction"></v-app-bar-nav-icon>
-      <NuxtLink to="/" class="px-2" style="text-decoration: none; color: black">
+      <NuxtLink to="/?refresh=true" class="px-2" style="text-decoration: none; color: black">
         <div class="d-flex">
           <v-img width="120" alt="logo" src="/assets/img/devfest-logo.svg" class="mr-2"></v-img>
           <v-chip style="display: inline; background-color: white" variant="outlined" color="black" size="small"

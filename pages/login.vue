@@ -58,14 +58,14 @@ async function signinWithFirebase() {
     await signInWithPopup(auth, googleAuthProvider).catch((reason) => {
         console.error('Failed sign', reason)
     })
-    navigateTo('/', { replace: true });
+    navigateTo("/?refresh=true");
 }
 
 async function signInWithEmail() {
     try {
         // await setPersistence(auth, browserLocalPersistence);
         await signInWithEmailAndPassword(auth, email.value, password.value);
-        navigateTo('/', { replace: true });
+        navigateTo("/?refresh=true");
     } catch (e) {
         console.log(e);
         alert("An error occurred. Please try again later", e);
@@ -75,7 +75,7 @@ async function signInWithEmail() {
 let email = useState('email', () => '');
 let password = useState('password', () => '');
 
-let showPassword = useState('password', () => false);
+let showPassword = useState('showPassword', () => false);
 </script>
 <style scoped>
     @media screen and (max-width: 968px){
