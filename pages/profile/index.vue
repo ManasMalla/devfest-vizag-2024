@@ -104,9 +104,13 @@
                     </v-text-field>
                   </v-row>
                   <v-btn @click="addNewSocial" class="mr-4" variant="text">+ Add Social Handles</v-btn>
-                  <button v-if="showEditor"
-                    style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">{{
-                      showEditor ? 'Submit' : 'Update Profile' }}</button>
+                  <button rounded  v-if="showEditor"
+                    style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;" >
+                    <v-progress-circular :size="20"  indeterminate v-if="isSubmitLoading"></v-progress-circular>
+                    <p v-if="!isSubmitLoading">{{
+                      showEditor ? 'Submit' : 'Update Profile' }}
+                    </p>
+                  </button>
                 </v-form>
               </div>
               <v-divider v-if="userDetails" style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
@@ -126,6 +130,7 @@
         </v-col>
         <v-col md="8" sm="12">
           <v-card class="pa-3">
+            <h2 v-if="!user" class="mb-8 ma-4">Login to view profile!</h2>
             <v-row>
               <v-col v-for="(item, index) in badges" cols="6" sm="6" md="3">
 
@@ -153,7 +158,7 @@
                         <v-col cols="3">
                           <v-img :src="'img/arcade/badges/' + item.image" style="width: 100%" />
                         </v-col>
-                        <v-col>
+                        <v-col> 
                           <h1 class="mt-3 mb-0">{{ item.name }}</h1>
                           <p style="font-weight: 500" class="mt-n1">
                             {{ item.date === 'Not earned' ? 'Not earned' : 'Earned on ' + item.date }}
@@ -203,6 +208,8 @@ function showOrHideEditor() {
 }
 
 async function updateUserData(event) {
+
+  isSubmitLoading.value = true;
   // check usernames presence
   const coll = collection(db, "users");
   const q = query(coll, where("username", "==", userDetails.value?.username), where('__name__', "!=", user.value.uid));
@@ -233,10 +240,11 @@ async function updateUserData(event) {
         displayName: user.value.displayName
       });
     }
-
     showEditor.value = !showEditor.value;
+    isSubmitLoading.value = false;
   }
   else {
+    isSubmitLoading.value = false;
     alert(userDetails.value?.username + " is already in use!!");
     return;
   }
@@ -276,6 +284,8 @@ const userDetails = useState('userDetails', () => ({}));
 const showEditor = useState('showEditor', () => false);
 const headshotFileInput = useState('headshotFileInput', () => null);
 const isMounted = useState('isMounted', () => false);
+const isSubmitLoading = useState('isSubmitLoading', () => false);
+
 
 onMounted(() => {
   isMounted.value = true;
@@ -328,7 +338,12 @@ onMounted(() => {
           socials: [],
         };
       }
-      // console.log('Company State', userDetails.value.company);
+
+      // set photo url to localstorage
+      if(userDetails.value.photoURL !== '' && userDetails.value.photoURL !== null && userDetails.value.photoURL !== undefined){
+        localStorage.setItem('dv_photo_url', userDetails.value.photoURL);
+      }
+
       const arcadeDataRef = computed(() => collection(db, "users", user.value.uid, "arcade"));
       const arcadeData = await getDocs(arcadeDataRef.value);
       var badgeData = [];

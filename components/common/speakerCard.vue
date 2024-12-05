@@ -25,18 +25,25 @@
             </div>
           </v-col>
           <v-col md="8" cols="12">
-            <h1 class="mt-3 mb-0">{{ props.data.name }}</h1>
-            <p v-if="props.data.community_title" style="font-weight: 500" class="mt-n1">
+            <h1 class="mt-3 mb-0 sname">{{ props.data.name }}</h1>
+            <p v-if="props.data.community_title" style="font-weight: 500" class="mt-n1 stitle">
               {{ props.data.community_title }} |
               {{ props.data.company.designation }},
               {{ props.data.company.name }}
             </p>
-            <p v-if="!props.data.community_title" style="font-weight: 500" class="mt-n1">
+            <p v-if="!props.data.community_title" style="font-weight: 500" class="mt-n1 stitle">
 
               {{ props.data.company.designation }},
               {{ props.data.company.name }}
             </p>
-            <p class="mt-4">{{ props.data.bio }}</p>
+            <p class="mt-4 sbio" :class="isReadMore ? 'readMore' : ''">{{ props.data.bio }}</p>
+            <button style="color: #4285f4; font-weight: bold; font-size: small"
+            @click="() => {
+              isReadMore = !isReadMore;
+            }"
+            >
+              Read {{isReadMore ? 'Less' : 'More'}}
+            </button>
 
             <common-speaker-social-button :socialLinks="props.data.social" />
           </v-col>
@@ -58,8 +65,10 @@
 
 <script setup>
 // Props
-const emit = defineEmits(['request-time'])
+const emit = defineEmits(['request-time']);
 const user = useCurrentUser();
+
+const isReadMore = useState('isReadMore', () => false);
 
 const props = defineProps({
   data: {
@@ -107,5 +116,32 @@ h4,
 p {
   position: relative;
   z-index: 10;
+}
+
+@media screen and (max-width: 840px) {
+  .sname{
+    font-size: x-large;
+  }
+  .stitle{
+    font-size: smaller;
+  }
+  .sbio{
+    font-size: small;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  .sbio.readMore{
+    font-size: small;
+    display: unset;
+    -webkit-box-orient: unset;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    text-overflow: unset;
+    overflow: unset;
+  }
 }
 </style>

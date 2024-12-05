@@ -1,12 +1,12 @@
 <template>
     <NuxtLayout name="default">
-        <v-container fluid style="width: 100vw; margin: 24px 0px">
-            <v-row>
-                <v-col cols="12" lg="6">
+        <v-container fluid style="width: 100vw; margin: 0px 0px 24px 0px">
+            <div class="mainCard" style="display: flex; ">
+                <v-col>
                     <img src="/img/past-devfest/devfest19.png"
-                        style="width: 100%; height: 60vh; border-radius: 24px; object-fit: cover; margin-right: 12px;" />
+                        style="width: 100%; max-height: 60vh; border-radius: 24px; object-fit: cover; margin-right: 12px;" />
                 </v-col>
-                <v-col cols="12" lg="6">
+                <v-col>
                     <h1>Login</h1>
                     <p>{{ userC?.displayName }}</p>
                     <p class="mb-8">Sign in to join the fun of DevFest 2024: Filled with loads of fun, challenging
@@ -32,7 +32,7 @@
 
                     </div>
                 </v-col>
-            </v-row>
+            </div>
         </v-container>
     </NuxtLayout>
 </template>
@@ -58,14 +58,14 @@ async function signinWithFirebase() {
     await signInWithPopup(auth, googleAuthProvider).catch((reason) => {
         console.error('Failed sign', reason)
     })
-    navigateTo('/', { replace: true });
+    navigateTo("/?refresh=true");
 }
 
 async function signInWithEmail() {
     try {
         // await setPersistence(auth, browserLocalPersistence);
         await signInWithEmailAndPassword(auth, email.value, password.value);
-        navigateTo('/', { replace: true });
+        navigateTo("/?refresh=true");
     } catch (e) {
         console.log(e);
         alert("An error occurred. Please try again later", e);
@@ -75,6 +75,16 @@ async function signInWithEmail() {
 let email = useState('email', () => '');
 let password = useState('password', () => '');
 
-let showPassword = useState('password', () => false);
+let showPassword = useState('showPassword', () => false);
 </script>
-<style scoped></style>
+<style scoped>
+    @media screen and (max-width: 968px){
+        .mainCard{
+            flex-direction: column;
+        }
+            
+        .mainCard img {
+            height: 15vh;
+        }
+    }
+</style>

@@ -2,7 +2,7 @@
   <div>
     <v-app-bar :elevation="0" fixed class="mt-0 px-2 toolbar-class mx-auto mt-4" rounded="xl" color="#eeeeee">
       <v-app-bar-nav-icon class="d-md-none d-lg-none d-sm-flex d-flex" @click="drawerAction"></v-app-bar-nav-icon>
-      <NuxtLink to="/" class="px-2" style="text-decoration: none; color: black">
+      <NuxtLink to="/?refresh=true" class="px-2" style="text-decoration: none; color: black">
         <div class="d-flex">
           <v-img width="120" alt="logo" src="/assets/img/devfest-logo.svg" class="mr-2"></v-img>
           <v-chip style="display: inline; background-color: white" variant="outlined" color="black" size="small"
@@ -41,7 +41,7 @@
       <a v-if="user" href="/profile"><v-container height="40" width="40"
           style="object-fit: cover; border-radius: 20px; border: 2px black solid; display: flex; align-items: center; justify-content: center; overflow: hidden">
           <img referrerPolicy="no-referrer"
-            :src="user.photoURL || 'https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg'"
+            :src="photoURLStored || user.photoURL || 'https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg'"
             style="border-radius: 20px; width: 34px; height: 34px; object-fit: cover; aspect-ratio: 1;" />
         </v-container></a>
     </v-app-bar>
@@ -68,6 +68,7 @@
 
 <script>
 import { GoogleAuthProvider } from 'firebase/auth'
+import { getData } from "nuxt-storage/local-storage";
 export const googleAuthProvider = new GoogleAuthProvider()
 </script>
 
@@ -88,10 +89,30 @@ const user = useCurrentUser()
 const auth = useFirebaseAuth()
 
 const screenWidth = ref(width);
+const photoURLStored = useState('photoURLStored', () => undefined);
 
 const drawerAction = () => {
   sidebar.value = !sidebar.value;
 };
+
+const photoURLFromStorage = computed(() => {
+  console.log('storage has been modified');
+  return localStorage.getItem('dv_photo_url');
+});
+
+// Function to update photoURLStored when localStorage changes
+const updatePhotoURL = () => {
+  photoURLStored.value = localStorage.getItem('dv_photo_url');
+};
+
+onMounted(() => {
+  window.addEventListener('storage', updatePhotoURL);
+});
+
+onMounted(() => {
+  updatePhotoURL();
+});
+
 </script>
 
 <style scoped>

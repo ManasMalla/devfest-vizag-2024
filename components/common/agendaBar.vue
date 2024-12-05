@@ -78,7 +78,7 @@
                     hour: "2-digit",
                     minute: "numeric",
                 }) }} | {{ event.format }}</h4>
-                <p class="mb-4">{{ event.description }}</p>
+                <p class="mb-4 barDescription">{{ event.description }}</p>
                 <v-container v-for="speaker in speakersData.filter((e) => event.speakers.includes(parseInt(e.id)))"
                     style="padding: 4px 6px; border-radius: 80px; display: flex; column-gap: 12px; align-items:center; width: fit-content; margin:0">
                     <img :src="'../img/speakers/' + speaker.image"
@@ -195,6 +195,12 @@ function calculateTimeline([s, e]) {
 @media screen and (min-width: 1024px) {
     .eventIcon__3jIwU {
         padding-right: 8px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .barDescription{
+        font-size: small;
     }
 }
 

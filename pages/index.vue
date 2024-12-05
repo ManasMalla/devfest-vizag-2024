@@ -95,6 +95,7 @@
 import { doc, getDoc, query, collection, getCountFromServer, where } from 'firebase/firestore';
 
 const { mainData, testimonials } = useJSONData();
+const route = useRoute();
 definePageMeta({
     layout: false,
 });
@@ -134,6 +135,30 @@ nextTick(() => {
         }
     });
 });
+
+if(route.query.refresh){
+    if (user.value){
+        const userDoc = (await getDoc(doc(db, "users", user.value.uid))).data();
+            if (userDoc.paymentStatus && userDoc.registration) {
+                tasks.value[0].isCompleted = true;
+            }
+            if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoUrl) {
+                tasks.value[1].isCompleted = true;
+            }
+            if (userDoc.schedule.length > 0) {
+                tasks.value[2].isCompleted = true;
+                tasks.value[3].isCompleted = true;
+            }
+            getCountFromServer(query(collection(db, "mentor-request"), where("uid", "==", user.value.uid))).then((querySnapshot) => {
+                console.log(querySnapshot.data().count);
+                if (querySnapshot.data().count > 0) {
+                    tasks.value[4].isCompleted = true;
+                }
+            });
+
+        navigateTo('/');
+    }
+}
 
 useSeoMeta({
     contentType: "text/html; charset=utf-8",

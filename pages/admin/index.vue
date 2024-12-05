@@ -10,62 +10,8 @@
                 </v-col>
             </v-row>
 
-            <!-- NO NEED -->
-            <!-- <v-table height="80%" fixed-header class="mt-5">
-                <thead>
-                    <tr>
-                        <th class="text-left"
-                            style="font-weight: 800; background: #202124; color: #e8eaed; padding: 20px; ">
-                            Experts
-                        </th>
-                        <th class="text-left"
-                            style="font-weight: 800; background: #202124; color: #e8eaed; padding: 17px; ">
-                            Graph
-                        </th>
-                        <th class="text-left"
-                            style="font-weight: 800; background: #202124; color: #e8eaed; padding: 17px; ">
-                            Questions
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="(item, index) in requestData" :key="index">
-                        <td>{{ item.mentor }}</td>
-                        <td>{{ item.questions }}</td>
-                        <td :style="item.status === 'approved' ? 'color: #34a853' : item.status === 'pending' ? 'color: #fbbc04' : 'color: #ea4335'">{{ item.status.charAt(0).toUpperCase() + item.status.slice(1) }}</td>
-                        <td>
-                            <v-row style="gap: 10px;">
-                                <v-icon @click="updateRequestStatus(item, 'rejected', false)" class="action-btn" :color="'#ea4335'" style="cursor: pointer; " size="30">
-                                    mdi-alpha-x-box-outline
-                                </v-icon>
-                                <v-icon @click="updateRequestStatus(item, 'approved', true)" class="action-btn" :color="'#34a853'" style="cursor: pointer; " size="30">
-                                    mdi-check-circle
-                                </v-icon>
-                            </v-row>
-                    </td>
-                    </tr> -->
-
-            <!-- <tr v-for="(item, index) in speakersData" :key="index">
-                        <td>
-                            <v-card style="display: flex; justify-content: start; align-items: center; gap: 6px;">
-                                <v-img class="avatar" aspect-ratio="1" cover :alt="item.name" :src="item.image.length
-                                    ? '/img/speakers/' + item.image
-                                    : '/img/common/avatar.png'
-                                    " style="border-radius: 100%; width: 80px !important; height: 80px !important; object-fit: cover !important;"></v-img>
-                                <p>
-                                    {{ item.name }}
-                                </p>
-                            </v-card>
-                        </td>
-                    </tr>
-                </tbody>
-            </v-table> -->
-
-            <!-- ||||||||||||||||||||||||||||||||| -->
-
             <div
                 style="width: 95%; border: 0px solid black; height: 400px; overflow-y: scroll; display: flex; gap: 4px">
-
                 <!-- Speakers Card -->
                 <div style="width: 30% ; display: flex; flex-direction: column; justify-content: start; gap: 6px;">
                     <div v-for="(item, index) in speakersData" :key="index">
@@ -172,6 +118,7 @@ const { mainData, speakersData } = useJSONData();
 const user = useCurrentUser();
 const db = useFirestore();
 const choosenSpeaker = useState('choosenSpeaker', () => '');
+const route = useRoute();
 const requestedQuestionsData = useState('requestedQuestionsData', () => [
     // {
     //     'mentor': 'Chandan Khamitkar',
@@ -201,34 +148,34 @@ const requestedQuestionsData = useState('requestedQuestionsData', () => [
     //     'subtitle': 'CIO, The Ananta Studio',
     // },
 ]);
+const authorizedUIDs = ['ooL4cJkNolQvxDgmEFsrAveKjFl2', 'oBYmZwFXDeS0O2uDryFuhw5ujd33', 'Ivz487Na8OWaLzoLNfnQHE1WI8o1'];
 
 definePageMeta({
     layout: false,
 });
 
-const requestData = useState('requestData', () => []);
 
-// const fetchMentorRequest = async () => {
-//     try {
-//         const mentorRequestColl = await getDocs(collection(db, "mentor-request"));
-//         mentorRequestColl.forEach((doc) => {
-//             const ADoc = {
-//                 "id": doc.id,
-//                 ...doc.data()
-//             }
-//             requestData.value.push(ADoc);
-//         });
-//     } catch (error) {
-//         console.error("Error in fetching Mentor Request Data.");
-//     }
-// }
 watch(user, (_) => {
-    if (user.value && (user.value.uid === 'ooL4cJkNolQvxDgmEFsrAveKjFl2' || user.value.uid === 'oBYmZwFXDeS0O2uDryFuhw5ujd33' || user.value.uid === 'Ivz487Na8OWaLzoLNfnQHE1WI8o1')) {
-        // fetchMentorRequest();
+    if (user.value && (!authorizedUIDs.includes(user.value.uid))) {
+        navigateTo("/?refresh=true");
+    }
+});
+
+onMounted(async() => {
+    await nextTick();
+    console.log('Admin page mounted = ', user.value);
+    if(user.value){
+        if(!authorizedUIDs.includes(user.value.uid)){
+            navigateTo("/?refresh=true");
+        }
     }
 });
 
 const handleSpeakerClick = async (name) => {
+    if (user.value && (!authorizedUIDs.includes(user.value.uid))) {
+        navigateTo("/?refresh=true");
+        return;
+    }
     requestedQuestionsData.value = [];
     choosenSpeaker.value = name;
     console.log('Clicked speaker = ', name);
