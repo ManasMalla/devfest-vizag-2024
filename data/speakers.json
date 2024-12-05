@@ -1,5 +1,24 @@
 [
   {
+    "id": "100",
+    "name": "Gouthama Rao Yejju",
+    "company": {
+      "name": "GITAM Deemed to be University",
+      "designation": "Vice Chancellor"
+    },
+    "community_title": "",
+    "image": "gowtham.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/gouthama-rao-yejju-80b9357a/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": false,
+    "expert": false
+  },
+  {
     "id": "101",
     "name": "Runcy Oommen",
     "company": {
@@ -329,7 +348,7 @@
       "name": "Gurujada IT Solutions",
       "designation": "Co-founder"
     },
-    "community_title": "",
+    "community_title": "Ambassador, WTM Vizag",
     "image": "usha.webp",
     "bio": "",
     "social": {
@@ -381,16 +400,73 @@
   },
   {
     "id": "128",
-    "name": "Sai Sampath Kumar Balivada",
+    "name": "Sampath Balivada",
     "company": {
       "name": "PayPal",
       "designation": "Software Engineer"
     },
-    "community_title": "",
+    "community_title": "Organizer, GDG Vizag",
     "image": "sampath.jpeg",
     "bio": "",
     "social": {
       "linkedin": "https://linkedin.com/in/sampathbalivada",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "141",
+    "name": "Manas Malla",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "Founder, CEO"
+    },
+    "community_title": "Google Product Expert: Android, Flutter and KMM",
+    "image": "manas.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/manasmalla/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "142",
+    "name": "Chandan Khamitkar",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "CIO"
+    },
+    "community_title": "",
+    "image": "chandan.jpg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/chandankhamitkar/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "143",
+    "name": "Varshita Palleti",
+    "company": {
+      "name": "The Ananta Studio",
+      "designation": "Web Intern"
+    },
+    "community_title": "",
+    "image": "varshita.jpeg",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/varshita-palleti-34209625a/",
       "twitter": "",
       "github": "",
       "web": ""
@@ -440,7 +516,7 @@
     "id": "131",
     "name": "MNR",
     "company": {
-      "name": "PayPal",
+      "name": "Big TV",
       "designation": "Journalist"
     },
     "community_title": "",
@@ -657,63 +733,6 @@
     "bio": "",
     "social": {
       "linkedin": "https://www.linkedin.com/in/satishkarnatakapu/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    },
-    "mentor": true,
-    "expert": false
-  },
-  {
-    "id": "141",
-    "name": "Manas Malla",
-    "company": {
-      "name": "The Ananta Studio",
-      "designation": "Founder, CEO"
-    },
-    "community_title": "",
-    "image": "manas.jpg",
-    "bio": "",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/manasmalla/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    },
-    "mentor": true,
-    "expert": false
-  },
-  {
-    "id": "142",
-    "name": "Chandan Khamitkar",
-    "company": {
-      "name": "The Ananta Studio",
-      "designation": "CIO"
-    },
-    "community_title": "",
-    "image": "chandan.jpg",
-    "bio": "",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/chandankhamitkar/",
-      "twitter": "",
-      "github": "",
-      "web": ""
-    },
-    "mentor": true,
-    "expert": false
-  },
-  {
-    "id": "143",
-    "name": "Varshita Palleti",
-    "company": {
-      "name": "The Ananta Studio",
-      "designation": "Web Intern"
-    },
-    "community_title": "",
-    "image": "varshita.jpeg",
-    "bio": "",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/varshita-palleti-34209625a/",
       "twitter": "",
       "github": "",
       "web": ""
