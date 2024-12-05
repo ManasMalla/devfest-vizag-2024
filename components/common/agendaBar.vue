@@ -79,8 +79,7 @@
                     minute: "numeric",
                 }) }} | {{ event.format }}</h4>
                 <p class="mb-4">{{ event.description }}</p>
-                <v-container
-                    v-for="speaker in speakersData.filter((e) => event.speakers.includes(parseInt(e.id))).slice(0, 3)"
+                <v-container v-for="speaker in speakersData.filter((e) => event.speakers.includes(parseInt(e.id)))"
                     style="padding: 4px 6px; border-radius: 80px; display: flex; column-gap: 12px; align-items:center; width: fit-content; margin:0">
                     <img :src="'../img/speakers/' + speaker.image"
                         style="width: 24px; height: 24px; object-fit:cover; border-radius: 20px;" />
