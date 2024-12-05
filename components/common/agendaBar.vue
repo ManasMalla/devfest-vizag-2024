@@ -3,13 +3,13 @@
         <template v-slot:activator="{ props }">
             <v-card v-bind="props"
                 style="margin: 12px 8px; width: 340px; padding: 1rem; height: 240px; flex-shrink: 0; "
-                :style="event.track == 'Mobile' ? 'background-color: rgba(204, 246, 197, 0.3);' : event.track == 'Cloud' ? 'background-color: rgba(255, 231, 165, 0.3);' : event.track == 'Web' ? 'background-color: rgba(195, 236, 246, 0.3)' : event.track === 'AI/ML' ? 'background-color: rgba(248, 216, 216, 0.3)' : 'background-color: rgba(32, 32, 35, 0.08)'">
+                :style="event.track == 'Mobile' ? 'background-color: rgba(204, 246, 197, 0.3);' : event.track == 'Cloud' ? 'background-color: rgba(255, 231, 165, 0.3);' : event.track == 'Web' ? 'background-color: rgba(195, 236, 246, 0.3)' : event.track === 'AI/ML' ? 'background-color: rgba(248, 216, 216, 0.3)' : 'background-color: rgba(32, 32, 35, 0);' + ((event.track === 'AI/ML' || event.track === 'Mobile' || event.track === 'Web' || event.track === 'Cloud') ? '' : 'border: 1.5px solid #e0e0e0;')">
                 <div style="padding-right: 80px; display: flex; flex-direction: column; height: 100%;">
                     <p style="position: absolute; right: 16px; text-align: end;"><b>{{ event.time.split(" to ")[0]
                             }}</b><br />
                         <span style="font-size: 14px;">{{ event.time.split(" to ")[1] }}</span>
                     </p>
-                    <h3 style="max-width: 220px;">{{ event.title }}</h3>
+                    <h3 style="max-width: 220px; white-space: pre-line;">{{ event.title }}</h3>
 
                     <div style="margin-top: auto; height: fit-content;">
                         <v-container
@@ -18,7 +18,7 @@
                             style="padding: 4px 6px; border-radius: 80px; display: flex; column-gap: 12px; align-items:center; width: fit-content; margin:0">
                             <img :src="'../img/speakers/' + speaker.image"
                                 style="width: 24px; height: 24px; object-fit:cover; border-radius: 20px;" />
-                            <p class="mr-2" style="font-size: 14px; font-weight: 600; overflow: hidden; display: -webkit-box; line-clamp: 1; -webkit-line-clamp: 1;-webkit-box-orient: vertical; 
+                            <p class="mr-2" style="font-size: 14px; font-weight: 600; overflow: hidden; display: -webkit-box; line-clamp: 2; -webkit-line-clamp: 2;-webkit-box-orient: vertical; 
         text-overflow: ellipsis;">
                                 {{ speaker.name
                                 }}</p>
@@ -44,13 +44,13 @@
                             </v-container>
                         </div>
 
-                        <v-chip v-if="event.track" :color="event.track == 'Mobile' ? '#ccf6c5' : event.track == 'Cloud' ? '#ffe7a5' :
+                        <v-chip v-if="event.track && event.track !== 'General'" :color="event.track == 'Mobile' ? '#ccf6c5' : event.track == 'Cloud' ? '#ffe7a5' :
                             event.track == 'Web' ? '#c3ecf6' : event.track === 'AI/ML' ? '#f8d8d8' : '#bababa'"
-                            variant="flat" class="mt-2">{{
+                            variant="flat" class="mt-2 mr-2">{{
                                 event.track
                             }}</v-chip><v-chip
                             :color="event.track == 'Mobile' ? '#34a853' : event.track == 'Cloud' ? '#f9ab00' : event.track == 'Web' ? '#4285f4' : event.track === 'AI/ML' ? '#ea4335' : '#202023'"
-                            variant="outlined" v-if="event.format" class="mt-2 ml-2">{{
+                            variant="outlined" v-if="event.format" class="mt-2">{{
                                 event.format
                             }}</v-chip>
 
@@ -83,9 +83,10 @@
                     style="padding: 4px 6px; border-radius: 80px; display: flex; column-gap: 12px; align-items:center; width: fit-content; margin:0">
                     <img :src="'../img/speakers/' + speaker.image"
                         style="width: 24px; height: 24px; object-fit:cover; border-radius: 20px;" />
-                    <p class="mr-2" style="font-size: 14px; font-weight: 600;">
+                    <p class="mr-2" style="font-size: 14px; line-height: 1.2; font-weight: 600;">
                         {{ speaker.name
-                        }}</p>
+                        }}<br /><span style="font-size: 12px; font-weight: 400;">{{ speaker.company.name
+                            }}</span></p>
                 </v-container>
                 <v-container class="mt-4 mb-0">
                     <v-row>

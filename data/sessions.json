@@ -51,7 +51,7 @@
         {
                 "id": "1004",
                 "slide": "",
-                "title": "Welcome to GITAM",
+                "title": "Welcome to GITAM:\nVice Chancellor's note",
                 "description": "",
                 "track": "General",
                 "venue": "Auditorium",
@@ -230,13 +230,13 @@
         {
                 "id": "1012",
                 "slide": "",
-                "title": "HACKATHON Prep BOOTCAMP-1 ",
+                "title": "Hackathon Prep Bootcamp-1 ",
                 "description": " Team Building for Hackathon ",
                 "track": "Ideation",
                 "venue": "Hall 4",
                 "link": "",
                 "time": "11:00 AM to 12:30 PM",
-                "format": "Hackathon",
+                "format": "Bootcamp",
                 "date": "Dec 7, 2024",
                 "timeDuration": "90",
                 "speakers": [],
@@ -580,13 +580,13 @@
         {
                 "id": "1038",
                 "slide": "",
-                "title": "HACKATHON prep BOOTCAMP-2",
+                "title": "Hackathon Prep Bootcamp-2",
                 "description": " Problem Statement Discussion ",
                 "track": "Ideation",
                 "venue": "Hall 4",
                 "link": "",
                 "time": "3:30 PM to 4:30 PM",
-                "format": "Hackathon",
+                "format": "Bootcamp",
                 "date": "Dec 7, 2024",
                 "timeDuration": "60",
                 "speakers": [],
@@ -676,7 +676,7 @@
         {
                 "id": "1204",
                 "slide": "",
-                "title": "Product-Market Fit Unlocked",
+                "title": "Product-Market Fit Unlocked: Lessons from Real-World Tech Successes and Failures",
                 "description": "Discover the secrets to achieving Product-Market Fit through real-world tech success and failure stories. Learn how to identify market needs, validate product ideas, and adapt using proven frameworks. This session will empower developers to build solutions that truly resonate and scale.",
                 "track": "Startups",
                 "venue": "Auditorium",
@@ -1042,13 +1042,13 @@
         {
                 "id": "1226",
                 "slide": "",
-                "title": "HACKATHON prep BOOTCAMP-3",
+                "title": "Hackathon Prep Bootcamp-3",
                 "description": "",
                 "track": "Ideation",
                 "venue": "Hall 4",
                 "link": "",
                 "time": "10:00 AM to 11:30 AM",
-                "format": "Hackathon",
+                "format": "Bootcamp",
                 "date": "Dec 8, 2024",
                 "timeDuration": "90",
                 "speakers": [],
@@ -1057,13 +1057,13 @@
         {
                 "id": "1227",
                 "slide": "",
-                "title": "HACKATHON prep BOOTCAMP-4",
+                "title": "Hackathon Prep Bootcamp-4",
                 "description": "",
                 "track": "Ideation",
                 "venue": "Hall 4",
                 "link": "",
                 "time": "2:00 PM to 3:30 PM",
-                "format": "Hackathon",
+                "format": "Bootcamp",
                 "date": "Dec 8, 2024",
                 "timeDuration": "90",
                 "speakers": [],
@@ -1161,5 +1161,4 @@
                 "speakers": [],
                 "callForSpeaker": false
         }
-
 ]
