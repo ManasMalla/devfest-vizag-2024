@@ -70,41 +70,54 @@ const days = [
   {
     weekday: "Sat",
     day: 7,
-    tracks: tracks.map((track) => {
+    tracks: [...tracks.sort().filter((track) => track !== 'Community Lounge').map((track) => {
       return {
         track,
         events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track),
       };
-    }),
+    }), ...tracks.sort().filter((track) => track === 'Community Lounge').map((track) => {
+      return {
+        track,
+        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track),
+      };
+    })],
   },
   {
     weekday: "Sun",
     day: 8,
-    tracks: tracks.map((track) => {
-      return {
-        track,
-        events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track),
-      };
-    }),
+    tracks: [
+      ...tracks.sort().filter((e) => e !== 'Community Lounge').map((track) => {
+        return {
+          track,
+          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track),
+        };
+      }),
+      ...tracks.sort().filter((e) => e === 'Community Lounge').map((track) => {
+        return {
+          track,
+          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track),
+        };
+      })
+    ],
   },
 ];
 console.log(days);
 const schedule = useState("userSchedule", () => []);
 const user = useCurrentUser();
 const auth = useFirebaseAuth();
-// watch(user, (_) => {
-//   if (user.value) {
-//     console.log(user.value.uid);
-//     getDoc(doc(db, "users", user.value.uid)).then(async (doc) => {
-//       const d = await doc.data();
-//       console.log(d.schedule);
-//       if (doc.exists()) {
-//         schedule.value = d.schedule;
-//       }
-//     });
-//   }
+watch(user, (_) => {
+  if (user.value) {
+    console.log(user.value.uid);
+    getDoc(doc(db, "users", user.value.uid)).then(async (doc) => {
+      const d = await doc.data();
+      console.log(d.schedule);
+      if (doc.exists()) {
+        schedule.value = d.schedule;
+      }
+    });
+  }
 
-// });
+});
 </script>
 
 
