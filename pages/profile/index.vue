@@ -22,12 +22,16 @@
           </p>
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
             <div style="position: relative;">
-              <img class="photoURLClass" referrerPolicy="no-referrer" v-if="user.photoURL != null"
-                :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
+              <img class="photoURLClass" referrerPolicy="no-referrer" v-if="userDetails.photoURL"
+                :src="userDetails.photoURL" alt="Profile Picture"
                 style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50; position: relative; cursor: pointer"
                 width="160" height="160" />
-              <div class="edit-overlay" 
-                @click="openFileInput"
+              <img referrerPolicy="no-referrer" v-else
+                src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
+                v-if="userDetails.photoURL === ''"
+                style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 100; position: relative;" width="160"
+                height="160" />
+              <div class="edit-overlay" @click="openFileInput"
                 style="position: absolute; background-color: rgba(218, 220, 224, 0.5); width: 40px; height: 40px; border-radius: 80px; z-index: 100; cursor: pointer; display: flex; justify-content: center; align-items: center; top: 0; right: 0;">
                 <v-icon size="20">mdi-pencil</v-icon>
               </div>
@@ -36,11 +40,6 @@
             <!-- take headshot file input -->
             <input type="file" ref="headshotFileInput" accept="image/*" style="display: none;"
               @change="handleFileChange">
-            <img referrerPolicy="no-referrer"
-              src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
-              v-if="user.photoURL == null"
-              style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50;" width="160"
-              height="160" />
             <div
               style="display:flex; width: 100%; align-items: center; flex-direction: column; outline: 1px solid #202023; border-radius: 24px; padding: 24px; transform: translateY(-80px); position: relative;">
               <div
@@ -303,7 +302,9 @@ async function handleFileChange(event) {
 
       await updateDoc(doc(db, "users", user.value.uid), {
         photoURL: headshotURL
-      })
+      });
+      userDetails.value.photoURL = headshotURL;
+      alert('Headshot updated successfully ✅')
     } catch (error) {
       console.error("Error in Uploading headshot to cloud!! = ", error);
       alert("Error in saving your request!");
@@ -319,7 +320,6 @@ onMounted(() => {
       // data.value = true;
       const { data: config, promise } = useDocument(doc(db, "users", user.value.uid));
       const uD = await promise.value;
-      // console.log('Company Details', uD.company);
       userDetails.value = uD;
       if (userDetails.value == null) {
         userDetails.value = {
