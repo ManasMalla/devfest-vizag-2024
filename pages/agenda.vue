@@ -1,9 +1,20 @@
 <template>
   <div style="display: flex; flex-direction: column">
     <h2 class="mt-5 mx-4">Agenda</h2>
+    <div class="mx-4 mt-3">
+      <p style="color: #616263;">Filter by</p>
+      <div
+      style="display: flex; justify-content: space-around; align-items: start; gap: 10px;"
+      >
+      <v-select v-model="dayFiltersValue" :items="dayFilters" label="Day" chips multiple></v-select>
+      <v-select v-model="domainFiltersValue" :items="domainFilters" label="Domain/Tracks" chips multiple></v-select>
+      <v-select v-model="hallVenueFiltersValue" :items="hallVenueFilters" label="Hall/Venue" chips multiple></v-select>
+      <v-select v-model="formatFiltersValue" :items="formatFilters" label="Format" chips multiple></v-select>
+    </div>
+  </div>
     <div class="dyn-margin">
       <div class="calendar__3ASh5">
-        <div v-for="(day, index) in days" :key="index" class="day__2Fs_v">
+        <div v-for="(day, index) in filteredDays" :key="index" class="day__2Fs_v">
           <div class="date__HrqQp">
             <span class="dateWeekday__c6J_B">{{ day.weekday }}, {{ ' ' }}</span>
             <span class="dateDayNumber__KJVBf">{{ day.day }}</span>
@@ -13,7 +24,7 @@
               <div class="date__HrqQs" :class="track.track === 'Community Lounge' ? 'cl' : ''">
                 <p style="text-align: center; font-size: 14px;" class="dateWeekday__c6J_B"
                   v-if="track.track != 'Auditorium'">{{
-                    track.track.split(' ')[0]
+                  track.track.split(' ')[0]
                   }}<br />{{ track.track.split(' ')[1]
                   }}</p>
               </div>
@@ -63,8 +74,37 @@ useSeoMeta({
   twitterCard: "summary_large_image",
 });
 
+
+ 
 const { scheduleData, sessionsData, speakersData } = useJSONData();
 const tracks = [...new Set(sessionsData.map((agenda) => agenda.venue))];
+
+// Filters list
+const dayFilters = [...new Set(sessionsData.map((day) => day.date))];
+const domainFilters = [...new Set(sessionsData.map((day) => day.track))];
+const hallVenueFilters = [...new Set(sessionsData.map((day) => day.venue))].sort();
+const formatFilters = [...new Set(sessionsData.map((day) => day.format))];
+
+const dayFiltersValue = useState('dayFiltersValue', () => []);
+const domainFiltersValue = useState('domainFiltersValue', () => []);
+const hallVenueFiltersValue = useState('hallVenueFiltersValue', () => []);
+const formatFiltersValue = useState('formatFiltersValue', () => []);
+
+
+const filteredSessions = computed(() => {
+  if(dayFiltersValue.value.length === 0 && domainFiltersValue.value.length === 0 && hallVenueFiltersValue.value.length === 0 && formatFiltersValue.value.length === 0 ) return sessionsData;
+  return tracks.filter(session => {
+    return dayFiltersValue.value.includes(session.date) &&
+           domainFiltersValue.value.includes(session.track) &&
+           hallVenueFiltersValue.value.includes(session.venue) &&
+           formatFiltersValue.value.includes(session.format);
+  });
+});
+
+watch(filteredSessions, (_) => {
+  console.log('filtered sessions = ', filteredSessions);
+});
+
 function calculateTimeline([s, e]) {
   const offset = (s - new Date(s.getFullYear(), s.getMonth(), s.getDate(), 8, 0, 0)) / 60000;
   const duration = (e - s) / 60000;
@@ -101,50 +141,100 @@ const parseTime = (time) => {
   return [date, date2];
 };
 
-const days = [
-  {
-    weekday: "Sat",
-    day: 7,
-    tracks: [...tracks.sort().filter((track) => track !== 'Community Lounge').map((track) => {
-      return {
-        track,
-        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
-          return parseTime(a.time)[0] - parseTime(b.time)[0];
-        }),
-      };
-    }), ...tracks.sort().filter((track) => track === 'Community Lounge').map((track) => {
-      return {
-        track,
-        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
-          return parseTime(a.time)[0] - parseTime(b.time)[0];
-        }),
-      };
-    })],
-  },
-  {
-    weekday: "Sun",
-    day: 8,
-    tracks: [
-      ...tracks.sort().filter((e) => e !== 'Community Lounge').map((track) => {
+// const days = [
+//   {
+//     weekday: "Sat",
+//     day: 7,
+//     tracks: [...filteredSessions.sort().filter((track) => track !== 'Community Lounge').map((track) => {
+//       return {
+//         track,
+//         events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+//           return parseTime(a.time)[0] - parseTime(b.time)[0];
+//         }),
+//       };
+//     }), ...filteredSessions.sort().filter((track) => track === 'Community Lounge').map((track) => {
+//       return {
+//         track,
+//         events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+//           return parseTime(a.time)[0] - parseTime(b.time)[0];
+//         }),
+//       };
+//     })],
+//   },
+//   {
+//     weekday: "Sun",
+//     day: 8,
+//     tracks: [
+//       ...filteredSessions.sort().filter((e) => e !== 'Community Lounge').map((track) => {
+//         return {
+//           track,
+//           events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+//             return parseTime(a.time)[0] - parseTime(b.time)[0];
+//           }),
+//         };
+//       }),
+//       ...filteredSessions.sort().filter((e) => e === 'Community Lounge').map((track) => {
+//         return {
+//           track,
+//           events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+//             return parseTime(a.time)[0] - parseTime(b.time)[0];
+//           }),
+//         };
+//       })
+//     ],
+//   },
+// ];
+
+const filteredDays = computed(() => {
+  return [
+    {
+      weekday: "Sat",
+      day: 7,
+      tracks: [...tracks.sort().filter((track) => track !== 'Community Lounge').map((track) => {
         return {
           track,
-          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+          events: filteredSessions.value.filter((ag) => ag.date === 'Dec 7, 2024' && ag.venue === track).sort((a, b) => {
+            // Correct comparison using parseTime
             return parseTime(a.time)[0] - parseTime(b.time)[0];
           }),
         };
       }),
-      ...tracks.sort().filter((e) => e === 'Community Lounge').map((track) => {
+      ...tracks.sort().filter((track) => track === 'Community Lounge').map((track) => {
         return {
           track,
-          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+          events: filteredSessions.value.filter((ag) => ag.date === 'Dec 7, 2024' && ag.venue === track).sort((a, b) => {
             return parseTime(a.time)[0] - parseTime(b.time)[0];
           }),
         };
       })
-    ],
-  },
-];
-console.log(days);
+      ],
+    },
+    {
+      weekday: "Sun",
+      day: 8,
+      tracks: [
+        ...tracks.sort().filter((e) => e !== 'Community Lounge').map((track) => {
+          return {
+            track,
+            events: filteredSessions.value.filter((ag) => ag.date === 'Dec 8, 2024' && ag.venue === track).sort((a, b) => {
+              return parseTime(a.time)[0] - parseTime(b.time)[0];
+            }),
+          };
+        }),
+        ...tracks.sort().filter((e) => e === 'Community Lounge').map((track) => {
+          return {
+            track,
+            events: filteredSessions.value.filter((ag) => ag.date === 'Dec 8, 2024' && ag.venue === track).sort((a, b) => {
+              return parseTime(a.time)[0] - parseTime(b.time)[0];
+            }),
+          };
+        })
+      ],
+    },
+  ];
+});
+
+// console.log(days);
 const schedule = useState("userSchedule", () => []);
 const user = useCurrentUser();
 const auth = useFirebaseAuth();
