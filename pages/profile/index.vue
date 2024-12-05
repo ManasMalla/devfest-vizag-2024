@@ -21,25 +21,21 @@
             enabling them to communicate their insights.
           </p>
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
-            <img class="photoURLClass" referrerPolicy="no-referrer" v-if="user.photoURL != null" :src="user.photoURL.split('=s96-c')[0]"
-              alt="Profile Picture" style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50; position: relative; cursor: pointer"
-              width="160" height="160"/>
-              <div
-                class="edit-overlay"
-                @click="$refs.headshotFileInput.click()"
+            <div style="position: relative;">
+              <img class="photoURLClass" referrerPolicy="no-referrer" v-if="user.photoURL != null"
+                :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
+                style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50; position: relative; cursor: pointer"
+                width="160" height="160" />
+              <div class="edit-overlay" @click="$refs.headshotFileInput.click()"
                 @touchstart="$refs.headshotFileInput.click()"
-                style="position: absolute;background-color: #dadce0; width: 160px; height: 160px; border-radius: 80px; z-index: 100; cursor: pointer; display: flex; justify-content: center; align-items: center;" >
-                <v-icon size="40">mdi-pencil</v-icon>
+                style="position: absolute; background-color: rgba(218, 220, 224, 0.5); width: 40px; height: 40px; border-radius: 80px; z-index: 100; cursor: pointer; display: flex; justify-content: center; align-items: center; top: 0; right: 0;">
+                <v-icon size="20">mdi-pencil</v-icon>
               </div>
+            </div>
 
-              <!-- take headshot file input -->
-               <input 
-               type="file"
-               ref="headshotFileInput"
-               accept="image/*"
-               style="display: none;"
-               @change="handleFileChange"
-               >
+            <!-- take headshot file input -->
+            <input type="file" ref="headshotFileInput" accept="image/*" style="display: none;"
+              @change="handleFileChange">
             <img referrerPolicy="no-referrer"
               src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
               v-if="user.photoURL == null"
@@ -303,7 +299,7 @@ async function handleFileChange(event) {
       console.log("Headshot URL = ", headshotURL);
 
       await updateDoc(doc(db, "users", user.value.uid), {
-        photoURL : headshotURL
+        photoURL: headshotURL
       })
     } catch (error) {
       console.error("Error in Uploading headshot to cloud!! = ", error);
@@ -383,10 +379,10 @@ useSeoMeta({
 </script>
 
 <style scoped>
-.edit-overlay{
+/* .edit-overlay{
   opacity: 0;
 }
 .edit-overlay:hover{
   opacity: 0.5;
-}
+} */
 </style>
