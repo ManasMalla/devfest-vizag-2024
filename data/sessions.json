@@ -153,7 +153,7 @@
         {
                 "id": "1322",
                 "slide": "",
-                "title": "Sponsor Slot",
+                "title": "The Future of work",
                 "description": "",
                 "track": "General",
                 "venue": "Auditorium",
@@ -171,7 +171,7 @@
                 "title": "Codelab on Cloud",
                 "description": "",
                 "track": "Cloud",
-                "venue": "Hall 1",
+                "venue": "Lab 1",
                 "link": "",
                 "time": "11:00 AM to 12:30 PM",
                 "format": "Codelab",
@@ -186,7 +186,7 @@
                 "title": "Codelab on Mobile/ Web",
                 "description": "",
                 "track": "Web/Mobile",
-                "venue": "Hall 2",
+                "venue": "Lab 2",
                 "link": "",
                 "time": "11:00 AM to 12:30 PM",
                 "format": "Codelab",
@@ -282,10 +282,10 @@
                 "track": "Startups",
                 "venue": "Hall 5",
                 "link": "",
-                "time": "3:10 PM to 4:30 PM",
+                "time": "3:30 PM to 4:30 PM",
                 "format": "Startup Talk",
                 "date": "Dec 7, 2024",
-                "timeDuration": "80",
+                "timeDuration": "30",
                 "speakers": [],
                 "callForSpeaker": false
         },
@@ -297,10 +297,10 @@
                 "track": "General",
                 "venue": "Hall 2",
                 "link": "",
-                "time": "12:30 PM to 12:50 PM",
+                "time": "2:30 PM to 3:00 PM",
                 "format": "Talk",
                 "date": "Dec 7, 2024",
-                "timeDuration": "20",
+                "timeDuration": "30",
                 "speakers": [
                         128
                 ],
@@ -327,12 +327,12 @@
                 "title": "How to use no code platform to implement the TinyML on Embedded systems",
                 "description": " ",
                 "track": "No-Code",
-                "venue": "Hall 3",
+                "venue": "Lab 1",
                 "link": "",
-                "time": "11:40 AM to 12:30 PM",
+                "time": "2:00 AM to 3:00 PM",
                 "format": "No Code",
                 "date": "Dec 7, 2024",
-                "timeDuration": "50",
+                "timeDuration": "60",
                 "speakers": [],
                 "callForSpeaker": false
         },
@@ -344,10 +344,10 @@
                 "track": "General",
                 "venue": "Hall 3",
                 "link": "",
-                "time": "2:00 PM to 3:10 PM",
+                "time": "2:00 PM to 3:0 PM",
                 "format": "Workshop",
                 "date": "Dec 7, 2024",
-                "timeDuration": "70",
+                "timeDuration": "60",
                 "speakers": [
                         130
                 ],
@@ -361,10 +361,10 @@
                 "track": "",
                 "venue": "Community Lounge",
                 "link": "",
-                "time": "2:00 PM to 2:50 PM",
+                "time": "2:00 PM to 3:00 PM",
                 "format": "Workshop",
                 "date": "Dec 7, 2024",
-                "timeDuration": "50",
+                "timeDuration": "60",
                 "speakers": [
                         134
                 ],
@@ -412,7 +412,7 @@
                 "track": "AI/ML",
                 "venue": "Auditorium",
                 "link": "",
-                "time": "3:10 PM to 3:30 PM",
+                "time": "3:30 PM to 3:50 PM",
                 "format": "Lighting Talk",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
@@ -429,10 +429,10 @@
                 "track": "General",
                 "venue": "Hall 4",
                 "link": "",
-                "time": "2:00 PM to 2:50 PM",
+                "time": "2:00 PM to 3:00 PM",
                 "format": "Day 1",
                 "date": "Dec 7, 2024",
-                "timeDuration": "50",
+                "timeDuration": "60",
                 "speakers": [],
                 "callForSpeaker": false
         },
@@ -444,10 +444,10 @@
                 "track": "General",
                 "venue": "Auditorium",
                 "link": "",
-                "time": "3:30 PM to 4:00 PM",
+                "time": "3:50 PM to 4:10 PM",
                 "format": "Expert talk",
                 "date": "Dec 7, 2024",
-                "timeDuration": "30",
+                "timeDuration": "20",
                 "speakers": [
                         122
                 ],
@@ -461,7 +461,7 @@
                 "track": "General",
                 "venue": "Hall 2",
                 "link": "",
-                "time": "12:00 PM to 12:30 PM",
+                "time": "3:00 PM to 3:30 PM",
                 "format": "Workshop",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
@@ -478,10 +478,10 @@
                 "track": "AI/ML",
                 "venue": "Hall 1",
                 "link": "",
-                "time": "2:30 PM to 3:10 PM",
+                "time": "3:30 PM to 4:30 PM",
                 "format": "Demo",
                 "date": "Dec 7, 2024",
-                "timeDuration": "40",
+                "timeDuration": "60",
                 "speakers": [
                         104
                 ],
@@ -512,10 +512,10 @@
                 "track": "General",
                 "venue": "Auditorium",
                 "link": "",
-                "time": "4:00 PM to 5:00 PM",
+                "time": "4:15 PM to 5:00 PM",
                 "format": "Panel",
                 "date": "Dec 7, 2024",
-                "timeDuration": "60",
+                "timeDuration": "45",
                 "speakers": [
                         124,
                         107,
@@ -533,7 +533,7 @@
                 "track": "General",
                 "venue": "Hall 1",
                 "link": "",
-                "time": "4:00 PM to 4:30 PM",
+                "time": "2:30 PM to 3:00 PM",
                 "format": "Talk",
                 "date": "Dec 7, 2024",
                 "timeDuration": "30",
@@ -567,10 +567,10 @@
                 "track": "General",
                 "venue": "Hall 3",
                 "link": "",
-                "time": "4:00 PM to 4:30 PM",
+                "time": "4:15 PM to 4:30 PM",
                 "format": "Panel",
                 "date": "Dec 7, 2024",
-                "timeDuration": "30",
+                "timeDuration": "15",
                 "speakers": [
                         132,
                         133
@@ -585,10 +585,10 @@
                 "track": "Ideation",
                 "venue": "Hall 4",
                 "link": "",
-                "time": "3:10 PM to 4:30 PM",
+                "time": "3:30 PM to 4:30 PM",
                 "format": "Hackathon",
                 "date": "Dec 7, 2024",
-                "timeDuration": "80",
+                "timeDuration": "60",
                 "speakers": [],
                 "callForSpeaker": false
         },
@@ -600,10 +600,10 @@
                 "track": "",
                 "venue": "Community Lounge",
                 "link": "",
-                "time": "3:10 PM to 4:30 PM",
+                "time": "3:30 PM to 4:30 PM",
                 "format": "Mentoring",
                 "date": "Dec 7, 2024",
-                "timeDuration": "80",
+                "timeDuration": "60",
                 "speakers": [],
                 "callForSpeaker": false
         },
@@ -625,7 +625,7 @@
         {
                 "id": "1201",
                 "slide": "",
-                "title": "Communities and impact",
+                "title": "Communities and Impact",
                 "description": "",
                 "track": "General",
                 "venue": "Auditorium",
@@ -647,10 +647,10 @@
                 "track": "Mobile",
                 "venue": "Auditorium",
                 "link": "",
-                "time": "2:50 PM to 3:10 PM",
+                "time": "3:00 PM to 3:30 PM",
                 "format": "Expert talk",
                 "date": "Dec 7, 2024",
-                "timeDuration": "20",
+                "timeDuration": "30",
                 "speakers": [
                         108
                 ],
@@ -682,9 +682,9 @@
                 "venue": "Auditorium",
                 "link": "",
                 "format": "Startup Talk",
-                "time": "2:30 PM to 2:50PM",
+                "time": "2:30 PM to 3:00PM",
                 "date": "Dec 7, 2024",
-                "timeDuration": "20",
+                "timeDuration": "30",
                 "speakers": [
                         102
                 ],
@@ -732,10 +732,10 @@
                 "track": "Cloud",
                 "venue": "Auditorium",
                 "link": "",
-                "time": "2:00 PM to 2:30 PM",
+                "time": "2:00 PM to 2:20 PM",
                 "format": "Expert talk",
                 "date": "Dec 8, 2024",
-                "timeDuration": "30",
+                "timeDuration": "20",
                 "speakers": [
                         130
                 ],
@@ -744,7 +744,7 @@
         {
                 "id": "1209",
                 "slide": "",
-                "title": "Sponsor Slot",
+                "title": "Beck'n Protocol Slot",
                 "description": "",
                 "track": "General",
                 "venue": "Auditorium",
@@ -804,9 +804,9 @@
                 "venue": "Hall 2",
                 "link": "",
                 "format": "Panel",
-                "time": "3:30 PM to 4:30 PM",
+                "time": "3:30 PM to 4:10 PM",
                 "date": "Dec 7, 2024",
-                "timeDuration": "60",
+                "timeDuration": "40",
                 "speakers": [
                         101,
                         127
@@ -872,10 +872,10 @@
                 "track": "AI/ML",
                 "venue": "Hall 1",
                 "link": "",
-                "time": "3:10 PM to 3:30 PM",
+                "time": "3:00 PM to 3:30 PM",
                 "format": "Talk",
                 "date": "Dec 7, 2024",
-                "timeDuration": "40",
+                "timeDuration": "30",
                 "speakers": [
                         112
                 ],
@@ -889,10 +889,10 @@
                 "track": "Web",
                 "venue": "Hall 2",
                 "link": "",
-                "time": "3:10 PM to 3:30 PM",
+                "time": "11:00 PM to 11:30 PM",
                 "format": "Interactive session",
-                "date": "Dec 7, 2024",
-                "timeDuration": "40",
+                "date": "Dec 8, 2024",
+                "timeDuration": "30",
                 "speakers": [
                         129
                 ],
@@ -923,7 +923,7 @@
                 "track": "Web",
                 "venue": "Hall 2",
                 "link": "",
-                "time": "11:30 AM to 12:00 PM",
+                "time": "12:00 AM to 12:30 PM",
                 "format": "Case Study",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
@@ -976,12 +976,29 @@
                 "track": "General",
                 "venue": "Hall 3",
                 "link": "",
-                "time": "3:10 PM to 3:30 PM",
+                "time": "3:00 PM to 3:30 PM",
                 "format": "Talk",
                 "date": "Dec 7, 2024",
-                "timeDuration": "40",
+                "timeDuration": "30",
                 "speakers": [
                         126
+                ],
+                "callForSpeaker": false
+        },
+        {
+                "id": "1555",
+                "slide": "",
+                "title": "Content Creation: A Jounralist Perspective",
+                "description": "",
+                "track": "General",
+                "venue": "Hall 3",
+                "link": "",
+                "time": "3:50 PM to 3:10 PM",
+                "format": "Talk",
+                "date": "Dec 7, 2024",
+                "timeDuration": "20",
+                "speakers": [
+                        131
                 ],
                 "callForSpeaker": false
         },
@@ -993,10 +1010,10 @@
                 "track": "General",
                 "venue": "Hall 3",
                 "link": "",
-                "time": "1:30 PM to 2:30 PM",
+                "time": "1:30 PM to 2:20 PM",
                 "format": "Panel",
                 "date": "Dec 8, 2024",
-                "timeDuration": "60",
+                "timeDuration": "50",
                 "speakers": [
                         146,
                         138,
@@ -1008,7 +1025,7 @@
         {
                 "id": "1225",
                 "slide": "",
-                "title": "From a biker to teacher to learning psychology",
+                "title": "From a Biker to Teacher to Learning Psychology",
                 "description": "",
                 "track": "General",
                 "venue": "Hall 3",
@@ -1025,7 +1042,7 @@
         {
                 "id": "1226",
                 "slide": "",
-                "title": "HACKATHON prep BOOTCAMP 3",
+                "title": "HACKATHON prep BOOTCAMP-3",
                 "description": "",
                 "track": "Ideation",
                 "venue": "Hall 4",
@@ -1040,7 +1057,7 @@
         {
                 "id": "1227",
                 "slide": "",
-                "title": "HACKATHON prep BOOTCAMP 4",
+                "title": "HACKATHON prep BOOTCAMP-4",
                 "description": "",
                 "track": "Ideation",
                 "venue": "Hall 4",
@@ -1113,5 +1130,36 @@
                 "timeDuration": "60",
                 "speakers": [],
                 "callForSpeaker": false
+        },
+        {
+                "id": "1531",
+                "slide": "",
+                "title": "Lunch",
+                "description": "",
+                "track": "General",
+                "venue": "",
+                "link": "",
+                "time": "1:00 PM to 2:00 PM",
+                "format": "",
+                "date": "Dec 7, 2024",
+                "timeDuration": "60",
+                "speakers": [],
+                "callForSpeaker": false
+        },
+        {
+                "id": "1532",
+                "slide": "",
+                "title": "Lunch",
+                "description": "",
+                "track": "General",
+                "venue": "",
+                "link": "",
+                "time": "1:00 PM to 2:00 PM",
+                "format": "",
+                "date": "Dec 8, 2024",
+                "timeDuration": "60",
+                "speakers": [],
+                "callForSpeaker": false
         }
+
 ]
