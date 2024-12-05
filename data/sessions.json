@@ -60,9 +60,7 @@
                 "format": "",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
-                "speakers": [
-                        100
-                ],
+                "speakers": [100],
                 "callForSpeaker": false
         },
         {
@@ -681,8 +679,8 @@
                 "track": "Startups",
                 "venue": "Auditorium",
                 "link": "",
-                "time": "2:30 PM to 2:50 PM",
                 "format": "Startup Talk",
+                "time": "2:30 PM to 2:50PM",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
                 "speakers": [
@@ -803,8 +801,8 @@
                 "track": "Cloud",
                 "venue": "Hall 2",
                 "link": "",
-                "time": "3:30 PM to 4:30 PM",
                 "format": "Panel",
+                "time": "3:30 PM to 4:30 PM",
                 "date": "Dec 7, 2024",
                 "timeDuration": "60",
                 "speakers": [
