@@ -22,13 +22,12 @@
           </p>
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
             <div style="position: relative;">
-              <img class="photoURLClass" referrerPolicy="no-referrer" v-if="userDetails.photoURL"
+              <img class="photoURLClass" referrerPolicy="no-referrer" v-if="userDetails.photoURL !== null && userDetails.photoURL !== undefined && userDetails.photoURL !== '' "
                 :src="userDetails.photoURL" alt="Profile Picture"
                 style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50; position: relative; cursor: pointer"
                 width="160" height="160" />
               <img referrerPolicy="no-referrer" v-else
                 src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
-                v-if="userDetails.photoURL === ''"
                 style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 100; position: relative;" width="160"
                 height="160" />
               <div class="edit-overlay" @click="openFileInput"
@@ -221,7 +220,7 @@ async function updateUserData(event) {
         bio: userDetails.value?.bio,
         city: userDetails.value?.city,
         socials: userDetails.value?.socials === undefined || userDetails.value?.socials === null ? [] : userDetails.value?.socials,
-        photoURL: user.value.photoURL.split('=s96-c')[0],
+        photoURL: userDetails.value?.photoURL,
         displayName: user.value.displayName
       });
     } else {
@@ -230,7 +229,7 @@ async function updateUserData(event) {
         bio: userDetails.value?.bio,
         city: userDetails.value?.city,
         socials: userDetails.value?.socials === undefined || userDetails.value?.socials === null ? [] : userDetails.value?.socials,
-        photoURL: user.value.photoURL.split('=s96-c')[0],
+        photoURL: userDetails.value.photoURL,
         displayName: user.value.displayName
       });
     }
