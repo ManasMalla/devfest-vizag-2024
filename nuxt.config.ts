@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import vuetify, { transformAssetUrls } from "vite-plugin-vuetify";
 export default defineNuxtConfig({
-  compatibilityDate: "2024-04-03",
+  compatibilityDate: '2024-12-05',
   devtools: { enabled: true },
   build: {
     transpile: ["vuetify"],
@@ -54,5 +54,9 @@ export default defineNuxtConfig({
         }
       ]
     }
-  }
+  },
+  // devServer: {
+  //   host: '172.18.74.71', // or '0' - listens on all interfaces
+  //   port: 8080, // Optional: specify a port
+  // }
 });

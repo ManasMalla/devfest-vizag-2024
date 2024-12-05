@@ -26,8 +26,8 @@
                 :src="user.photoURL.split('=s96-c')[0]" alt="Profile Picture"
                 style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50; position: relative; cursor: pointer"
                 width="160" height="160" />
-              <div class="edit-overlay" @click="$refs.headshotFileInput.click()"
-                @touchstart="$refs.headshotFileInput.click()"
+              <div class="edit-overlay" 
+                @click="openFileInput"
                 style="position: absolute; background-color: rgba(218, 220, 224, 0.5); width: 40px; height: 40px; border-radius: 80px; z-index: 100; cursor: pointer; display: flex; justify-content: center; align-items: center; top: 0; right: 0;">
                 <v-icon size="20">mdi-pencil</v-icon>
               </div>
@@ -192,6 +192,7 @@
 </template>
 
 <script setup>
+
 const socialProviders = [
   { label: 'Instagram', value: 'instagram', icon: 'mdi-instagram' },
   { label: 'GitHub', value: 'github', icon: 'mdi-github' },
@@ -275,17 +276,19 @@ const db = useFirestore();
 const badges = useState('badges', () => []);
 const userDetails = useState('userDetails', () => ({}));
 const showEditor = useState('showEditor', () => false);
-const headshotFileInput = ref(null);
-// const data = useState('udata', () => false);
+const headshotFileInput = useState('headshotFileInput', () => null);
+const isMounted = useState('isMounted', () => false);
 
-function triggerFileInput() {
-  nextTick(() => {
-    if (headshotFileInput.value) {
-      headshotFileInput.value.click();
-    } else {
-      console.error('File input is not properly referenced.');
-    }
-  });
+onMounted(() => {
+  isMounted.value = true;
+});
+
+function openFileInput() {
+  if (isMounted.value) {
+    headshotFileInput.value?.click();
+  } else {
+    console.error("headshotFileInput ref not yet available");
+  }
 }
 async function handleFileChange(event) {
   const file = event.target.files[0];
