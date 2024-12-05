@@ -2,7 +2,7 @@
     <v-bottom-sheet v-model="sheet">
         <template v-slot:activator="{ props }">
             <v-card v-bind="props"
-                style="margin: 12px 8px; width: 320px; padding: 1rem; height: 240px; flex-shrink: 0; "
+                style="margin: 12px 8px; width: 340px; padding: 1rem; height: 240px; flex-shrink: 0; "
                 :style="event.track == 'Mobile' ? 'background-color: rgba(204, 246, 197, 0.3);' : event.track == 'Cloud' ? 'background-color: rgba(255, 231, 165, 0.3);' : event.track == 'Web' ? 'background-color: rgba(195, 236, 246, 0.3)' : event.track === 'AI/ML' ? 'background-color: rgba(248, 216, 216, 0.3)' : 'background-color: rgba(32, 32, 35, 0.08)'">
                 <div style="padding-right: 80px; display: flex; flex-direction: column; height: 100%;">
                     <p style="position: absolute; right: 16px; text-align: end;"><b>{{ event.time.split(" to ")[0]
@@ -12,17 +12,46 @@
                     <h3 style="max-width: 220px;">{{ event.title }}</h3>
 
                     <div style="margin-top: auto; height: fit-content;">
-                        <v-container v-for="speaker in speakersData.filter((e) => event.speakers.includes(parseInt(e.id)))"
+                        <v-container
+                            v-if="speakersData.filter((e) => event.speakers.includes(parseInt(e.id))).length <= 3"
+                            v-for="speaker in speakersData.filter((e) => event.speakers.includes(parseInt(e.id))).slice(0, 3)"
                             style="padding: 4px 6px; border-radius: 80px; display: flex; column-gap: 12px; align-items:center; width: fit-content; margin:0">
                             <img :src="'../img/speakers/' + speaker.image"
                                 style="width: 24px; height: 24px; object-fit:cover; border-radius: 20px;" />
-                            <p class="mr-2" style="font-size: 14px; font-weight: 600;">{{ speaker.name }}</p>
+                            <p class="mr-2" style="font-size: 14px; font-weight: 600; overflow: hidden; display: -webkit-box; line-clamp: 1; -webkit-line-clamp: 1;-webkit-box-orient: vertical; 
+        text-overflow: ellipsis;">
+                                {{ speaker.name
+                                }}</p>
                         </v-container>
+                        <div style="display: flex;"
+                            v-if="speakersData.filter((e) => event.speakers.includes(parseInt(e.id))).length > 3">
+                            <v-container
+                                v-for="(speaker, indexOfSpeaker) in speakersData.filter((e) => event.speakers.includes(parseInt(e.id))).slice(0, 3)"
+                                style="padding: 0px; border-radius: 80px; display: flex; align-items:center; width: fit-content; margin:0;"
+                                :style="indexOfSpeaker > 0 ? `transform: translateX(calc(-8px * ${indexOfSpeaker}));` : ''">
+                                <img :src="'../img/speakers/' + speaker.image"
+                                    style="width: 24px; height: 24px; object-fit:cover; border-radius: 20px;" />
+                            </v-container>
+                            <v-container
+                                v-if="speakersData.filter((e) => event.speakers.includes(parseInt(e.id))).length >= 4"
+                                style="background-color: #FFF;padding: 3px; border-radius: 80px; display: flex; align-items:center; width: fit-content; margin:0; border: 1.5px solid #202023; justify-content: center;"
+                                :style="'transform: translateX(-' + (speakersData.filter((e) => event.speakers.includes(parseInt(e.id))).length - 2) * 8 + 'px);'">
+                                <p
+                                    style="font-size: 14px; font-weight: 600; text-align: center; width: 16px; height: 16px; transform: translateY(-2px)">
+                                    +{{
+                                        speakersData.filter((e) => event.speakers.includes(parseInt(e.id))).length - 3 }}
+                                </p>
+                            </v-container>
+                        </div>
 
-                        <v-chip
-                            :color="event.track == 'Mobile' ? '#ccf6c5' : event.track == 'Cloud' ? '#ffe7a5' : event.track == 'Web' ? '#c3ecf6' : event.track === 'AI/ML' ? '#f8d8d8' : '#bababa'"
+                        <v-chip v-if="event.track" :color="event.track == 'Mobile' ? '#ccf6c5' : event.track == 'Cloud' ? '#ffe7a5' :
+                            event.track == 'Web' ? '#c3ecf6' : event.track === 'AI/ML' ? '#f8d8d8' : '#bababa'"
                             variant="flat" class="mt-2">{{
                                 event.track
+                            }}</v-chip><v-chip
+                            :color="event.track == 'Mobile' ? '#34a853' : event.track == 'Cloud' ? '#f9ab00' : event.track == 'Web' ? '#4285f4' : event.track === 'AI/ML' ? '#ea4335' : '#202023'"
+                            variant="outlined" v-if="event.format" class="mt-2 ml-2">{{
+                                event.format
                             }}</v-chip>
 
                         <v-icon v-if="!isSessionInSchedule"
@@ -42,14 +71,29 @@
         <v-card>
             <v-container class="mx-3 my-0">
                 <h2>{{ event.title }}</h2>
-                <h4 style="opacity: 50%;">{{ (parseTime(event.time)[0]).toLocaleString("en-US", {
+                <h4 class="mb-4">{{ (parseTime(event.time)[0]).toLocaleString("en-US", {
                     year: "numeric",
                     month: "short",
                     day: "2-digit",
                     hour: "2-digit",
                     minute: "numeric",
-                }) }}</h4>
-                <p>{{ event.description }}</p>
+                }) }} | {{ event.format }}</h4>
+                <p class="mb-4">{{ event.description }}</p>
+                <v-container v-if="speakersData.filter((e) => event.speakers.includes(parseInt(e.id))).length <= 3"
+                    v-for="speaker in speakersData.filter((e) => event.speakers.includes(parseInt(e.id))).slice(0, 3)"
+                    style="padding: 4px 6px; border-radius: 80px; display: flex; column-gap: 12px; align-items:center; width: fit-content; margin:0">
+                    <img :src="'../img/speakers/' + speaker.image"
+                        style="width: 24px; height: 24px; object-fit:cover; border-radius: 20px;" />
+                    <p class="mr-2" style="font-size: 14px; font-weight: 600;">
+                        {{ speaker.name
+                        }}</p>
+                </v-container>
+                <v-container class="mt-4 mb-0">
+                    <v-row>
+                        <v-chip variant="outlined" class="mr-2">{{ event.track }}</v-chip>
+                        <v-chip variant="outlined" prepend-icon="mdi-map">{{ event.venue }}</v-chip>
+                    </v-row>
+                </v-container>
                 <v-btn @click="addToUserSchedule" variant="tonal" rounded color="#4285f4" class="mt-4"
                     v-if="!isSessionInSchedule && user">Add
                     to

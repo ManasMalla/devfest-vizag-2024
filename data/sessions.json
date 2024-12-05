@@ -60,7 +60,9 @@
                 "format": "",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
-                "speakers": [100],
+                "speakers": [
+                        100
+                ],
                 "callForSpeaker": false
         },
         {
@@ -390,7 +392,7 @@
                 "slide": "",
                 "title": "10 Essential Tips for Mastering Mobile Development- DEMO",
                 "description": " ",
-                "track": "App",
+                "track": "Mobile",
                 "venue": "Hall 4",
                 "link": "",
                 "time": "12:00 PM to 12:30 PM",
@@ -422,7 +424,7 @@
         {
                 "id": "1027",
                 "slide": "",
-                "title": "Office Hours/ Mentoring Hours",
+                "title": "Office Hours",
                 "description": " ",
                 "track": "General",
                 "venue": "Hall 4",
@@ -642,7 +644,7 @@
                 "slide": "",
                 "title": "A Startup Guide to Ship Mobile App Faster Using Flutter",
                 "description": "The internet is full of courses, training, interviews, blogs, and design systems videos to teach how to build mobile applications at FAANG scale (Facebook, Apple, Amazon, Netflix, and Google). However, I have hardly seen anyone teaching how to build mobile applications for startups. Hence, this is my attempt to give a short guide, in my opinion, on how we should do it. In this talk, we will cover: 1. Get Features in Users' Hands Fast Using CI/CD 2. Choose a State Management Solution by Prototyping 3. The Best Architecture Is Separation of Concerns 4. Why TDD Won't Work 5. When to Use Third-Party Packages",
-                "track": "App",
+                "track": "Mobile",
                 "venue": "Auditorium",
                 "link": "",
                 "time": "2:50 PM to 3:10 PM",
