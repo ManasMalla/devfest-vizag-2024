@@ -65,6 +65,41 @@ useSeoMeta({
 
 const { scheduleData, sessionsData, speakersData } = useJSONData();
 const tracks = [...new Set(sessionsData.map((agenda) => agenda.venue))];
+function calculateTimeline([s, e]) {
+  const offset = (s - new Date(s.getFullYear(), s.getMonth(), s.getDate(), 8, 0, 0)) / 60000;
+  const duration = (e - s) / 60000;
+  console.log(offset, duration, props.event.title);
+  return `${((offset * 132) / 60) + 1} / span ${duration * 132 / 60}`;
+}
+const parseTime = (time) => {
+
+  const times = time.split(" to ");
+  const startTime = times[0];
+  const endTime = times[1];
+  const [timePart, modifier] = startTime.split(' ');
+  let [hours, minutes] = timePart.split(':').map(Number);
+
+  if (modifier === 'PM' && hours !== 12) {
+    hours += 12;
+  } else if (modifier === 'AM' && hours === 12) {
+    hours = 0;
+  }
+
+  const date = new Date();
+  date.setHours(hours, minutes, 0, 0);
+  const [timePart2, modifier2] = endTime.split(' ');
+  let [hours2, minutes2] = timePart2.split(':').map(Number);
+
+  if (modifier2 === 'PM' && hours2 !== 12) {
+    hours2 += 12;
+  } else if (modifier2 === 'AM' && hours2 === 12) {
+    hours2 = 0;
+  }
+
+  const date2 = new Date();
+  date2.setHours(hours2, minutes2, 0, 0);
+  return [date, date2];
+};
 
 const days = [
   {
@@ -73,12 +108,16 @@ const days = [
     tracks: [...tracks.sort().filter((track) => track !== 'Community Lounge').map((track) => {
       return {
         track,
-        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track),
+        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+          return parseTime(a.time)[0] - parseTime(b.time)[0];
+        }),
       };
     }), ...tracks.sort().filter((track) => track === 'Community Lounge').map((track) => {
       return {
         track,
-        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track),
+        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+          return parseTime(a.time)[0] - parseTime(b.time)[0];
+        }),
       };
     })],
   },
@@ -89,13 +128,17 @@ const days = [
       ...tracks.sort().filter((e) => e !== 'Community Lounge').map((track) => {
         return {
           track,
-          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track),
+          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+            return parseTime(a.time)[0] - parseTime(b.time)[0];
+          }),
         };
       }),
       ...tracks.sort().filter((e) => e === 'Community Lounge').map((track) => {
         return {
           track,
-          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track),
+          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+            return parseTime(a.time)[0] - parseTime(b.time)[0];
+          }),
         };
       })
     ],
