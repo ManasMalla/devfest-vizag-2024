@@ -10,7 +10,16 @@
                         CHANGE PS
                     </v-btn>
 
-                    <v-expansion-panels class="mb-6 mt-10" rounded="12" bg-color="white" flat style="
+                    <v-card class="mt-4" v-if="appliedPS !== -1" style="display: flex; padding: 22px; gap: 6px; background-color: #ccf6c5; border: 0.5px solid #34a853;">
+                        <p style="font-size: medium; font-weight: 700">
+                            Applied PS: 
+                        </p>
+                        <p >
+                            {{ (bootcampData.find((boot) => boot.id === appliedPS)).title }}
+                        </p>
+                    </v-card>
+
+                    <v-expansion-panels class="mb-6 mt-7" rounded="12" bg-color="white" flat style="
                 border-radius: 20px !important;
                 /* border-bottom: 1px solid black; */
                 overflow: hidden;
@@ -21,7 +30,12 @@
                                 index + 1 < bootcampData.length ? '1px solid black' : '',
                         }">
                             <v-expansion-panel-title expand-icon="mdi-menu-down" style="background-color: #eeeeee">
-                                {{ item.title }}
+                                <v-icon v-if="appliedPS === item.id" color="#34a853" class="mr-2">
+                                    mdi-marker-check
+                                </v-icon>
+                                <p>
+                                    {{ item.title }}
+                                </p>
                             </v-expansion-panel-title>
                             <v-expansion-panel-text class="pa-3">
                                 <div v-html="item.description"></div>
@@ -45,9 +59,6 @@
                         </v-expansion-panel>
                     </v-expansion-panels>
                 </v-col>
-                <!-- <div style="height: 100%;">
-                    <v-img alt="frame" class="frame" src="/img/bootcamp/bulb.png" style="height: 200px;"></v-img>
-                </div> -->
             </v-row>
 
         </v-container>
