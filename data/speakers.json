@@ -267,7 +267,7 @@
   },
   {
     "id": "122",
-    "name": "Pradyoth Adavi",
+    "name": "Pradyot H Adavi",
     "company": {
       "name": "Flipkart",
       "designation": "Engineering Manager"
@@ -714,6 +714,44 @@
     "bio": "",
     "social": {
       "linkedin": "https://www.linkedin.com/in/satishkarnatakapu/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "142",
+    "name": "Amal Raj Pukkella",
+    "company": {
+      "name": "TheDigifac Services Pvt Ltd",
+      "designation": "Founder"
+    },
+    "community_title": "",
+    "image": "Amal Raj Pukkella.png",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/amal-raj-pukkella-02b90a7/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "147",
+    "name": "Syed Junaid Ahmed",
+    "company": {
+      "name": "A-Hub",
+      "designation": "Andhra University Incubation Council"
+    },
+    "community_title": "",
+    "image": "SyedJunaidAhmed.png",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/scitechindian/",
       "twitter": "",
       "github": "",
       "web": ""
