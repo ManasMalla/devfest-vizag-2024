@@ -38,7 +38,7 @@
                 "venue": "Auditorium",
                 "link": "",
                 "time": "10:00 AM to 10:20 AM",
-                "format": "Interactive session",
+                "format": "",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
                 "speakers": [
@@ -153,7 +153,7 @@
         {
                 "id": "1322",
                 "slide": "",
-                "title": "The Future of work",
+                "title": "The Future of Work: Careers in Low-Code Platforms",
                 "description": "",
                 "track": "General",
                 "venue": "Auditorium",
@@ -307,21 +307,6 @@
                 "callForSpeaker": false
         },
         {
-                "id": "1420",
-                "slide": "",
-                "title": "Networking Area - Meet and Greet",
-                "description": " ",
-                "track": "General",
-                "venue": "Hall 3",
-                "link": "",
-                "time": "11:00 AM to 11:40 AM",
-                "format": "Day 1",
-                "date": "Dec 7, 2024",
-                "timeDuration": "40",
-                "speakers": [],
-                "callForSpeaker": false
-        },
-        {
                 "id": "1421",
                 "slide": "",
                 "title": "How to use no code platform to implement the TinyML on Embedded systems",
@@ -344,7 +329,7 @@
                 "track": "General",
                 "venue": "Hall 3",
                 "link": "",
-                "time": "2:00 PM to 3:0 PM",
+                "time": "2:00 PM to 3:00 PM",
                 "format": "Workshop",
                 "date": "Dec 7, 2024",
                 "timeDuration": "60",
@@ -393,9 +378,9 @@
                 "title": "10 Essential Tips for Mastering Mobile Development- DEMO",
                 "description": " ",
                 "track": "Mobile",
-                "venue": "Hall 4",
+                "venue": "Hall 2",
                 "link": "",
-                "time": "12:00 PM to 12:30 PM",
+                "time": "11:30 AM to 12:00 PM",
                 "format": "Demo",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
@@ -463,7 +448,7 @@
                 "link": "",
                 "time": "3:00 PM to 3:30 PM",
                 "format": "Workshop",
-                "date": "Dec 8, 2024",
+                "date": "Dec 7, 2024",
                 "timeDuration": "30",
                 "speakers": [
                         106
@@ -567,10 +552,10 @@
                 "track": "General",
                 "venue": "Hall 3",
                 "link": "",
-                "time": "4:15 PM to 4:30 PM",
+                "time": "4:15 PM to 4:45 PM",
                 "format": "Panel",
                 "date": "Dec 7, 2024",
-                "timeDuration": "15",
+                "timeDuration": "30",
                 "speakers": [
                         132,
                         133
@@ -708,23 +693,6 @@
                 "callForSpeaker": false
         },
         {
-                "id": "1505",
-                "slide": "",
-                "title": "Achieving Platform Engineering at Scale: Enterprise AIOps & DevOps Best Practices",
-                "description": "Join us to explore the transformative power of Platform Engineering, a revolutionary approach that bridges the gap between development and operations. Learn how to elevate your organization's development and operations capabilities by leveraging the power of platform engineering. This insightful session will explore the synergistic relationship between DevOps and AIOps, and how they can be harnessed to achieve scalable and efficient platform engineering. Whether you're a student aspiring to build a career in tech or a seasoned professional aiming to advance your skills, this session will equip you with the knowledge and tools to excel in the era of DevOps and Platform Engineering. DevOps + AIOps: Unlock the potential of intelligent Platform solutions. Enterprise Best Practices: Proven best practices from the industry leading enterprises. Accelerate Development: Automate workflows and streamline processes. Improve Operational Efficiency: Optimize infrastructure and application management. Mitigate Risks: Ensure security and compliance.",
-                "track": "AI/ML",
-                "venue": "Auditorium",
-                "link": "",
-                "time": "3:00 PM to 3:30 PM",
-                "format": "Expert talk",
-                "date": "Dec 8, 2024",
-                "timeDuration": "30",
-                "speakers": [
-                        103
-                ],
-                "callForSpeaker": false
-        },
-        {
                 "id": "1208",
                 "slide": "",
                 "title": "Boost your cloud career with Google Cloud certificates",
@@ -771,9 +739,8 @@
                 "speakers": [
                         109,
                         135,
-                        103,
+                        121,
                         105,
-                        102,
                         114
                 ],
                 "callForSpeaker": false
@@ -889,7 +856,7 @@
                 "track": "Web",
                 "venue": "Hall 2",
                 "link": "",
-                "time": "11:00 PM to 11:30 PM",
+                "time": "11:00 AM to 11:30 AM",
                 "format": "Interactive session",
                 "date": "Dec 8, 2024",
                 "timeDuration": "30",
@@ -918,7 +885,7 @@
         {
                 "id": "1219",
                 "slide": "",
-                "title": "Behind the Experience: Grilling the Web",
+                "title": "Behind the DevFest Experience: Grilling the Web",
                 "description": "",
                 "track": "Web",
                 "venue": "Hall 2",
@@ -959,7 +926,7 @@
                 "track": "General",
                 "venue": "Hall 3",
                 "link": "",
-                "time": "11:30 AM to 12:30 PM",
+                "time": "11:30 AM to 12:15 PM",
                 "format": "Talk",
                 "date": "Dec 8, 2024",
                 "timeDuration": "60",
@@ -988,18 +955,33 @@
         {
                 "id": "1555",
                 "slide": "",
-                "title": "Content Creation: A Jounralist Perspective",
+                "title": "Content Creation: A Journalist's Perspective",
                 "description": "",
                 "track": "General",
                 "venue": "Hall 3",
                 "link": "",
-                "time": "3:50 PM to 3:10 PM",
+                "time": "3:50 PM to 4:10 PM",
                 "format": "Talk",
                 "date": "Dec 7, 2024",
                 "timeDuration": "20",
                 "speakers": [
                         131
                 ],
+                "callForSpeaker": false
+        },
+        {
+                "id": "1556",
+                "slide": "",
+                "title": "Startups Networking",
+                "description": "",
+                "track": "Startups",
+                "venue": "Hall 5",
+                "link": "",
+                "time": "2:00 PM to 3:30 PM",
+                "format": "Networking",
+                "date": "Dec 7, 2024",
+                "timeDuration": "90",
+                "speakers": [],
                 "callForSpeaker": false
         },
         {
@@ -1077,10 +1059,10 @@
                 "track": "General",
                 "venue": "Hall 5",
                 "link": "",
-                "time": "11:30 PM to 12:30 PM",
+                "time": "3:30 PM to 3:50 PM",
                 "format": "Talk",
-                "date": "Dec 8, 2024",
-                "timeDuration": "60",
+                "date": "Dec 7, 2024",
+                "timeDuration": "20",
                 "speakers": [
                         140
                 ],
