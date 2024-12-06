@@ -17,9 +17,9 @@
                 class="grey--text text--darken-3 mr-6 google-font" style="text-decoration: none; color: white">About GDG
                 Program</a>
               <br class="hidden-md-and-up" />
-              <a href="https://www.womentechmakers.com/" target="_blank" rel="noreferrer" aria-label="link"
+              <!-- <a href="https://www.womentechmakers.com/" target="_blank" rel="noreferrer" aria-label="link"
                 class="grey--text text--darken-3 mr-6 google-font" style="text-decoration: none; color: white">About WTM
-                Program</a>
+                Program</a> -->
 
               <br class="hidden-md-and-up" />
               <router-link to="/faq" rel="noreferrer" aria-label="link"
@@ -34,14 +34,20 @@
                 style="text-decoration: none; color: white">Community Guidelines</a>
             </v-col>
 
-            <v-col md="3" cols="12">
-              <CommonSpeakerSocialButton :socialLinks="mainData.communityLinks" :dark="true" class="footer-icons" />
+            <v-col>
+              <!-- <CommonSpeakerSocialButton :socialLinks="mainData.communityLinks" :dark="true" class="footer-icons" /> -->
+              <p class="theananta" style="color: white; display: flex; align-items: center; flex-direction: row; flex-shrink: 0;">
+                <span style="opacity: 60%;">Powered
+                  🤍
+                  by
+                </span><a href="https://theananta.in" style="color: white; text-decoration: none; opacity: 100%;"> <img
+                    :src="'/img/sponsors/theananta.png'" style="height: 40px; filter: invert()" /></a></p>
             </v-col>
           </v-row>
         </v-container>
       </v-col>
     </v-row>
-    <NuxtMarquee>
+    <!-- <NuxtMarquee>
       <p style="color: white; margin: 0px 12px;">|</p>
       <p style="color: white; padding-left: 12px; display: flex; align-items: center; flex-direction: row;"><span
           style="opacity: 60%;">Designed, Developed and
@@ -67,7 +73,7 @@
           by
         </span><a href="https://theananta.in" style="color: white; text-decoration: none; opacity: 100%;"> <img
             :src="'/img/sponsors/theananta.png'" style="height: 40px; filter: invert()" /></a></p>
-    </NuxtMarquee>
+    </NuxtMarquee> -->
   </v-container>
 </template>
 
@@ -75,4 +81,13 @@
 const { mainData } = useJSONData();
 </script>
 
-<style></style>
+<style>
+  .theananta{
+      justify-content: end;
+    }
+@media screen and (max-width: 840px) {
+  .theananta{
+    justify-content: start;
+  }
+}
+</style>
