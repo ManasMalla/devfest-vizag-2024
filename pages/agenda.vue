@@ -1,6 +1,16 @@
 <template>
   <div style="display: flex; flex-direction: column">
     <h2 class="mt-5 mx-4">Agenda</h2>
+    <v-container class="mt-4" style="margin-bottom: 0; padding-bottom: 0;">
+      <v-row style="column-gap: 12px;">
+        <v-select v-model="formatFilter" hide-details="true" label="Format"
+          :items="[...new Set((Array.from(sessionsData)).map((e) => e.format))].sort()" max-width="240"></v-select>
+        <v-select v-model="venueFilter" hide-details="true" label="Venue"
+          :items="[...new Set((Array.from(sessionsData)).map((e) => e.venue))].sort()" max-width="240"></v-select>
+        <v-select v-model="domainFilter" hide-details="true" label="Domain"
+          :items="[...new Set((Array.from(sessionsData)).map((e) => e.track))].sort()" max-width="240"></v-select>
+      </v-row>
+    </v-container>
     <div class="dyn-margin">
       <div class="calendar__3ASh5">
         <div v-for="(day, index) in days" :key="index" class="day__2Fs_v">
@@ -101,21 +111,166 @@ const parseTime = (time) => {
   return [date, date2];
 };
 
-const days = [
+const formatFilter = useState("formatFilter", () => "");
+const venueFilter = useState("venueFilter", () => "");
+const domainFilter = useState("domainFilter", () => "");
+
+watch(venueFilter, (vF) => {
+  console.log(vF);
+  days.value = [
+    {
+      weekday: "Sat",
+      day: 7,
+      tracks: [...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track !== 'Community Lounge').map((track) => {
+        return {
+          track,
+          events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+            return parseTime(a.time)[0] - parseTime(b.time)[0];
+          }),
+        };
+      }), ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track === 'Community Lounge').map((track) => {
+        return {
+          track,
+          events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+            return parseTime(a.time)[0] - parseTime(b.time)[0];
+          }),
+        };
+      })],
+    },
+    {
+      weekday: "Sun",
+      day: 8,
+      tracks: [
+        ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((e) => e !== 'Community Lounge').map((track) => {
+          return {
+            track,
+            events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+              return parseTime(a.time)[0] - parseTime(b.time)[0];
+            }),
+          };
+        }),
+        ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((e) => e === 'Community Lounge').map((track) => {
+          return {
+            track,
+            events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+              return parseTime(a.time)[0] - parseTime(b.time)[0];
+            }),
+          };
+        })
+      ],
+    },
+  ];
+});
+
+watch(domainFilter, (vF) => {
+  console.log(vF);
+  days.value = [
+    {
+      weekday: "Sat",
+      day: 7,
+      tracks: [...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track !== 'Community Lounge').map((track) => {
+        return {
+          track,
+          events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+            return parseTime(a.time)[0] - parseTime(b.time)[0];
+          }),
+        };
+      }), ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track === 'Community Lounge').map((track) => {
+        return {
+          track,
+          events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+            return parseTime(a.time)[0] - parseTime(b.time)[0];
+          }),
+        };
+      })],
+    },
+    {
+      weekday: "Sun",
+      day: 8,
+      tracks: [
+        ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((e) => e !== 'Community Lounge').map((track) => {
+          return {
+            track,
+            events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+              return parseTime(a.time)[0] - parseTime(b.time)[0];
+            }),
+          };
+        }),
+        ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((e) => e === 'Community Lounge').map((track) => {
+          return {
+            track,
+            events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+              return parseTime(a.time)[0] - parseTime(b.time)[0];
+            }),
+          };
+        })
+      ],
+    },
+  ];
+});
+
+watch(formatFilter, (vF) => {
+  console.log(vF);
+  days.value = [
+    {
+      weekday: "Sat",
+      day: 7,
+      tracks: [...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track !== 'Community Lounge').map((track) => {
+        return {
+          track,
+          events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+            return parseTime(a.time)[0] - parseTime(b.time)[0];
+          }),
+        };
+      }), ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track === 'Community Lounge').map((track) => {
+        return {
+          track,
+          events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+            return parseTime(a.time)[0] - parseTime(b.time)[0];
+          }),
+        };
+      })],
+    },
+    {
+      weekday: "Sun",
+      day: 8,
+      tracks: [
+        ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((e) => e !== 'Community Lounge').map((track) => {
+          return {
+            track,
+            events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+              return parseTime(a.time)[0] - parseTime(b.time)[0];
+            }),
+          };
+        }),
+        ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((e) => e === 'Community Lounge').map((track) => {
+          return {
+            track,
+            events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
+              return parseTime(a.time)[0] - parseTime(b.time)[0];
+            }),
+          };
+        })
+      ],
+    },
+  ];
+});
+
+const days = useState('daysAgenda', () => [
   {
     weekday: "Sat",
     day: 7,
-    tracks: [...tracks.sort().filter((track) => track !== 'Community Lounge').map((track) => {
+    tracks: [...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track !== 'Community Lounge').map((track) => {
       return {
         track,
-        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
           return parseTime(a.time)[0] - parseTime(b.time)[0];
         }),
       };
-    }), ...tracks.sort().filter((track) => track === 'Community Lounge').map((track) => {
+    }), ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track === 'Community Lounge').map((track) => {
       return {
         track,
-        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+        events: sessionsData.filter((ag) => ag.date == 'Dec 7, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
           return parseTime(a.time)[0] - parseTime(b.time)[0];
         }),
       };
@@ -125,25 +280,25 @@ const days = [
     weekday: "Sun",
     day: 8,
     tracks: [
-      ...tracks.sort().filter((e) => e !== 'Community Lounge').map((track) => {
+      ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((e) => e !== 'Community Lounge').map((track) => {
         return {
           track,
-          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
             return parseTime(a.time)[0] - parseTime(b.time)[0];
           }),
         };
       }),
-      ...tracks.sort().filter((e) => e === 'Community Lounge').map((track) => {
+      ...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((e) => e === 'Community Lounge').map((track) => {
         return {
           track,
-          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).sort((a, b) => {
+          events: sessionsData.filter((ag) => ag.date == 'Dec 8, 2024').filter((agenda) => agenda.venue === track).filter((e) => formatFilter.value === '' || formatFilter.value === e.format).filter((e) => domainFilter.value === '' || e.track === domainFilter.value).sort((a, b) => {
             return parseTime(a.time)[0] - parseTime(b.time)[0];
           }),
         };
       })
     ],
   },
-];
+]);
 console.log(days);
 const schedule = useState("userSchedule", () => []);
 const user = useCurrentUser();

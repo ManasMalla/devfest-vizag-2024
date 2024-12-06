@@ -17,6 +17,7 @@ export default defineNuxtConfig({
     },
     'nuxt-gtag',
     "nuxt-marquee",
+    '@vueuse/nuxt'
   ],
   plugins: [{ src: '~/plugins/lottie', mode: 'client' }],
   vuefire: {

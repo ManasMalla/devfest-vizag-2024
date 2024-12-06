@@ -59,7 +59,7 @@
                 <!-- Past DevFest -->
                 <!-- <HomePastDevFest class="mb-md-10" /> -->
                 <!-- Past DevFest -->
-<!--
+                <!--
                 <div style="width: 100%; margin-bottom: 12px;">
                     <h2 style="width: 100%; text-align: center;">Testimonals</h2>
                     <p style="width: 100%; text-align: center; margin-bottom: 24px;">Hear what people say about our
@@ -75,7 +75,7 @@
                         </NuxtMarquee>
                         <!-- <v-icon
                             style="position: absolute; top:0; bottom:0; right:8px; background-color: white; margin-top: auto; margin-bottom: auto; border: 1.5px solid black; padding: 24px; border-radius: 48px;">mdi-arrow-right</v-icon> -->
-<!-- 
+                <!-- 
                     </div>
                 </div> -->
                 <!-- Sponsors -->
@@ -142,30 +142,30 @@ nextTick(() => {
     });
 });
 
-if(route.query.refresh){
-    if (user.value){
+if (route.query.refresh) {
+    if (user.value) {
         const userDoc = (await getDoc(doc(db, "users", user.value.uid))).data();
         console.log('user doc full', userDoc);
         console.log('all data checkpoints = ', userDoc.username, userDoc.bio, userDoc.socials, userDoc.domainsInterested, userDoc.photoUrl);
-            if (userDoc.paymentStatus && userDoc.registration) {
-                tasks.value[0].isCompleted = true;
+        if (userDoc.paymentStatus && userDoc.registration) {
+            tasks.value[0].isCompleted = true;
+        }
+        if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoURL) {
+            tasks.value[1].isCompleted = true;
+        }
+        if (userDoc.schedule.length > 0) {
+            tasks.value[2].isCompleted = true;
+            tasks.value[3].isCompleted = true;
+        }
+        if (userDoc.coc) {
+            tasks.value[5].isCompleted = true;
+        }
+        getCountFromServer(query(collection(db, "mentor-request"), where("uid", "==", user.value.uid))).then((querySnapshot) => {
+            console.log(querySnapshot.data().count);
+            if (querySnapshot.data().count > 0) {
+                tasks.value[4].isCompleted = true;
             }
-            if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoURL) {
-                tasks.value[1].isCompleted = true;
-            }
-            if (userDoc.schedule.length > 0) {
-                tasks.value[2].isCompleted = true;
-                tasks.value[3].isCompleted = true;
-            }
-            if (userDoc.coc) {
-                tasks.value[5].isCompleted = true;
-            }
-            getCountFromServer(query(collection(db, "mentor-request"), where("uid", "==", user.value.uid))).then((querySnapshot) => {
-                console.log(querySnapshot.data().count);
-                if (querySnapshot.data().count > 0) {
-                    tasks.value[4].isCompleted = true;
-                }
-            });
+        });
 
         navigateTo('/');
     }

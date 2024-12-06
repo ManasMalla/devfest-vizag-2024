@@ -22,14 +22,17 @@
           </p>
           <div v-if="user" class="mt-8" style="display:flex; align-items: center; flex-direction: column;">
             <div style="position: relative;">
-              <img class="photoURLClass" referrerPolicy="no-referrer" v-if="userDetails.photoURL !== null && userDetails.photoURL !== undefined && userDetails.photoURL !== '' "
+              <img class="photoURLClass" referrerPolicy="no-referrer"
+                v-if="userDetails.photoURL !== null && userDetails.photoURL !== undefined && userDetails.photoURL !== ''"
                 :src="userDetails.photoURL" alt="Profile Picture"
-                style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 50; position: relative; cursor: pointer"
+                style="border-radius: 80px; margin-bottom: 8px; object-fit: cover; z-index: 50; position: relative; cursor: pointer"
                 width="160" height="160" />
               <img referrerPolicy="no-referrer" v-else
                 src="https://static.vecteezy.com/system/resources/previews/009/292/244/non_2x/default-avatar-icon-of-social-media-user-vector.jpg"
-                style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 100; position: relative;" width="160"
-                height="160" />
+                style="border-radius: 80px; margin-bottom: 16px; object-fit: cover; z-index: 100; position: relative;"
+                width="160" height="160" />
+              <v-progress-circular style="position: absolute; top: -5px; left: -5px; z-index: 70;" :size="170"
+                v-if="isUploadingFile" indeterminate color="primary"></v-progress-circular>
               <div class="edit-overlay" @click="openFileInput"
                 style="position: absolute; background-color: rgba(218, 220, 224, 0.5); width: 40px; height: 40px; border-radius: 80px; z-index: 100; cursor: pointer; display: flex; justify-content: center; align-items: center; top: 0; right: 0;">
                 <v-icon size="20">mdi-pencil</v-icon>
@@ -47,7 +50,7 @@
               <div style="display: flex; align-items: center; column-gap: 8px; font-size: 20px;">
                 <p>{{ user.displayName }}</p>
                 <p
-                  :style="'padding: 6px 12px;font-size: 12px; border-radius: 6px; border: 1px #202023 solid; width: fit-content; background-color: ' + (userDetails.role === 'Organizer' ? '#ea4335; color: white;' : userDetails.role === 'Volunteer' ? '#4285f4;  color: white;' : userDetails.role === 'Speaker' ? '#34a853;  color: white;' : '#f9ab00;  color: #202023;'  )">
+                  :style="'padding: 6px 12px;font-size: 12px; border-radius: 6px; border: 1px #202023 solid; width: fit-content; background-color: ' + (userDetails.role === 'Organizer' ? '#ea4335; color: white;' : userDetails.role === 'Volunteer' ? '#4285f4;  color: white;' : userDetails.role === 'Speaker' ? '#34a853;  color: white;' : '#f9ab00;  color: #202023;')">
                   {{ userDetails.role || 'Attendee' }}</p>
               </div>
               <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name"
@@ -60,8 +63,8 @@
               <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
               <div v-if="userDetails && !showEditor"
                 style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
-                <p v-if="userDetails.speaker"
-                  style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Talk Title</p>
+                <p v-if="userDetails.speaker" style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Talk Title
+                </p>
                 <p v-if="userDetails.speaker">{{ userDetails.speaker.talk || 'N/a' }}</p>
                 <p v-if="userDetails.city && userDetails.city != ''"
                   style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">City/Town</p>
@@ -69,9 +72,11 @@
                 <p v-if="userDetails.bio && userDetails.bio != ''"
                   style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Bio</p>
                 <p v-if="userDetails.bio && userDetails.bio != ''">{{ userDetails.bio }}</p>
-               <p v-if="userDetails.domainsInterested && userDetails.domainsInterested.length > 0"
+                <p v-if="userDetails.domainsInterested && userDetails.domainsInterested.length > 0"
                   style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Domains Interested</p>
-                <v-chip style="margin: 4px;" v-if="userDetails.domainsInterested && userDetails.domainsInterested.length > 0" v-for="domain in userDetails.domainsInterested">{{ domain }}</v-chip>
+                <v-chip style="margin: 4px;"
+                  v-if="userDetails.domainsInterested && userDetails.domainsInterested.length > 0"
+                  v-for="domain in userDetails.domainsInterested">{{ domain }}</v-chip>
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Stats</p>
                 <p><v-icon>mdi-star-circle-outline</v-icon> {{ badges.filter((e) => e.earned).length }} • Badges earned
                 </p>
@@ -112,9 +117,9 @@
                   <v-autocomplete v-model="userDetails.domainsInterested" chips label="Interested Domains" :items="['Web', 'Mobile', 'Cloud', 'AI', 'Career'
                     , 'Entrepreneurship']" multiple></v-autocomplete>
                   <v-btn @click="addNewSocial" class="mr-4" variant="text">+ Add Social Handles</v-btn>
-                  <button rounded  v-if="showEditor"
-                    style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;" >
-                    <v-progress-circular :size="20"  indeterminate v-if="isSubmitLoading"></v-progress-circular>
+                  <button rounded v-if="showEditor"
+                    style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;">
+                    <v-progress-circular :size="20" indeterminate v-if="isSubmitLoading"></v-progress-circular>
                     <p v-if="!isSubmitLoading">{{
                       showEditor ? 'Submit' : 'Update Profile' }}
                     </p>
@@ -166,7 +171,7 @@
                         <v-col cols="3">
                           <v-img :src="'img/arcade/badges/' + item.image" style="width: 100%" />
                         </v-col>
-                        <v-col> 
+                        <v-col>
                           <h1 class="mt-3 mb-0">{{ item.name }}</h1>
                           <p style="font-weight: 500" class="mt-n1">
                             {{ item.date === 'Not earned' ? 'Not earned' : 'Earned on ' + item.date }}
@@ -295,6 +300,7 @@ const showEditor = useState('showEditor', () => false);
 const headshotFileInput = useState('headshotFileInput', () => null);
 const isMounted = useState('isMounted', () => false);
 const isSubmitLoading = useState('isSubmitLoading', () => false);
+const isUploadingFile = useState('isUploadingFileStatus', () => false);
 
 
 onMounted(() => {
@@ -312,6 +318,7 @@ async function handleFileChange(event) {
   const file = event.target.files[0];
   if (file) {
     console.log("Selected file:", file);
+    isUploadingFile.value = true;
     const newHeadShot = ref(storage, `headshots/${user.value.uid}.png`);
 
     try {
@@ -323,8 +330,10 @@ async function handleFileChange(event) {
         photoURL: headshotURL
       });
       userDetails.value.photoURL = headshotURL;
+      isUploadingFile.value = false;
       alert('Headshot updated successfully ✅')
     } catch (error) {
+      isUploadingFile.value = false;
       console.error("Error in Uploading headshot to cloud!! = ", error);
       alert("Error in saving your request!");
     }
@@ -350,7 +359,7 @@ onMounted(() => {
       }
 
       // set photo url to localstorage
-      if(userDetails.value.photoURL !== '' && userDetails.value.photoURL !== null && userDetails.value.photoURL !== undefined){
+      if (userDetails.value.photoURL !== '' && userDetails.value.photoURL !== null && userDetails.value.photoURL !== undefined) {
         localStorage.setItem('dv_photo_url', userDetails.value.photoURL);
       }
 

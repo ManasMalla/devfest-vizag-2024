@@ -68,7 +68,6 @@
 
 <script>
 import { GoogleAuthProvider } from 'firebase/auth'
-import { getData } from "nuxt-storage/local-storage";
 export const googleAuthProvider = new GoogleAuthProvider()
 </script>
 
@@ -80,6 +79,7 @@ import {
 } from 'firebase/auth'
 import { useCurrentUser, useFirebaseAuth } from 'vuefire'
 import { useDisplay } from "vuetify";
+// import { useLocalStorage } from "@vueuse/nuxt";
 
 const { mainData, navbarData, announcements } = useJSONData();
 const sidebar = useSideBar();
@@ -89,29 +89,11 @@ const user = useCurrentUser()
 const auth = useFirebaseAuth()
 
 const screenWidth = ref(width);
-const photoURLStored = useState('photoURLStored', () => undefined);
+const photoURLStored = useLocalStorage('dv_photo_url', undefined);
 
 const drawerAction = () => {
   sidebar.value = !sidebar.value;
 };
-
-const photoURLFromStorage = computed(() => {
-  console.log('storage has been modified');
-  return localStorage.getItem('dv_photo_url');
-});
-
-// Function to update photoURLStored when localStorage changes
-const updatePhotoURL = () => {
-  photoURLStored.value = localStorage.getItem('dv_photo_url');
-};
-
-onMounted(() => {
-  window.addEventListener('storage', updatePhotoURL);
-});
-
-onMounted(() => {
-  updatePhotoURL();
-});
 
 </script>
 

@@ -2,8 +2,9 @@
     <div id="tasks" class="tasks mt-2">
         <!-- Tasks will be dynamically generated here -->
 
-        <a class="task" :class="task.isCompleted ? 'done' : ''" v-for="task in $props.tasks" :key="task.id"
-            :href="task.route">
+        <a class="task"
+            :class="(tasks[0].isCompleted == false && index != 0) ? 'locked' : task.isCompleted ? 'done' : ''"
+            v-for="(task, index) in $props.tasks" :key="task.id" :href="task.route">
             <span>{{ task.name }}</span>
             <span class="arrow" v-if="!task.isCompleted">{{ '›' }}</span>
         </a>
@@ -119,6 +120,26 @@ h2 {
     text-decoration: none;
     /* Checkmark when done */
     font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: centers;
+    color: #4caf50;
+    /* Green color for the tick */
+    background: #FFF;
+    transform: translateY(-50%) translateX(-12%);
+    /* Remove background */
+    border: none;
+    /* Remove the border */
+}
+
+.task.locked::before {
+    font-family: 'Material Symbols Rounded';
+    width: 24px;
+    height: 24px;
+    content: "\e897";
+    text-decoration: none;
+    /* Checkmark when done */
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: centers;
