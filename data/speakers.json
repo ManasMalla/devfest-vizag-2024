@@ -1,16 +1,16 @@
 [
   {
     "id": "100",
-    "name": "Gouthama Rao Yejju",
+    "name": "Syed Junaid Ahmed",
     "company": {
-      "name": "GITAM Deemed to be University",
-      "designation": "Vice Chancellor"
+      "name": "A-Hub",
+      "designation": "Andhra University Incubation Council"
     },
     "community_title": "",
-    "image": "gowtham.jpg",
+    "image": "SyedJunaidAhmed.png",
     "bio": "",
     "social": {
-      "linkedin": "https://www.linkedin.com/in/gouthama-rao-yejju-80b9357a/",
+      "linkedin": "https://www.linkedin.com/in/scitechindian/",
       "twitter": "",
       "github": "",
       "web": ""
@@ -733,6 +733,44 @@
     "bio": "",
     "social": {
       "linkedin": "https://www.linkedin.com/in/satishkarnatakapu/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "141",
+    "name": "Pradyot H Adavi",
+    "company": {
+      "name": "Flipkart",
+      "designation": "Engineering Manager"
+    },
+    "community_title": "",
+    "image": "Pradyot H Adavi.png",
+    "bio": "",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/pradyothadavi/",
+      "twitter": "",
+      "github": "",
+      "web": ""
+    },
+    "mentor": true,
+    "expert": false
+  },
+  {
+    "id": "142",
+    "name": "Amal Raj Pukkella",
+    "company": {
+      "name": "TheDigifac Services Pvt Ltd",
+      "designation": "Founder"
+    },
+    "community_title": "",
+    "image": "Amal Raj Pukkella.png",
+    "bio": "",
+    "social": {
+      "linkedin":"https://www.linkedin.com/in/amal-raj-pukkella-02b90a7/",
       "twitter": "",
       "github": "",
       "web": ""
