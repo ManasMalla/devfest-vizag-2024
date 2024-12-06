@@ -25,7 +25,7 @@
     </v-container>
 
     <!-- Experts -->
-    <v-container fluid>
+    <v-container fluid v-if="(speakersData.filter((speaker) => speaker.expert === true)).length > 0">
       <v-row>
         <v-col md="12">
           <h1>Experts</h1>
