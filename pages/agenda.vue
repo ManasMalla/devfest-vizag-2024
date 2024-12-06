@@ -135,7 +135,7 @@ watch(venueFilter, (vF) => {
             return parseTime(a.time)[0] - parseTime(b.time)[0];
           }),
         };
-      })].filter((singleTrack) => singleTrack.events.length > 0 ),
+      })].filter((singleTrack) => singleTrack.events.length > 0),
     },
     {
       weekday: "Sun",
@@ -157,7 +157,7 @@ watch(venueFilter, (vF) => {
             }),
           };
         })
-      ].filter((singleTrack) => singleTrack.events.length > 0 ),
+      ].filter((singleTrack) => singleTrack.events.length > 0),
     },
   ];
 });
@@ -182,7 +182,7 @@ watch(domainFilter, (vF) => {
             return parseTime(a.time)[0] - parseTime(b.time)[0];
           }),
         };
-      })].filter((singleTrack) => singleTrack.events.length > 0 ),
+      })].filter((singleTrack) => singleTrack.events.length > 0),
     },
     {
       weekday: "Sun",
@@ -204,7 +204,7 @@ watch(domainFilter, (vF) => {
             }),
           };
         })
-      ].filter((singleTrack) => singleTrack.events.length > 0 ),
+      ].filter((singleTrack) => singleTrack.events.length > 0),
     },
   ];
 });
@@ -229,7 +229,7 @@ watch(formatFilter, (vF) => {
             return parseTime(a.time)[0] - parseTime(b.time)[0];
           }),
         };
-      })].filter((singleTrack) => singleTrack.events.length > 0 ),
+      })].filter((singleTrack) => singleTrack.events.length > 0),
     },
     {
       weekday: "Sun",
@@ -251,7 +251,7 @@ watch(formatFilter, (vF) => {
             }),
           };
         })
-      ].filter((singleTrack) => singleTrack.events.length > 0 ),
+      ].filter((singleTrack) => singleTrack.events.length > 0),
     },
   ];
   console.log('format filter sorted data : ', days.value);
@@ -275,7 +275,7 @@ const days = useState('daysAgenda', () => [
           return parseTime(a.time)[0] - parseTime(b.time)[0];
         }),
       };
-    })],
+    })].filter((singleTrack) => singleTrack.events.length > 0),
   },
   {
     weekday: "Sun",
@@ -297,7 +297,7 @@ const days = useState('daysAgenda', () => [
           }),
         };
       })
-    ],
+    ].filter((singleTrack) => singleTrack.events.length > 0),
   },
 ]);
 console.log(days);
