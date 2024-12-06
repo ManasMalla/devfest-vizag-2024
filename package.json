@@ -23,9 +23,12 @@
     "nuxt-marquee": "^1.0.4",
     "nuxt-vuefire": "^1.0.4",
     "vue": "latest",
+    "vue-qrcode-reader": "^5.5.11",
     "vuefire": "^3.2.0"
   },
   "devDependencies": {
+    "qrcode.vue": "^3.6.0",
+    "uninstall": "^0.0.0",
     "vite-plugin-vuetify": "^2.0.4",
     "vuetify": "^3.7.0"
   }

@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     "nuxt-marquee",
     '@vueuse/nuxt'
   ],
-  plugins: [{ src: '~/plugins/lottie', mode: 'client' }],
+  plugins: [{ src: '~/plugins/lottie', mode: 'client' }, { src: '~/plugins/vue-qrcode-reader.js' }],
   vuefire: {
     config: {
       apiKey: 'AIzaSyBUeJeTLIACj6WP8XAfkYkBbVJqQReO0SY',
