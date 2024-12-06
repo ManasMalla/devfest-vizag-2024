@@ -115,10 +115,12 @@ nextTick(() => {
     watch(user, async (_) => {
         if (user.value) {
             const userDoc = (await getDoc(doc(db, "users", user.value.uid))).data();
+            console.log('user doc full', userDoc);
+            console.log('all data checkpoints = ', userDoc.username, userDoc.bio, userDoc.socials, userDoc.domainsInterested, userDoc.photoUrl);
             if (userDoc.paymentStatus && userDoc.registration) {
                 tasks.value[0].isCompleted = true;
             }
-            if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoUrl) {
+            if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoURL) {
                 tasks.value[1].isCompleted = true;
             }
             if (userDoc.schedule.length > 0) {
@@ -139,10 +141,12 @@ nextTick(() => {
 if(route.query.refresh){
     if (user.value){
         const userDoc = (await getDoc(doc(db, "users", user.value.uid))).data();
+        console.log('user doc full', userDoc);
+        console.log('all data checkpoints = ', userDoc.username, userDoc.bio, userDoc.socials, userDoc.domainsInterested, userDoc.photoUrl);
             if (userDoc.paymentStatus && userDoc.registration) {
                 tasks.value[0].isCompleted = true;
             }
-            if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoUrl) {
+            if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoURL) {
                 tasks.value[1].isCompleted = true;
             }
             if (userDoc.schedule.length > 0) {

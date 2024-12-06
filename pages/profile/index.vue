@@ -66,6 +66,9 @@
                 <p v-if="userDetails.bio && userDetails.bio != ''"
                   style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Bio</p>
                 <p v-if="userDetails.bio && userDetails.bio != ''">{{ userDetails.bio }}</p>
+               <p v-if="userDetails.domainsInterested && userDetails.domainsInterested.length > 0"
+                  style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Domains Interested</p>
+                <v-chip style="margin: 4px;" v-if="userDetails.domainsInterested && userDetails.domainsInterested.length > 0" v-for="domain in userDetails.domainsInterested">{{ domain }}</v-chip>
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Stats</p>
                 <p><v-icon>mdi-star-circle-outline</v-icon> {{ badges.filter((e) => e.earned).length }} • Badges earned
                 </p>
@@ -103,6 +106,8 @@
                       @click:append-inner="() => removeSocial(index)" style="width: 90%;">
                     </v-text-field>
                   </v-row>
+                  <v-autocomplete v-model="userDetails.domainsInterested" chips label="Interested Domains" :items="['Web', 'Mobile', 'Cloud', 'AI', 'Career'
+                    , 'Entrepreneurship']" multiple></v-autocomplete>
                   <v-btn @click="addNewSocial" class="mr-4" variant="text">+ Add Social Handles</v-btn>
                   <button rounded  v-if="showEditor"
                     style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;" >
@@ -228,7 +233,8 @@ async function updateUserData(event) {
         city: userDetails.value?.city,
         socials: userDetails.value?.socials === undefined || userDetails.value?.socials === null ? [] : userDetails.value?.socials,
         photoURL: userDetails.value?.photoURL,
-        displayName: user.value.displayName
+        displayName: user.value.displayName,
+        domainsInterested: userDetails.value.domainsInterested
       });
     } else {
       await updateDoc(doc(db, "users", user.value.uid), {
@@ -237,7 +243,8 @@ async function updateUserData(event) {
         city: userDetails.value?.city,
         socials: userDetails.value?.socials === undefined || userDetails.value?.socials === null ? [] : userDetails.value?.socials,
         photoURL: userDetails.value.photoURL,
-        displayName: user.value.displayName
+        displayName: user.value.displayName,
+        domainsInterested: userDetails.value.domainsInterested
       });
     }
     showEditor.value = !showEditor.value;
