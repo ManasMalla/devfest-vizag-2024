@@ -35,7 +35,6 @@ const onErrorCheckin = useState('onErrorCheckin', () => false);
 const onSuccess = useState('onSuccess', () => false); 
 
 function onDetect(detectedCodes: any[]) {
-  console.log(detectedCodes)
   result.value = JSON.stringify(detectedCodes.map((code: { rawValue: any; }) => code.rawValue)).split('/p/')[1].slice(0, -2)
 }
 
@@ -118,13 +117,11 @@ watch(result, async(user) => {
     const snapshot = await getDocs(q);
     snapshot.forEach((doc) => {
       userUid.value = doc.id;
-      console.log('user id = ', userUid.value);
     });
 
     const date = new Date();
     const options: Intl.DateTimeFormatOptions = { weekday: 'short', day: 'numeric' };
     const formattedDate = date.toLocaleDateString('en-US', options);
-    console.log('formatted data = ', formattedDate);
     if(formattedDate === '7 Sat'){
       await updateDoc(doc(db, "users", userUid.value), {
         'check-in-day-1' : true
