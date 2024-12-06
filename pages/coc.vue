@@ -9,6 +9,14 @@
             staff, and speakers, must abide by the following policy:
           </p>
 
+          <v-checkbox v-if="!cocCheckBox" v-model="cocCheckBox" label="I accept the Code of Conduct and pledge to uphold it throughout the event."></v-checkbox>
+          <p class="mt-2" style="color: #4285f4;" v-if="cocCheckBox">
+            <v-icon class="mr-2">mdi-check-decagram</v-icon>
+            <span>
+              You Successfully accepted the Code of Conduct.
+            </span>
+          </p>
+
           <v-container fluid class="ma-0 pa-0 mt-8">
             <v-row align="start" justify-start>
               <v-col md="4" cols="12" v-for="(item, index) in cocData" :key="index">
@@ -28,7 +36,37 @@
 </template>
 
 <script setup>
+import { getDoc, updateDoc, doc } from 'firebase/firestore';
+
 const { cocData, mainData } = useJSONData();
+const cocCheckBox = useState('cocCheckBox', () => false);
+
+const user = useCurrentUser();
+const db = useFirestore();
+
+watch(cocCheckBox, async(_) => {
+  if(cocCheckBox.value && user.value){
+    await updateDoc(doc(db, 'users', user.value.uid), {
+      coc : true
+    });
+  }
+});
+
+watch(user, (_) => {
+  fetchUserData();
+});
+
+const fetchUserData = async () => {
+  try {
+    if(user.value){
+      const data = (await getDoc(doc(db, 'users', user.value.uid))).data();
+      cocCheckBox.value = data.coc;
+    }
+  } catch (error) {
+    cocCheckBox.value = false;
+    console.error('Error in getting User data : ', error);
+  }
+}
 
 definePageMeta({
   layout: false,

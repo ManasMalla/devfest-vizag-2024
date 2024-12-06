@@ -47,8 +47,8 @@
               <div style="display: flex; align-items: center; column-gap: 8px; font-size: 20px;">
                 <p>{{ user.displayName }}</p>
                 <p
-                  style="padding: 6px 12px;font-size: 12px; border-radius: 6px; color: #202023; border: 1px #202023 solid; background-color: #f9ab00; width: fit-content;">
-                  Attendee</p>
+                  :style="'padding: 6px 12px;font-size: 12px; border-radius: 6px; border: 1px #202023 solid; width: fit-content; background-color: ' + (userDetails.role === 'Organizer' ? '#ea4335; color: white;' : userDetails.role === 'Volunteer' ? '#4285f4;  color: white;' : userDetails.role === 'Speaker' ? '#34a853;  color: white;' : '#f9ab00;  color: #202023;'  )">
+                  {{ userDetails.role || 'Attendee' }}</p>
               </div>
               <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name"
                 class="mt-2">{{ userDetails.company.designation }}, {{ userDetails.company.name }}</p>
@@ -60,12 +60,18 @@
               <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
               <div v-if="userDetails && !showEditor"
                 style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
+                <p v-if="userDetails.speaker"
+                  style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Talk Title</p>
+                <p v-if="userDetails.speaker">{{ userDetails.speaker.talk || 'N/a' }}</p>
                 <p v-if="userDetails.city && userDetails.city != ''"
                   style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">City/Town</p>
                 <p v-if="userDetails.city && userDetails.city != ''">{{ userDetails.city }}</p>
                 <p v-if="userDetails.bio && userDetails.bio != ''"
                   style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Bio</p>
                 <p v-if="userDetails.bio && userDetails.bio != ''">{{ userDetails.bio }}</p>
+               <p v-if="userDetails.domainsInterested && userDetails.domainsInterested.length > 0"
+                  style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Domains Interested</p>
+                <v-chip style="margin: 4px;" v-if="userDetails.domainsInterested && userDetails.domainsInterested.length > 0" v-for="domain in userDetails.domainsInterested">{{ domain }}</v-chip>
                 <p style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Stats</p>
                 <p><v-icon>mdi-star-circle-outline</v-icon> {{ badges.filter((e) => e.earned).length }} • Badges earned
                 </p>
@@ -103,6 +109,8 @@
                       @click:append-inner="() => removeSocial(index)" style="width: 90%;">
                     </v-text-field>
                   </v-row>
+                  <v-autocomplete v-model="userDetails.domainsInterested" chips label="Interested Domains" :items="['Web', 'Mobile', 'Cloud', 'AI', 'Career'
+                    , 'Entrepreneurship']" multiple></v-autocomplete>
                   <v-btn @click="addNewSocial" class="mr-4" variant="text">+ Add Social Handles</v-btn>
                   <button rounded  v-if="showEditor"
                     style="border: 1px solid #202023; padding: 6px 16px; margin-top: 12px; border-radius: 40px; font-size: 14px;" >
@@ -228,7 +236,8 @@ async function updateUserData(event) {
         city: userDetails.value?.city,
         socials: userDetails.value?.socials === undefined || userDetails.value?.socials === null ? [] : userDetails.value?.socials,
         photoURL: userDetails.value?.photoURL,
-        displayName: user.value.displayName
+        displayName: user.value.displayName,
+        domainsInterested: userDetails.value.domainsInterested
       });
     } else {
       await updateDoc(doc(db, "users", user.value.uid), {
@@ -237,7 +246,8 @@ async function updateUserData(event) {
         city: userDetails.value?.city,
         socials: userDetails.value?.socials === undefined || userDetails.value?.socials === null ? [] : userDetails.value?.socials,
         photoURL: userDetails.value.photoURL,
-        displayName: user.value.displayName
+        displayName: user.value.displayName,
+        domainsInterested: userDetails.value.domainsInterested
       });
     }
     showEditor.value = !showEditor.value;

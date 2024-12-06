@@ -108,6 +108,7 @@ const tasks = useState(() => [
     { id: 3, name: 'Explore the agenda', isCompleted: false, route: '/agenda' },
     { id: 4, name: 'Plan out your schedule', isCompleted: false, route: '/agenda' },
     { id: 5, name: 'Schedule 1-1 sessions with a pundit', isCompleted: false, route: '/speakers' },
+    { id: 6, name: 'Accept Code of Conduct', isCompleted: false, route: '/coc' },
 ]);
 const db = useFirestore();
 const user = useCurrentUser();
@@ -115,15 +116,20 @@ nextTick(() => {
     watch(user, async (_) => {
         if (user.value) {
             const userDoc = (await getDoc(doc(db, "users", user.value.uid))).data();
+            console.log('user doc full', userDoc);
+            console.log('all data checkpoints = ', userDoc.username, userDoc.bio, userDoc.socials, userDoc.domainsInterested, userDoc.photoUrl);
             if (userDoc.paymentStatus && userDoc.registration) {
                 tasks.value[0].isCompleted = true;
             }
-            if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoUrl) {
+            if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoURL) {
                 tasks.value[1].isCompleted = true;
             }
             if (userDoc.schedule.length > 0) {
                 tasks.value[2].isCompleted = true;
                 tasks.value[3].isCompleted = true;
+            }
+            if (userDoc.coc) {
+                tasks.value[5].isCompleted = true;
             }
             getCountFromServer(query(collection(db, "mentor-request"), where("uid", "==", user.value.uid))).then((querySnapshot) => {
                 console.log(querySnapshot.data().count);
@@ -139,15 +145,20 @@ nextTick(() => {
 if(route.query.refresh){
     if (user.value){
         const userDoc = (await getDoc(doc(db, "users", user.value.uid))).data();
+        console.log('user doc full', userDoc);
+        console.log('all data checkpoints = ', userDoc.username, userDoc.bio, userDoc.socials, userDoc.domainsInterested, userDoc.photoUrl);
             if (userDoc.paymentStatus && userDoc.registration) {
                 tasks.value[0].isCompleted = true;
             }
-            if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoUrl) {
+            if (userDoc.username && userDoc.bio && userDoc.socials.filter((e) => { return e.provider === 'linkedin' })?.length > 0 && userDoc.domainsInterested?.length > 0 && userDoc.photoURL) {
                 tasks.value[1].isCompleted = true;
             }
             if (userDoc.schedule.length > 0) {
                 tasks.value[2].isCompleted = true;
                 tasks.value[3].isCompleted = true;
+            }
+            if (userDoc.coc) {
+                tasks.value[5].isCompleted = true;
             }
             getCountFromServer(query(collection(db, "mentor-request"), where("uid", "==", user.value.uid))).then((querySnapshot) => {
                 console.log(querySnapshot.data().count);
