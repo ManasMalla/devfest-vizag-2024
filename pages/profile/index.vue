@@ -47,8 +47,8 @@
               <div style="display: flex; align-items: center; column-gap: 8px; font-size: 20px;">
                 <p>{{ user.displayName }}</p>
                 <p
-                  style="padding: 6px 12px;font-size: 12px; border-radius: 6px; color: #202023; border: 1px #202023 solid; background-color: #f9ab00; width: fit-content;">
-                  Attendee</p>
+                  :style="'padding: 6px 12px;font-size: 12px; border-radius: 6px; border: 1px #202023 solid; width: fit-content; background-color: ' + (userDetails.role === 'Organizer' ? '#ea4335; color: white;' : userDetails.role === 'Volunteer' ? '#4285f4;  color: white;' : userDetails.role === 'Speaker' ? '#34a853;  color: white;' : '#f9ab00;  color: #202023;'  )">
+                  {{ userDetails.role || 'Attendee' }}</p>
               </div>
               <p v-if="userDetails && userDetails.company && userDetails.company.designation && userDetails.company.name"
                 class="mt-2">{{ userDetails.company.designation }}, {{ userDetails.company.name }}</p>
@@ -60,6 +60,9 @@
               <v-divider style="width: 100%; margin: 12px 0px; opacity: 100%;"></v-divider>
               <div v-if="userDetails && !showEditor"
                 style="display: flex; flex-direction: column; align-items: start; width: 100%; font-size: 14px;">
+                <p v-if="userDetails.speaker"
+                  style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">Talk Title</p>
+                <p v-if="userDetails.speaker">{{ userDetails.speaker.talk || 'N/a' }}</p>
                 <p v-if="userDetails.city && userDetails.city != ''"
                   style="font-weight: 600; margin-top: 8px; margin-bottom: 4px;">City/Town</p>
                 <p v-if="userDetails.city && userDetails.city != ''">{{ userDetails.city }}</p>

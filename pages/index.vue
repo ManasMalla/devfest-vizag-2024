@@ -108,6 +108,7 @@ const tasks = useState(() => [
     { id: 3, name: 'Explore the agenda', isCompleted: false, route: '/agenda' },
     { id: 4, name: 'Plan out your schedule', isCompleted: false, route: '/agenda' },
     { id: 5, name: 'Schedule 1-1 sessions with a pundit', isCompleted: false, route: '/speakers' },
+    { id: 6, name: 'Accept Code of Conduct', isCompleted: false, route: '/coc' },
 ]);
 const db = useFirestore();
 const user = useCurrentUser();
@@ -126,6 +127,9 @@ nextTick(() => {
             if (userDoc.schedule.length > 0) {
                 tasks.value[2].isCompleted = true;
                 tasks.value[3].isCompleted = true;
+            }
+            if (userDoc.coc) {
+                tasks.value[5].isCompleted = true;
             }
             getCountFromServer(query(collection(db, "mentor-request"), where("uid", "==", user.value.uid))).then((querySnapshot) => {
                 console.log(querySnapshot.data().count);
@@ -152,6 +156,9 @@ if(route.query.refresh){
             if (userDoc.schedule.length > 0) {
                 tasks.value[2].isCompleted = true;
                 tasks.value[3].isCompleted = true;
+            }
+            if (userDoc.coc) {
+                tasks.value[5].isCompleted = true;
             }
             getCountFromServer(query(collection(db, "mentor-request"), where("uid", "==", user.value.uid))).then((querySnapshot) => {
                 console.log(querySnapshot.data().count);
