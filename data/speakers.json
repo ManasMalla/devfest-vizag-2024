@@ -57,25 +57,6 @@
     "expert": false
   },
   {
-    "id": "103",
-    "name": "Sneh Pandya",
-    "company": {
-      "name": "Mantra Labs",
-      "designation": "Product Leader, Speaker, Author, Mentor"
-    },
-    "community_title": "",
-    "image": "snehpandya.jpeg",
-    "bio": "Sneh Pandya is a seasoned product leader with expertise in Product Management, Product Strategy, and Digital Transformation. With a focus on SaaS, B2B, B2C, and Ed-tech, Sneh has driven business transformations across diverse industries like E-commerce, Insurance, and Payments. She is skilled in Cloud Infrastructure, DevOps, and White Label Solutions, with hands-on experience in Flutter development. An Apress-published author of two technical books, Sneh is also a Google for Developers community organizer, mentor, and public speaker. Connect with her for mentorship or collaboration opportunities at snehpandya.com.",
-    "social": {
-      "linkedin": "https://www.linkedin.com/in/snehpandya18/",
-      "twitter": "https://x.com/SnehPandya18?mx=2",
-      "github": "",
-      "web": "https://snehpandya.com/"
-    },
-    "mentor": true,
-    "expert": false
-  },
-  {
     "id": "104",
     "name": "Hemapriya Nagarajan",
     "company": {
