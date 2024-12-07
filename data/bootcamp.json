@@ -1,50 +1,122 @@
 [
-    {
+  {
       "id": 1,
-      "title": "Customer Churn Prediction Model",
-      "description": "A pre-trained machine learning model to predict customer churn with high accuracy.  Leveraging advanced algorithms, this model analyzes customer demographics, behavior, and interaction data to identify those at risk of churning.  Requires your customer data for accurate predictions.  Includes detailed reports and visualizations to help you understand churn patterns and take proactive steps to retain customers.",
-      "provider": "DataScienceCorp",
-      "category": "Machine Learning",
-      "price": 99.99
-    },
-    {
+      "title": "Mental Health Screening App for Adolescents and PwDs",
+      "description": "Develop an Android-based application to screen for potential mental health issues in adolescents and Persons with Disabilities (PwDs).",
+      "category": "MedTech / BioTech / HealthTech"
+  },
+  {
       "id": 2,
-      "title": "Real-time Sentiment Analysis API",
-      "description": "A powerful API for analyzing text sentiment in real-time.  Process large volumes of text data from social media, customer reviews, or surveys to understand public opinion and customer feedback. Ideal for social media monitoring, brand reputation management, and customer feedback analysis.  Offers granular sentiment scores, topic extraction, and customizable parameters for optimal results.",
-      "provider": "SentiMindAI",
-      "category": "Natural Language Processing",
-      "price": 29.99
-    },
-    {
+      "title": "App for Assessing Specific Learning Disabilities",
+      "description": "Design an Android-based application to assess reading and writing difficulties in persons with specific learning disabilities in a simplified way.",
+      "category": "MedTech / BioTech / HealthTech"
+  },
+  {
       "id": 3,
-      "title": "Image Recognition Service",
-      "description": "A robust and scalable image recognition service powered by deep learning.  Accurately identify objects, faces, and scenes within images.  Provides high-precision results with support for custom object detection and training. Applications include automated image tagging, content moderation, and visual search.",
-      "provider": "VisionaryTech",
-      "category": "Computer Vision",
-      "price": 49.99
-    },
-    {
+      "title": "Gamified Platform for Children's Rights Awareness",
+      "description": "Create a web app to gamify learning about children’s rights, increasing legal literacy among children in India.",
+      "category": "Ministry of Law and Justice"
+  },
+  {
       "id": 4,
-      "title": "Fraud Detection System",
-      "description": "A sophisticated fraud detection system using advanced machine learning algorithms to identify and flag potentially fraudulent transactions in real-time.  Reduces financial losses and improves security by detecting anomalies and suspicious patterns.  Customizable rules and thresholds allow you to tailor the system to your specific needs and risk tolerance.  Integrates seamlessly with existing payment gateways and systems.",
-      "provider": "SecureTransactionsInc",
-      "category": "Machine Learning",
-      "price": 199.99
-    },
-    {
+      "title": "Real-Time Street Parking Management System",
+      "description": "Develop a cloud-based solution for smart, real-time management of street parking, optimizing parking spaces and user convenience.",
+      "category": "Smart Automation"
+  },
+  {
       "id": 5,
-      "title": "Personalized Recommendation Engine",
-      "description": "A highly customizable recommendation engine to boost engagement and sales.  Uses collaborative filtering and content-based techniques to suggest relevant products or content to users. Ideal for e-commerce platforms, streaming services, and content websites.  Easily integrates with your existing systems and offers A/B testing capabilities for optimal performance.",
-      "provider": "RecommenderAI",
-      "category": "Recommender Systems",
-      "price": 149.99
-    },
-    {
+      "title": "Handwritten Text Analyzer and Converter",
+      "description": "Build an Android-based application to analyze handwritten text and convert it into editable digital text.",
+      "category": "Smart Automation"
+  },
+  {
       "id": 6,
-      "title": "Sales Forecasting Tool",
-      "description": "An accurate and reliable sales forecasting tool using advanced time series analysis and machine learning. Predicts future sales based on historical data, seasonality, trends, and external factors.  Provides insights to optimize inventory management, pricing strategies, and resource allocation.  User-friendly interface with customizable reporting and visualization options.",
-      "provider": "ForesightAnalytics",
-      "category": "Predictive Analytics",
-      "price": 79.99
-    }
-  ]
+      "title": "Accessible Buildings and Public Spaces Platform",
+      "description": "Create a web app to store and share information about accessible buildings and public spaces for improved inclusivity.",
+      "category": "Smart Automation"
+  },
+  {
+      "id": 7,
+      "title": "Water Supply Inspection and Analysis Tool",
+      "description": "Build a cloud-based solution for comprehensive inspection and analysis of water supply distribution lines.",
+      "category": "Clean & Green Technology"
+  },
+  {
+      "id": 8,
+      "title": "Speech-to-Text Transcription for Indian Languages",
+      "description": "Develop a web app to transcribe speech in Indian languages into native script and English text.",
+      "category": "Miscellaneous"
+  },
+  {
+      "id": 9,
+      "title": "Women’s Safety Monitoring Tool",
+      "description": "Design an Android-based application for community-based reporting and monitoring of women’s safety in colleges and universities.",
+      "category": "Miscellaneous"
+  },
+  {
+      "id": 10,
+      "title": "Water Problem Crowdsourcing App",
+      "description": "Create an Android-based application that crowdsources water-related problems, open-sources the data, and visualizes issues on a map.",
+      "category": "Ministry of Jal Shakti"
+  },
+  {
+      "id": 11,
+      "title": "Platform for Budding Entrepreneurs",
+      "description": "Develop a cloud-based platform to support and guide budding entrepreneurs by providing mentorship and resources.",
+      "category": "Smart Education"
+  },
+  {
+      "id": 12,
+      "title": "IP Awareness Gaming Software",
+      "description": "Create a web app with interactive games to teach Intellectual Property rights to school students.",
+      "category": "Smart Education"
+  },
+  {
+      "id": 13,
+      "title": "Real-Time Rescue Agency Tracker",
+      "description": "Build an Android-based application to register rescue agencies and display their real-time locations during disasters.",
+      "category": "Disaster Management"
+  },
+  {
+      "id": 14,
+      "title": "Disaster Awareness and Preparedness Tools",
+      "description": "Create a web app with tools to raise awareness and improve preparedness for disaster management among communities.",
+      "category": "Disaster Management"
+  },
+  {
+      "id": 15,
+      "title": "Tour Guide App for Char Dham Yatra",
+      "description": "Develop an Android-based application to guide tourists visiting Char Dham and other locations in Uttarakhand.",
+      "category": "Travel & Tourism"
+  },
+  {
+      "id": 16,
+      "title": "Plant Disease Identification App",
+      "description": "Design an Android-based application to identify and suggest solutions for diseases in plants and crops.",
+      "category": "Agriculture, FoodTech & Rural Development"
+  },
+  {
+      "id": 17,
+      "title": "Dairy Farmer Registration Platform",
+      "description": "Build a web app to facilitate online registration and processing for dairy farmers producing milk and livestock products.",
+      "category": "Agriculture, FoodTech & Rural Development"
+  },
+  {
+      "id": 18,
+      "title": "Real-Time Vehicle Tracking System",
+      "description": "Create a cloud-based solution for tracking vehicles in real-time for better fleet management.",
+      "category": "Smart Vehicles"
+  },
+  {
+      "id": 19,
+      "title": "Ticketless Entry System for Monuments",
+      "description": "Design a web app for managing ticketless entry to monuments and museums for a seamless experience.",
+      "category": "Heritage & Culture"
+  },
+  {
+      "id": 20,
+      "title": "Language Translation for Railway Announcements",
+      "description": "Develop a cloud-based system for natural language translation of railway announcements into multiple Indian languages.",
+      "category": "Ministry of Railways"
+  }
+]
