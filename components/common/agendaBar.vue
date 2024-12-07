@@ -92,6 +92,7 @@
                     <v-row>
                         <v-chip variant="outlined" class="mr-2">{{ event.track }}</v-chip>
                         <v-chip variant="outlined" prepend-icon="mdi-map">{{ event.venue }}</v-chip>
+                        <v-btn :to="event.link" v-if="event.link">Checkout Link</v-btn>
                     </v-row>
                 </v-container>
                 <v-btn @click="addToUserSchedule" variant="tonal" rounded color="#4285f4" class="mt-4"
@@ -199,7 +200,7 @@ function calculateTimeline([s, e]) {
 }
 
 @media screen and (max-width: 840px) {
-    .barDescription{
+    .barDescription {
         font-size: small;
     }
 }
