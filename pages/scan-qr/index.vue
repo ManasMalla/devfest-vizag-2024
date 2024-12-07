@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { QrcodeStream } from 'vue-qrcode-reader'
+import { QrcodeStream } from 'vue-qrcode-reader';
 import { collection, updateDoc, doc, query, where, limit, getDocs } from 'firebase/firestore';
 
 
@@ -35,27 +35,13 @@ const authorizedUIDs = ['ooL4cJkNolQvxDgmEFsrAveKjFl2', 'oBYmZwFXDeS0O2uDryFuhw5
 
 // Check if user is a AUTHORIZED USER or not, Redirect to home page if they aren't.
 watch(user, (_) => {
-  if (user.value && (!authorizedUIDs.includes(user.value.uid))) {
+  if (!user.value) {
     navigateTo("/?refresh=true");
-  }
-});
-
-onMounted(async () => {
-  await nextTick();
-  console.log('Admin page mounted = ', user.value);
-  if (user.value) {
-    if (!authorizedUIDs.includes(user.value.uid)) {
-      navigateTo("/?refresh=true");
-    }
   }
 });
 
 function onDetect(detectedCodes: any[]) {
-  if (user.value && (!authorizedUIDs.includes(user.value.uid))) {
-    navigateTo("/?refresh=true");
-    return;
-  }
-  result.value = JSON.stringify(detectedCodes.map((code: { rawValue: any; }) => code.rawValue)).split('/p/')[1].slice(0, -2)
+  result.value = JSON.stringify(detectedCodes.map((code: { rawValue: any; }) => code.rawValue)).split("|")[0].replace('["id:', "")
 }
 
 function paintOutline(detectedCodes: any, ctx: any) {
@@ -133,39 +119,36 @@ watch(result, async (user) => {
     if (onErrorCheckin) {
       onErrorCheckin.value = false;
     }
-    const q = query(collection(db, "users"), where("username", "==", user), limit(1));
+    const bookingId = user;
+    const q = query(collection(db, "users"), where("bookingId", "==", bookingId), limit(1));
     const snapshot = await getDocs(q);
     snapshot.forEach(async (Udoc) => {
       userUid.value = Udoc.id;
-      if (Udoc.data()['check-in-day-0']) {
-        alert(Udoc.data().username + "Already Checked in!");
-        result.value = '';
-        navigateTo("/checkin");
-      }
-      else {
-        const date = new Date();
-        const options: Intl.DateTimeFormatOptions = { weekday: 'short', day: 'numeric' };
-        const formattedDate = date.toLocaleDateString('en-US', options);
-        if (formattedDate === '7 Sat') {
-          await updateDoc(doc(db, "users", userUid.value), {
-            'check-in-day-1': true
-          });
-          confirmationAlert();
-        }
-        else if (formattedDate === '8 Sun') {
-          await updateDoc(doc(db, "users", userUid.value), {
-            'check-in-day-2': true
-          });
-          confirmationAlert();
-        }
-        else if (formattedDate === '6 Fri') {
-          await updateDoc(doc(db, "users", userUid.value), {
-            'check-in-day-0': true
-          });
-          confirmationAlert();
-        }
 
-      }
+      // const date = new Date();
+      // const options: Intl.DateTimeFormatOptions = { weekday: 'short', day: 'numeric' };
+      // const formattedDate = date.toLocaleDateString('en-US', options);
+      navigateTo(`/c/${Udoc.id}?refresh=true`);
+      // if (formattedDate === '7 Sat') {
+      //   await updateDoc(doc(db, "users", userUid.value), {
+      //     'check-in-day-1': true
+      //   });
+      //   confirmationAlert();
+      // }
+      // else if (formattedDate === '8 Sun') {
+      //   await updateDoc(doc(db, "users", userUid.value), {
+      //     'check-in-day-2': true
+      //   });
+      //   confirmationAlert();
+      // }
+      // else if (formattedDate === '6 Fri') {
+      //   await updateDoc(doc(db, "users", userUid.value), {
+      //     'check-in-day-0': true
+      //   });
+      //   confirmationAlert();
+      // }
+
+
     });
   } catch (error) {
     onErrorCheckin.value = true;

@@ -19,7 +19,7 @@
                                 <v-icon class="mt-3" v-if="isAlreadyNetworked"
                                     :color="'#34a853'">mdi-check-decagram</v-icon>
                             </div>
-                            <p style="opacity: 50%; font-weight: 600; margin-bottom: 6px;">@{{ $route.params.username }}
+                            <p style="opacity: 50%; font-weight: 600; margin-bottom: 6px;">@{{ peerDetails?.username }}
                             </p>
                             <p style="font-size: 14px;">{{ peerDetails?.company?.designation }} , {{
                                 peerDetails?.company?.name }}</p>
@@ -65,7 +65,7 @@
 
 </template>
 <script setup>
-import { collection, addDoc, query, getDocs, where, and, or, getCountFromServer, updateDoc, doc } from 'firebase/firestore';
+import { collection, addDoc, query, getDocs, where, and, or, getCountFromServer, updateDoc, doc, getDoc } from 'firebase/firestore';
 
 
 const user = useCurrentUser();
@@ -88,16 +88,20 @@ watch(user, (_) => {
         fetchPeersData();
     }
 });
+onMounted(() => {
+    if (route.query.refresh) {
+        fetchPeersData();
+        navigateTo(`/c/${route.params.userId}`);
+    }
+})
 // FETCH Peer's data
 async function fetchPeersData() {
     try {
-        const peerUserName = route.params.username;
-        const q = query(collection(db, "users"), where("username", "==", peerUserName));
-        const snapshot = await getDocs(q);
-        snapshot.forEach((doc) => {
-            peerDetails.value = doc.data();
-            peerId.value = doc.id;
-        });
+        const peerUserId = route.params.userId;
+        console.log(peerUserId);
+    const snapshot = await getDoc(doc(db, "users", peerUserId));
+        peerDetails.value = snapshot.data();
+        peerId.value = snapshot.id;
         await checkNetworked();
         if (!isAlreadyNetworked.value) {
             createConnection();
