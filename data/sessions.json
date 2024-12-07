@@ -168,12 +168,12 @@
         {
                 "id": "1008",
                 "slide": "",
-                "title": "Codelab on Cloud",
+                "title": "Greeting, GenKit!",
                 "description": "",
-                "track": "Cloud",
+                "track": "AI/ML",
                 "venue": "Lab 1",
                 "link": "",
-                "time": "11:00 AM to 12:30 PM",
+                "time": "02:00 PM to 3:30 PM",
                 "format": "Codelab",
                 "date": "Dec 7, 2024",
                 "timeDuration": "90",
@@ -183,16 +183,18 @@
         {
                 "id": "1009",
                 "slide": "",
-                "title": "Codelab on Mobile/ Web",
+                "title": "Building the SuperHero's app",
                 "description": "",
                 "track": "Web/Mobile",
                 "venue": "Lab 2",
                 "link": "",
-                "time": "11:00 AM to 12:30 PM",
+                "time": "02:00 PM to 4:00 PM",
                 "format": "Codelab",
                 "date": "Dec 7, 2024",
                 "timeDuration": "90",
-                "speakers": [],
+                "speakers": [
+                        141
+                ],
                 "callForSpeaker": false
         },
         {
