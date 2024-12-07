@@ -20,6 +20,7 @@
           </div>
           <div style=" overflow: scroll; width: 80vw;" class="cal-agenda">
             <div class="row__WRVvc" style="display: flex;" v-for="track in day.tracks">
+              <!-- <p>{{ track.track }}</p> -->
               <div class="date__HrqQs" :class="track.track === 'Community Lounge' ? 'cl' : ''">
                 <p style="text-align: center; font-size: 14px;" class="dateWeekday__c6J_B"
                   v-if="track.track != 'Auditorium'">{{
@@ -455,7 +456,6 @@ watch(user, (_) => {
   width: 84px;
   text-align: start;
   flex-shrink: 0;
-  display: none;
 }
 
 @media screen and (min-width: 1024px) {
