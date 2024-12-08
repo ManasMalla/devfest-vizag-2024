@@ -1,5 +1,5 @@
 <template>
-  <div style="display: flex; flex-direction: column">
+  <div style="display: flex; flex-direction: column; width: 98vw">
     <h2 class="mt-5 mx-4">Agenda</h2>
     <v-container class="mt-4" style="margin-bottom: 0; padding-bottom: 0;">
       <v-row style="column-gap: 12px;">
@@ -18,7 +18,7 @@
             <span class="dateWeekday__c6J_B">{{ day.weekday }}, {{ ' ' }}</span>
             <span class="dateDayNumber__KJVBf">{{ day.day }}</span>
           </div>
-          <div style=" overflow: scroll; width: 80vw;" class="cal-agenda">
+          <div style=" overflow: scroll; width: 98vw;" class="cal-agenda">
             <div class="row__WRVvc" style="display: flex;" v-for="track in day.tracks">
               <!-- <p>{{ track.track }}</p> -->
               <div class="date__HrqQs" :class="track.track === 'Community Lounge' ? 'cl' : ''">
