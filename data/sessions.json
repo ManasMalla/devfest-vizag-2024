@@ -229,7 +229,7 @@
                 "speakers": [
                         144
                 ],
-                "callForSpeaker": false
+                "callForSpeaker": true
         },
         {
                 "id": "1010",
