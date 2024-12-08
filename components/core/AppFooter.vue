@@ -16,14 +16,16 @@
               <a href="https://developers.google.com/community/gdg" target="_blank" rel="noreferrer" aria-label="link"
                 class="grey--text text--darken-3 mr-6 google-font" style="text-decoration: none; color: white">About GDG
                 Program</a>
-                <a href="https://devfest.vizag.dev/about" target="_blank" rel="noreferrer" aria-label="link"
+                
+              <br class="hidden-md-and-up" />
+              <a href="https://devfest.vizag.dev/about" target="_blank" rel="noreferrer" aria-label="link"
                 class="grey--text text--darken-3 mr-6 google-font" style="text-decoration: none; color: white">About Web
                 Experience</a>
-              <br class="hidden-md-and-up" />
               <!-- <a href="https://www.womentechmakers.com/" target="_blank" rel="noreferrer" aria-label="link"
                 class="grey--text text--darken-3 mr-6 google-font" style="text-decoration: none; color: white">About WTM
                 Program</a> -->
 
+              <br class="hidden-md-and-up" />
               <br class="hidden-md-and-up" />
               <router-link to="/faq" rel="noreferrer" aria-label="link"
                 class="mr-6 google-font grey--text text--darken-3"
