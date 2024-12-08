@@ -119,7 +119,7 @@ const domainFilter = useState("domainFilter", () => "");
 watch(venueFilter, (vF) => {
   console.log(vF);
   days.value = [
-    {
+    /*{
       weekday: "Sat",
       day: 7,
       tracks: [...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track !== 'Community Lounge').map((track) => {
@@ -137,7 +137,7 @@ watch(venueFilter, (vF) => {
           }),
         };
       })].filter((singleTrack) => singleTrack.events.length > 0),
-    },
+    },*/
     {
       weekday: "Sun",
       day: 8,
@@ -166,7 +166,7 @@ watch(venueFilter, (vF) => {
 watch(domainFilter, (vF) => {
   console.log(vF);
   days.value = [
-    {
+    /*{
       weekday: "Sat",
       day: 7,
       tracks: [...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track !== 'Community Lounge').map((track) => {
@@ -184,7 +184,7 @@ watch(domainFilter, (vF) => {
           }),
         };
       })].filter((singleTrack) => singleTrack.events.length > 0),
-    },
+    },*/
     {
       weekday: "Sun",
       day: 8,
@@ -213,7 +213,7 @@ watch(domainFilter, (vF) => {
 watch(formatFilter, (vF) => {
   console.log(vF);
   days.value = [
-    {
+    /*{
       weekday: "Sat",
       day: 7,
       tracks: [...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track !== 'Community Lounge').map((track) => {
@@ -231,7 +231,7 @@ watch(formatFilter, (vF) => {
           }),
         };
       })].filter((singleTrack) => singleTrack.events.length > 0),
-    },
+    },*/
     {
       weekday: "Sun",
       day: 8,
@@ -259,7 +259,7 @@ watch(formatFilter, (vF) => {
 });
 
 const days = useState('daysAgenda', () => [
-  {
+  /*{
     weekday: "Sat",
     day: 7,
     tracks: [...tracks.sort().filter((e) => venueFilter.value === '' || e === venueFilter.value).filter((track) => track !== 'Community Lounge').map((track) => {
@@ -277,7 +277,7 @@ const days = useState('daysAgenda', () => [
         }),
       };
     })].filter((singleTrack) => singleTrack.events.length > 0),
-  },
+  },*/
   {
     weekday: "Sun",
     day: 8,
