@@ -188,24 +188,7 @@
                 "track": "Mobile",
                 "venue": "Lab 1 (103)",
                 "link": "",
-                "time": "10:30 AM to 12:00 PM",
-                "format": "Codelab",
-                "date": "Dec 8, 2024",
-                "timeDuration": "120",
-                "speakers": [
-                        141
-                ],
-                "callForSpeaker": false
-        },
-        {
-                "id": "2009",
-                "slide": "",
-                "title": "Dive into Kotlin Multiplatform",
-                "description": "",
-                "track": "Mobile",
-                "venue": "Lab 1 (103)",
-                "link": "",
-                "time": "2:50 PM to 4:00 PM",
+                "time": "3:00 PM to 4:30 PM",
                 "format": "Codelab",
                 "date": "Dec 8, 2024",
                 "timeDuration": "120",
