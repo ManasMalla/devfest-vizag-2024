@@ -16,6 +16,9 @@
               <a href="https://developers.google.com/community/gdg" target="_blank" rel="noreferrer" aria-label="link"
                 class="grey--text text--darken-3 mr-6 google-font" style="text-decoration: none; color: white">About GDG
                 Program</a>
+                <a href="https://devfest.vizag.dev/about" target="_blank" rel="noreferrer" aria-label="link"
+                class="grey--text text--darken-3 mr-6 google-font" style="text-decoration: none; color: white">About Web
+                Experience</a>
               <br class="hidden-md-and-up" />
               <!-- <a href="https://www.womentechmakers.com/" target="_blank" rel="noreferrer" aria-label="link"
                 class="grey--text text--darken-3 mr-6 google-font" style="text-decoration: none; color: white">About WTM
