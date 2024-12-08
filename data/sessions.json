@@ -1082,5 +1082,35 @@
                 "timeDuration": "45",
                 "speakers": [],
                 "callForSpeaker": false
+        },
+        {
+                "id": "2535",
+                "slide": "",
+                "title": "Internship Drive",
+                "description": "",
+                "track": "Career",
+                "venue": "Hall 3 (107)",
+                "link": "",
+                "time": "2:00 PM to 4:00 PM",
+                "format": "",
+                "date": "Dec 8, 2024",
+                "timeDuration": "120",
+                "speakers": [],
+                "callForSpeaker": false
+        },
+        {
+                "id": "2536",
+                "slide": "",
+                "title": "Arcade",
+                "description": "",
+                "track": "Fun",
+                "venue": "Auditorium",
+                "link": "",
+                "time": "2:00 PM to 4:00 PM",
+                "format": "",
+                "date": "Dec 8, 2024",
+                "timeDuration": "120",
+                "speakers": [],
+                "callForSpeaker": false
         }
 ]
